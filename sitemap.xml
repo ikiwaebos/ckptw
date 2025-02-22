@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://sentralmedika.co.id/</loc>
-        <lastmod>2025-02-03</lastmod>
-        <changefreq>daily</changefreq>
+        <loc>https://www.sentralmedika.co.id/</loc>
         <priority>1.0</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://www.sentralmedika.co.id/about</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://www.sentralmedika.co.id/product</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
     </url>
 </urlset>
