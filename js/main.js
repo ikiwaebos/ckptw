@@ -61,7 +61,6 @@
     slickInit();
     progressBarInit();
     pricingTableInit();
-    stickyHeader();
     onePageNavigation();
     mobileMenu();
     mailchimpInit();
