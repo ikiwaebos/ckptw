@@ -39,6 +39,16 @@
 33. Footer
 
 --------------------------------------------------------------*/
+#google_translate_element {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: white;
+  padding: 8px 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
 /*--------------------------------------------------------------
 1. Typography
 ----------------------------------------------------------------*/
