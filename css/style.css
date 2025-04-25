@@ -48,8 +48,8 @@
 
 .flag-container {
   position: fixed;
-  bottom: 20px;
-  right: -200px;
+  bottom: 60px;
+  right: -400px;
   background: white;
   border: 1px solid #ccc;
   padding: 10px;

@@ -774,7 +774,9 @@ URIC ACID MR
 <div id="google_translate_element" style="display: none;"></div>
 
 <!-- Tombol Toggle di bawahnya langsung -->
-<div class="toggle-button" onclick="toggleFlagContainer()">&#9654;</div>
+<div class="toggle-button" onclick="toggleFlagContainer()">
+  <span id="current-flag">🌐</span> &#9654;
+</div>
 
 <!-- Container Bendera -->
 <div class="flag-container">
@@ -803,6 +805,7 @@ URIC ACID MR
   </div>
   <!-- End Video Popup -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -830,21 +833,48 @@ URIC ACID MR
       }, 100);
     });
   
+
+    function updateCurrentFlag(lang) {
+    const flagMap = {
+      en: "🇬🇧",
+      fr: "🇫🇷",
+      es: "🇪🇸",
+      hi: "🇮🇳",
+      de: "🇩🇪",
+      id: "🇮🇩"
+    };
+
+    const flagIcon = flagMap[lang] || "🌐";
+    document.getElementById("current-flag").textContent = flagIcon;
+  }
+
+
+
     function changeLang(lang) {
       const select = document.querySelector('.goog-te-combo');
       if (select) {
         select.value = lang;
         select.dispatchEvent(new Event('change'));
       } else {
-        alert("Translate belum siap, coba beberapa detik lagi.");
+       
       }
     }
+
+     // Set flag saat pertama kali siap
+  const observer = new MutationObserver(() => {
+    const select = document.querySelector('.goog-te-combo');
+    if (select) {
+      updateCurrentFlag(select.value);
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
   
     function toggleFlagContainer() {
       const container = document.querySelector('.flag-container');
       const button = document.querySelector('.toggle-button');
       if (container.style.right === '0px') {
-        container.style.right = '-200px';
+        container.style.right = '-400px';
         button.innerHTML = '&#9654;';
       } else {
         container.style.right = '0px';
