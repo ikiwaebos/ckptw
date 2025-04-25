@@ -39,6 +39,13 @@
 33. Footer
 
 --------------------------------------------------------------*/
+.adsbox {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  left: -9999px;
+}
+
 .flag-container {
   position: fixed;
   bottom: 20px;
