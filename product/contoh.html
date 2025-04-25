@@ -777,6 +777,8 @@ URIC ACID MR
   </footer>
   <!-- End Footer -->
   <div id="google_translate_element" style="display: none;"></div>
+  <!-- Tombol untuk menyembunyikan/membuka flag-container -->
+<div class="toggle-button" onclick="toggleFlagContainer()">&#9654;</div>
   <div class="adsbox" id="ad-detector"></div>
   <!-- Start Video Popup -->
   <div class="st-video-popup">
@@ -794,18 +796,6 @@ URIC ACID MR
     </div>
   </div>
   <!-- End Video Popup -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'id',
-        includedLanguages: 'en,fr,es,hi,de',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-    }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  
-  <!-- Script Custom Bendera untuk ganti bahasa -->
   <script>
     function changeLang(lang) {
       var select = document.querySelector('.goog-te-combo');
@@ -814,6 +804,20 @@ URIC ACID MR
         select.dispatchEvent(new Event('change'));
       } else {
         alert("Google Translate belum siap, coba beberapa detik lagi.");
+      }
+    }
+  
+    // Fungsi untuk toggle visibility flag-container
+    function toggleFlagContainer() {
+      const container = document.querySelector('.flag-container');
+      const button = document.querySelector('.toggle-button');
+  
+      if (container.style.right === '0px') {
+        container.style.right = '-200px'; // Menyembunyikan container
+        button.innerHTML = '&#9654;'; // Tombol menuju kanan (tersembunyi)
+      } else {
+        container.style.right = '0px'; // Menampilkan container
+        button.innerHTML = '&#9664;'; // Tombol menuju kiri (terlihat)
       }
     }
   </script>
