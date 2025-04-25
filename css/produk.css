@@ -1,0 +1,39 @@
+hr {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.custom-accordian {
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+  }
+
+  .custom-accordian-title {
+    padding: 12px 15px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+  }
+
+  .custom-accordian-body {
+    padding: 10px;
+    display: none;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
+  }
+
+  .custom-accordian.active .custom-accordian-title {
+    background-color: #0CB8B6;
+    color:#ffffff;
+  }
+  
+  .custom-accordion-toggle {
+    transition: transform 0.3s ease;
+  }
+
+  .custom-accordion.active .custom-accordion-toggle {
+    transform: rotate(180deg);
+  }
