@@ -49,45 +49,37 @@
 .flag-container {
   position: fixed;
   bottom: 20px;
-  right: -200px; /* Awalnya disembunyikan */
+  right: -200px; /* Awalnya tersembunyi */
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: right 0.3s ease-in-out;
   z-index: 9999;
-  background: rgba(255,255,255,0.9);
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  transition: right 0.3s ease; /* Animasi geser ke kanan/kiri */
 }
 
 .flag-container button {
-  background: none;
-  border: none;
   font-size: 24px;
-  margin: 0 4px;
+  margin: 5px;
+  border: none;
+  background: none;
   cursor: pointer;
-  transition: transform 0.2s ease;
-}
-.flag-container button:hover {
-  transform: scale(1.2);
 }
 
-/* Tombol toggle untuk menyembunyikan atau menampilkan flag-container */
 .toggle-button {
   position: fixed;
   bottom: 20px;
   right: 0;
-  background: #f1f1f1;
+  z-index: 10000;
+  background: #ffffff;
   border: 1px solid #ccc;
-  padding: 10px;
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  padding: 5px 10px;
   cursor: pointer;
-  border-radius: 50%;
-  font-size: 24px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  font-size: 18px;
 }
-
-.toggle-button:hover {
-  background: #ddd;
-}
-
 /*--------------------------------------------------------------
 1. Typography
 ----------------------------------------------------------------*/

@@ -797,8 +797,7 @@ URIC ACID MR
     </div>
   </div>
   <!-- End Video Popup -->
-
-  <!-- Script Google Translate -->
+<!-- GOOGLE TRANSLATE INIT -->
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -810,32 +809,51 @@ URIC ACID MR
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <script>
-    function changeLang(lang) {
-      var select = document.querySelector('.goog-te-combo');
+<!-- FLAG FUNCTIONALITY -->
+<script>
+  // Cek apakah Google Translate siap
+  function waitForTranslateReady(callback) {
+    const interval = setInterval(() => {
+      const select = document.querySelector('.goog-te-combo');
       if (select) {
-        select.value = lang;
-        select.dispatchEvent(new Event('change'));
-      } else {
-        alert("Translate belum siap, coba beberapa detik lagi.");
+        clearInterval(interval);
+        callback();
       }
-    }
-  
-    // Fungsi untuk toggle visibility flag-container
-    function toggleFlagContainer() {
-      const container = document.querySelector('.flag-container');
-      const button = document.querySelector('.toggle-button');
-  
-      if (container.style.right === '0px') {
-        container.style.right = '-200px'; // Menyembunyikan container
-        button.innerHTML = '&#9654;'; // Tombol menuju kanan (tersembunyi)
-      } else {
-        container.style.right = '0px'; // Menampilkan container
-        button.innerHTML = '&#9664;'; // Tombol menuju kiri (terlihat)
-      }
-    }
-  </script>
+    }, 100);
+  }
 
+  // Ganti bahasa
+  function changeLang(lang) {
+    const select = document.querySelector('.goog-te-combo');
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event('change'));
+    } else {
+      alert("Translate belum siap, coba beberapa detik lagi.");
+    }
+  }
+
+  // Toggle flag-container
+  function toggleFlagContainer() {
+    const container = document.querySelector('.flag-container');
+    const button = document.querySelector('.toggle-button');
+
+    if (container.style.right === '0px') {
+      container.style.right = '-200px';
+      button.innerHTML = '&#9654;';
+    } else {
+      container.style.right = '0px';
+      button.innerHTML = '&#9664;';
+    }
+  }
+
+  // Aktifkan setelah siap
+  document.addEventListener("DOMContentLoaded", () => {
+    waitForTranslateReady(() => {
+      console.log("Google Translate siap");
+    });
+  });
+</script>
 <script>
   window.addEventListener('load', function () {
     const adElement = document.getElementById('ad-detector');
