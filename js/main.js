@@ -102,10 +102,12 @@
     1. Placeholder
   --------------------------------------------------------------*/
   function preloaderSetup() {
-    $(".st-perloader").fadeOut();
-    $("st-perloader-in").delay(150).fadeOut("slow");
+    setTimeout(function () {
+      $(".st-perloader").fadeOut();
+      $(".st-perloader-in").delay(150).fadeOut("slow");
+    }, 3000); // Tunda selama 3 detik
   }
-
+  
   /*--------------------------------------------------------------
     2. Dynamic Background
   --------------------------------------------------------------*/
