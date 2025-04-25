@@ -800,85 +800,57 @@ URIC ACID MR
       </div>
     </div>
   </div>
-  <!-- End Video Popup -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: "en"
+    }, "google_translate_element");
 
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: "en"
-      }, "google_translate_element");
-  
-      $('img.goog-te-gadget-icon').attr('alt','Google Translate');
-      $('div#goog-gt-tt div.logo img').attr('alt','translate');
-      $('div#goog-gt-tt .original-text').css('text-align','left');
-      $('.goog-te-gadget-simple .goog-te-menu-value span').css('color','#000000');
-    }
-  
-    $(function () {
-      $.getScript("//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
-  
-      const interval = setInterval(() => {
-        if (document.querySelector('.goog-te-combo')) {
-          clearInterval(interval);
-          const msg = document.createElement('div');
-          msg.className = 'translate-ready';
-          msg.innerText = 'translate.google.com siap!';
-          document.body.appendChild(msg);
-          setTimeout(() => msg.remove(), 4500);
-        }
-      }, 100);
-    });
-  
-
-    function updateCurrentFlag(lang) {
-    const flagMap = {
-      en: "🇬🇧",
-      fr: "🇫🇷",
-      es: "🇪🇸",
-      hi: "🇮🇳",
-      de: "🇩🇪",
-      id: "🇮🇩"
-    };
-
-    const flagIcon = flagMap[lang] || "🌐";
-    document.getElementById("current-flag").textContent = flagIcon;
+    $('img.goog-te-gadget-icon').attr('alt','Google Translate');
+    $('div#goog-gt-tt div.logo img').attr('alt','translate');
+    $('div#goog-gt-tt .original-text').css('text-align','left');
+    $('.goog-te-gadget-simple .goog-te-menu-value span').css('color','#000000');
   }
 
+  $(function () {
+    $.getScript("//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
 
-
-    function changeLang(lang) {
-      const select = document.querySelector('.goog-te-combo');
-      if (select) {
-        select.value = lang;
-        select.dispatchEvent(new Event('change'));
-      } else {
-       
+    const interval = setInterval(() => {
+      if (document.querySelector('.goog-te-combo')) {
+        clearInterval(interval);
+        const msg = document.createElement('div');
+        msg.className = 'translate-ready';
+        msg.innerText = 'translate.google.com siap!';
+        document.body.appendChild(msg);
+        setTimeout(() => msg.remove(), 4500);
       }
-    }
+    }, 100);
+  });
 
-     // Set flag saat pertama kali siap
-  const observer = new MutationObserver(() => {
+  function changeLang(lang) {
     const select = document.querySelector('.goog-te-combo');
     if (select) {
-      updateCurrentFlag(select.value);
-      observer.disconnect();
+      select.value = lang;
+      select.dispatchEvent(new Event('change'));
+    } else {
+      alert("Translate belum siap, coba beberapa detik lagi.");
     }
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
-  
-    function toggleFlagContainer() {
-      const container = document.querySelector('.flag-container');
-      const button = document.querySelector('.toggle-button');
-      if (container.style.right === '0px') {
-        container.style.right = '-400px';
-        button.innerHTML = '&#9654;';
-      } else {
-        container.style.right = '0px';
-        button.innerHTML = '&#9664;';
-      }
+  }
+
+  function toggleFlagContainer() {
+    const container = document.querySelector('.flag-container');
+    const button = document.querySelector('.toggle-button');
+    if (container.style.right === '0px') {
+      container.style.right = '-400px';
+      button.innerHTML = '&#9654;';
+    } else {
+      container.style.right = '0px';
+      button.innerHTML = '&#9664;';
     }
-  </script>
+  }
+</script>
+
   
 <script>
   window.addEventListener('load', function () {
