@@ -893,7 +893,7 @@ TEMIS Semi-automatic Clinical Analyzer
       select.value = lang;
       select.dispatchEvent(new Event('change'));
     } else {
-      alert("Translate belum siap, coba beberapa detik lagi.");
+    
     }
   }
 
@@ -902,10 +902,10 @@ TEMIS Semi-automatic Clinical Analyzer
     const button = document.querySelector('.togglle-button');
     if (container.style.right === '0px') {
       container.style.right = '-400px';
-      button.innerHTML = '&#9654;';
+      button.innerHTML = '🌐&#9654;';
     } else {
       container.style.right = '0px';
-      button.innerHTML = '&#9664;';
+      button.innerHTML = '🌐&#9664;';
     }
   }
 </script>
