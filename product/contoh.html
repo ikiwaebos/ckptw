@@ -770,16 +770,21 @@ URIC ACID MR
     </div>
   </footer>
   <!-- End Footer -->
-  <div id="google_translate_element" style="display: none;"></div>
-  <div class="flag-container">
-    <button onclick="changeLang('en')" title="English">🇬🇧</button>
-    <button onclick="changeLang('fr')" title="French">🇫🇷</button>
-    <button onclick="changeLang('es')" title="Spanish">🇪🇸</button>
-    <button onclick="changeLang('hi')" title="Hindi">🇮🇳</button>
-    <button onclick="changeLang('de')" title="German">🇩🇪</button>
-  </div>
-  <!-- Tombol untuk menyembunyikan/membuka flag-container -->
+ <!-- Google Translate Element -->
+<div id="google_translate_element" style="display: none;"></div>
+
+<!-- Tombol Toggle di bawahnya langsung -->
 <div class="toggle-button" onclick="toggleFlagContainer()">&#9654;</div>
+
+<!-- Container Bendera -->
+<div class="flag-container">
+  <button onclick="changeLang('en')" title="English">🇬🇧</button>
+  <button onclick="changeLang('fr')" title="French">🇫🇷</button>
+  <button onclick="changeLang('es')" title="Spanish">🇪🇸</button>
+  <button onclick="changeLang('hi')" title="Hindi">🇮🇳</button>
+  <button onclick="changeLang('de')" title="German">🇩🇪</button>
+</div>
+
   <div class="adsbox" id="ad-detector"></div>
   <!-- Start Video Popup -->
   <div class="st-video-popup">
@@ -797,63 +802,57 @@ URIC ACID MR
     </div>
   </div>
   <!-- End Video Popup -->
-<!-- GOOGLE TRANSLATE INIT -->
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'id',
-      includedLanguages: 'en,fr,es,hi,de',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<!-- FLAG FUNCTIONALITY -->
-<script>
-  // Cek apakah Google Translate siap
-  function waitForTranslateReady(callback) {
-    const interval = setInterval(() => {
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: "en"
+      }, "google_translate_element");
+  
+      $('img.goog-te-gadget-icon').attr('alt','Google Translate');
+      $('div#goog-gt-tt div.logo img').attr('alt','translate');
+      $('div#goog-gt-tt .original-text').css('text-align','left');
+      $('.goog-te-gadget-simple .goog-te-menu-value span').css('color','#000000');
+    }
+  
+    $(function () {
+      $.getScript("//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
+  
+      const interval = setInterval(() => {
+        if (document.querySelector('.goog-te-combo')) {
+          clearInterval(interval);
+          const msg = document.createElement('div');
+          msg.className = 'translate-ready';
+          msg.innerText = 'translate.google.com siap!';
+          document.body.appendChild(msg);
+          setTimeout(() => msg.remove(), 4500);
+        }
+      }, 100);
+    });
+  
+    function changeLang(lang) {
       const select = document.querySelector('.goog-te-combo');
       if (select) {
-        clearInterval(interval);
-        callback();
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+      } else {
+        alert("Translate belum siap, coba beberapa detik lagi.");
       }
-    }, 100);
-  }
-
-  // Ganti bahasa
-  function changeLang(lang) {
-    const select = document.querySelector('.goog-te-combo');
-    if (select) {
-      select.value = lang;
-      select.dispatchEvent(new Event('change'));
-    } else {
-      alert("Translate belum siap, coba beberapa detik lagi.");
     }
-  }
-
-  // Toggle flag-container
-  function toggleFlagContainer() {
-    const container = document.querySelector('.flag-container');
-    const button = document.querySelector('.toggle-button');
-
-    if (container.style.right === '0px') {
-      container.style.right = '-200px';
-      button.innerHTML = '&#9654;';
-    } else {
-      container.style.right = '0px';
-      button.innerHTML = '&#9664;';
+  
+    function toggleFlagContainer() {
+      const container = document.querySelector('.flag-container');
+      const button = document.querySelector('.toggle-button');
+      if (container.style.right === '0px') {
+        container.style.right = '-200px';
+        button.innerHTML = '&#9654;';
+      } else {
+        container.style.right = '0px';
+        button.innerHTML = '&#9664;';
+      }
     }
-  }
-
-  // Aktifkan setelah siap
-  document.addEventListener("DOMContentLoaded", () => {
-    waitForTranslateReady(() => {
-      console.log("Google Translate siap");
-    });
-  });
-</script>
+  </script>
+  
 <script>
   window.addEventListener('load', function () {
     const adElement = document.getElementById('ad-detector');

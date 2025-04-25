@@ -49,7 +49,7 @@
 .flag-container {
   position: fixed;
   bottom: 20px;
-  right: -200px; /* Awalnya tersembunyi */
+  right: -200px;
   background: white;
   border: 1px solid #ccc;
   padding: 10px;
@@ -72,7 +72,7 @@
   bottom: 20px;
   right: 0;
   z-index: 10000;
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #ccc;
   border-right: none;
   border-radius: 10px 0 0 10px;
