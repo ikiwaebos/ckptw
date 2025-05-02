@@ -27,3 +27,68 @@ function accordianSetup() {
 $(document).ready(function() {
   accordianSetup();
 });
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: "en"
+  }, "google_translate_element");
+
+  $('img.goog-te-gadget-icon').attr('alt','Google Translate');
+  $('div#goog-gt-tt div.logo img').attr('alt','translate');
+  $('div#goog-gt-tt .original-text').css('text-align','left');
+  $('.goog-te-gadget-simple .goog-te-menu-value span').css('color','#000000');
+}
+
+$(function () {
+  $.getScript("//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
+
+  const interval = setInterval(() => {
+    if (document.querySelector('.goog-te-combo')) {
+      clearInterval(interval);
+      const msg = document.createElement('div');
+      msg.className = 'translate-ready';
+      msg.innerText = 'translate.google.com siap!';
+      document.body.appendChild(msg);
+      setTimeout(() => msg.remove(), 4500);
+    }
+  }, 100);
+});
+
+function changeLang(lang) {
+  const select = document.querySelector('.goog-te-combo');
+  if (select) {
+    select.value = lang;
+    select.dispatchEvent(new Event('change'));
+  } else {
+  
+  }
+}
+
+function toggleFlagContainer() {
+  const container = document.querySelector('.flag-container');
+  const button = document.querySelector('.togglle-button');
+  if (container.style.right === '0px') {
+    container.style.right = '-400px';
+    button.innerHTML = '🌐&#9654;';
+  } else {
+    container.style.right = '0px';
+    button.innerHTML = '🌐&#9664;';
+  }
+}
+
+function isAdBlockActive() {
+  const adElement = document.getElementById('ad-detector');
+  if (!adElement) return false; // tidak bisa mendeteksi jika elemen tidak ada
+  return adElement.offsetHeight === 0 || adElement.offsetWidth === 0;
+}
+
+window.addEventListener('load', function () {
+  setTimeout(() => {
+    if (isAdBlockActive()) {
+      console.log('AdBlock aktif');
+      // lakukan aksi lain jika perlu
+    } else {
+      console.log('AdBlock tidak terdeteksi');
+    }
+  }, 1000); // delay untuk memberi waktu AdBlock bekerja
+});

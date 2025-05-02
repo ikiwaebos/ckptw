@@ -69,6 +69,9 @@
 </head>
 
 <body>
+  <div id="ad-detector" style="width: 1px; height: 1px; position: absolute; left: -9999px;">
+    <script>/* Iklan palsu */</script>
+  </div>
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQLJ37G4"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -322,6 +325,20 @@
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.151315828906!2d110.358081!3d-6.9914521999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708afb48866f63%3A0x98aea1307ba03807!2sPT.%20Sentral%20Medika%20Indonesia!5e0!3m2!1sid!2sid!4v1737129473661!5m2!1sid!2sid"
         allowfullscreen=""></iframe>
     </div>
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <!-- Tombol Toggle di bawahnya langsung -->
+    <div class="togglle-button" onclick="toggleFlagContainer()">🌐 &#9654;</div>
+    
+    <!-- Container Bendera -->
+    <div class="flag-container">
+      <p><strong>Double Klik:</strong></p>
+      <button onclick="changeLang('en')" title="English">🇬🇧</button>
+      <button onclick="changeLang('fr')" title="French">🇫🇷</button>
+      <button onclick="changeLang('es')" title="Spanish">🇪🇸</button>
+      <button onclick="changeLang('hi')" title="Hindi">🇮🇳</button>
+      <button onclick="changeLang('de')" title="German">🇩🇪</button>
+    </div>
   </div>
   <!-- Start Footer -->
   <footer class="st-site-footer st-sticky-footer st-dynamic-bg" data-src="assets/img/footer-bg.png">
@@ -408,7 +425,7 @@
   <script src="js/textRotate.min.js"></script>
   <script src="js/select2.min.js"></script>
   <script src="js/main.js"></script>
-
+  <script src="js/produk.js"></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
