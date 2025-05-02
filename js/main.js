@@ -46,7 +46,6 @@
   $(window).on("load", function () {
     $(window).trigger("scroll");
     $(window).trigger("resize");
-    preloaderSetup();
     isotopInit();
   });
 
@@ -101,12 +100,18 @@
   /*--------------------------------------------------------------
     1. Placeholder
   --------------------------------------------------------------*/
+
   function preloaderSetup() {
     setTimeout(function () {
       $(".st-perloader").fadeOut();
       $(".st-perloader-in").delay(150).fadeOut("slow");
     }, 3000); // Tunda selama 3 detik
   }
+
+  // Jalankan saat DOM siap (bukan window.onload)
+  document.addEventListener('DOMContentLoaded', preloaderSetup);
+
+
   
   /*--------------------------------------------------------------
     2. Dynamic Background
