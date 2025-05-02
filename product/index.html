@@ -71,7 +71,11 @@
 </head>
 
 <body>
-  <div class="adsbox" id="ad-detector"></div>
+  <!-- Elemen umpan untuk mendeteksi AdBlock -->
+<div id="ad-detector" style="width: 1px; height: 1px; position: absolute; left: -9999px;">
+  <script>/* Iklan palsu */</script>
+</div>
+
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQLJ37G4"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1718,24 +1722,21 @@ TEMIS Semi-automatic Clinical Analyzer
 
   
 <script>
-  window.addEventListener('load', function () {
+  function isAdBlockActive() {
     const adElement = document.getElementById('ad-detector');
+    if (!adElement) return false; // tidak bisa mendeteksi jika elemen tidak ada
+    return adElement.offsetHeight === 0 || adElement.offsetWidth === 0;
+  }
 
+  window.addEventListener('load', function () {
     setTimeout(() => {
-      if (adElement.offsetHeight === 0 || adElement.offsetWidth === 0) {
-        // AdBlock terdeteksi
-        Swal.fire({
-          title: "AdBlock Terdeteksi!",
-          text: "Silakan nonaktifkan AdBlock dan tekan OK untuk memuat ulang halaman.",
-          icon: "warning",
-          confirmButtonText: "OK"
-        }).then((result) => {
-          if (result.isConfirmed) {
-            location.reload(); // refresh halaman
-          }
-        });
+      if (isAdBlockActive()) {
+        console.log('AdBlock aktif');
+        // lakukan aksi lain jika perlu
+      } else {
+        console.log('AdBlock tidak terdeteksi');
       }
-    }, 1000); // tunggu 1 detik untuk deteksi
+    }, 1000); // delay untuk memberi waktu AdBlock bekerja
   });
 </script>
   <!-- Scripts -->
