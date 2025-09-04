@@ -67,6 +67,133 @@
 }
 </script>
 
+<style>
+
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  margin: 5% auto;
+}
+.timeline__event {
+  background: #fff;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+.timeline__event__title {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #9251ac;
+  letter-spacing: 1.5px;
+}
+.timeline__event__content {
+  padding: 20px;
+}
+.timeline__event__date {
+  color: #f6a4ec;
+  font-size: 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.timeline__event__icon {
+  border-radius: 8px 0 0 8px;
+  background: #9251ac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 40%;
+  font-size: 2rem;
+  color: #9251ac;
+  padding: 20px;
+}
+.timeline__event__icon i {
+  position: absolute;
+  top: 50%;
+  left: -65px;
+  font-size: 2.5rem;
+  transform: translateY(-50%);
+}
+.timeline__event__description {
+  flex-basis: 60%;
+}
+.timeline__event:after {
+  content: "";
+  width: 2px;
+  height: 100%;
+  background: #9251ac;
+  position: absolute;
+  top: 52%;
+  left: -3.5rem;
+  z-index: -1;
+}
+.timeline__event:before {
+  content: "";
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  background: #f6a4ec;
+  border-radius: 100%;
+  left: -6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 2px solid #9251ac;
+}
+.timeline__event--type2:before {
+  background: #87bbfe;
+  border-color: #555ac0;
+}
+.timeline__event--type2:after {
+  background: #555ac0;
+}
+.timeline__event--type2 .timeline__event__date {
+  color: #87bbfe;
+}
+.timeline__event--type2 .timeline__event__icon {
+  background: #555ac0;
+  color: #555ac0;
+}
+.timeline__event--type2 .timeline__event__title {
+  color: #555ac0;
+}
+.timeline__event--type3:before {
+  background: #aff1b6;
+  border-color: #24b47e;
+}
+.timeline__event--type3:after {
+  background: #24b47e;
+}
+.timeline__event--type3 .timeline__event__date {
+  color: #aff1b6;
+}
+.timeline__event--type3 .timeline__event__icon {
+  background: #24b47e;
+  color: #24b47e;
+}
+.timeline__event--type3 .timeline__event__title {
+  color: #24b47e;
+}
+.timeline__event:last-child:after {
+  content: none;
+}
+
+@media (max-width: 786px) {
+  .timeline__event {
+    flex-direction: column;
+  }
+
+  .timeline__event__icon {
+    border-radius: 4px 4px 0 0;
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -268,52 +395,76 @@
     <!-- End About Seciton -->
 
     <!-- Start Milestone Section -->
-    <section class="st-milestone-wrap" style="background:#fff;">
-      <div class="container">
-        <div class="st-section-heading st-style1">
-          <h2 class="st-section-heading-title">Milestone</h2>
-        </div>
-        <div class="row" style="display:flex; flex-wrap:wrap;">
-          <div class="col-lg-6" style="padding-right:40px;">
-            <h3 style="color:#1976d2; font-weight:bold;">SPRINT<br>2020-2022</h3>
-            <p><strong>Employees:</strong> 3200+</p>
-            <ul>
-              <li>Xiamen R&D center</li>
-              <li>Became a leading medical device enterprise in Chongqing</li>
-              <li>Top 100 Chongqing Manufacture enterprise</li>
-              <li>Comprehensive product line</li>
-              <li>Marketing network expanded globally</li>
-            </ul>
-            <div style="margin-top:40px;"></div>
-            <h3 style="color:#1976d2; font-weight:bold;">LAYOUT<br>2014-2016</h3>
-            <p><strong>Employees:</strong> 161-327</p>
-            <ul>
-              <li>Shanghai R&D center</li>
-              <li>Chongqing raw-material R&D center</li>
-              <li>Guangzhou R&D center</li>
-              <li>Group strategic management mode</li>
-              <li>Top 10 high-tech enterprises</li>
-            </ul>
-          </div>
-          <div class="col-lg-6" style="border-left:2px solid #1976d2; position:relative;">
-            <div style="position:absolute; left:-13px; top:40px; width:20px; height:20px; background:#1976d2; border-radius:50%;"></div>
-            <div style="position:absolute; left:-13px; top:220px; width:20px; height:20px; background:#1976d2; border-radius:50%;"></div>
-            <div style="position:absolute; left:-13px; top:400px; width:20px; height:20px; background:#1976d2; border-radius:50%;"></div>
-            <h3 style="color:#1976d2; font-weight:bold;">IMPROVEMENT<br>2017-2019</h3>
-            <p><strong>Employees:</strong> 654-1208</p>
-            <ul>
-              <li>120 million registered capital</li>
-              <li>Shenzhen R&D center</li>
-              <li>Nanjing R&D center</li>
-              <li>Beijing R&D center</li>
-              <li>International Business Division</li>
-              <li>Headquarters under construction</li>
-              <li>New production base under construction</li>
-            </ul>
-          </div>
-        </div>
-        <div class="st-height-b40 st-height-lg-b40"></div>
+    <section>
+      
+<div class="timeline">
+  <div class="timeline__event  animated fadeInUp delay-3s timeline__event--type1">
+    <div class="timeline__event__icon ">
+      <i class="lni-cake"></i>
+      <div class="timeline__event__date">
+        20-08-2019
       </div>
+    </div>
+    <div class="timeline__event__content ">
+      <div class="timeline__event__title">
+        Birthday
+      </div>
+      <div class="timeline__event__description">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp delay-2s timeline__event--type2">
+    <div class="timeline__event__icon">
+      <i class="lni-burger"></i>
+      <div class="timeline__event__date">
+        20-08-2019
+      </div>
+    </div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">
+        Lunch
+      </div>
+      <div class="timeline__event__description">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp delay-1s timeline__event--type3">
+    <div class="timeline__event__icon">
+      <i class="lni-slim"></i>
+      <div class="timeline__event__date">
+        20-08-2019
+      </div>
+    </div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">
+        Exercise
+      </div>
+      <div class="timeline__event__description">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp timeline__event--type1">
+    <div class="timeline__event__icon">
+      <i class="lni-cake"></i>
+      <div class="timeline__event__date">
+        20-08-2019
+      </div>
+    </div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">
+        Birthday
+      </div>
+      <div class="timeline__event__description">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
+      </div>
+    </div>
+  </div>
+
+</div>
     </section>
     <!-- End Milestone Section -->
 
