@@ -56,6 +56,8 @@
   <link rel="stylesheet" href="../css/select2.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/produk.css?v=2">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -398,7 +400,7 @@
     <section>
       
 <div class="timeline">
-  <div class="timeline__event  animated fadeInUp delay-3s timeline__event--type1">
+  <div class="timeline__event  animated fadeInUp delay-3s timeline__event--type1" data-aos="fade-left">
     <div class="timeline__event__icon ">
       <i class="lni-cake"></i>
       <div class="timeline__event__date">
@@ -414,7 +416,7 @@
       </div>
     </div>
   </div>
-  <div class="timeline__event animated fadeInUp delay-2s timeline__event--type2">
+  <div class="timeline__event animated fadeInUp delay-2s timeline__event--type2" data-aos="fade-right">
     <div class="timeline__event__icon">
       <i class="lni-burger"></i>
       <div class="timeline__event__date">
@@ -430,7 +432,7 @@
       </div>
     </div>
   </div>
-  <div class="timeline__event animated fadeInUp delay-1s timeline__event--type3">
+  <div class="timeline__event animated fadeInUp delay-1s timeline__event--type3" data-aos="fade-left">
     <div class="timeline__event__icon">
       <i class="lni-slim"></i>
       <div class="timeline__event__date">
@@ -447,7 +449,7 @@
 
     </div>
   </div>
-  <div class="timeline__event animated fadeInUp timeline__event--type1">
+  <div class="timeline__event animated fadeInUp timeline__event--type1" data-aos="fade-right">
     <div class="timeline__event__icon">
       <i class="lni-cake"></i>
       <div class="timeline__event__date">
@@ -670,6 +672,13 @@
   <script src="../js/select2.min.js"></script>
   <script src="../js/main.js?v=2"></script>
   <script src="../js/produk.js?v=2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true, 
+    duration: 800 
+  });
+</script>
 
 </body>
 
