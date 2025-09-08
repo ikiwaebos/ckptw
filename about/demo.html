@@ -502,12 +502,52 @@
           .about-section-title { font-size: 1.05rem; }
         }
       </style>
+        <style>
+              .cert-card-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 18px;
+                margin-bottom: 10px;
+              }
+              .cert-card {
+                background: linear-gradient(120deg, #e7f5ff 60%, #f8f9fa 100%);
+                border-radius: 14px;
+                box-shadow: 0 2px 12px 0 rgba(142,197,252,0.10);
+                padding: 18px 18px 14px 18px;
+                min-width: 180px;
+                flex: 1 1 180px;
+                max-width: 220px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                border: 1.5px solid #b6e0fe33;
+                transition: box-shadow 0.2s, transform 0.2s;
+              }
+              .cert-card:hover {
+                box-shadow: 0 8px 32px 0 #8ec5fc44;
+                transform: translateY(-4px) scale(1.03);
+              }
+              .cert-card-title {
+                font-weight: 700;
+                color: #1976d2;
+                font-size: 1.08rem;
+                margin-bottom: 4px;
+              }
+              .cert-card-desc {
+                font-size: 0.98rem;
+                color: #444;
+                font-weight: 500;
+              }
+              @media (max-width: 700px) {
+                .cert-card-grid { flex-direction: column; gap: 10px; }
+                .cert-card { max-width: 100%; min-width: 0; }
+              }
+            </style>
       <div class="about-container" data-aos="fade-up">
         <!-- Company Profile -->
-        <div class="about-title">Company Profile</div>
         <div class="about-section-flex" data-aos="fade-up">
           <div class="about-section-img">
-            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_2ks3pjua.json" background="transparent" speed="1" style="width: 220px; height: 220px;" loop autoplay></lottie-player>
+           <image src="logo.webp" alt="SMI" style="width: 220px; height: 220px;">
           </div>
           <div class="about-section-content">
             PT Sentral Medika Indonesia (SMI) adalah perusahaan manufaktur alat kesehatan yang berdiri pada tahun 2016 di Kota Semarang, Provinsi Jawa Tengah, Indonesia. Perjalanan PT SMI dimulai sebagai perusahaan distribusi alat kesehatan, kemudian bertransformasi menjadi produsen alat kesehatan penanggulangan Covid-19 pada tahun 2020. Sejak tahun 2023, PT SMI berfokus pada produksi alat kesehatan khusus di bidang Laboratorium In Vitro Diagnostik (IVD).
@@ -517,7 +557,7 @@
         <div class="about-section-title">Portofolio Produk</div>
         <div class="about-section-flex reverse" data-aos="fade-up">
           <div class="about-section-img">
-            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_4kx2q32n.json" background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>
+            <lottie-player src="https://lottie.host/8fd99230-ccdc-4d00-a12f-a957730e52ad/IHGJ2SMCp0.json" background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>
           </div>
           <div class="about-section-content">
             <ul class="about-list">
@@ -535,7 +575,7 @@
         <div class="about-section-title">R&D dan Fasilitas Produksi</div>
         <div class="about-section-flex" data-aos="fade-up">
           <div class="about-section-img">
-            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json" background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>
+            <lottie-player src="https://lottie.host/5e1fbb8e-1c13-491f-9df2-abbd45c30fe6/6JuE6Xhsb9.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></lottie-player>
           </div>
           <div class="about-section-content">
             PT SMI mengoperasikan fasilitas produksi modern seluas 5.000 m² yang dilengkapi dengan Cleanroom berstandar internasional. Operasional perusahaan didukung oleh lebih dari 80 tenaga profesional yang kompeten di bidangnya.<br>
@@ -595,13 +635,29 @@
             <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json" background="transparent" speed="1" style="width: 180px; height: 180px;" loop autoplay></lottie-player>
           </div>
           <div class="about-section-content about-cert">
-            <ul class="about-list">
-              <li>ISO 9001 – Quality Management System</li>
-              <li>ISO 13485 – Medical Devices Quality Management System</li>
-              <li>ISO 14001 – Environmental Management System</li>
-              <li>ISO 45001 – Occupational Health & Safety Management System</li>
-              <li>CPAKB – Cara Produksi Alat Kesehatan yang Baik</li>
-            </ul>
+          
+            <div class="cert-card-grid">
+              <div class="cert-card" data-aos="zoom-in" data-aos-delay="0">
+                <div class="cert-card-title">ISO 9001</div>
+                <div class="cert-card-desc">Quality Management System</div>
+              </div>
+              <div class="cert-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="cert-card-title">ISO 13485</div>
+                <div class="cert-card-desc">Medical Devices Quality Management System</div>
+              </div>
+              <div class="cert-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="cert-card-title">ISO 14001</div>
+                <div class="cert-card-desc">Environmental Management System</div>
+              </div>
+              <div class="cert-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="cert-card-title">ISO 45001</div>
+                <div class="cert-card-desc">Occupational Health & Safety Management System</div>
+              </div>
+              <div class="cert-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="cert-card-title">CPAKB</div>
+                <div class="cert-card-desc">Cara Produksi Alat Kesehatan yang Baik</div>
+              </div>
+            </div>
             <div style="font-size:0.98em; color:#555; margin-top:8px;">
               PT SMI tidak hanya memenuhi standar nasional dan internasional, tetapi juga konsisten menghadirkan produk yang berkualitas tinggi, aman digunakan, ramah lingkungan, dan berdaya saing global.
             </div>
@@ -636,29 +692,100 @@
           </div>
         </div>
         <!-- Milestone -->
-        <div class="about-section-title">Milestone PT Sentral Medika Indonesia</div>
-        <div class="about-section-flex reverse" data-aos="fade-up">
-          <div class="about-section-img">
-            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json" background="transparent" speed="1" style="width: 180px; height: 180px;" loop autoplay></lottie-player>
-          </div>
-          <div class="about-section-content about-milestone">
-            <div class="about-milestone-title">Perjalanan & Inovasi</div>
-            <ul>
-              <li>2016 – Awal perjalanan dimulai sebagai distributor accessories alat kesehatan dengan hanya 2 pegawai.</li>
-              <li>2018 – Melahirkan merek “ONECARE” dan meluncurkan produk perdana berupa termometer anak dan Bahan Habis Pakai (BHP) laboratorium.</li>
-              <li>2020 – Berkontribusi dalam penanggulangan pandemi dengan memproduksi hazmat suit dan masker kesehatan.</li>
-              <li>2022 – Tonggak penting dengan pembangunan pabrik IVD berstandar internasional serta produksi perdana reagen pewarnaan.</li>
-              <li>2023 – Resmi meluncurkan rangkaian produk diagnostik seperti Instrumen & Reagen Hematologi, Reagen Golongan Darah, dan Reagen Widal.</li>
-              <li>2024 – Inovasi berlanjut dengan peluncuran Instrumen & Reagen Kimia Klinik serta produk Urinalisis.</li>
-              <li>2025 – Memperkuat posisi di bidang diagnostik cepat dengan meluncurkan produk POCT Gula Darah.</li>
-            </ul>
-          </div>
-        </div>
+       
       </div>
     </section>
 
    
-
+  <section>
+      
+<div class="timeline">
+  <div class="timeline__event timeline__event--type1" data-aos="fade-right" data-aos-delay="0">
+    <div class="timeline__event__icon ">
+      <i class="lni-rocket"></i>
+      <div class="timeline__event__date">2016</div>
+    </div>
+    <div class="timeline__event__content ">
+      <div class="timeline__event__title">Awal Perjalanan</div>
+      <div class="timeline__event__description">
+        Awal perjalanan dimulai sebagai distributor accessories alat kesehatan dengan hanya 2 pegawai.
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event timeline__event--type2" data-aos="fade-right" data-aos-delay="100">
+    <div class="timeline__event__icon">
+      <i class="lni-star"></i>
+      <div class="timeline__event__date">2018</div>
+    </div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Lahirnya ONECARE</div>
+      <div class="timeline__event__description">
+        Melahirkan merek “ONECARE” dan meluncurkan produk perdana berupa termometer anak dan Bahan Habis Pakai (BHP) laboratorium.
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event timeline__event--type3" data-aos="fade-right" data-aos-delay="200">
+    <div class="timeline__event__icon">
+      <i class="lni-medall"></i>
+      <div class="timeline__event__date">2020</div>
+    </div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Kontribusi Pandemi</div>
+      <div class="timeline__event__description">
+        Berkontribusi dalam penanggulangan pandemi dengan memproduksi hazmat suit dan masker kesehatan.
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event timeline__event--type1" data-aos="fade-right" data-aos-delay="300">
+    <div class="timeline__event__icon">
+      <i class="lni-briefcase"></i>
+      <div class="timeline__event__date">2022</div>
+    </div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Pabrik IVD & Reagen</div>
+      <div class="timeline__event__description">
+        Tonggak penting dengan pembangunan pabrik IVD berstandar internasional serta produksi perdana reagen pewarnaan.
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event timeline__event--type2" data-aos="fade-right" data-aos-delay="400">
+    <div class="timeline__event__icon">
+      <i class="lni-layers"></i>
+      <div class="timeline__event__date">2023</div>
+    </div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Produk Diagnostik</div>
+      <div class="timeline__event__description">
+        Resmi meluncurkan rangkaian produk diagnostik seperti Instrumen & Reagen Hematologi, Reagen Golongan Darah, dan Reagen Widal.
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event timeline__event--type3" data-aos="fade-right" data-aos-delay="500">
+    <div class="timeline__event__icon">
+      <i class="lni-lab"></i>
+      <div class="timeline__event__date">2024</div>
+    </div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Kimia Klinik & Urinalisis</div>
+      <div class="timeline__event__description">
+        Inovasi berlanjut dengan peluncuran Instrumen & Reagen Kimia Klinik serta produk Urinalisis.
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event timeline__event--type1" data-aos="fade-right" data-aos-delay="600">
+    <div class="timeline__event__icon">
+      <i class="lni-stats-up"></i>
+      <div class="timeline__event__date">2025</div>
+    </div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">POCT Gula Darah</div>
+      <div class="timeline__event__description">
+        Memperkuat posisi di bidang diagnostik cepat dengan meluncurkan produk POCT Gula Darah.
+      </div>
+    </div>
+  </div>
+</div>
+    </section>
 
 
     
