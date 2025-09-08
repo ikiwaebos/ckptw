@@ -3,6 +3,8 @@
 <html>
 
 <head>
+  <!-- AOS Animate On Scroll CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -254,11 +256,49 @@
         <div class="st-height-b40 st-height-lg-b40"></div>
       </div>
      <!-- produknya -->
+      <style>
+        .brand-card .card {
+          border: none;
+          border-radius: 20px;
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+          transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+          background: rgba(255,255,255,0.95);
+          overflow: hidden;
+          position: relative;
+        }
+        .brand-card .card:hover {
+          transform: translateY(-10px) scale(1.04);
+          box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.25);
+        }
+        .brand-card .card-img-top {
+          border-radius: 50%;
+          background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+          padding: 18px;
+          margin-bottom: 10px;
+          box-shadow: 0 4px 16px 0 rgba(253,160,133,0.10);
+        }
+        .brand-card .card-title {
+          font-weight: 700;
+          font-size: 1.2rem;
+          letter-spacing: 1px;
+          color: #5a189a;
+          margin-top: 10px;
+        }
+        .brand-card .card-body {
+          background: none;
+        }
+        @media (max-width: 767px) {
+          .brand-card .card-img-top {
+            width: 80px !important;
+            height: 80px !important;
+          }
+        }
+      </style>
       <div class="row" style="justify-content:center; gap:20px;">
         <!-- Card 1 -->
-        <div class="col-md-4 col-sm-6 mb-4">
+        <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="0">
           <a href="#" class="brand-card" style="text-decoration:none; color:inherit;">
-            <div class="card h-100 text-center shadow-sm" style="border-radius:16px;">
+            <div class="card h-100 text-center">
               <img src="../images/onecare.png" class="card-img-top mx-auto mt-3" alt="OneCare" style="width:120px; height:120px; object-fit:contain;">
               <div class="card-body">
                 <h5 class="card-title">OneCare</h5>
@@ -267,9 +307,9 @@
           </a>
         </div>
         <!-- Card 2 -->
-        <div class="col-md-4 col-sm-6 mb-4">
+        <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
           <a href="#" class="brand-card" style="text-decoration:none; color:inherit;">
-            <div class="card h-100 text-center shadow-sm" style="border-radius:16px;">
+            <div class="card h-100 text-center">
               <img src="../images/onetech.png" class="card-img-top mx-auto mt-3" alt="OneTech" style="width:120px; height:120px; object-fit:contain;">
               <div class="card-body">
                 <h5 class="card-title">OneTech</h5>
@@ -278,9 +318,9 @@
           </a>
         </div>
         <!-- Card 3 -->
-        <div class="col-md-4 col-sm-6 mb-4">
+        <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
           <a href="#" class="brand-card" style="text-decoration:none; color:inherit;">
-            <div class="card h-100 text-center shadow-sm" style="border-radius:16px;">
+            <div class="card h-100 text-center">
               <img src="../images/hemapro.png" class="card-img-top mx-auto mt-3" alt="HemapRo" style="width:120px; height:120px; object-fit:contain;">
               <div class="card-body">
                 <h5 class="card-title">HemapRo</h5>
@@ -289,9 +329,9 @@
           </a>
         </div>
         <!-- Card 4 -->
-        <div class="col-md-4 col-sm-6 mb-4">
+        <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
           <a href="#" class="brand-card" style="text-decoration:none; color:inherit;">
-            <div class="card h-100 text-center shadow-sm" style="border-radius:16px;">
+            <div class="card h-100 text-center">
               <img src="../images/java.png" class="card-img-top mx-auto mt-3" alt="Java" style="width:120px; height:120px; object-fit:contain;">
               <div class="card-body">
                 <h5 class="card-title">Java</h5>
@@ -300,9 +340,9 @@
           </a>
         </div>
         <!-- Card 5 -->
-        <div class="col-md-4 col-sm-6 mb-4">
+        <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="400">
           <a href="#" class="brand-card" style="text-decoration:none; color:inherit;">
-            <div class="card h-100 text-center shadow-sm" style="border-radius:16px;">
+            <div class="card h-100 text-center">
               <img src="../images/medimax.png" class="card-img-top mx-auto mt-3" alt="MediMax" style="width:120px; height:120px; object-fit:contain;">
               <div class="card-body">
                 <h5 class="card-title">MediMax</h5>
@@ -311,9 +351,9 @@
           </a>
         </div>
         <!-- Card 6 -->
-        <div class="col-md-4 col-sm-6 mb-4">
+        <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="500">
           <a href="#" class="brand-card" style="text-decoration:none; color:inherit;">
-            <div class="card h-100 text-center shadow-sm" style="border-radius:16px;">
+            <div class="card h-100 text-center">
               <img src="../images/danur.png" class="card-img-top mx-auto mt-3" alt="Danur" style="width:120px; height:120px; object-fit:contain;">
               <div class="card-body">
                 <h5 class="card-title">Danur</h5>
@@ -522,5 +562,13 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
+  <!-- AOS Animate On Scroll JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 900
+    });
+  </script>
 
 </html>
