@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <!-- LottieFiles CDN -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -70,6 +72,39 @@
 </script>
 
 <style>
+  .about-section-flex {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .about-section-flex.reverse {
+    flex-direction: row-reverse;
+  }
+  .about-section-img {
+    flex: 1 1 220px;
+    min-width: 180px;
+    max-width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+  }
+  .about-section-content {
+    flex: 2 1 340px;
+    min-width: 220px;
+  }
+  @media (max-width: 900px) {
+    .about-section-flex, .about-section-flex.reverse {
+      flex-direction: column !important;
+      gap: 18px;
+    }
+    .about-section-img, .about-section-content {
+      min-width: 0;
+      max-width: 100%;
+    }
+  }
 
 
 .timeline {
@@ -468,94 +503,156 @@
         }
       </style>
       <div class="about-container" data-aos="fade-up">
+        <!-- Company Profile -->
         <div class="about-title">Company Profile</div>
-        <div class="about-section">
-          PT Sentral Medika Indonesia (SMI) adalah perusahaan manufaktur alat kesehatan yang berdiri pada tahun 2016 di Kota Semarang, Provinsi Jawa Tengah, Indonesia. Perjalanan PT SMI dimulai sebagai perusahaan distribusi alat kesehatan, kemudian bertransformasi menjadi produsen alat kesehatan penanggulangan Covid-19 pada tahun 2020. Sejak tahun 2023, PT SMI berfokus pada produksi alat kesehatan khusus di bidang Laboratorium In Vitro Diagnostik (IVD).
+        <div class="about-section-flex" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_2ks3pjua.json" background="transparent" speed="1" style="width: 220px; height: 220px;" loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content">
+            PT Sentral Medika Indonesia (SMI) adalah perusahaan manufaktur alat kesehatan yang berdiri pada tahun 2016 di Kota Semarang, Provinsi Jawa Tengah, Indonesia. Perjalanan PT SMI dimulai sebagai perusahaan distribusi alat kesehatan, kemudian bertransformasi menjadi produsen alat kesehatan penanggulangan Covid-19 pada tahun 2020. Sejak tahun 2023, PT SMI berfokus pada produksi alat kesehatan khusus di bidang Laboratorium In Vitro Diagnostik (IVD).
+          </div>
         </div>
+        <!-- Portofolio Produk -->
         <div class="about-section-title">Portofolio Produk</div>
-        <ul class="about-list">
-          <li>Instrumen dan Reagen Hematologi</li>
-          <li>Instrumen dan Reagen Kimia Klinik</li>
-          <li>Instrumen dan Strip Urinalisis</li>
-          <li>Instrumen dan Strip POCT (Glukosa, Asam Urat, Hemoglobin, Kolesterol)</li>
-          <li>Reagen Serologi (Widal, Blood Grouping)</li>
-          <li>Reagen Pewarnaan (Ziehl Neelsen, Giemsa)</li>
-          <li>Kertas Saring Hipotiroid Kongenital</li>
-        </ul>
+        <div class="about-section-flex reverse" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_4kx2q32n.json" background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content">
+            <ul class="about-list">
+              <li>Instrumen dan Reagen Hematologi</li>
+              <li>Instrumen dan Reagen Kimia Klinik</li>
+              <li>Instrumen dan Strip Urinalisis</li>
+              <li>Instrumen dan Strip POCT (Glukosa, Asam Urat, Hemoglobin, Kolesterol)</li>
+              <li>Reagen Serologi (Widal, Blood Grouping)</li>
+              <li>Reagen Pewarnaan (Ziehl Neelsen, Giemsa)</li>
+              <li>Kertas Saring Hipotiroid Kongenital</li>
+            </ul>
+          </div>
+        </div>
+        <!-- R&D dan Fasilitas Produksi -->
         <div class="about-section-title">R&D dan Fasilitas Produksi</div>
-        <div class="about-section">
-          PT SMI mengoperasikan fasilitas produksi modern seluas 5.000 m² yang dilengkapi dengan Cleanroom berstandar internasional. Operasional perusahaan didukung oleh lebih dari 80 tenaga profesional yang kompeten di bidangnya.<br>
-          Dalam upaya meningkatkan kualitas dan inovasi produk, PT SMI menjalin kolaborasi dengan para peneliti dari berbagai universitas ternama, termasuk Universitas Diponegoro. Sinergi antara industri dan akademisi ini memperkuat posisi PT SMI sebagai produsen alat kesehatan yang inovatif dan berdaya saing tinggi.
+        <div class="about-section-flex" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json" background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content">
+            PT SMI mengoperasikan fasilitas produksi modern seluas 5.000 m² yang dilengkapi dengan Cleanroom berstandar internasional. Operasional perusahaan didukung oleh lebih dari 80 tenaga profesional yang kompeten di bidangnya.<br>
+            Dalam upaya meningkatkan kualitas dan inovasi produk, PT SMI menjalin kolaborasi dengan para peneliti dari berbagai universitas ternama, termasuk Universitas Diponegoro. Sinergi antara industri dan akademisi ini memperkuat posisi PT SMI sebagai produsen alat kesehatan yang inovatif dan berdaya saing tinggi.
+          </div>
         </div>
+        <!-- Jangkauan Pasar -->
         <div class="about-section-title">Jangkauan Pasar</div>
-        <div class="about-section">
-          Produk-produk PT SMI telah digunakan secara luas di lebih dari 222 kabupaten/kota di seluruh Indonesia, menjangkau berbagai instansi kesehatan dan fasilitas pelayanan medis. Capaian ini menjadi bukti nyata komitmen PT SMI dalam menghadirkan produk berkualitas untuk mendukung peningkatan mutu layanan kesehatan di tanah air.
+        <div class="about-section-flex reverse" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_2glqweqs.json" background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content">
+            Produk-produk PT SMI telah digunakan secara luas di lebih dari 222 kabupaten/kota di seluruh Indonesia, menjangkau berbagai instansi kesehatan dan fasilitas pelayanan medis. Capaian ini menjadi bukti nyata komitmen PT SMI dalam menghadirkan produk berkualitas untuk mendukung peningkatan mutu layanan kesehatan di tanah air.
+          </div>
         </div>
+        <!-- Visi & Misi -->
         <div class="about-section-title">Visi & Misi</div>
-        <div class="about-vision">
-          <b>Visi:</b> <br>Meningkatkan pelayanan kesehatan dan kualitas hidup umat di Indonesia.<br><br>
-          <b>Misi:</b>
-          <ul class="about-list">
-            <li>Menyediakan alat kesehatan dan produk IVD dengan kualitas tinggi.</li>
-            <li>Mengembangkan sumber daya manusia melalui lingkungan kerja yang kolaboratif, kreatif, dan sportif.</li>
-            <li>Melakukan evaluasi dan peningkatan proses bisnis secara berkesinambungan.</li>
-          </ul>
+        <div class="about-section-flex" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_2ks3pjua.json" background="transparent" speed="1" style="width: 180px; height: 180px;" loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-vision">
+            <b>Visi:</b> <br>Meningkatkan pelayanan kesehatan dan kualitas hidup umat di Indonesia.<br><br>
+            <b>Misi:</b>
+            <ul class="about-list">
+              <li>Menyediakan alat kesehatan dan produk IVD dengan kualitas tinggi.</li>
+              <li>Mengembangkan sumber daya manusia melalui lingkungan kerja yang kolaboratif, kreatif, dan sportif.</li>
+              <li>Melakukan evaluasi dan peningkatan proses bisnis secara berkesinambungan.</li>
+            </ul>
+          </div>
         </div>
+        <!-- Budaya Perusahaan -->
         <div class="about-section-title">Budaya Perusahaan – SMI TAMPAN</div>
-        <div class="about-culture">
-          <ul class="about-list">
-            <li><b>S</b> – Setia melaksanakan peraturan dan tata tertib</li>
-            <li><b>M</b> – Memanfaatkan waktu secara efektif</li>
-            <li><b>I</b> – Ikhlas dalam bekerja</li>
-            <li><b>T</b> – Teliti terhadap potensi bahaya yang mungkin timbul</li>
-            <li><b>A</b> – Analisa faktor risiko secara menyeluruh</li>
-            <li><b>M</b> – Menggunakan APD sesuai standar</li>
-            <li><b>P</b> – Pastikan kondisi selalu siap dan siaga</li>
-            <li><b>A</b> – Amati situasi agar tetap kondusif</li>
-            <li><b>N</b> – Niatkan pekerjaan sebagai ibadah agar penuh berkah</li>
-          </ul>
+        <div class="about-section-flex reverse" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_4kx2q32n.json" background="transparent" speed="1" style="width: 180px; height: 180px;" loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-culture">
+            <ul class="about-list">
+              <li><b>S</b> – Setia melaksanakan peraturan dan tata tertib</li>
+              <li><b>M</b> – Memanfaatkan waktu secara efektif</li>
+              <li><b>I</b> – Ikhlas dalam bekerja</li>
+              <li><b>T</b> – Teliti terhadap potensi bahaya yang mungkin timbul</li>
+              <li><b>A</b> – Analisa faktor risiko secara menyeluruh</li>
+              <li><b>M</b> – Menggunakan APD sesuai standar</li>
+              <li><b>P</b> – Pastikan kondisi selalu siap dan siaga</li>
+              <li><b>A</b> – Amati situasi agar tetap kondusif</li>
+              <li><b>N</b> – Niatkan pekerjaan sebagai ibadah agar penuh berkah</li>
+            </ul>
+          </div>
         </div>
+        <!-- Sertifikasi dan Standar Mutu -->
         <div class="about-section-title">Sertifikasi dan Standar Mutu</div>
-        <div class="about-cert">
-          <ul class="about-list">
-            <li>ISO 9001 – Quality Management System</li>
-            <li>ISO 13485 – Medical Devices Quality Management System</li>
-            <li>ISO 14001 – Environmental Management System</li>
-            <li>ISO 45001 – Occupational Health & Safety Management System</li>
-            <li>CPAKB – Cara Produksi Alat Kesehatan yang Baik</li>
-          </ul>
-          <div style="font-size:0.98em; color:#555; margin-top:8px;">
-            PT SMI tidak hanya memenuhi standar nasional dan internasional, tetapi juga konsisten menghadirkan produk yang berkualitas tinggi, aman digunakan, ramah lingkungan, dan berdaya saing global.
+        <div class="about-section-flex" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json" background="transparent" speed="1" style="width: 180px; height: 180px;" loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-cert">
+            <ul class="about-list">
+              <li>ISO 9001 – Quality Management System</li>
+              <li>ISO 13485 – Medical Devices Quality Management System</li>
+              <li>ISO 14001 – Environmental Management System</li>
+              <li>ISO 45001 – Occupational Health & Safety Management System</li>
+              <li>CPAKB – Cara Produksi Alat Kesehatan yang Baik</li>
+            </ul>
+            <div style="font-size:0.98em; color:#555; margin-top:8px;">
+              PT SMI tidak hanya memenuhi standar nasional dan internasional, tetapi juga konsisten menghadirkan produk yang berkualitas tinggi, aman digunakan, ramah lingkungan, dan berdaya saing global.
+            </div>
           </div>
         </div>
+        <!-- Keanggotaan Asosiasi -->
         <div class="about-section-title">Keanggotaan Asosiasi</div>
-        <div class="about-assoc">
-          <ul class="about-list">
-            <li>ASPAKI – Asosiasi Produsen Alat Kesehatan Indonesia</li>
-            <li>GAKESLAB – Gabungan Perusahaan Alat-alat Kesehatan dan Laboratorium</li>
-            <li>HIPELKI – Himpunan Pengembangan Alat Kesehatan Indonesia</li>
-          </ul>
-          <div style="font-size:0.98em; color:#555; margin-top:8px;">
-            Keanggotaan ini menegaskan posisi PT SMI sebagai bagian dari ekosistem strategis industri alat kesehatan Indonesia, sekaligus membuka peluang sinergi, memperkuat daya saing, serta meningkatkan kontribusi perusahaan dalam pembangunan kesehatan nasional.
+        <div class="about-section-flex reverse" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_2glqweqs.json" background="transparent" speed="1" style="width: 180px; height: 180px;" loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-assoc">
+            <ul class="about-list">
+              <li>ASPAKI – Asosiasi Produsen Alat Kesehatan Indonesia</li>
+              <li>GAKESLAB – Gabungan Perusahaan Alat-alat Kesehatan dan Laboratorium</li>
+              <li>HIPELKI – Himpunan Pengembangan Alat Kesehatan Indonesia</li>
+            </ul>
+            <div style="font-size:0.98em; color:#555; margin-top:8px;">
+              Keanggotaan ini menegaskan posisi PT SMI sebagai bagian dari ekosistem strategis industri alat kesehatan Indonesia, sekaligus membuka peluang sinergi, memperkuat daya saing, serta meningkatkan kontribusi perusahaan dalam pembangunan kesehatan nasional.
+            </div>
           </div>
         </div>
+        <!-- Komitmen -->
         <div class="about-section-title">Komitmen</div>
-        <div class="about-commit">
-          Dengan landasan inovasi, penerapan standar internasional, dan jejaring industri yang luas, PT Sentral Medika Indonesia berkomitmen untuk menjadi pionir dalam industri alat kesehatan dan diagnostik laboratorium di Indonesia.<br>
-          Kami terus berupaya menghadirkan solusi kesehatan yang inovatif, berkualitas, dan berkelanjutan, serta menargetkan diri untuk berkembang menjadi salah satu pemain utama di kawasan Asia Tenggara. Dengan dedikasi penuh, PT SMI siap berkontribusi dalam meningkatkan kualitas hidup masyarakat, mendukung transformasi kesehatan nasional, dan membangun reputasi sebagai perusahaan alat kesehatan Indonesia yang berkelas dunia.
+        <div class="about-section-flex" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_4kx2q32n.json" background="transparent" speed="1" style="width: 180px; height: 180px;" loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-commit">
+            Dengan landasan inovasi, penerapan standar internasional, dan jejaring industri yang luas, PT Sentral Medika Indonesia berkomitmen untuk menjadi pionir dalam industri alat kesehatan dan diagnostik laboratorium di Indonesia.<br>
+            Kami terus berupaya menghadirkan solusi kesehatan yang inovatif, berkualitas, dan berkelanjutan, serta menargetkan diri untuk berkembang menjadi salah satu pemain utama di kawasan Asia Tenggara. Dengan dedikasi penuh, PT SMI siap berkontribusi dalam meningkatkan kualitas hidup masyarakat, mendukung transformasi kesehatan nasional, dan membangun reputasi sebagai perusahaan alat kesehatan Indonesia yang berkelas dunia.
+          </div>
         </div>
+        <!-- Milestone -->
         <div class="about-section-title">Milestone PT Sentral Medika Indonesia</div>
-        <div class="about-milestone">
-          <div class="about-milestone-title">Perjalanan & Inovasi</div>
-          <ul>
-            <li>2016 – Awal perjalanan dimulai sebagai distributor accessories alat kesehatan dengan hanya 2 pegawai.</li>
-            <li>2018 – Melahirkan merek “ONECARE” dan meluncurkan produk perdana berupa termometer anak dan Bahan Habis Pakai (BHP) laboratorium.</li>
-            <li>2020 – Berkontribusi dalam penanggulangan pandemi dengan memproduksi hazmat suit dan masker kesehatan.</li>
-            <li>2022 – Tonggak penting dengan pembangunan pabrik IVD berstandar internasional serta produksi perdana reagen pewarnaan.</li>
-            <li>2023 – Resmi meluncurkan rangkaian produk diagnostik seperti Instrumen & Reagen Hematologi, Reagen Golongan Darah, dan Reagen Widal.</li>
-            <li>2024 – Inovasi berlanjut dengan peluncuran Instrumen & Reagen Kimia Klinik serta produk Urinalisis.</li>
-            <li>2025 – Memperkuat posisi di bidang diagnostik cepat dengan meluncurkan produk POCT Gula Darah.</li>
-          </ul>
+        <div class="about-section-flex reverse" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json" background="transparent" speed="1" style="width: 180px; height: 180px;" loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-milestone">
+            <div class="about-milestone-title">Perjalanan & Inovasi</div>
+            <ul>
+              <li>2016 – Awal perjalanan dimulai sebagai distributor accessories alat kesehatan dengan hanya 2 pegawai.</li>
+              <li>2018 – Melahirkan merek “ONECARE” dan meluncurkan produk perdana berupa termometer anak dan Bahan Habis Pakai (BHP) laboratorium.</li>
+              <li>2020 – Berkontribusi dalam penanggulangan pandemi dengan memproduksi hazmat suit dan masker kesehatan.</li>
+              <li>2022 – Tonggak penting dengan pembangunan pabrik IVD berstandar internasional serta produksi perdana reagen pewarnaan.</li>
+              <li>2023 – Resmi meluncurkan rangkaian produk diagnostik seperti Instrumen & Reagen Hematologi, Reagen Golongan Darah, dan Reagen Widal.</li>
+              <li>2024 – Inovasi berlanjut dengan peluncuran Instrumen & Reagen Kimia Klinik serta produk Urinalisis.</li>
+              <li>2025 – Memperkuat posisi di bidang diagnostik cepat dengan meluncurkan produk POCT Gula Darah.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
