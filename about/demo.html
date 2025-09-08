@@ -363,112 +363,202 @@
 
     <!-- Start About Seciton -->
     <section class="st-about-wrap" >
-      <div class="st-shape-bg">
-        <img src="../images/about-bg-shape.svg" alt="shape">
-      </div>
-      <div class="st-height-b120 st-height-lg-b50"></div>
-      <div class="container">
-        <div class="st-section-heading st-style1">
-          <h2 class="st-section-heading-title">Who We Are</h2>
-          <div class="st-seperator">
-            <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-            <div class="st-seperator-center"><img src="../images/logopolos.jpg" alt="icon"></div>
-            <div class="st-seperator-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-          </div>
-          <div class="text-left">
-            PT. Sentral Medika Indonesia (SMI) adalah perusahaan manufaktur alat kesehatan terkemuka di Indonesia. Sejak
-            didirikan pada tanggal 24 Februari 2016 di Semarang, kami berkomitmen untuk menghadirkan produk berkualitas
-            tinggi yang mendukung kebutuhan sektor kesehatan di tanah air.
-            <br>
-            Dengan fokus pada inovasi dan kualitas, SMI memproduksi berbagai jenis produk seperti:
-            <li>Larutan Reagen</li>
-            <li>Barang Medis Habis Pakai</li>
-            <li>Peralatan Elektromedik</li>
-            <li>In Vitro Diagnostics (IVD)</li>
-            Sebagai perusahaan yang terus berkembang, SMI berupaya untuk menjadi mitra terpercaya bagi institusi medis,
-            rumah sakit, dan fasilitas kesehatan lainnya. Melalui teknologi modern dan proses manufaktur yang
-            terstandarisasi, kami memberikan solusi kesehatan yang efektif dan efisien.
+
+    <section>
+      <style>
+        .about-container {
+          max-width: 900px;
+          margin: 40px auto 40px auto;
+          background: rgba(255,255,255,0.95);
+          border-radius: 24px;
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+          padding: 40px 32px 32px 32px;
+          backdrop-filter: blur(6px);
+        }
+        .about-title {
+          font-size: 2.2rem;
+          font-weight: 700;
+          color: #5a189a;
+          margin-bottom: 10px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+        .about-section-title {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #3d246c;
+          margin-top: 32px;
+          margin-bottom: 10px;
+          letter-spacing: 0.5px;
+          border-left: 4px solid #8ec5fc;
+          padding-left: 12px;
+        }
+        .about-list {
+          margin: 0 0 0 18px;
+          padding: 0;
+        }
+        .about-list li {
+          margin-bottom: 4px;
+          line-height: 1.7;
+        }
+        .about-milestone {
+          background: #f3f0ff;
+          border-radius: 16px;
+          padding: 24px 20px 16px 20px;
+          margin-top: 24px;
+          box-shadow: 0 2px 12px 0 rgba(90,24,154,0.06);
+        }
+        .about-milestone-title {
+          font-size: 1.15rem;
+          font-weight: 600;
+          color: #5a189a;
+          margin-bottom: 10px;
+          letter-spacing: 0.5px;
+        }
+        .about-milestone ul {
+          margin-left: 18px;
+          padding: 0;
+        }
+        .about-milestone li {
+          margin-bottom: 4px;
+          line-height: 1.7;
+        }
+        .about-vision {
+          background: linear-gradient(90deg, #e0c3fc 0%, #f8f9fa 100%);
+          border-radius: 14px;
+          padding: 18px 20px 10px 20px;
+          margin: 18px 0 0 0;
+          box-shadow: 0 2px 8px 0 rgba(90,24,154,0.04);
+        }
+        .about-culture {
+          background: #fff4e6;
+          border-radius: 14px;
+          padding: 18px 20px 10px 20px;
+          margin: 18px 0 0 0;
+          box-shadow: 0 2px 8px 0 rgba(253,160,133,0.06);
+        }
+        .about-cert {
+          background: #e7f5ff;
+          border-radius: 14px;
+          padding: 18px 20px 10px 20px;
+          margin: 18px 0 0 0;
+          box-shadow: 0 2px 8px 0 rgba(142,197,252,0.06);
+        }
+        .about-assoc {
+          background: #f0f7fa;
+          border-radius: 14px;
+          padding: 18px 20px 10px 20px;
+          margin: 18px 0 0 0;
+          box-shadow: 0 2px 8px 0 rgba(142,197,252,0.06);
+        }
+        .about-commit {
+          background: #f8f9fa;
+          border-radius: 14px;
+          padding: 18px 20px 10px 20px;
+          margin: 18px 0 0 0;
+          box-shadow: 0 2px 8px 0 rgba(90,24,154,0.04);
+        }
+        .about-section {
+          margin-bottom: 18px;
+        }
+        @media (max-width: 600px) {
+          .about-container { padding: 18px 4vw; }
+          .about-title { font-size: 1.3rem; }
+          .about-section-title { font-size: 1.05rem; }
+        }
+      </style>
+      <div class="about-container" data-aos="fade-up">
+        <div class="about-title">Company Profile</div>
+        <div class="about-section">
+          PT Sentral Medika Indonesia (SMI) adalah perusahaan manufaktur alat kesehatan yang berdiri pada tahun 2016 di Kota Semarang, Provinsi Jawa Tengah, Indonesia. Perjalanan PT SMI dimulai sebagai perusahaan distribusi alat kesehatan, kemudian bertransformasi menjadi produsen alat kesehatan penanggulangan Covid-19 pada tahun 2020. Sejak tahun 2023, PT SMI berfokus pada produksi alat kesehatan khusus di bidang Laboratorium In Vitro Diagnostik (IVD).
+        </div>
+        <div class="about-section-title">Portofolio Produk</div>
+        <ul class="about-list">
+          <li>Instrumen dan Reagen Hematologi</li>
+          <li>Instrumen dan Reagen Kimia Klinik</li>
+          <li>Instrumen dan Strip Urinalisis</li>
+          <li>Instrumen dan Strip POCT (Glukosa, Asam Urat, Hemoglobin, Kolesterol)</li>
+          <li>Reagen Serologi (Widal, Blood Grouping)</li>
+          <li>Reagen Pewarnaan (Ziehl Neelsen, Giemsa)</li>
+          <li>Kertas Saring Hipotiroid Kongenital</li>
+        </ul>
+        <div class="about-section-title">R&D dan Fasilitas Produksi</div>
+        <div class="about-section">
+          PT SMI mengoperasikan fasilitas produksi modern seluas 5.000 m² yang dilengkapi dengan Cleanroom berstandar internasional. Operasional perusahaan didukung oleh lebih dari 80 tenaga profesional yang kompeten di bidangnya.<br>
+          Dalam upaya meningkatkan kualitas dan inovasi produk, PT SMI menjalin kolaborasi dengan para peneliti dari berbagai universitas ternama, termasuk Universitas Diponegoro. Sinergi antara industri dan akademisi ini memperkuat posisi PT SMI sebagai produsen alat kesehatan yang inovatif dan berdaya saing tinggi.
+        </div>
+        <div class="about-section-title">Jangkauan Pasar</div>
+        <div class="about-section">
+          Produk-produk PT SMI telah digunakan secara luas di lebih dari 222 kabupaten/kota di seluruh Indonesia, menjangkau berbagai instansi kesehatan dan fasilitas pelayanan medis. Capaian ini menjadi bukti nyata komitmen PT SMI dalam menghadirkan produk berkualitas untuk mendukung peningkatan mutu layanan kesehatan di tanah air.
+        </div>
+        <div class="about-section-title">Visi & Misi</div>
+        <div class="about-vision">
+          <b>Visi:</b> <br>Meningkatkan pelayanan kesehatan dan kualitas hidup umat di Indonesia.<br><br>
+          <b>Misi:</b>
+          <ul class="about-list">
+            <li>Menyediakan alat kesehatan dan produk IVD dengan kualitas tinggi.</li>
+            <li>Mengembangkan sumber daya manusia melalui lingkungan kerja yang kolaboratif, kreatif, dan sportif.</li>
+            <li>Melakukan evaluasi dan peningkatan proses bisnis secara berkesinambungan.</li>
+          </ul>
+        </div>
+        <div class="about-section-title">Budaya Perusahaan – SMI TAMPAN</div>
+        <div class="about-culture">
+          <ul class="about-list">
+            <li><b>S</b> – Setia melaksanakan peraturan dan tata tertib</li>
+            <li><b>M</b> – Memanfaatkan waktu secara efektif</li>
+            <li><b>I</b> – Ikhlas dalam bekerja</li>
+            <li><b>T</b> – Teliti terhadap potensi bahaya yang mungkin timbul</li>
+            <li><b>A</b> – Analisa faktor risiko secara menyeluruh</li>
+            <li><b>M</b> – Menggunakan APD sesuai standar</li>
+            <li><b>P</b> – Pastikan kondisi selalu siap dan siaga</li>
+            <li><b>A</b> – Amati situasi agar tetap kondusif</li>
+            <li><b>N</b> – Niatkan pekerjaan sebagai ibadah agar penuh berkah</li>
+          </ul>
+        </div>
+        <div class="about-section-title">Sertifikasi dan Standar Mutu</div>
+        <div class="about-cert">
+          <ul class="about-list">
+            <li>ISO 9001 – Quality Management System</li>
+            <li>ISO 13485 – Medical Devices Quality Management System</li>
+            <li>ISO 14001 – Environmental Management System</li>
+            <li>ISO 45001 – Occupational Health & Safety Management System</li>
+            <li>CPAKB – Cara Produksi Alat Kesehatan yang Baik</li>
+          </ul>
+          <div style="font-size:0.98em; color:#555; margin-top:8px;">
+            PT SMI tidak hanya memenuhi standar nasional dan internasional, tetapi juga konsisten menghadirkan produk yang berkualitas tinggi, aman digunakan, ramah lingkungan, dan berdaya saing global.
           </div>
         </div>
-        <div class="st-height-b40 st-height-lg-b40"></div>
+        <div class="about-section-title">Keanggotaan Asosiasi</div>
+        <div class="about-assoc">
+          <ul class="about-list">
+            <li>ASPAKI – Asosiasi Produsen Alat Kesehatan Indonesia</li>
+            <li>GAKESLAB – Gabungan Perusahaan Alat-alat Kesehatan dan Laboratorium</li>
+            <li>HIPELKI – Himpunan Pengembangan Alat Kesehatan Indonesia</li>
+          </ul>
+          <div style="font-size:0.98em; color:#555; margin-top:8px;">
+            Keanggotaan ini menegaskan posisi PT SMI sebagai bagian dari ekosistem strategis industri alat kesehatan Indonesia, sekaligus membuka peluang sinergi, memperkuat daya saing, serta meningkatkan kontribusi perusahaan dalam pembangunan kesehatan nasional.
+          </div>
+        </div>
+        <div class="about-section-title">Komitmen</div>
+        <div class="about-commit">
+          Dengan landasan inovasi, penerapan standar internasional, dan jejaring industri yang luas, PT Sentral Medika Indonesia berkomitmen untuk menjadi pionir dalam industri alat kesehatan dan diagnostik laboratorium di Indonesia.<br>
+          Kami terus berupaya menghadirkan solusi kesehatan yang inovatif, berkualitas, dan berkelanjutan, serta menargetkan diri untuk berkembang menjadi salah satu pemain utama di kawasan Asia Tenggara. Dengan dedikasi penuh, PT SMI siap berkontribusi dalam meningkatkan kualitas hidup masyarakat, mendukung transformasi kesehatan nasional, dan membangun reputasi sebagai perusahaan alat kesehatan Indonesia yang berkelas dunia.
+        </div>
+        <div class="about-section-title">Milestone PT Sentral Medika Indonesia</div>
+        <div class="about-milestone">
+          <div class="about-milestone-title">Perjalanan & Inovasi</div>
+          <ul>
+            <li>2016 – Awal perjalanan dimulai sebagai distributor accessories alat kesehatan dengan hanya 2 pegawai.</li>
+            <li>2018 – Melahirkan merek “ONECARE” dan meluncurkan produk perdana berupa termometer anak dan Bahan Habis Pakai (BHP) laboratorium.</li>
+            <li>2020 – Berkontribusi dalam penanggulangan pandemi dengan memproduksi hazmat suit dan masker kesehatan.</li>
+            <li>2022 – Tonggak penting dengan pembangunan pabrik IVD berstandar internasional serta produksi perdana reagen pewarnaan.</li>
+            <li>2023 – Resmi meluncurkan rangkaian produk diagnostik seperti Instrumen & Reagen Hematologi, Reagen Golongan Darah, dan Reagen Widal.</li>
+            <li>2024 – Inovasi berlanjut dengan peluncuran Instrumen & Reagen Kimia Klinik serta produk Urinalisis.</li>
+            <li>2025 – Memperkuat posisi di bidang diagnostik cepat dengan meluncurkan produk POCT Gula Darah.</li>
+          </ul>
+        </div>
       </div>
-
     </section>
-    <!-- End About Seciton -->
-
-    <!-- Start Milestone Section -->
-    <section>
-      
-<div class="timeline">
-  <div class="timeline__event timeline__event--type1" data-aos="fade-right" data-aos-delay="0">
-    <div class="timeline__event__icon ">
-      <i class="lni-cake"></i>
-      <div class="timeline__event__date">
-        20-08-2019
-      </div>
-    </div>
-    <div class="timeline__event__content ">
-      <div class="timeline__event__title">
-        Birthday
-      </div>
-      <div class="timeline__event__description">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
-      </div>
-    </div>
-  </div>
-  <div class="timeline__event timeline__event--type2" data-aos="fade-right" data-aos-delay="100">
-    <div class="timeline__event__icon">
-      <i class="lni-burger"></i>
-      <div class="timeline__event__date">
-        20-08-2019
-      </div>
-    </div>
-    <div class="timeline__event__content">
-      <div class="timeline__event__title">
-        Lunch
-      </div>
-      <div class="timeline__event__description">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
-      </div>
-    </div>
-  </div>
-  <div class="timeline__event timeline__event--type3" data-aos="fade-right" data-aos-delay="200">
-    <div class="timeline__event__icon">
-      <i class="lni-slim"></i>
-      <div class="timeline__event__date">
-        20-08-2019
-      </div>
-    </div>
-    <div class="timeline__event__content">
-      <div class="timeline__event__title">
-        Exercise
-      </div>
-      <div class="timeline__event__description">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
-      </div>
-
-    </div>
-  </div>
-  <div class="timeline__event timeline__event--type1" data-aos="fade-right" data-aos-delay="300">
-    <div class="timeline__event__icon">
-      <i class="lni-cake"></i>
-      <div class="timeline__event__date">
-        20-08-2019
-      </div>
-    </div>
-    <div class="timeline__event__content">
-      <div class="timeline__event__title">
-        Birthday
-      </div>
-      <div class="timeline__event__description">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
-      </div>
-    </div>
-  </div>
-
-</div>
-    </section>
-    <!-- End Milestone Section -->
 
    
 
