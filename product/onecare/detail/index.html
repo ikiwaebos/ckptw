@@ -472,7 +472,7 @@
     const product = products.find(p => p.id === productId);
 
     if (product) {
-      document.getElementById("product-image").src = "../../../" + product.foto;
+      document.getElementById("product-image").src = "../../../images/produk/" + product.foto;
       document.getElementById("product-image").alt = product.nama;
       document.getElementById("product-name").textContent = product.nama;
       document.getElementById("product-description").textContent = product.deskripsi;
