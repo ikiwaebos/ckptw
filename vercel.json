@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/onecare/(.*)", "destination": "/onecare/index.html" }
+  ]
+}
