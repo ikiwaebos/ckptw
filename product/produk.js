@@ -1,11 +1,12 @@
 const products = [
   {
-    id: "strip-meter",
-    nama: "Strip Meter",
-    foto: "../images/strip-meter.jpg",
-    deskripsi: "Strip meter digunakan untuk pemeriksaan kadar gula darah dengan cepat dan akurat.",
+    id: "blood-glucose-meter",
+    nama: "Blood Glucose Meter",
+    foto: "../images/blood-glucose-meter.jpg",
+    deskripsi: "Blood glucose meter digunakan untuk pemeriksaan kadar gula darah dengan cepat dan akurat.",
     files: [
-      { title: "Katalog Strip Meter", url: "https://example.com/strip-meter.pdf" }
+      { title: "Katalog Blood Glucose Meter", url: "https://ptsentralmedika-my.sharepoint.com/:b:/g/personal/it_mail_sentralmedika_co_id/EVMueINiNOxPrkr3iVs4MfABJ1ZOJCB6lJ67nhIZlxCPnA?e=sy12Dy" },
+        { title: "Manual Book Blood Glucose Meter", url: "https://ptsentralmedika-my.sharepoint.com/:b:/g/personal/it_mail_sentralmedika_co_id/Ea9mXHj1t8pHkJf0YH5rYBEBEoOeG4X3KXHjz4gkqXvW7A?e=UuYH8D" }
     ]
   },
   {
