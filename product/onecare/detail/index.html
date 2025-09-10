@@ -463,18 +463,16 @@
   <script src="../../../js/produk.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <script src="../../produk.js"></script>
-  <script>
-    // URL contoh: /product/onecare/detail/strip-meter
+ <script>
+    // contoh URL: /product/onecare/detail/strip-meter
     const path = window.location.pathname.split("/").filter(Boolean);
-    const productId = path[3]; // ambil "strip-meter"
+    const productId = path[3]; // → "strip-meter"
 
-    // Cari produk di products.js
     const product = products.find(p => p.id === productId);
 
-    const container = document.getElementById("product-detail");
-
     if (product) {
-      container.innerHTML = `
+      // render produk di product-detail
+      document.getElementById("product-detail").innerHTML = `
         <section class="product-page">
           <h1>${product.nama}</h1>
           <img src="${product.foto}" alt="${product.nama}" width="400">
@@ -488,15 +486,17 @@
         </section>
       `;
     } else {
-      // render 404
-      document.title = "404 - Produk Tidak Ditemukan";
-      container.innerHTML = `
-        <section class="not-found">
-          <h1>404</h1>
-          <p>Produk tidak ditemukan.</p>
-          <a href="/product">Kembali ke daftar produk</a>
-        </section>
-      `;
+       // Ganti isi body penuh dengan 404
+    document.title = "404 - Produk Tidak Ditemukan";
+    document.body.innerHTML = `
+      <section class="not-found" style="text-align:center; padding:50px; font-family:Arial;">
+        <h1 style="font-size:80px; margin:0;">404</h1>
+        <p style="font-size:20px; margin:10px 0;">Produk tidak ditemukan</p>
+        <a href="/product" style="display:inline-block; margin-top:20px; padding:10px 20px; background:#007bff; color:#fff; border-radius:5px; text-decoration:none;">
+          Kembali ke daftar produk
+        </a>
+      </section>
+    `;
     }
   </script>
 
