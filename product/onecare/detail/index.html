@@ -464,32 +464,39 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <script src="../../produk.js"></script>
   <script>
-    // Ambil bagian terakhir path URL (misal onecare/strip-meter → "strip-meter")
+    // URL contoh: /product/onecare/detail/strip-meter
     const path = window.location.pathname.split("/").filter(Boolean);
-    const productId = path[path.length - 1] === "onecare" ? null : path[path.length - 1];
+    const productId = path[3]; // ambil "strip-meter"
 
-    // Cari produk
+    // Cari produk di products.js
     const product = products.find(p => p.id === productId);
 
-    if (product) {
-      document.getElementById("product-image").src = product.foto;
-      document.getElementById("product-image").alt = product.nama;
-      document.getElementById("product-name").textContent = product.nama;
-      document.getElementById("product-description").textContent = product.deskripsi;
+    const container = document.getElementById("product-detail");
 
-      const fileList = document.getElementById("file-list");
-      fileList.innerHTML = product.files.map(l => `
-        <div class="produk-link-card">
-          <a href="${l.url}" target="_blank">
-            <div class="produk-link-card-body">
-              <div class="produk-link-card-title">${l.title}</div>
-              <div class="produk-link-card-url">${l.url}</div>
-            </div>
-          </a>
-        </div>
-      `).join("");
+    if (product) {
+      container.innerHTML = `
+        <section class="product-page">
+          <h1>${product.nama}</h1>
+          <img src="${product.foto}" alt="${product.nama}" width="400">
+          <p>${product.deskripsi}</p>
+          <div class="files">
+            <h3>File yang tersedia</h3>
+            ${product.files.map(f => `
+              <a href="${f.url}" target="_blank">${f.title}</a>
+            `).join("")}
+          </div>
+        </section>
+      `;
     } else {
-      document.getElementById("product-detail").innerHTML = "<p>Produk tidak ditemukan</p>";
+      // render 404
+      document.title = "404 - Produk Tidak Ditemukan";
+      container.innerHTML = `
+        <section class="not-found">
+          <h1>404</h1>
+          <p>Produk tidak ditemukan.</p>
+          <a href="/product">Kembali ke daftar produk</a>
+        </section>
+      `;
     }
   </script>
 
