@@ -556,6 +556,7 @@
     });
   </script>
   <script>
+  window.addEventListener('DOMContentLoaded', function() {
   // Modal gambar produk fullscreen
   const img = document.getElementById('product-image');
   const modal = document.getElementById('img-modal');
@@ -579,6 +580,7 @@
       if(e.key === 'Escape') modal.style.display = 'none';
     });
   }
-</script>
+});
+  </script>
 </body>
 </html>
