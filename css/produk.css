@@ -37,3 +37,41 @@ hr {
   .custom-accordion.active .custom-accordion-toggle {
     transform: rotate(180deg);
   }
+  .produk-link-card {
+  background: #74a4bd;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px 0 rgba(90,24,154,0.08);
+  margin-bottom: 18px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  overflow: hidden;
+}
+.produk-link-card {
+  background: #cae3ee;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px 0 rgba(90,24,154,0.08);
+  margin-bottom: 18px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  overflow: hidden;
+}
+.produk-link-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 8px 10px;
+}
+.produk-link-card:hover {
+  box-shadow: 0 8px 32px 0 #8ec5fc44;
+  background: #b9e2f5;
+  transform: translateY(-4px) scale(1.03);
+}
+.produk-link-card-title {
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: #1976d2;
+  margin-bottom: 4px;
+}
+.produk-link-card-url {
+  font-size: 0.98rem;
+  color: #444;
+  word-break: break-all;
+}
