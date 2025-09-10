@@ -1,5 +1,8 @@
 {
   "rewrites": [
-    { "source": "/onecare/(.*)", "destination": "/onecare/index.html" }
+    {
+      "source": "/product/onecare/detail/(.*)",
+      "destination": "/product/onecare/detail/index.html"
+    }
   ]
 }
