@@ -463,30 +463,33 @@
   <script src="../../../js/produk.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <script src="../../produk.js"></script>
- <script>
-    // contoh URL: /product/onecare/detail/strip-meter
+  <script>
+    // Ambil bagian terakhir path URL (misal onecare/strip-meter → "strip-meter")
     const path = window.location.pathname.split("/").filter(Boolean);
-    const productId = path[3]; // → "strip-meter"
+    const productId = path[path.length - 1] === "onecare" ? null : path[path.length - 1];
 
+    // Cari produk
     const product = products.find(p => p.id === productId);
 
     if (product) {
-      // render produk di product-detail
-      document.getElementById("product-detail").innerHTML = `
-        <section class="product-page">
-          <h1>${product.nama}</h1>
-          <img src="${product.foto}" alt="${product.nama}" width="400">
-          <p>${product.deskripsi}</p>
-          <div class="files">
-            <h3>File yang tersedia</h3>
-            ${product.files.map(f => `
-              <a href="${f.url}" target="_blank">${f.title}</a>
-            `).join("")}
-          </div>
-        </section>
-      `;
+      document.getElementById("product-image").src = product.foto;
+      document.getElementById("product-image").alt = product.nama;
+      document.getElementById("product-name").textContent = product.nama;
+      document.getElementById("product-description").textContent = product.deskripsi;
+
+      const fileList = document.getElementById("file-list");
+      fileList.innerHTML = product.files.map(l => `
+        <div class="produk-link-card">
+          <a href="${l.url}" target="_blank">
+            <div class="produk-link-card-body">
+              <div class="produk-link-card-title">${l.title}</div>
+              <div class="produk-link-card-url">${l.url}</div>
+            </div>
+          </a>
+        </div>
+      `).join("");
     } else {
-       // Ganti isi body penuh dengan 404
+          // Ganti isi body penuh dengan 404
     document.title = "404 - Produk Tidak Ditemukan";
     document.body.innerHTML = `
       <section class="not-found" style="text-align:center; padding:50px; font-family:Arial;">
@@ -497,7 +500,7 @@
         </a>
       </section>
     `;
-    }
+   }
   </script>
 
   <!-- AOS Animate On Scroll JS -->
