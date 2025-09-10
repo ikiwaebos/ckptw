@@ -1,0 +1,211 @@
+<section id="smi-timeline">
+  <h2 class="about-section-title" style="text-align:center;margin-bottom:32px;">Milestone Perusahaan</h2>
+  <div class="smi-cards-container">
+    <ul class="smi-cards" style="--items: 7;">
+      <li style="--i: 0;">
+        <input type="radio" id="smi-item-0" name="smi-gallery-item" checked>
+        <label for="smi-item-0">2016</label>
+        <h2>2016<br><span class="small">Awal Perjalanan</span></h2>
+        <p>Awal perjalanan dimulai sebagai distributor accessories alat kesehatan dengan hanya 2 pegawai.</p>
+      </li>
+      <li style="--i: 1;">
+        <input type="radio" id="smi-item-1" name="smi-gallery-item">
+        <label for="smi-item-1">2018</label>
+        <h2>2018<br><span class="small">Lahirnya ONECARE</span></h2>
+        <p>Melahirkan merek “ONECARE” dan meluncurkan produk perdana berupa termometer anak dan Bahan Habis Pakai (BHP) laboratorium.</p>
+      </li>
+      <li style="--i: 2;">
+        <input type="radio" id="smi-item-2" name="smi-gallery-item">
+        <label for="smi-item-2">2020</label>
+        <h2>2020<br><span class="small">Kontribusi Pandemi</span></h2>
+        <p>Berkontribusi dalam penanggulangan pandemi dengan memproduksi hazmat suit dan masker kesehatan.</p>
+      </li>
+      <li style="--i: 3;">
+        <input type="radio" id="smi-item-3" name="smi-gallery-item">
+        <label for="smi-item-3">2022</label>
+        <h2>2022<br><span class="small">Pabrik IVD & Reagen</span></h2>
+        <p>Tonggak penting dengan pembangunan pabrik IVD berstandar internasional serta produksi perdana reagen pewarnaan.</p>
+      </li>
+      <li style="--i: 4;">
+        <input type="radio" id="smi-item-4" name="smi-gallery-item">
+        <label for="smi-item-4">2023</label>
+        <h2>2023<br><span class="small">Produk Diagnostik</span></h2>
+        <p>Resmi meluncurkan rangkaian produk diagnostik seperti Instrumen & Reagen Hematologi, Reagen Golongan Darah, dan Reagen Widal.</p>
+      </li>
+      <li style="--i: 5;">
+        <input type="radio" id="smi-item-5" name="smi-gallery-item">
+        <label for="smi-item-5">2024</label>
+        <h2>2024<br><span class="small">Kimia Klinik & Urinalisis</span></h2>
+        <p>Inovasi berlanjut dengan peluncuran Instrumen & Reagen Kimia Klinik serta produk Urinalisis.</p>
+      </li>
+      <li style="--i: 6;">
+        <input type="radio" id="smi-item-6" name="smi-gallery-item">
+        <label for="smi-item-6">2025</label>
+        <h2>2025<br><span class="small">POCT Gula Darah</span></h2>
+        <p>Memperkuat posisi di bidang diagnostik cepat dengan meluncurkan produk POCT Gula Darah.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://codepen.io/cbolson/pen/rNEdgKo.css" />
+<style>
+@layer smi-timeline, demo;
+@layer smi-timeline {
+  .smi-cards-container {
+    --base-rotation: 0deg;
+    --full-circle: 360deg;
+    --radius: 40vw;
+    --duration: 200ms;
+    --cards-container-size: calc(var(--radius) * 2);
+    --cards-container-padding: 2rem;
+    --border-color: transparent;
+    --label-offset: calc(var(--radius) * -1 - 1rem);
+    --label-size: 30px;
+    --label-color: #666;
+    --label-color-hover: steelblue;
+    --label-line-h: 0;
+    --label-line-h-current: 2rem;
+    --label-dot-size: 10px;
+    --title-top: 1.5rem;
+    --title-offset-y: 30px;
+    --info-top: 5rem;
+    --info-width: min(70%, 500px);
+    --info-offset-y: 30px;
+    box-sizing: content-box;
+    position: fixed;
+    inset: 0;
+    margin: 5rem auto;
+    width: var(--cards-container-size);
+    height: var(--cards-container-size);
+    padding: var(--cards-container-padding);
+  }
+  @media (width > 600px){
+    .smi-cards-container { clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); }
+  }
+  @media (min-width: 800px) {
+    .smi-cards-container {
+      --radius: 30vw;
+      --label-size: 40px;
+      --label-dot-size: 15px;
+      --label-line-h-current: 4rem;
+      --title-top: 4rem;
+      --info-top: 8rem;
+    }
+  }
+  @media (min-width: 1200px) {
+    .smi-cards-container {
+      --label-size: 50px;
+      --border-color: var(--label-color);
+    }
+  }
+  .smi-cards {
+    position: absolute;
+    inset: var(--cards-container-padding);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease-in-out var(--duration);
+    list-style: none;
+  }
+  .smi-cards li {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    transform-origin:center;
+    display: grid;
+    place-content: center;
+    transform: rotate(calc(var(--i) * 360deg / var(--items)));
+    pointer-events: none;
+  }
+  .smi-cards li > label {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    transform: translateY(var(--label-offset));
+    width: var(--label-size);
+    height: var(--label-size);
+    cursor: pointer;
+    pointer-events: initial;
+    text-align: center;
+    color: var(--label-color);
+    font-size: clamp(.8rem, 2.5vw + .04rem,1rem);
+    transition: var(--duration) ease-in-out;
+  }
+  .smi-cards li > label::before{
+    content: '';
+    position: absolute;
+    top: var(--cards-container-padding);
+    left: 50%;
+    translate: -50% 0;
+    width: var(--label-dot-size);
+    height: var(--label-dot-size);
+    aspect-ratio: 50%;
+    border-radius: 50%;
+    background-color: var(--label-color);
+    transition: background-color var(--duration) ease-in-out;
+  }
+  .smi-cards li > label::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    translate: -50% 5px;
+    width: 2px;
+    height: var(--label-line-h);
+    background-color: steelblue;
+    transition: height 300ms ease-in-out var(--label-line-delay,0ms);
+  }
+  .smi-cards li > label:hover{
+    --label-color: var(--label-color-hover);
+  }
+  .smi-cards > li > h2,
+  .smi-cards > li > p{
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0);
+    transform-origin: center;
+  }
+  .smi-cards > li > h2{
+    top: var(--title-top);
+    opacity: var(--title-opacity,0);
+    translate: 0 var(--title-offset-y);
+    transition: var(--duration) ease-in-out var(--title-delay,0ms);
+  }
+  .smi-cards > li > p{
+    top: var(--info-top);
+    margin: 0 auto;
+    width: var(--info-width);
+    z-index: 2;
+    font-size: clamp(.8rem, 2.5vw + 0.05rem, .9rem);
+    text-align: left;
+    text-wrap: pretty;
+    opacity: var(--info-opacity,0);
+    transition: var(--duration) ease-in-out var(--info-delay,0ms);
+  }
+  li:has(input:checked){
+    --label-opacity: 1;
+    --label-color: var(--label-color-hover);
+    --label-line-h: var(--label-line-h-current);
+    --label-line-delay: calc(var(--duration) * 2);
+    --title-opacity: 1;
+    --title-offset-y: 0;
+    --title-delay: calc(var(--duration) * 3);
+    --info-opacity: 1;
+    --info-offset-y: 0;
+    --info-delay: calc(var(--duration) * 4);
+  }
+  .smi-cards:has(input:checked) {
+    transform: rotate(calc(var(--base-rotation) - (var(--index) * var(--full-circle) / var(--items))));
+  }
+  .smi-cards:has(li:nth-child(1)>input:checked) { --index: 0; }
+  .smi-cards:has(li:nth-child(2)>input:checked) { --index: 1; }
+  .smi-cards:has(li:nth-child(3)>input:checked) { --index: 2; }
+  .smi-cards:has(li:nth-child(4)>input:checked) { --index: 3; }
+  .smi-cards:has(li:nth-child(5)>input:checked) { --index: 4; }
+  .smi-cards:has(li:nth-child(6)>input:checked) { --index: 5; }
+  .smi-cards:has(li:nth-child(7)>input:checked) { --index: 6; }
+}
+</style>
