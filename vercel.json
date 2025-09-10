@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/product/onecare/detail",
+      "destination": "/product",
+      "permanent": false
+    },
+    {
+      "source": "/product/onecare/detail/",
+      "destination": "/product",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/product/onecare/detail/(.*)",
