@@ -457,7 +457,7 @@
         .then(res => res.json())
         .then(res => {
           if (res.success && Array.isArray(res.data)) {
-            const produk = res.data.find(p => p.slug === slug);
+            const produk = res.data.find(p => p.brand_slug === slug);
             if (produk) {
               // Render detail produk
               document.getElementById('product-detail-section').innerHTML = `
