@@ -509,42 +509,59 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <script src="../../produk.js"></script>
   <script>
-    // Ambil bagian terakhir path URL (misal onecare/strip-meter → "strip-meter")
-    const path = window.location.pathname.split("/").filter(Boolean);
-    const productId = path[path.length - 1] === "onecare" ? null : path[path.length - 1];
+    // Ambil slug produk dari URL setelah '/detail/'
+    (async function() {
+      // Contoh URL: /product/onecare/detail/blood-glucose-meter
+      const path = window.location.pathname;
+      let slug = '';
+      const match = path.match(/\/detail\/([^\/]+)\/?$/);
+      if (match) {
+        slug = match[1];
+      }
 
-    // Cari produk
-    const product = products.find(p => p.id === productId);
+      // Fetch data produk dari API
+      let products = [];
+      try {
+        const res = await fetch('https://portal.sentralmedika.co.id/api/products');
+        const json = await res.json();
+        products = json.data || [];
+      } catch (e) {
+        products = [];
+      }
 
-    if (product) {
-      document.getElementById("product-image").src = "../../../images/produk/" + product.foto;
-      document.getElementById("product-image").alt = product.nama;
-      document.getElementById("product-name").textContent = product.nama;
-      document.getElementById("product-description").textContent = product.deskripsi;
+      // Cari produk berdasarkan slug
+      const product = products.find(p => p.slug === slug);
 
-      const fileList = document.getElementById("file-list");
-      fileList.innerHTML = product.files.map(l => `
-        <div class="produk-link-card">
-          <a href="${l.url}" target="_blank">
-            <div class="produk-link-card-body">
-              <div class="produk-link-card-title">${l.title}</div>
-            </div>
-          </a>
-        </div>
-      `).join("");
-    } else {
-          // Ganti isi body penuh dengan 404
-    document.title = "404 - Produk Tidak Ditemukan";
-    document.body.innerHTML = `
-      <section class="not-found" style="text-align:center; padding:50px; font-family:Arial;">
-        <h1 style="font-size:80px; margin:0;">404</h1>
-        <p style="font-size:20px; margin:10px 0;">Produk tidak ditemukan</p>
-        <a href="/product" style="display:inline-block; margin-top:20px; padding:10px 20px; background:#007bff; color:#fff; border-radius:5px; text-decoration:none;">
-          Kembali ke daftar produk
-        </a>
-      </section>
-    `;
-   }
+      if (product) {
+        document.getElementById("product-image").src = "../../../images/produk/" + product.foto;
+        document.getElementById("product-image").alt = product.nama;
+        document.getElementById("product-name").textContent = product.nama;
+        document.getElementById("product-description").textContent = product.deskripsi;
+
+        const fileList = document.getElementById("file-list");
+        fileList.innerHTML = (product.files || []).map(l => `
+          <div class="produk-link-card">
+            <a href="${l.url}" target="_blank">
+              <div class="produk-link-card-body">
+                <div class="produk-link-card-title">${l.title}</div>
+              </div>
+            </a>
+          </div>
+        `).join("");
+      } else {
+        // Ganti isi body penuh dengan 404
+        document.title = "404 - Produk Tidak Ditemukan";
+        document.body.innerHTML = `
+          <section class="not-found" style="text-align:center; padding:50px; font-family:Arial;">
+            <h1 style="font-size:80px; margin:0;">404</h1>
+            <p style="font-size:20px; margin:10px 0;">Produk tidak ditemukan</p>
+            <a href="/product" style="display:inline-block; margin-top:20px; padding:10px 20px; background:#007bff; color:#fff; border-radius:5px; text-decoration:none;">
+              Kembali ke daftar produk
+            </a>
+          </section>
+        `;
+      }
+    })();
   </script>
 
   <!-- AOS Animate On Scroll JS -->
