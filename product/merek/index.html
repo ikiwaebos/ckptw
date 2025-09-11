@@ -496,7 +496,7 @@ async function loadBrandAndProducts() {
   container.innerHTML = '';
   Object.keys(kategoriMap).forEach(kat => {
     const items = kategoriMap[kat].map(p =>
-      `<a href="/product/${slug}/${p.slug}">${p.nama}</a><hr>`
+      `<a href="/product/${slug}/detail/${p.slug}">${p.nama}</a><hr>`
     ).join('');
     container.innerHTML += `
       <div class="custom-accordian">
