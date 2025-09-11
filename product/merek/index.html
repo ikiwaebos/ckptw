@@ -519,4 +519,27 @@ loadBrandAndProducts();
     });
   </script>
 
+<script>
+// Accordion toggle
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.custom-accordian-title').forEach(function(title) {
+    title.addEventListener('click', function() {
+      const body = this.nextElementSibling;
+      if (body.style.display === 'block') {
+        body.style.display = 'none';
+      } else {
+        body.style.display = 'block';
+      }
+      // Optional: toggle icon direction
+      const icon = this.querySelector('.fa');
+      if (icon) icon.classList.toggle('fa-angle-down');
+      if (icon) icon.classList.toggle('fa-angle-up');
+    });
+    // Default: hide all bodies
+    const body = title.nextElementSibling;
+    if (body) body.style.display = 'none';
+  });
+});
+</script>
+
 </html>
