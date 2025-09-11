@@ -10,7 +10,7 @@
     },
     {
       "source": "/product/:merek/detail/:product",
-      "destination": "/product/:merek/detail/index.html"
+      "destination": "/product/merek/detail/index.html"
     }
   ]
 }
