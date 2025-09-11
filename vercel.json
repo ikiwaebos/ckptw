@@ -6,7 +6,7 @@
     },
     {
       "source": "/product/:merek",
-      "destination": "/product/:merek/index.html"
+      "destination": "/product/merek/index.html"
     },
     {
       "source": "/product/:merek/detail/:product",
