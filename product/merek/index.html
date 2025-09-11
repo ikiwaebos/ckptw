@@ -507,21 +507,8 @@ async function loadBrandAndProducts() {
       </div>
     `;
   });
-}
-loadBrandAndProducts();
-</script>
-  <!-- AOS Animate On Scroll JS -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      once: true,
-      duration: 900
-    });
-  </script>
 
-<script>
-// Accordion toggle
-document.addEventListener('DOMContentLoaded', function() {
+  // Inisialisasi event listener accordion setelah render
   document.querySelectorAll('.custom-accordian-title').forEach(function(title) {
     title.addEventListener('click', function() {
       const body = this.nextElementSibling;
@@ -539,7 +526,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const body = title.nextElementSibling;
     if (body) body.style.display = 'none';
   });
-});
+}
+loadBrandAndProducts();
 </script>
+  <!-- AOS Animate On Scroll JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 900
+    });
+  </script>
+
+
 
 </html>
