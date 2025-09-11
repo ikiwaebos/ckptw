@@ -206,20 +206,20 @@
     <!-- End Feature Seciton -->
 <div style="margin-top: 8rem;"></div>
 
-   <section class="container mt-5 mb-5">
+<section class="container mt-5 mb-5">
   <div class="st-imagebox st-style2">
     <div class="row">
       <div class="col-lg-6">
         <div class="st-imagebox-img">
-          <img id="brand-img" src="" width="505px" alt="">
+          <img id="brand-img" width="505px" alt="">
           <h3 class="st-imagebox-title mt-2"><span id="brand-nama"></span></h3>
           <p style="text-align: justify;" id="brand-deskripsi"></p>
         </div>
         <div class="st-height-b0 st-height-lg-b30"></div>
       </div>
       <div class="col-lg-6">
-        <div class="st-imagebox-info" id="produk-accordian-list">
-          <!-- Accordian produk akan diisi JS -->
+        <div class="st-imagebox-info" id="produk-accordions">
+          <!-- Accordions will be injected here -->
         </div>
       </div>
     </div>
@@ -460,70 +460,55 @@
 </body>
 
 <script>
-function getSlugFromUrl() {
-  var path = window.location.pathname;
-  var match = path.match(/\/product\/(.*?)($|\/)/);
-  return match ? match[1] : null;
-}
-const slug = getSlugFromUrl();
+async function loadBrandAndProducts() {
+  // Ambil slug merek dari URL, misal: /product/onecare
+  const slug = window.location.pathname.split('/').pop();
 
-if (slug) {
-  Promise.all([
-    fetch('https://portal.sentralmedika.co.id/api/brands').then(r=>r.json()),
-    fetch('https://portal.sentralmedika.co.id/api/products').then(r=>r.json())
-  ]).then(([brandsRes, productsRes]) => {
-    if (brandsRes.success && productsRes.success) {
-      const brand = brandsRes.data.find(b => b.slug === slug);
-      if (!brand) {
-        document.getElementById('brand-nama').textContent = 'Brand tidak ditemukan';
-        return;
-      }
-      document.getElementById('brand-img').src = 'https://portal.sentralmedika.co.id/uploads/brand/' + brand.foto;
-      document.getElementById('brand-img').alt = brand.nama;
-      document.getElementById('brand-nama').textContent = brand.nama;
-      document.getElementById('brand-deskripsi').textContent = brand.deskripsi;
+  // Fetch data
+  const [brandsRes, productsRes] = await Promise.all([
+    fetch('https://portal.sentralmedika.co.id/api/brands'),
+    fetch('https://portal.sentralmedika.co.id/api/products')
+  ]);
+  const brands = (await brandsRes.json()).data;
+  const products = (await productsRes.json()).data;
 
-      // Filter produk milik brand ini
-      const produkBrand = productsRes.data.filter(p => p.brand_slug === slug);
+  // Temukan brand yang sesuai
+  const brand = brands.find(b => b.slug === slug);
+  if (!brand) return;
 
-      // Kelompokkan produk berdasarkan kategori
-      const kategoriMap = {};
-      produkBrand.forEach(p => {
-        if (!kategoriMap[p.kategori]) kategoriMap[p.kategori] = [];
-        kategoriMap[p.kategori].push(p);
-      });
+  // Tampilkan info brand
+  document.getElementById('brand-img').src = '../../images/' + brand.foto;
+  document.getElementById('brand-nama').textContent = brand.nama;
+  document.getElementById('brand-deskripsi').textContent = brand.deskripsi;
 
-      // Render accordian per kategori
-      let html = '';
-      Object.keys(kategoriMap).forEach((kategori, idx) => {
-        html += `
-        <div class="custom-accordian">
-          <div class="custom-accordian-title">
-            ${kategori}
-            <span class="custom-accordian-toggle fa fa-angle-down"></span>
-          </div>
-          <div class="custom-accordian-body" style="display:none;">
-            ${kategoriMap[kategori].map(prod => 
-              (prod.files && prod.files.length > 0) 
-                ? prod.files.map(f => `<a href="${f.url}" target="_blank">${f.title}</a><hr>`).join('')
-                : `<span>${prod.nama}</span><hr>`
-            ).join('')}
-          </div>
+  // Filter produk sesuai brand_slug
+  const filteredProducts = products.filter(p => p.brand_slug === slug);
+
+  // Kelompokkan produk per kategori
+  const kategoriMap = {};
+  filteredProducts.forEach(p => {
+    if (!kategoriMap[p.kategori]) kategoriMap[p.kategori] = [];
+    kategoriMap[p.kategori].push(p);
+  });
+
+  // Render accordion per kategori
+  const container = document.getElementById('produk-accordions');
+  container.innerHTML = '';
+  Object.keys(kategoriMap).forEach(kat => {
+    const items = kategoriMap[kat].map(p =>
+      `<a href="/product/${slug}/${p.slug}">${p.nama}</a><hr>`
+    ).join('');
+    container.innerHTML += `
+      <div class="custom-accordian">
+        <div class="custom-accordian-title">${kat}
+          <span class="custom-accordian-toggle fa fa-angle-down"></span>
         </div>
-        `;
-      });
-      document.getElementById('produk-accordian-list').innerHTML = html;
-
-      // Accordian toggle
-      document.querySelectorAll('.custom-accordian-title').forEach(title => {
-        title.addEventListener('click', function() {
-          const body = this.nextElementSibling;
-          body.style.display = (body.style.display === 'none' || body.style.display === '') ? 'block' : 'none';
-        });
-      });
-    }
+        <div class="custom-accordian-body">${items}</div>
+      </div>
+    `;
   });
 }
+loadBrandAndProducts();
 </script>
   <!-- AOS Animate On Scroll JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
