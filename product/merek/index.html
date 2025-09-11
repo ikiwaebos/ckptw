@@ -206,9 +206,25 @@
     <!-- End Feature Seciton -->
 <div style="margin-top: 8rem;"></div>
 
-    <section class="container mt-5 mb-5">
-      <div id="product-detail-section"></div>
-    </section>
+   <section class="container mt-5 mb-5">
+  <div class="st-imagebox st-style2">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="st-imagebox-img">
+          <img id="brand-img" src="" width="505px" alt="">
+          <h3 class="st-imagebox-title mt-2"><span id="brand-nama"></span></h3>
+          <p style="text-align: justify;" id="brand-deskripsi"></p>
+        </div>
+        <div class="st-height-b0 st-height-lg-b30"></div>
+      </div>
+      <div class="col-lg-6">
+        <div class="st-imagebox-info" id="produk-accordian-list">
+          <!-- Accordian produk akan diisi JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     
 
@@ -444,58 +460,71 @@
 </body>
 
 <script>
-    // Ambil slug dari URL setelah '/product/'
-    function getSlugFromUrl() {
-      var path = window.location.pathname;
-      var match = path.match(/\/product\/(.*?)($|\/)/);
-      return match ? match[1] : null;
-    }
+function getSlugFromUrl() {
+  var path = window.location.pathname;
+  var match = path.match(/\/product\/(.*?)($|\/)/);
+  return match ? match[1] : null;
+}
+const slug = getSlugFromUrl();
 
-    const slug = getSlugFromUrl();
-    if (slug) {
-      fetch('https://portal.sentralmedika.co.id/api/products')
-        .then(res => res.json())
-        .then(res => {
-          if (res.success && Array.isArray(res.data)) {
-            const produk = res.data.find(p => p.brand_slug === slug);
-            if (produk) {
-              // Render detail produk
-              document.getElementById('product-detail-section').innerHTML = `
-                <div class="st-imagebox st-style2">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="st-imagebox-img">
-                        <img src="https://portal.sentralmedika.co.id/uploads/product/${produk.foto}" width="505px" alt="${produk.nama}">
-                        <h3 class="st-imagebox-title mt-2"><span>${produk.nama}</span></h3>
-                        <p style="text-align: justify;">${produk.deskripsi || ''}</p>
-                        ${produk.keunggulan ? `<ul style='padding-left:1.2em;'>${produk.keunggulan.split('\n').map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
-                      </div>
-                      <div class="st-height-b0 st-height-lg-b30"></div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="st-imagebox-info">
-                        ${produk.kategori && Array.isArray(produk.kategori) && produk.kategori.length > 0 ? produk.kategori.map(kat => `
-                          <div class='custom-accordian'>
-                            <div class='custom-accordian-title'>${kat.nama}
-                              <span class='custom-accordian-toggle fa fa-angle-down'></span>
-                            </div>
-                            <div class='custom-accordian-body'>
-                              ${kat.files && Array.isArray(kat.files) ? kat.files.map(sub => `<a href="${sub.url}">${sub.title}</a><hr>`).join('') : ''}
-                            </div>
-                          </div>
-                        `).join('') : ''}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              `;
-            } else {
-              document.getElementById('product-detail-section').innerHTML = '<div class="alert alert-warning">Produk tidak ditemukan.</div>';
-            }
-          }
+if (slug) {
+  Promise.all([
+    fetch('https://portal.sentralmedika.co.id/api/brands').then(r=>r.json()),
+    fetch('https://portal.sentralmedika.co.id/api/products').then(r=>r.json())
+  ]).then(([brandsRes, productsRes]) => {
+    if (brandsRes.success && productsRes.success) {
+      const brand = brandsRes.data.find(b => b.slug === slug);
+      if (!brand) {
+        document.getElementById('brand-nama').textContent = 'Brand tidak ditemukan';
+        return;
+      }
+      document.getElementById('brand-img').src = 'https://portal.sentralmedika.co.id/uploads/brand/' + brand.foto;
+      document.getElementById('brand-img').alt = brand.nama;
+      document.getElementById('brand-nama').textContent = brand.nama;
+      document.getElementById('brand-deskripsi').textContent = brand.deskripsi;
+
+      // Filter produk milik brand ini
+      const produkBrand = productsRes.data.filter(p => p.brand_slug === slug);
+
+      // Kelompokkan produk berdasarkan kategori
+      const kategoriMap = {};
+      produkBrand.forEach(p => {
+        if (!kategoriMap[p.kategori]) kategoriMap[p.kategori] = [];
+        kategoriMap[p.kategori].push(p);
+      });
+
+      // Render accordian per kategori
+      let html = '';
+      Object.keys(kategoriMap).forEach((kategori, idx) => {
+        html += `
+        <div class="custom-accordian">
+          <div class="custom-accordian-title">
+            ${kategori}
+            <span class="custom-accordian-toggle fa fa-angle-down"></span>
+          </div>
+          <div class="custom-accordian-body" style="display:none;">
+            ${kategoriMap[kategori].map(prod => 
+              (prod.files && prod.files.length > 0) 
+                ? prod.files.map(f => `<a href="${f.url}" target="_blank">${f.title}</a><hr>`).join('')
+                : `<span>${prod.nama}</span><hr>`
+            ).join('')}
+          </div>
+        </div>
+        `;
+      });
+      document.getElementById('produk-accordian-list').innerHTML = html;
+
+      // Accordian toggle
+      document.querySelectorAll('.custom-accordian-title').forEach(title => {
+        title.addEventListener('click', function() {
+          const body = this.nextElementSibling;
+          body.style.display = (body.style.display === 'none' || body.style.display === '') ? 'block' : 'none';
         });
+      });
     }
-    </script>
+  });
+}
+</script>
   <!-- AOS Animate On Scroll JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
