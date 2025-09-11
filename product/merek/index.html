@@ -480,7 +480,7 @@
                               <span class='custom-accordian-toggle fa fa-angle-down'></span>
                             </div>
                             <div class='custom-accordian-body'>
-                              ${kat.produk && Array.isArray(kat.produk) ? kat.produk.map(sub => `<a href="">${sub.nama}</a><hr>`).join('') : ''}
+                              ${kat.files && Array.isArray(kat.files) ? kat.files.map(sub => `<a href="${sub.url}">${sub.title}</a><hr>`).join('') : ''}
                             </div>
                           </div>
                         `).join('') : ''}
