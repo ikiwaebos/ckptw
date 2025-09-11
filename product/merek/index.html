@@ -483,7 +483,7 @@ async function loadBrandAndProducts() {
   if (!brand) return;
 
   // Tampilkan info brand
-  document.getElementById('brand-img').src = '../../images/' + brand.foto;
+  document.getElementById('brand-img').src = brand.foto;
   document.getElementById('brand-nama').textContent = brand.nama;
   document.getElementById('brand-deskripsi').textContent = brand.deskripsi;
 
