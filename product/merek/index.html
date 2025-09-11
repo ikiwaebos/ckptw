@@ -461,8 +461,14 @@
 
 <script>
 async function loadBrandAndProducts() {
-  // Ambil slug merek dari URL, misal: /product/onecare
-  const slug = window.location.pathname.split('/').pop();
+  // Ambil slug merek dari URL, otomatis setelah '/product/'
+  // Contoh: /product/onecare, /product/onecare/detail/xxx
+  const pathParts = window.location.pathname.split('/');
+  const productIdx = pathParts.indexOf('product');
+  let slug = '';
+  if (productIdx !== -1 && pathParts.length > productIdx + 1) {
+    slug = pathParts[productIdx + 1];
+  }
 
   // Fetch data
   const [brandsRes, productsRes] = await Promise.all([
