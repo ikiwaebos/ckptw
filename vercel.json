@@ -1,20 +1,16 @@
 {
-  "redirects": [
-    {
-      "source": "/product/onecare/detail",
-      "destination": "/product",
-      "permanent": false
-    },
-    {
-      "source": "/product/onecare/detail/",
-      "destination": "/product",
-      "permanent": false
-    }
-  ],
   "rewrites": [
     {
-      "source": "/product/onecare/detail/(.*)",
-      "destination": "/product/onecare/detail/index.html"
+      "source": "/product",
+      "destination": "/product/index.html"
+    },
+    {
+      "source": "/product/:merek",
+      "destination": "/product/:merek/index.html"
+    },
+    {
+      "source": "/product/:merek/detail/:product",
+      "destination": "/product/:merek/detail/index.html"
     }
   ]
 }
