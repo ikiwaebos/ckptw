@@ -244,7 +244,13 @@
     <!-- End Hero Seciton -->
 <p></p>
     <!-- Start Feature Seciton -->
-
+<div class="breadcrumb" style="margin: 24px 0 16px 0; font-size: 1rem; color: #222;">
+  <a href="/product" style="color: #007bff; text-decoration: none;">Products</a>
+  <span> &gt; </span>
+  <span id="breadcrumb-category"></span>
+  <span> &gt; </span>
+  <span id="breadcrumb-product"></span>
+</div>
 
     <!-- End Feature Seciton -->
 <div style="margin-top: 8rem;"></div>
@@ -599,5 +605,58 @@
   }
 });
   </script>
+  <script>
+(async function() {
+  const path = window.location.pathname;
+  let slug = '';
+  const match = path.match(/\/detail\/([^\/]+)\/?$/);
+  if (match) {
+    slug = match[1];
+  }
+
+  let products = [];
+  try {
+    const res = await fetch('https://portal.sentralmedika.co.id/api/products');
+    const json = await res.json();
+    products = json.data || [];
+  } catch (e) {
+    products = [];
+  }
+
+  const product = products.find(p => p.slug === slug);
+
+  // Breadcrumb logic
+  if (product) {
+    document.getElementById("breadcrumb-category").textContent = product.kategori || "-";
+    document.getElementById("breadcrumb-product").textContent = product.nama || "-";
+    // ...existing code...
+    document.getElementById("product-image").src = product.foto;
+    document.getElementById("product-image").alt = product.nama;
+    document.getElementById("product-name").textContent = product.nama;
+    document.getElementById("product-description").textContent = product.deskripsi;
+    const fileList = document.getElementById("file-list");
+    fileList.innerHTML = (product.files || []).map(l => `
+      <div class="produk-link-card">
+        <a href="${l.url}" target="_blank">
+          <div class="produk-link-card-body">
+            <div class="produk-link-card-title">${l.title}</div>
+          </div>
+        </a>
+      </div>
+    `).join("");
+  } else {
+    document.title = "404 - Produk Tidak Ditemukan";
+    document.body.innerHTML = `
+      <section class="not-found" style="text-align:center; padding:50px; font-family:Arial;">
+        <h1 style="font-size:80px; margin:0;">404</h1>
+        <p style="font-size:20px; margin:10px 0;">Produk tidak ditemukan</p>
+        <a href="/product" style="display:inline-block; margin-top:20px; padding:10px 20px; background:#007bff; color:#fff; border-radius:5px; text-decoration:none;">
+          Kembali ke daftar produk
+        </a>
+      </section>
+    `;
+  }
+})();
+</script>
 </body>
 </html>
