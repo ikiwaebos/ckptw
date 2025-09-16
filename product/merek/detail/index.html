@@ -265,7 +265,7 @@
     <div style="margin-top: 8rem;"></div>
     <section class="container mt-5 mb-5">
       <div class="breadcrumb" style="margin: 24px 0 16px 0; font-size: 1rem; color: #222;">
-      <a href="/product" style="color: #007bff; text-decoration: none;">Products</a>
+      <a href="/product" style="color: #007bff; text-decoration: none;">Products</a> 
       <span> &gt; </span>
       <span id="breadcrumb-merek"></span>
       <span> &gt; </span>
@@ -532,6 +532,14 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../../produk.js"></script>
   <script>
+     const path = window.location.pathname.split('/');
+  // Ambil slug merek setelah '/product/' (misal: /product/onecare/detail/slug)
+  const productIdx = path.indexOf('product');
+  let merek = '';
+  if (productIdx !== -1 && path.length > productIdx + 1) {
+    merek = path[productIdx + 1];
+  }
+  
     // Ambil slug produk dari URL setelah '/detail/'
     (async function () {
       // Contoh URL: /product/onecare/detail/blood-glucose-meter
