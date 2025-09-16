@@ -247,7 +247,7 @@
 <div class="breadcrumb" style="margin: 24px 0 16px 0; font-size: 1rem; color: #222;">
   <a href="/product" style="color: #007bff; text-decoration: none;">Products</a>
   <span> &gt; </span>
-  <span id="breadcrumb-category"></span>
+  <span id="breadcrumb-merek"></span>
   <span> &gt; </span>
   <span id="breadcrumb-product"></span>
 </div>
@@ -627,7 +627,7 @@
 
   // Breadcrumb logic
   if (product) {
-    document.getElementById("breadcrumb-category").textContent = product.kategori || "-";
+    document.getElementById("breadcrumb-merek").textContent = product.merek || "-";
     document.getElementById("breadcrumb-product").textContent = product.nama || "-";
     // ...existing code...
     document.getElementById("product-image").src = product.foto;
