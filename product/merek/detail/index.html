@@ -531,72 +531,74 @@
   <script src="../../../js/produk.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../../produk.js"></script>
-  <script>
-     const path = window.location.pathname.split('/');
-  // Ambil slug merek setelah '/product/' (misal: /product/onecare/detail/slug)
-  const productIdx = path.indexOf('product');
-  let merek = '';
-  if (productIdx !== -1 && path.length > productIdx + 1) {
-    merek = path[productIdx + 1];
-  }
-  
+<script>
+  (async function () {
+    // Ambil slug merek setelah '/product/'
+    const pathArr = window.location.pathname.split('/');
+    const productIdx = pathArr.indexOf('product');
+    let merek = '';
+    if (productIdx !== -1 && pathArr.length > productIdx + 1) {
+      merek = pathArr[productIdx + 1];
+    }
+
     // Ambil slug produk dari URL setelah '/detail/'
-    (async function () {
-      // Contoh URL: /product/onecare/detail/blood-glucose-meter
-      const path = window.location.pathname;
-      let slug = '';
-      const match = path.match(/\/detail\/([^\/]+)\/?$/);
-      if (match) {
-        slug = match[1];
-      }
+    let slug = '';
+    const match = window.location.pathname.match(/\/detail\/([^\/]+)\/?$/);
+    if (match) {
+      slug = match[1];
+    }
 
-      // Fetch data produk dari API
-      let products = [];
-      try {
-        const res = await fetch('https://portal.sentralmedika.co.id/api/products');
-        const json = await res.json();
-        products = json.data || [];
-      } catch (e) {
-        products = [];
-      }
+    // Fetch data produk dari API
+    let products = [];
+    try {
+      const res = await fetch('https://portal.sentralmedika.co.id/api/products');
+      const json = await res.json();
+      products = json.data || [];
+    } catch (e) {
+      products = [];
+    }
 
-      // Cari produk berdasarkan slug
-      const product = products.find(p => p.slug === slug);
+    // Cari produk berdasarkan slug
+    const product = products.find(p => p.slug === slug);
 
-      if (product) {
-       const merek = document.getElementById("breadcrumb-merek").textContent = merek || "-";
-    document.getElementById("breadcrumb-product").textContent = product.nama || "-";
-        document.getElementById("product-image").src = product.foto;
-        document.getElementById("product-image").alt = product.nama;
-        document.getElementById("product-name").textContent = product.nama;
-        document.getElementById("product-description").textContent = product.deskripsi;
-        merek.innerHTML = `<a href="/product/${merek}" style="color: #007bff; text-decoration: none;">${merek}</a>`;
-       
-        const fileList = document.getElementById("file-list");
-        fileList.innerHTML = (product.files || []).map(l => `
-          <div class="produk-link-card">
-            <a href="${l.url}" target="_blank">
-              <div class="produk-link-card-body">
-                <div class="produk-link-card-title">${l.title}</div>
-              </div>
-            </a>
-          </div>
-        `).join("");
-      } else {
-        // Ganti isi body penuh dengan 404
-        document.title = "404 - Produk Tidak Ditemukan";
-        document.body.innerHTML = `
-          <section class="not-found" style="text-align:center; padding:50px; font-family:Arial;">
-            <h1 style="font-size:80px; margin:0;">404</h1>
-            <p style="font-size:20px; margin:10px 0;">Produk tidak ditemukan</p>
-            <a href="/product" style="display:inline-block; margin-top:20px; padding:10px 20px; background:#007bff; color:#fff; border-radius:5px; text-decoration:none;">
-              Kembali ke daftar produk
-            </a>
-          </section>
-        `;
-      }
-    })();
-  </script>
+    if (product) {
+      // Breadcrumb
+      const breadcrumbMerek = document.getElementById("breadcrumb-merek");
+      breadcrumbMerek.innerHTML = `<a href="/product/${merek}" style="color: #007bff; text-decoration: none;">${merek}</a>`;
+      document.getElementById("breadcrumb-product").textContent = product.nama || "-";
+
+      // Detail produk
+      document.getElementById("product-image").src = product.foto;
+      document.getElementById("product-image").alt = product.nama;
+      document.getElementById("product-name").textContent = product.nama;
+      document.getElementById("product-description").textContent = product.deskripsi;
+
+      // File produk
+      const fileList = document.getElementById("file-list");
+      fileList.innerHTML = (product.files || []).map(l => `
+        <div class="produk-link-card">
+          <a href="${l.url}" target="_blank">
+            <div class="produk-link-card-body">
+              <div class="produk-link-card-title">${l.title}</div>
+            </div>
+          </a>
+        </div>
+      `).join("");
+    } else {
+      // Ganti isi body penuh dengan 404
+      document.title = "404 - Produk Tidak Ditemukan";
+      document.body.innerHTML = `
+        <section class="not-found" style="text-align:center; padding:50px; font-family:Arial;">
+          <h1 style="font-size:80px; margin:0;">404</h1>
+          <p style="font-size:20px; margin:10px 0;">Produk tidak ditemukan</p>
+          <a href="/product" style="display:inline-block; margin-top:20px; padding:10px 20px; background:#007bff; color:#fff; border-radius:5px; text-decoration:none;">
+            Kembali ke daftar produk
+          </a>
+        </section>
+      `;
+    }
+  })();
+</script>
 
   <!-- AOS Animate On Scroll JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
