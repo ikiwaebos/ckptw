@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <!-- LottieFiles CDN -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -56,6 +58,8 @@
   <link rel="stylesheet" href="../css/select2.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/produk.css?v=2">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -67,6 +71,427 @@
 }
 </script>
 
+<style>
+  .about-section-flex {
+    display: flex;
+    align-items: center;
+    gap: 92px;
+    margin-bottom: 0px;
+    flex-wrap: wrap;
+  }
+  .about-section-flex.reverse {
+    flex-direction: row-reverse;
+  }
+  .about-section-img {
+    flex: 1 1 220px;
+    min-width: 180px;
+    max-width: 920px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+  }
+  .about-section-content {
+    flex: 2 1 340px;
+    min-width: 220px;
+  }
+  @media (max-width: 900px) {
+    .about-section-flex, .about-section-flex.reverse {
+      flex-direction: column !important;
+      gap: 18px;
+    }
+    .about-section-img, .about-section-content {
+      min-width: 0;
+      max-width: 100%;
+    }
+  }
+
+
+
+</style>
+<style>
+        .about-container {
+          max-width: 100%;
+          background: rgba(255,255,255,0.95);
+          border-radius: 24px;
+          padding: 20px 32px 32px 32px;
+          backdrop-filter: blur(6px);
+        }
+        .about-title {
+          font-size: 2.2rem;
+          font-weight: 700;
+          color: #5a189a;
+          margin-bottom: 10px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+        .about-section-title {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #3d246c;
+          margin-top: 12px;
+          margin-bottom: 10px;
+          letter-spacing: 0.5px;
+          border-left: 4px solid #8ec5fc;
+          padding-left: 12px;
+        }
+
+        .about-section-title.center {
+          text-align: center;
+          border-left: none;
+          padding-left: 0;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .about-list {
+          margin: 0 0 0 18px;
+          padding: 0;
+        }
+        .about-list li {
+          margin-bottom: 4px;
+          line-height: 1.7;
+        }
+        .about-milestone {
+          background: #f3f0ff;
+          border-radius: 16px;
+          padding: 24px 20px 16px 20px;
+          margin-top: 24px;
+          box-shadow: 0 2px 12px 0 rgba(90,24,154,0.06);
+        }
+        .about-milestone-title {
+          font-size: 1.15rem;
+          font-weight: 600;
+          color: #5a189a;
+          margin-bottom: 10px;
+          letter-spacing: 0.5px;
+        }
+        .about-milestone ul {
+          margin-left: 18px;
+          padding: 0;
+        }
+        .about-milestone li {
+          margin-bottom: 4px;
+          line-height: 1.7;
+        }
+        .about-vision {
+          background: linear-gradient(90deg, #e0c3fc 0%, #f8f9fa 100%);
+          border-radius: 14px;
+          padding: 18px 20px 10px 20px;
+          margin: 18px 0 0 0;
+          box-shadow: 0 2px 8px 0 rgba(90,24,154,0.04);
+        }
+        .about-culture {
+          background: #fff4e6;
+          border-radius: 14px;
+          padding: 18px 20px 10px 20px;
+          margin: 18px 0 0 0;
+          box-shadow: 0 2px 8px 0 rgba(253,160,133,0.06);
+        }
+        .about-cert {
+          background: #e7f5ff;
+          border-radius: 14px;
+          padding: 18px 20px 10px 20px;
+          margin: 18px 0 0 0;
+          box-shadow: 0 2px 8px 0 rgba(142,197,252,0.06);
+        }
+        .about-assoc {
+          background: #f0f7fa;
+          border-radius: 14px;
+          padding: 18px 20px 10px 20px;
+          margin: 18px 0 0 0;
+          box-shadow: 0 2px 8px 0 rgba(142,197,252,0.06);
+        }
+        .about-commit {
+          background: #f8f9fa;
+          border-radius: 14px;
+          padding: 18px 20px 10px 20px;
+          margin: 18px 0 0 0;
+          box-shadow: 0 2px 8px 0 rgba(90,24,154,0.04);
+        }
+        .about-section {
+          margin-bottom: 18px;
+        }
+        @media (max-width: 600px) {
+          .about-container {
+           padding: 18px 4vw;
+           margin: 2rem;}
+          .about-title { font-size: 1.3rem; }
+          .about-section-title { font-size: 1.05rem; }
+        }
+       @media (min-width: 605px) { 
+  .about-container {
+    margin: 60px;
+  }
+}
+        
+      </style>
+        <style>
+              .cert-card-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 18px;
+                margin-bottom: 10px;
+              }
+              .cert-card {
+                background: linear-gradient(120deg, #e7f5ff 60%, #f8f9fa 100%);
+                border-radius: 14px;
+                box-shadow: 0 2px 12px 0 rgba(142,197,252,0.10);
+                padding: 18px 18px 14px 18px;
+                min-width: 180px;
+                flex: 1 1 180px;
+                max-width: 220px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                border: 1.5px solid #b6e0fe33;
+                transition: box-shadow 0.2s, transform 0.2s;
+              }
+              .cert-card:hover {
+                box-shadow: 0 8px 32px 0 #8ec5fc44;
+                transform: translateY(-4px) scale(1.03);
+              }
+              .cert-card-title {
+                font-weight: 700;
+                color: #1976d2;
+                font-size: 1.08rem;
+                margin-bottom: 4px;
+              }
+              .cert-card-desc {
+                font-size: 0.98rem;
+                color: #444;
+                font-weight: 500;
+              }
+              @media (max-width: 700px) {
+                .cert-card-grid { flex-direction: column; gap: 10px; }
+                .cert-card { max-width: 100%; min-width: 0; }
+              }
+            </style>
+           <style>
+
+@import "https://codepen.io/cbolson/pen/rNEdgKo.css" layer(template);
+@layer template, demo;
+
+@layer demo {
+  /* Hide radio buttons */
+  input[type="radio"] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+  }
+  .cards-container {
+    --base-rotation: 0deg;
+    --full-circle: 360deg;
+    --radius: 40vw;
+    --duration: 200ms;
+
+    --cards-container-size: calc(var(--radius) * 2);
+    --cards-container-padding: 2rem;
+
+    --border-color: transparent;
+
+    --label-offset: calc(var(--radius) * -1 - 1rem);
+    --label-size: 30px;
+    --label-color: #666;
+    --label-color-hover: steelblue;
+    --label-line-h: 0;
+    --label-line-h-current: 2rem;
+    --label-dot-size: 10px;
+
+    --title-top: 1.5rem;
+    --title-offset-y: 30px;
+
+    --info-top: 5rem;
+    --info-width: min(70%, 500px);
+    --info-offset-y: 30px;
+
+    box-sizing: content-box;
+    position: relative;
+    inset: 0;
+    margin: 5rem auto;
+    width: var(--cards-container-size);
+    height: var(--cards-container-size);
+    padding: 6rem;
+   
+
+    
+    @media (width > 600px){
+    /* clip-path: polygon(0 0, 0 0, 100% 50%, 0 0); */
+   
+    }
+
+ 
+    @media (min-width: 800px) {
+        --radius: 30vw;
+        --label-size: 40px;
+        --label-dot-size: 15px;
+        --label-line-h-current: 4rem;
+        --title-top: 4rem;
+        --info-top: 8rem;
+      }
+    }
+    @media (min-width: 1200px) {
+        --label-size: 50px;
+        --border-color: var(--label-color);
+    }
+    
+}
+  .cards {
+    position: absolute;
+    inset: var(--cards-container-padding);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease-in-out var(--duration);
+    list-style: none;
+  }
+
+
+
+  .cards li {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    transform-origin:center;
+    display: grid;
+    place-content: center;
+    transform: rotate(calc(var(--i) * 360deg / var(--items)));
+    pointer-events: none;
+  }
+
+  .cards li > label {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    transform: translateY(var(--label-offset));
+    width: var(--label-size);
+    height: var(--label-size);
+    cursor: pointer;
+    pointer-events: initial;
+    text-align: center;
+    color: var(--label-color);
+    font-size: clamp(.8rem, 2.5vw + .04rem,1rem);
+    transition: var(--duration) ease-in-out;
+
+  }
+  .cards li > label::before{
+      content: '';
+      position: absolute;
+      top: var(--cards-container-padding);
+      left: 50%;
+      translate: -50% 0;
+      width: var(--label-dot-size);
+      height: var(--label-dot-size);
+      aspect-ratio: 50%;
+      border-radius: 50%;
+      background-color: var(--label-color);
+      transition: background-color var(--duration) ease-in-out;
+  }
+
+  .cards li > label::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    translate: -50% 5px;
+    width: 2px;
+    height: var(--label-line-h);
+    background-color: steelblue;
+    transition: height 300ms ease-in-out var(--label-line-delay,0ms);
+  }
+  .cards li > label:hover{
+    --label-color: var(--label-color-hover);
+  }
+
+  .cards > li > h2,
+  .cards > li > p{
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0);
+    transform-origin: center;
+  }
+  .cards > li > h2{
+    top: var(--title-top);
+    opacity: var(--title-opacity,0);
+    translate: 0 var(--title-offset-y);
+    transition: var(--duration) ease-in-out var(--title-delay,0ms);
+  }
+  .cards > li > p{
+    top: var(--info-top);
+    margin: 0 auto;
+     font-weight: bold;
+    margin-top: 25px;
+    width: var(--info-width);
+    z-index: 2;
+    font-size: clamp(.8rem, 2.5vw + 0.05rem, .9rem);
+    text-align: left;
+    text-wrap: pretty;
+    opacity: var(--info-opacity,0);
+    /*translate: 0 var( --info-offset-y);*/
+    transition: var(--duration) ease-in-out var(--info-delay,0ms);
+  }
+
+  /* update custom properties for checked item */
+  li:has(input:checked){
+      --label-opacity: 1;
+      --label-color: var(--label-color-hover);
+      --label-line-h: var(--label-line-h-current);
+      --label-line-delay: calc(var(--duration) * 2);
+
+      --title-opacity: 1;
+      --title-offset-y: 0;
+      --title-delay: calc(var(--duration) * 3);
+
+      --info-opacity: 1;
+      --info-offset-y: 0;
+      --info-delay: calc(var(--duration) * 4);
+      /*outline: 1px dashed red;*/
+  }
+
+  /* rotate container based on checked radio */
+  .cards:has(input:checked) {
+    transform: rotate(calc(var(--base-rotation) - (var(--index) * var(--full-circle) / var(--items))));
+  }
+  /*
+  this would be so much simpler if we could use counter values as custom property values
+  */
+  .cards:has(li:nth-child(1)>input:checked) { --index: 0; }
+  .cards:has(li:nth-child(2)>input:checked) { --index: 1; }
+  .cards:has(li:nth-child(3)>input:checked) { --index: 2; }
+  .cards:has(li:nth-child(4)>input:checked) { --index: 3; }
+  .cards:has(li:nth-child(5)>input:checked) { --index: 4; }
+  .cards:has(li:nth-child(6)>input:checked) { --index: 5; }
+  .cards:has(li:nth-child(7)>input:checked) { --index: 6; }
+  .cards:has(li:nth-child(8)>input:checked) { --index: 7; }
+  .cards:has(li:nth-child(9)>input:checked) { --index: 8; }
+  .cards:has(li:nth-child(10)>input:checked) { --index: 9; }
+  .cards:has(li:nth-child(11)>input:checked) { --index: 10; }
+  .cards:has(li:nth-child(12)>input:checked) { --index: 11; }
+  .cards:has(li:nth-child(13)>input:checked) { --index: 12; }
+  .cards:has(li:nth-child(14)>input:checked) { --index: 13; }
+  .cards:has(li:nth-child(15)>input:checked) { --index: 14; }
+  .cards:has(li:nth-child(16)>input:checked) { --index: 15; }
+  .cards:has(li:nth-child(17)>input:checked) { --index: 16; }
+  .cards:has(li:nth-child(18)>input:checked) { --index: 17; }
+  .cards:has(li:nth-child(19)>input:checked) { --index: 18; }
+  .cards:has(li:nth-child(20)>input:checked) { --index: 19; }
+  .cards:has(li:nth-child(21)>input:checked) { --index: 20; }
+  .cards:has(li:nth-child(22)>input:checked) { --index: 21; }
+  .cards:has(li:nth-child(23)>input:checked) { --index: 22; }
+  .cards:has(li:nth-child(24)>input:checked) { --index: 23; }
+  .cards:has(li:nth-child(25)>input:checked) { --index: 24; }
+  .cards:has(li:nth-child(26)>input:checked) { --index: 25; }
+}
+
+</style>
 </head>
 
 <body>
@@ -232,42 +657,211 @@
 
     <!-- End Feature Seciton -->
 
-    <!-- Start About Seciton -->
-    <section class="st-about-wrap" >
-      <div class="st-shape-bg">
-        <img src="../images/about-bg-shape.svg" alt="shape">
-      </div>
-      <div class="st-height-b120 st-height-lg-b50"></div>
-      <div class="container">
-        <div class="st-section-heading st-style1">
-          <h2 class="st-section-heading-title">Who We Are</h2>
-          <div class="st-seperator">
-            <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-            <div class="st-seperator-center"><img src="../images/logopolos.jpg" alt="icon"></div>
-            <div class="st-seperator-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
+
+
+    <section>
+      <div class="about-container" data-aos="fade-up">
+        <!-- Company Profile -->
+        <div class="about-section-flex" data-aos="fade-up">
+          <div class="about-section-img">
+           <image src="logo.webp" alt="SMI" style="width: 220px; height: 220px;">
           </div>
-          <div class="text-left">
-            PT. Sentral Medika Indonesia (SMI) adalah perusahaan manufaktur alat kesehatan terkemuka di Indonesia. Sejak
-            didirikan pada tanggal 24 Februari 2016 di Semarang, kami berkomitmen untuk menghadirkan produk berkualitas
-            tinggi yang mendukung kebutuhan sektor kesehatan di tanah air.
-            <br>
-            Dengan fokus pada inovasi dan kualitas, SMI memproduksi berbagai jenis produk seperti:
-            <li>Larutan Reagen</li>
-            <li>Barang Medis Habis Pakai</li>
-            <li>Peralatan Elektromedik</li>
-            <li>In Vitro Diagnostics (IVD)</li>
-            Sebagai perusahaan yang terus berkembang, SMI berupaya untuk menjadi mitra terpercaya bagi institusi medis,
-            rumah sakit, dan fasilitas kesehatan lainnya. Melalui teknologi modern dan proses manufaktur yang
-            terstandarisasi, kami memberikan solusi kesehatan yang efektif dan efisien.
+          <div class="about-section-content">
+            PT Sentral Medika Indonesia (SMI) adalah perusahaan manufaktur alat kesehatan yang berdiri pada tahun 2016 di Kota Semarang, Provinsi Jawa Tengah, Indonesia. Perjalanan PT SMI dimulai sebagai perusahaan distribusi alat kesehatan, kemudian bertransformasi menjadi produsen alat kesehatan penanggulangan Covid-19 pada tahun 2020. Sejak tahun 2023, PT SMI berfokus pada produksi alat kesehatan khusus di bidang Laboratorium In Vitro Diagnostik (IVD).
           </div>
         </div>
-        <div class="st-height-b40 st-height-lg-b40"></div>
+        <!-- Portofolio Produk -->
+        <div class="about-section-flex reverse" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://lottie.host/8fd99230-ccdc-4d00-a12f-a957730e52ad/IHGJ2SMCp0.json" background="transparent" speed="1"  loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content">
+            <div class="about-section-title" style="margin-top:0;">Portofolio Produk</div>
+            <ul class="about-list">
+              <li>Instrumen dan Reagen Hematologi</li>
+              <li>Instrumen dan Reagen Kimia Klinik</li>
+              <li>Instrumen dan Strip Urinalisis</li>
+              <li>Instrumen dan Strip POCT (Glukosa, Asam Urat, Hemoglobin, Kolesterol)</li>
+              <li>Reagen Serologi (Widal, Blood Grouping)</li>
+              <li>Reagen Pewarnaan (Ziehl Neelsen, Giemsa)</li>
+              <li>Kertas Saring Hipotiroid Kongenital</li>
+            </ul>
+          </div>
+        </div>
+        <!-- R&D dan Fasilitas Produksi -->
+         <div class="about-section-flex" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://lottie.host/3e6fe85f-0ed1-488e-898f-f303d337f05e/0D8kHuHVTN.json" background="transparent" speed="1"  loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content">
+            <div class="about-section-title">R&D dan Fasilitas Produksi</div>
+       
+            PT SMI mengoperasikan fasilitas produksi modern seluas 5.000 m² yang dilengkapi dengan Cleanroom berstandar internasional. Operasional perusahaan didukung oleh lebih dari 80 tenaga profesional yang kompeten di bidangnya.<br>
+            Dalam upaya meningkatkan kualitas dan inovasi produk, PT SMI menjalin kolaborasi dengan para peneliti dari berbagai universitas ternama, termasuk Universitas Diponegoro. Sinergi antara industri dan akademisi ini memperkuat posisi PT SMI sebagai produsen alat kesehatan yang inovatif dan berdaya saing tinggi.
+          </div>
+        </div>
+        <!-- Jangkauan Pasar -->
+        <div class="about-section-flex reverse" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://lottie.host/ac021423-0eeb-4a63-9c8d-355bda387242/d5nFXRgKnz.json" background="transparent" speed="1"  loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content">
+            <div class="about-section-title" style="margin-top:0;">Jangkauan Pasar</div>
+            Produk-produk PT SMI telah digunakan secara luas di lebih dari 222 kabupaten/kota di seluruh Indonesia, menjangkau berbagai instansi kesehatan dan fasilitas pelayanan medis. Capaian ini menjadi bukti nyata komitmen PT SMI dalam menghadirkan produk berkualitas untuk mendukung peningkatan mutu layanan kesehatan di tanah air.
+          </div>
+        </div>
+        <!-- Visi & Misi -->
+        <div class="about-section-flex" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://lottie.host/32f7b709-e9c8-4729-979b-223c433765c0/RSIquOMUJW.json" background="transparent" speed="1"  loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-vision"> <div class="about-section-title">Visi & Misi</div>
+       
+            <b>Visi:</b> <br>Meningkatkan pelayanan kesehatan dan kualitas hidup umat di Indonesia.<br><br>
+            <b>Misi:</b>
+            <ul class="about-list">
+              <li>Menyediakan alat kesehatan dan produk IVD dengan kualitas tinggi.</li>
+              <li>Mengembangkan sumber daya manusia melalui lingkungan kerja yang kolaboratif, kreatif, dan sportif.</li>
+              <li>Melakukan evaluasi dan peningkatan proses bisnis secara berkesinambungan.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Budaya Perusahaan -->
+        <div class="about-section-flex reverse" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://lottie.host/23be8b09-c2e9-4fa3-9732-1f94c9ba34a6/zZOGkLhQnr.json" background="transparent" speed="1"  loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-culture">
+            <div class="about-section-title">Budaya Perusahaan – SMI TAMPAN</div>
+        <ul class="about-list">
+              <li><b>S</b> – Setia melaksanakan peraturan dan tata tertib</li>
+              <li><b>M</b> – Memanfaatkan waktu secara efektif</li>
+              <li><b>I</b> – Ikhlas dalam bekerja</li>
+              <li><b>T</b> – Teliti terhadap potensi bahaya yang mungkin timbul</li>
+              <li><b>A</b> – Analisa faktor risiko secara menyeluruh</li>
+              <li><b>M</b> – Menggunakan APD sesuai standar</li>
+              <li><b>P</b> – Pastikan kondisi selalu siap dan siaga</li>
+              <li><b>A</b> – Amati situasi agar tetap kondusif</li>
+              <li><b>N</b> – Niatkan pekerjaan sebagai ibadah agar penuh berkah</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Sertifikasi dan Standar Mutu -->
+        <div class="about-section-flex" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://lottie.host/e217885a-fb9e-4c66-97cc-73e41b4c78fc/h9RAmZuG57.json" background="transparent" speed="1"  loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-cert">
+            <div class="about-section-title">Sertifikasi dan Standar Mutu</div>
+      
+            <div class="cert-card-grid">
+              <div class="cert-card" data-aos="zoom-in" data-aos-delay="0">
+                <div class="cert-card-title">ISO 9001</div>
+                <div class="cert-card-desc">Quality Management System</div>
+              </div>
+              <div class="cert-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="cert-card-title">ISO 13485</div>
+                <div class="cert-card-desc">Medical Devices Quality Management System</div>
+              </div>
+              <div class="cert-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="cert-card-title">ISO 14001</div>
+                <div class="cert-card-desc">Environmental Management System</div>
+              </div>
+              <div class="cert-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="cert-card-title">ISO 45001</div>
+                <div class="cert-card-desc">Occupational Health & Safety Management System</div>
+              </div>
+              <div class="cert-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="cert-card-title">CPAKB</div>
+                <div class="cert-card-desc">Cara Produksi Alat Kesehatan yang Baik</div>
+              </div>
+            </div>
+            <div style="font-size:0.98em; color:#555; margin-top:8px;">
+              PT SMI tidak hanya memenuhi standar nasional dan internasional, tetapi juga konsisten menghadirkan produk yang berkualitas tinggi, aman digunakan, ramah lingkungan, dan berdaya saing global.
+            </div>
+          </div>
+        </div>
+        <!-- Keanggotaan Asosiasi -->
+        <div class="about-section-flex reverse" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://lottie.host/68de25df-07b9-40c7-a220-839cdb5d53d7/oRjtcHbuFW.json" background="transparent" speed="1"  loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-assoc">
+          <div class="about-section-title">Keanggotaan Asosiasi</div>
+          <ul class="about-list">
+              <li>ASPAKI – Asosiasi Produsen Alat Kesehatan Indonesia</li>
+              <li>GAKESLAB – Gabungan Perusahaan Alat-alat Kesehatan dan Laboratorium</li>
+              <li>HIPELKI – Himpunan Pengembangan Alat Kesehatan Indonesia</li>
+            </ul>
+            <div style="font-size:0.98em; color:#555; margin-top:8px;">
+              Keanggotaan ini menegaskan posisi PT SMI sebagai bagian dari ekosistem strategis industri alat kesehatan Indonesia, sekaligus membuka peluang sinergi, memperkuat daya saing, serta meningkatkan kontribusi perusahaan dalam pembangunan kesehatan nasional.
+            </div>
+          </div>
+        </div>
+        <!-- Komitmen -->
+        <div class="about-section-flex" data-aos="fade-up">
+          <div class="about-section-img">
+            <lottie-player src="https://lottie.host/e2f2682d-b945-405e-9f02-f2d67835076a/NMBfb1aGnL.json" background="transparent" speed="1"  loop autoplay></lottie-player>
+          </div>
+          <div class="about-section-content about-commit">
+          <div class="about-section-title">Komitmen</div>
+          Dengan landasan inovasi, penerapan standar internasional, dan jejaring industri yang luas, PT Sentral Medika Indonesia berkomitmen untuk menjadi pionir dalam industri alat kesehatan dan diagnostik laboratorium di Indonesia.<br>
+            Kami terus berupaya menghadirkan solusi kesehatan yang inovatif, berkualitas, dan berkelanjutan, serta menargetkan diri untuk berkembang menjadi salah satu pemain utama di kawasan Asia Tenggara. Dengan dedikasi penuh, PT SMI siap berkontribusi dalam meningkatkan kualitas hidup masyarakat, mendukung transformasi kesehatan nasional, dan membangun reputasi sebagai perusahaan alat kesehatan Indonesia yang berkelas dunia.
+          </div>
+        </div>
+        <!-- Milestone -->
+       
       </div>
-
     </section>
-    <!-- End About Seciton -->
 
-   
+   <div class="about-section-title center">Milestone PT Sentral Medika Indonesia</div>
+<div class="cards-container">
+  <ul class="cards" style="--items: 7;">
+    <li style="--i: 0;">
+      <input type="radio" id="item-2016" name="gallery-item" checked>
+      <label for="item-2016">2016</label>
+      <h2>2016</h2>
+      <p>Awal perjalanan dimulai sebagai distributor accessories alat kesehatan dengan hanya 2 pegawai.</p>
+    </li>
+    <li style="--i: 1;">
+      <input type="radio" id="item-2018" name="gallery-item">
+      <label for="item-2018">2018</label>
+      <h2>2018</h2>
+      <p>Melahirkan merek “ONECARE” dan meluncurkan produk perdana berupa termometer anak dan Bahan Habis Pakai (BHP) laboratorium.</p>
+    </li>
+    <li style="--i: 2;">
+      <input type="radio" id="item-2020" name="gallery-item">
+      <label for="item-2020">2020</label>
+      <h2>2020</h2>
+      <p>Berkontribusi dalam penanggulangan pandemi dengan memproduksi hazmat suit dan masker kesehatan.</p>
+    </li>
+    <li style="--i: 3;">
+      <input type="radio" id="item-2022" name="gallery-item">
+      <label for="item-2022">2022</label>
+      <h2>2022</h2>
+      <p>Tonggak penting dengan pembangunan pabrik IVD berstandar internasional serta produksi perdana reagen pewarnaan.</p>
+    </li>
+    <li style="--i: 4;">
+      <input type="radio" id="item-2023" name="gallery-item">
+      <label for="item-2023">2023</label>
+      <h2>2023</h2>
+      <p>Resmi meluncurkan rangkaian produk diagnostik seperti Instrumen & Reagen Hematologi, Reagen Golongan Darah, dan Reagen Widal.</p>
+    </li>
+    <li style="--i: 5;">
+      <input type="radio" id="item-2024" name="gallery-item">
+      <label for="item-2024">2024</label>
+      <h2>2024</h2>
+      <p>Inovasi berlanjut dengan peluncuran Instrumen & Reagen Kimia Klinik serta produk Urinalisis.</p>
+    </li>
+    <li style="--i: 6;">
+      <input type="radio" id="item-2025" name="gallery-item">
+      <label for="item-2025">2025</label>
+      <h2>2025</h2>
+      <p>Memperkuat posisi di bidang diagnostik cepat dengan meluncurkan produk POCT Gula Darah.</p>
+    </li>
+  </ul>
+</div>
+
 
 
 
@@ -469,6 +1063,13 @@
   <script src="../js/select2.min.js"></script>
   <script src="../js/main.js?v=2"></script>
   <script src="../js/produk.js?v=2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true, 
+    duration: 800 
+  });
+</script>
 
 </body>
 
