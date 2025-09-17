@@ -264,7 +264,7 @@
     <!-- End Feature Seciton -->
     <div style="margin-top: 8rem;"></div>
     <section class="container mt-5 mb-5">
-      <div class="breadcrumb" style="margin: 24px 0 16px 0; font-size: 1rem; color: #222;">
+      <div class="breadcrumb mb-4" style="margin: 24px 0 16px 0; font-size: 1rem; color: #222;">
       <a href="/product" style="color: #007bff; text-decoration: none;">Products</a> 
       <span>&nbsp; &gt; &nbsp;</span>
       <span id="breadcrumb-merek"></span>
@@ -286,7 +286,10 @@
           </div>
           <div class="col-lg-6">
             <div class="st-imagebox-info">
-
+              <div id="produk-list-merek" class="mb-4">
+  <h4>Produk lain dari merek ini:</h4>
+  <div id="produk-list-merek-items"></div>
+</div>
               <h4 class="mb-4">File yang tersedia</h4>
               <div id="file-list"></div>
 
@@ -560,6 +563,19 @@
 
     // Cari produk berdasarkan slug
     const product = products.find(p => p.slug === slug);
+
+    // List produk berdasarkan merek
+    const produkListMerek = products.filter(p => p.brand_slug === merek);
+    const produkListMerekItems = document.getElementById("produk-list-merek-items");
+    if (produkListMerek.length > 0) {
+      produkListMerekItems.innerHTML = produkListMerek.map(p => `
+        <a href="/product/${merek}/detail/${p.slug}" style="margin-right:12px; display:inline-block; padding:6px 16px; border-radius:8px; background:#f5f5f5; color:#222; text-decoration:none; margin-bottom:8px;${p.slug === slug ? 'font-weight:bold;background:#e0e0e0;' : ''}">
+          ${p.nama}
+        </a>
+      `).join('');
+    } else {
+      produkListMerekItems.innerHTML = '<em>Tidak ada produk lain untuk merek ini.</em>';
+    }
 
     if (product) {
       // Breadcrumb
