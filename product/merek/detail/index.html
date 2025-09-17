@@ -288,8 +288,11 @@
             <div class="st-imagebox-info">
               <div id="produk-list-merek" class="mb-4">
   <h4>Produk lain dari merek ini:</h4>
-  <div id="produk-list-merek-items"></div>
+  <select id="produk-list-merek-dropdown" style="width:100%;max-width:350px;padding:8px 12px;border-radius:8px;border:1px solid #ccc;">
+    <option value="">Pilih produk...</option>
+  </select>
 </div>
+
               <h4 class="mb-4">File yang tersedia</h4>
               <div id="file-list"></div>
 
@@ -564,17 +567,18 @@
     // Cari produk berdasarkan slug
     const product = products.find(p => p.slug === slug);
 
-    // List produk berdasarkan merek
+    // List produk berdasarkan merek (dropdown)
     const produkListMerek = products.filter(p => p.brand_slug === merek);
-    const produkListMerekItems = document.getElementById("produk-list-merek-items");
+    const produkDropdown = document.getElementById("produk-list-merek-dropdown");
     if (produkListMerek.length > 0) {
-      produkListMerekItems.innerHTML = produkListMerek.map(p => `
-        <a href="/product/${merek}/detail/${p.slug}" style="margin-right:12px; display:inline-block; padding:6px 16px; border-radius:8px; background:#f5f5f5; color:#222; text-decoration:none; margin-bottom:8px;${p.slug === slug ? 'font-weight:bold;background:#e0e0e0;' : ''}">
-          ${p.nama}
-        </a>
+      produkDropdown.innerHTML = produkListMerek.map(p => `
+        <option value="/product/${merek}/detail/${p.slug}" ${p.slug === slug ? 'selected' : ''}>${p.nama}</option>
       `).join('');
+      produkDropdown.onchange = function() {
+        if (this.value) window.location.href = this.value;
+      };
     } else {
-      produkListMerekItems.innerHTML = '<em>Tidak ada produk lain untuk merek ini.</em>';
+      produkDropdown.innerHTML = '<option value="">Tidak ada produk lain untuk merek ini.</option>';
     }
 
     if (product) {
