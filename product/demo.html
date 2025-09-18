@@ -129,74 +129,48 @@
   }
 </style>
 <style>
-  .produk-header-hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(90deg, #f7f7f7 60%, #fff 100%);
-    padding: 48px 0 32px 0;
-    min-height: 340px;
+  /* Parallax Hero: background tetap, section konten bergerak */
+  .st-hero-bg.st-dynamic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    will-change: transform;
+  }
+  .st-slider.st-style1.st-slider-animation1 {
     position: relative;
     z-index: 1;
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 120px;
+    padding-bottom: 0;
   }
-  .produk-header-hero .produk-header-left {
-    flex: 1;
-    padding-left: 6vw;
-    min-width: 320px;
-  }
-  .produk-header-hero .produk-header-title {
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #d32f2f;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
-  }
-  .produk-header-hero .produk-header-subtitle {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #222;
-    margin-bottom: 10px;
-  }
-  .produk-header-hero .produk-header-desc {
-    font-size: 1.25rem;
-    color: #444;
+  .st-hero-text {
+    position: relative;
+    z-index: 2;
+    margin-top: 320px;
     margin-bottom: 0;
-  }
-  .produk-header-hero .produk-header-img {
-    flex: 1;
-    text-align: right;
-    padding-right: 6vw;
-  }
-  .produk-header-hero .produk-header-img img {
-    max-width: 420px;
-    width: 100%;
-    height: auto;
-    filter: brightness(0.93) contrast(1.1);
-    border-radius: 0 0 0 32px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.0);
+    box-shadow: none;
   }
   @media (max-width: 991px) {
-    .produk-header-hero {
-      flex-direction: column;
-      text-align: center;
-      padding: 32px 0 18px 0;
-      min-height: 220px;
+    .st-slider.st-style1.st-slider-animation1 {
+      min-height: 60vh;
+      padding-top: 60px;
     }
-    .produk-header-hero .produk-header-left,
-    .produk-header-hero .produk-header-img {
-      padding: 0;
+    .st-hero-text {
+      margin-top: 120px;
     }
-    .produk-header-hero .produk-header-img img {
-      max-width: 260px;
-      border-radius: 0 0 0 18px;
-      margin-top: 18px;
-    }
-    .produk-header-hero .produk-header-title {
-      font-size: 2.1rem;
-    }
-    .produk-header-hero .produk-header-subtitle {
-      font-size: 1.3rem;
+    .st-hero-bg.st-dynamic-bg {
+      height: 60vh;
     }
   }
 </style>
@@ -297,17 +271,7 @@
   <div class="st-content">
     <div class="st-height-b125 st-height-lg-b80"></div>
 
-
-    <div class="produk-header-hero">
-  <div class="produk-header-left">
-    <div class="produk-header-title">d3TEKSI</div>
-    <div class="produk-header-subtitle">Alat Uji Medis</div>
-    <div class="produk-header-desc">Dedikasi untuk Akurasi</div>
-  </div>
-  <div class="produk-header-img">
-    <img src="../images/produk1.jpg" alt="Mikroskop" />
-  </div>
-</div>
+    
     <!-- Start Hero Seciton -->
     <div class="st-slider st-style1 st-slider-animation1">
         <div class="slick-container" data-autoplay="0" data-loop="1" data-speed="800" data-autoplay-timeout="1000"
@@ -599,7 +563,15 @@
   <script src="../js/produk.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Tambahkan efek parallax scroll ke semua .slick-container yang punya .st-hero-bg di dalamnya -->
-
+<script>
+  // Pastikan background image tetap di tempat, konten bergerak ke atas saat scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    var heroBg = document.querySelector('.st-hero-bg.st-dynamic-bg');
+    if (heroBg && heroBg.dataset.src) {
+      heroBg.style.backgroundImage = 'url(' + heroBg.dataset.src + ')';
+    }
+  });
+</script>
 </body>
   <!-- AOS Animate On Scroll JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
