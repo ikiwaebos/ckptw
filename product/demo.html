@@ -68,7 +68,12 @@
     "description": "PT. Sentral Medika Indonesia - Produsen alat kesehatan berstandar nasional yang bangga mendukung kesehatan Indonesia."
 }
 </script>
-
+<style>
+  .st-hero-bg {
+    transition: background-position 0.2s;
+    background-attachment: fixed;
+  }
+</style>
 </head>
 
 <body>
@@ -530,7 +535,16 @@
   <script src="../js/main.js?v=2"></script>
   <script src="../js/produk.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<script>
+  window.addEventListener('scroll', function() {
+    var heroBg = document.querySelector('.st-hero-bg');
+    if (heroBg) {
+      // Ambil posisi scroll dan ubah background-position Y
+      var scrolled = window.scrollY;
+      heroBg.style.backgroundPosition = 'center ' + (scrolled * 0.3) + 'px';
+    }
+  });
+</script>
 </body>
   <!-- AOS Animate On Scroll JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
