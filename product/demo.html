@@ -69,9 +69,27 @@
 }
 </script>
 <style>
+  /* Parallax effect: hero stays, content moves up */
   .st-hero-bg {
-    transition: background-position 0.2s;
-    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+  }
+  .st-hero {
+    position: relative;
+    z-index: 1;
+  }
+  .st-content {
+    position: relative;
+    z-index: 2;
+    background: transparent;
   }
 </style>
 </head>
@@ -537,12 +555,12 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Tambahkan efek parallax scroll ke semua .slick-container yang punya .st-hero-bg di dalamnya -->
 <script>
-  window.addEventListener('scroll', function() {
-    // Untuk semua .slick-container
-    document.querySelectorAll('.slick-container .st-hero-bg').forEach(function(heroBg) {
-      var scrolled = window.scrollY;
-      heroBg.style.backgroundPosition = 'center ' + (scrolled * 0.7) + 'px';
-    });
+  // Pastikan background image tetap di tempat, body/content bergerak
+  document.addEventListener('DOMContentLoaded', function() {
+    var heroBg = document.querySelector('.st-hero-bg');
+    if (heroBg && heroBg.dataset.src) {
+      heroBg.style.backgroundImage = 'url(' + heroBg.dataset.src + ')';
+    }
   });
 </script>
 </body>
