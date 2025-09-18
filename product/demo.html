@@ -535,14 +535,14 @@
   <script src="../js/main.js?v=2"></script>
   <script src="../js/produk.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Tambahkan efek parallax scroll ke semua .slick-container yang punya .st-hero-bg di dalamnya -->
 <script>
   window.addEventListener('scroll', function() {
-    var heroBg = document.querySelector('.st-hero-bg');
-    if (heroBg) {
-      // Ambil posisi scroll dan ubah background-position Y
+    // Untuk semua .slick-container
+    document.querySelectorAll('.slick-container .st-hero-bg').forEach(function(heroBg) {
       var scrolled = window.scrollY;
-      heroBg.style.backgroundPosition = 'center ' + (scrolled * 0.3) + 'px';
-    }
+      heroBg.style.backgroundPosition = 'center ' + (scrolled * 0.7) + 'px';
+    });
   });
 </script>
 </body>
