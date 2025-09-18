@@ -92,6 +92,66 @@
     background: transparent;
   }
 </style>
+<style>
+  .produk-card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: flex-start;
+    margin-bottom: 32px;
+  }
+  .produk-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px 0 rgba(90,24,154,0.08);
+    padding: 32px 24px 24px 24px;
+    width: 260px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .produk-card:hover {
+    box-shadow: 0 8px 32px 0 rgba(90,24,154,0.18);
+    transform: translateY(-8px) scale(1.03);
+  }
+  .produk-card-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .produk-card-title {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.15rem;
+    color: #6c6c6c;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+  }
+  @media (max-width: 767px) {
+    .produk-card-grid {
+      gap: 18px;
+      justify-content: center;
+    }
+    .produk-card {
+      width: 100%;
+      min-width: 0;
+      padding: 18px 8px;
+    }
+    .produk-card-img {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 12px;
+    }
+  }
+</style>
 </head>
 
 <body>
@@ -278,83 +338,8 @@
         <div class="st-height-b40 st-height-lg-b40"></div>
       </div>
      <!-- produknya -->
-      <style>
-        .brand-card .card {
-          border: none;
-          border-radius: 24px;
-          background: rgba(255,255,255,0.18);
-          box-shadow: 0 8px 32px 0 rgba(31, 43, 212, 0.26);
-          backdrop-filter: blur(8px) saturate(1.2);
-          -webkit-backdrop-filter: blur(8px) saturate(1.2);
-          transition: transform 0.35s cubic-bezier(.4,2,.6,1), box-shadow 0.35s, border 0.3s;
-          overflow: hidden;
-          position: relative;
-          border: 1.5px solid rgba(90,24,154,0.08);
-        }
-        .brand-card .card:hover {
-          transform: translateY(-12px) scale(1.045);
-          box-shadow: 0 20px 48px 0 rgba(90,24,154,0.18), 0 1.5px 8px 0 rgba(31,38,135,0.08);
-          border: 1.5px solid #3f3cf522;
-        }
-        .brand-card .card-img-top {
-          border-radius: 50%;
-          background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-          padding: 18px;
-          margin-bottom: 10px;
-          box-shadow: 0 4px 16px 0 rgba(142,197,252,0.10);
-          width: 200px !important;
-          height: 200px !important;
-          object-fit: contain;
-          border: 3px solid #fff;
-        }
-        .brand-card .card-title {
-          font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
-          font-weight: 600;
-          font-size: 1.15rem;
-          letter-spacing: 0.5px;
-          color: #000000;
-          margin-top: 12px;
-          margin-bottom: 0;
-          text-shadow: 0 1px 2px rgba(90,24,154,0.06);
-        }
-        .brand-card .card-body {
-          background: none;
-          padding-bottom: 18px;
-        }
-        .brand-card .card::after {
-          content: '';
-          position: absolute;
-          left: 0; right: 0; top: 0; bottom: 0;
-          border-radius: 24px;
-          pointer-events: none;
-          box-shadow: 0 2px 24px 0 rgba(34, 70, 233, 0.04) inset;
-        }
-        .brand-card .card:hover::before {
-          content: '';
-          position: absolute;
-          left: 50%; top: 50%;
-          width: 120%; height: 120%;
-          background: radial-gradient(circle, #e0c3fc33 0%, transparent 70%);
-          transform: translate(-50%,-50%);
-          z-index: 1;
-        }
-        @media (max-width: 767px) {
-          .brand-card .card-img-top {
-            width: 70px !important;
-            height: 70px !important;
-          }
-           #brand-list .card-img-top {
-    width: 120px !important;
-    height: 120px !important;
-    padding: 10px !important;
-  }
-  #brand-list .card {
-    border-radius: 16px;
-    padding: 8px 0;
-  }
-        }
-      </style>
-      <div class="row" id="brand-list" style="justify-content:center; gap:20px;"></div>
+
+      <div class="produk-card-grid" id="brand-list"></div>
 
 
       <div class="st-height-b120 st-height-lg-b80"></div>
@@ -572,25 +557,19 @@
       duration: 900
     });
   </script>
-  <script>
+<script>
   fetch('https://portal.sentralmedika.co.id/api/brands')
     .then(res => res.json())
     .then(res => {
       if(res.success) {
         document.getElementById('brand-list').innerHTML = res.data.map((b, i) => `
-          <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="${i*100}">
-            <a href="/product/${b.slug}/" class="brand-card" style="text-decoration:none; color:inherit;">
-              <div class="card h-100 text-center">
-                <img src="${b.foto}" class="card-img-top mx-auto mt-3" alt="${b.nama}" style="width:200px; height:200px; object-fit:contain;">
-                <div class="card-body">
-                  <h5 class="card-title">${b.nama}</h5>
-                </div>
-              </div>
-            </a>
-          </div>
+          <a href="/product/${b.slug}/" class="produk-card" data-aos="fade-up" data-aos-delay="${i*100}">
+            <img src="${b.foto}" class="produk-card-img" alt="${b.nama}">
+            <div class="produk-card-title">${b.nama}</div>
+          </a>
         `).join('');
       }
     });
-  </script>
+</script>
 
 </html>
