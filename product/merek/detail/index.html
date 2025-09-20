@@ -342,8 +342,7 @@
     gap: 15px;
   }
 
-  .produk-link-card-body::before {
-    content: '';
+  .file-icon {
     width: 50px;
     height: 50px;
     background: linear-gradient(45deg, #5a189a, #8ec5fc);
@@ -352,57 +351,11 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    position: relative;
+    font-size: 1.5rem;
   }
 
-  .produk-link-card-body::after {
-    content: '\f15b'; /* Default file icon */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: absolute;
-    left: 25px;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 1.2rem;
-  }
-
-  /* Dynamic icons based on file type */
-  .produk-link-card[data-file-type="pdf"] .produk-link-card-body::after {
-    content: '\f1c1'; /* fa-file-pdf */
-  }
-
-  .produk-link-card[data-file-type="doc"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="docx"] .produk-link-card-body::after {
-    content: '\f1c2'; /* fa-file-word */
-  }
-
-  .produk-link-card[data-file-type="xls"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="xlsx"] .produk-link-card-body::after {
-    content: '\f1c3'; /* fa-file-excel */
-  }
-
-  .produk-link-card[data-file-type="ppt"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="pptx"] .produk-link-card-body::after {
-    content: '\f1c4'; /* fa-file-powerpoint */
-  }
-
-  .produk-link-card[data-file-type="jpg"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="jpeg"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="png"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="gif"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="webp"] .produk-link-card-body::after {
-    content: '\f1c5'; /* fa-file-image */
-  }
-
-  .produk-link-card[data-file-type="zip"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="rar"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="7z"] .produk-link-card-body::after {
-    content: '\f1c6'; /* fa-file-archive */
-  }
-
-  .produk-link-card[data-file-type="txt"] .produk-link-card-body::after {
-    content: '\f15c'; /* fa-file-text */
+  .file-icon i {
+    color: white !important;
   }
 
   .produk-link-card-title {
@@ -1239,6 +1192,38 @@
 
       // File produk
       const fileList = document.getElementById("file-list");
+      
+      // Function to get icon based on file extension
+      function getFileIcon(extension) {
+        switch(extension.toLowerCase()) {
+          case 'pdf':
+            return '<i class="fas fa-file-pdf" style="color: #e74c3c;"></i>';
+          case 'doc':
+          case 'docx':
+            return '<i class="fas fa-file-word" style="color: #2980b9;"></i>';
+          case 'xls':
+          case 'xlsx':
+            return '<i class="fas fa-file-excel" style="color: #27ae60;"></i>';
+          case 'ppt':
+          case 'pptx':
+            return '<i class="fas fa-file-powerpoint" style="color: #e67e22;"></i>';
+          case 'jpg':
+          case 'jpeg':
+          case 'png':
+          case 'gif':
+          case 'webp':
+            return '<i class="fas fa-file-image" style="color: #9b59b6;"></i>';
+          case 'zip':
+          case 'rar':
+          case '7z':
+            return '<i class="fas fa-file-archive" style="color: #f39c12;"></i>';
+          case 'txt':
+            return '<i class="fas fa-file-alt" style="color: #7f8c8d;"></i>';
+          default:
+            return '<i class="fas fa-file" style="color: #95a5a6;"></i>';
+        }
+      }
+      
       fileList.innerHTML = (product.files || []).map(l => {
         // Extract file extension from URL
         const urlParts = l.url.split('.');
@@ -1247,10 +1232,13 @@
         // Debug: log file extension detection
         console.log('File URL:', l.url, 'Extension:', fileExtension);
         
+        const iconHtml = getFileIcon(fileExtension);
+        
         return `
-        <div class="produk-link-card" data-file-type="${fileExtension}">
+        <div class="produk-link-card">
           <a href="${l.url}" target="_blank">
             <div class="produk-link-card-body">
+              <div class="file-icon">${iconHtml}</div>
               <div class="produk-link-card-title">${l.title}</div>
             </div>
           </a>
