@@ -1010,37 +1010,37 @@
             <div class="slick-wrapper">
               <div class="slick-slide-in">
                 <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="100">
-                  <img src="../../images/onecare.png" alt="OneCare">
+                  <img src="../../../images/onecare.png" alt="OneCare">
                 </div>
               </div>
               <div class="slick-slide-in">
                 <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="200">
-                  <img src="../../images/onetech.png" alt="OneTech">
+                  <img src="../../../images/onetech.png" alt="OneTech">
                 </div>
               </div>
               <div class="slick-slide-in">
                 <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="300">
-                  <img src="../../images/hemapro.png" alt="HemaPro">
+                  <img src="../../../images/hemapro.png" alt="HemaPro">
                 </div>
               </div>
               <div class="slick-slide-in">
                 <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="400">
-                  <img src="../../images/java.png" alt="Java">
+                  <img src="../../../images/java.png" alt="Java">
                 </div>
               </div>
               <div class="slick-slide-in">
                 <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="500">
-                  <img src="../../images/medimax.png" alt="Medimax">
+                  <img src="../../../images/medimax.png" alt="Medimax">
                 </div>
               </div>
               <div class="slick-slide-in">
                 <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="600">
-                  <img src="../../images/danur.png" alt="Danur">
+                  <img src="../../../images/danur.png" alt="Danur">
                 </div>
               </div>
               <div class="slick-slide-in">
                 <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="700">
-                  <img src="../../images/lis.png" alt="LIS">
+                  <img src="../../../images/lis.png" alt="LIS">
                 </div>
               </div>
             </div>
@@ -1313,6 +1313,63 @@
       easing: 'ease-in-out',
       once: true,
       mirror: false
+    });
+  </script>
+
+  <!-- Dynamic File Type Detection for External URLs -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Function to get file extension from URL
+      function getFileExtension(url) {
+        // Remove query parameters and fragments
+        const cleanUrl = url.split('?')[0].split('#')[0];
+        const fileName = cleanUrl.split('/').pop();
+        const extension = fileName.split('.').pop().toLowerCase();
+        return extension;
+      }
+
+      // Function to set file type icon based on extension
+      function setFileTypeIcon(card, extension) {
+        card.setAttribute('data-file-type', extension);
+      }
+
+      // Find all produk-link-card elements and check their links
+      const produkCards = document.querySelectorAll('.produk-link-card');
+      
+      produkCards.forEach(function(card) {
+        const link = card.querySelector('a');
+        if (link && link.href) {
+          const fileExtension = getFileExtension(link.href);
+          
+          // Set the data-file-type attribute for CSS styling
+          if (fileExtension) {
+            setFileTypeIcon(card, fileExtension);
+          }
+        }
+      });
+
+      // Also handle dynamically loaded content
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType === 1 && node.classList && node.classList.contains('produk-link-card')) {
+              const link = node.querySelector('a');
+              if (link && link.href) {
+                const fileExtension = getFileExtension(link.href);
+                if (fileExtension) {
+                  setFileTypeIcon(node, fileExtension);
+                }
+              }
+            }
+          });
+        });
+      });
+
+      // Start observing
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
     });
   </script>
 
