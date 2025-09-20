@@ -59,6 +59,332 @@
   <link rel="stylesheet" href="../../css/select2.min.css">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/produk.css?v=2">
+  
+  <style>
+    /* Modern Product Section Styles */
+    .modern-product-section {
+      background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding-left: calc(50vw - 50%);
+      padding-right: calc(50vw - 50%);
+      padding-bottom: 7svh;
+      padding-top: 7svh;
+    }
+
+    .modern-product-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+      background-size: cover;
+    }
+
+    .product-content-block {
+      position: relative;
+      z-index: 2;
+    }
+
+    .product-sec-title {
+      margin-bottom: 30px;
+    }
+
+    .product-sec-title h6 {
+      display: inline-block;
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .product-sec-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+
+    .product-highlight {
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .product-description {
+      margin: 25px 0;
+    }
+
+    .product-description p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
+      font-weight: 500;
+    }
+
+    .product-image-container {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-main-image {
+      max-width: 400px;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(90, 24, 154, 0.15);
+      transition: all 0.4s ease;
+      background: white;
+      padding: 20px;
+    }
+
+    .product-main-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 45px rgba(90, 24, 154, 0.25);
+    }
+
+    .product-floating-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .product-floating-card {
+      position: absolute;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(90, 24, 154, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: #5a189a;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .product-floating-card i {
+      font-size: 1.2rem;
+      color: #8ec5fc;
+    }
+
+    .product-floating-card.card-1 {
+      top: 15%;
+      right: 10%;
+      animation-delay: 0s;
+    }
+
+    .product-floating-card.card-2 {
+      bottom: 20%;
+      left: 5%;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .modern-accordion {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(90, 24, 154, 0.1);
+      margin-bottom: 15px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .modern-accordion:hover {
+      border-color: rgba(142, 197, 252, 0.3);
+      box-shadow: 0 10px 30px rgba(90, 24, 154, 0.15);
+    }
+
+    .modern-accordion-header {
+      padding: 20px 25px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+      border: none;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .modern-accordion-header:hover {
+      background: linear-gradient(135deg, #f0f7fa 0%, #f8f9ff 100%);
+    }
+
+    .modern-accordion-header.active {
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      color: white;
+    }
+
+    .modern-accordion-content {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modern-accordion-content.active {
+      padding: 20px 25px;
+      max-height: 300px;
+    }
+
+    .modern-accordion-content p {
+      color: #64748b;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .accordion-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .modern-accordion-header.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Brand Carousel Modern Style */
+    .brand-carousel-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding-left: calc(50vw - 50%);
+      padding-right: calc(50vw - 50%);
+      padding: 80px calc(50vw - 50%) 80px;
+    }
+
+    .brand-carousel-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,0 Q250,50 500,0 T1000,0 V100 H0 Z" fill="%23ffffff" opacity="0.05"/></svg>') no-repeat bottom;
+      background-size: cover;
+    }
+
+    .brand-section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-section-title h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .modern-brand-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modern-brand-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .modern-brand-card:hover::before {
+      opacity: 1;
+    }
+
+    .modern-brand-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    }
+
+    .modern-brand-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      transition: all 0.4s ease;
+    }
+
+    .modern-brand-card:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .product-sec-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .product-image-container {
+        height: 350px;
+        margin-top: 30px;
+      }
+      
+      .product-main-image {
+        max-width: 300px;
+        max-height: 300px;
+      }
+      
+      .product-floating-card {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+      }
+      
+      .brand-section-title h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -198,28 +524,51 @@
           <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
         </div>
       </div><!-- .st-slider -->
-    <!-- End Hero Seciton -->
-<p></p>
-    <!-- Start Feature Seciton -->
+    <!-- End Hero Section -->
 
+<section class="modern-product-section" data-aos="fade-up">
+  <div class="auto-container">
+    <div class="row align-items-center clearfix">
+      
+      <!-- Content Section -->
+      <div class="col-lg-6 col-md-12 col-sm-12 content-column" data-aos="fade-right">
+        <div class="product-content-block">
+          <div class="content-box">
+            <div class="product-sec-title">
+              <h6>Our Products</h6>
+              <h2 id="brand-nama-title">Brand <span class="product-highlight">Products</span></h2>
+            </div>
+            
+            <div class="product-description">
+              <p id="brand-deskripsi-main">
+                Discover our comprehensive range of high-quality medical equipment and diagnostic solutions designed to meet the needs of modern healthcare facilities.
+              </p>
+            </div>
 
-    <!-- End Feature Seciton -->
-<div style="margin-top: 8rem;"></div>
-
-<section class="container mt-5 mb-5">
-  <div class="st-imagebox st-style2">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="st-imagebox-img">
-          <img id="brand-img" width="505px" alt="">
-          <h3 class="st-imagebox-title mt-2"><span id="brand-nama"></span></h3>
-          <p style="text-align: justify;" id="brand-deskripsi"></p>
+            <!-- Product Categories Accordion -->
+            <div id="modern-produk-accordions">
+              <!-- Modern accordions will be injected here -->
+            </div>
+          </div>
         </div>
-        <div class="st-height-b0 st-height-lg-b30"></div>
       </div>
-      <div class="col-lg-6">
-        <div class="st-imagebox-info" id="produk-accordions">
-          <!-- Accordions will be injected here -->
+
+      <!-- Image Section -->
+      <div class="col-lg-6 col-md-12 col-sm-12 image-column" data-aos="fade-left">
+        <div class="product-image-container">
+          <div class="product-image-wrapper">
+            <div class="product-floating-elements">
+              <div class="product-floating-card card-1" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fas fa-award"></i>
+                <span>Certified</span>
+              </div>
+              <div class="product-floating-card card-2" data-aos="zoom-in" data-aos-delay="500">
+                <i class="fas fa-shield-alt"></i>
+                <span>Quality</span>
+              </div>
+            </div>
+            <img id="brand-img-modern" class="product-main-image" src="" alt="Product Image">
+          </div>
         </div>
       </div>
     </div>
@@ -267,73 +616,67 @@
       </div>
     </section>
 
-    <!-- Start Logo Carousel -->
-   
-    <div class="st-section-heading st-style1">
-        <h2 class="st-section-heading-title">Our Brand</h2>
-        <div class="st-seperator">
-          <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-          <div class="st-seperator-center"><img src="../../images/logopolos.jpg" alt="icon"></div>
-          <div class="st-seperator-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-        </div>
-        <div class="st-section-heading-subtitle"></div>
-      </div>
-    <div class="st-gray-bg mt-5">
+    <!-- Start Brand Carousel -->
+    <section class="brand-carousel-section" data-aos="fade-up">
       <div class="container">
-        <div class="st-slider st-style2 st-pricing-wrap">
-          <div class="slick-container" data-autoplay="0" data-loop="1" data-speed="600" data-center="0"
+        <div class="brand-section-title">
+          <h2>Our <span style="color: #8ec5fc;">Brands</span></h2>
+          <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-top: 15px;">
+            Trusted medical equipment brands for modern healthcare
+          </p>
+        </div>
+        
+        <div class="st-slider st-style2">
+          <div class="slick-container" data-autoplay="1" data-loop="1" data-speed="600" data-center="0"
             data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2" data-md-slides="3"
             data-lg-slides="4" data-add-slides="5">
             <div class="slick-wrapper">
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-orange-box">
-                  <img src="../../images/onecare.png" alt="client1">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="100">
+                  <img src="../../images/onecare.png" alt="OneCare">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-blue-box">
-                  <img src="../../images/onetech.png" alt="client2">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="200">
+                  <img src="../../images/onetech.png" alt="OneTech">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-red-box">
-                  <img src="../../images/hemapro.png" alt="client3">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="300">
+                  <img src="../../images/hemapro.png" alt="HemaPro">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-green-box">
-                  <img src="../../images/java.png" alt="client4">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="400">
+                  <img src="../../images/java.png" alt="Java">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-dip-blue-box">
-                  <img src="../../images/medimax.png" alt="client5">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="500">
+                  <img src="../../images/medimax.png" alt="Medimax">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-orange-box">
-                  <img src="../../images/danur.png" alt="client1">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="600">
+                  <img src="../../images/danur.png" alt="Danur">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-orange-box">
-                  <img src="../../images/lis.png" alt="client1">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="700">
+                  <img src="../../images/lis.png" alt="LIS">
                 </div>
               </div>
-
             </div>
           </div><!-- .slick-container -->
           <div class="pagination st-style1 st-flex st-hidden"></div>
-          <!-- If dont need Pagination then add class .st-hidden -->
-          <div class="swipe-arrow st-style1"> <!-- If dont need navigation then add class .st-hidden -->
+          <div class="swipe-arrow st-style1">
             <div class="slick-arrow-left"><i class="fa fa-chevron-left"></i></div>
             <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
           </div>
         </div><!-- .st-slider -->
       </div>
-      <div class="st-height-b120 st-height-lg-b80"></div>
-    </div>
-    <!-- End Logo Carousel -->
+    </section>
+    <!-- End Brand Carousel -->
 
 
     <div class="st-google-map">
@@ -462,7 +805,6 @@
 <script>
 async function loadBrandAndProducts() {
   // Ambil slug merek dari URL, otomatis setelah '/product/'
-  // Contoh: /product/onecare, /product/onecare/detail/xxx
   const pathParts = window.location.pathname.split('/');
   const productIdx = pathParts.indexOf('product');
   let slug = '';
@@ -482,10 +824,10 @@ async function loadBrandAndProducts() {
   const brand = brands.find(b => b.slug === slug);
   if (!brand) return;
 
-  // Tampilkan info brand
-  document.getElementById('brand-img').src = brand.foto;
-  document.getElementById('brand-nama').textContent = brand.nama;
-  document.getElementById('brand-deskripsi').textContent = brand.deskripsi;
+  // Tampilkan info brand - update untuk struktur baru
+  document.getElementById('brand-img-modern').src = brand.foto;
+  document.getElementById('brand-nama-title').innerHTML = `${brand.nama} <span class="product-highlight">Products</span>`;
+  document.getElementById('brand-deskripsi-main').textContent = brand.deskripsi;
 
   // Filter produk sesuai brand_slug
   const filteredProducts = products.filter(p => p.brand_slug === slug);
@@ -497,51 +839,80 @@ async function loadBrandAndProducts() {
     kategoriMap[p.kategori].push(p);
   });
 
-  // Render accordion per kategori
-  const container = document.getElementById('produk-accordions');
+  // Render modern accordion per kategori
+  const container = document.getElementById('modern-produk-accordions');
   container.innerHTML = '';
-  Object.keys(kategoriMap).forEach(kat => {
+  Object.keys(kategoriMap).forEach((kat, index) => {
     const items = kategoriMap[kat].map(p =>
-      `<a href="/product/${slug}/detail/${p.slug}">${p.nama}</a><hr>`
+      `<a href="/product/${slug}/detail/${p.slug}" style="color: #64748b; text-decoration: none; display: block; padding: 8px 0; border-bottom: 1px solid #e2e8f0; transition: color 0.3s ease;" onmouseover="this.style.color='#5a189a'" onmouseout="this.style.color='#64748b'">${p.nama}</a>`
     ).join('');
+    
     container.innerHTML += `
-      <div class="custom-accordian">
-        <div class="custom-accordian-title">${kat}
-          <span class="custom-accordian-toggle fa fa-angle-down"></span>
+      <div class="modern-accordion" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+        <button class="modern-accordion-header" data-category="${kat}">
+          ${kat}
+          <i class="fas fa-chevron-down accordion-icon"></i>
+        </button>
+        <div class="modern-accordion-content">
+          <div style="padding: 10px 0;">
+            ${items}
+          </div>
         </div>
-        <div class="custom-accordian-body">${items}</div>
       </div>
     `;
   });
 
-  // Inisialisasi event listener accordion setelah render
-  document.querySelectorAll('.custom-accordian-title').forEach(function(title) {
-    title.addEventListener('click', function() {
-      const body = this.nextElementSibling;
-      if (body.style.display === 'block') {
-        body.style.display = 'none';
+  // Inisialisasi event listener accordion modern
+  document.querySelectorAll('.modern-accordion-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('.accordion-icon');
+      
+      // Close all other accordions
+      document.querySelectorAll('.modern-accordion-header').forEach(function(otherHeader) {
+        if (otherHeader !== header) {
+          otherHeader.classList.remove('active');
+          otherHeader.nextElementSibling.classList.remove('active');
+          otherHeader.querySelector('.accordion-icon').style.transform = 'rotate(0deg)';
+        }
+      });
+      
+      // Toggle current accordion
+      this.classList.toggle('active');
+      content.classList.toggle('active');
+      
+      if (this.classList.contains('active')) {
+        icon.style.transform = 'rotate(180deg)';
       } else {
-        body.style.display = 'block';
+        icon.style.transform = 'rotate(0deg)';
       }
-      // Optional: toggle icon direction
-      const icon = this.querySelector('.fa');
-      if (icon) icon.classList.toggle('fa-angle-down');
-      if (icon) icon.classList.toggle('fa-angle-up');
     });
-    // Default: hide all bodies
-    const body = title.nextElementSibling;
-    if (body) body.style.display = 'none';
   });
 }
-loadBrandAndProducts();
+
+// Initialize AOS and load content
+document.addEventListener('DOMContentLoaded', function() {
+  loadBrandAndProducts();
+});
+</script>
 </script>
   <!-- AOS Animate On Scroll JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
+    // Initialize AOS
     AOS.init({
       once: true,
-      duration: 900
+      duration: 900,
+      easing: 'ease-out-cubic'
     });
+    
+    // Reinitialize AOS after dynamic content loading
+    function refreshAOS() {
+      AOS.refresh();
+    }
+    
+    // Call refresh after a short delay to ensure content is loaded
+    setTimeout(refreshAOS, 1000);
   </script>
 
 
