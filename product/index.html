@@ -1,8 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
+  <!-- AOS Animate On Scroll CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -67,7 +68,547 @@
     "description": "PT. Sentral Medika Indonesia - Produsen alat kesehatan berstandar nasional yang bangga mendukung kesehatan Indonesia."
 }
 </script>
+<style>
+/* Modern Products Section Styles */
+.products-modern-section {
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+  padding-bottom: 7svh;
+  padding-top: 7svh;
+}
 
+.products-modern-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+  background-size: cover;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.sec-title-modern {
+  margin-bottom: 30px;
+}
+
+.subtitle-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.highlight-text {
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description-text {
+  margin: 25px 0;
+}
+
+.description-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  font-weight: 500;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.modern-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.modern-product-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(90, 24, 154, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.modern-product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(90, 24, 154, 0.05), rgba(142, 197, 252, 0.05));
+  opacity: 0;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.modern-product-card:hover::before {
+  opacity: 1;
+}
+
+.modern-product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(90, 24, 154, 0.2);
+  border-color: rgba(142, 197, 252, 0.3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.modern-product-image {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(45deg, #f8fafc, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.modern-product-card:hover .modern-product-image {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.modern-product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 4px 15px rgba(0,0,0,0.1));
+}
+
+.modern-product-card:hover .modern-product-image img {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1) drop-shadow(0 4px 15px rgba(255,255,255,0.3));
+}
+
+.modern-product-info {
+  padding: 25px;
+  text-align: center;
+}
+
+.modern-product-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  line-height: 1.3;
+  transition: all 0.4s ease;
+}
+
+.modern-product-card:hover .modern-product-title {
+  color: #5a189a;
+}
+
+.products-cta {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 50px 40px;
+  border: 2px solid rgba(142, 197, 252, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.cta-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.modern-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(90, 24, 154, 0.2);
+}
+
+.modern-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(90, 24, 154, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.modern-btn i {
+  transition: transform 0.3s ease;
+}
+
+.modern-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 1.8rem;
+  }
+  
+  .modern-products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .modern-product-image {
+    height: 150px;
+    padding: 20px;
+  }
+  
+  .modern-product-info {
+    padding: 20px;
+  }
+  
+  .modern-product-title {
+    font-size: 1.1rem;
+  }
+  
+  .products-cta {
+    padding: 30px 20px;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Legacy styles for compatibility */
+.produk-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-start;
+  margin-bottom: 32px;
+}
+  .produk-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px 0 rgba(90,24,154,0.08);
+    padding: 32px 24px 24px 24px;
+    width: 260px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .produk-card:hover {
+    box-shadow: 0 8px 32px 0 rgba(90,24,154,0.18);
+    transform: translateY(-8px) scale(1.03);
+  }
+  .produk-card-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .produk-card-title {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.15rem;
+    color: #6c6c6c;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+  }
+  @media (max-width: 767px) {
+    .produk-card-grid {
+      gap: 18px;
+      justify-content: center;
+    }
+    .produk-card {
+      width: 100%;
+      min-width: 0;
+      padding: 18px 8px;
+    }
+    .produk-card-img {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 12px;
+    }
+  }
+</style>
+<style>
+.hero-wrap {
+  height: 100vh;
+  min-height: 100%;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.hero-wrap .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+  background: linear-gradient(135deg, rgba(90, 24, 154, 0.8) 0%, rgba(102, 126, 234, 0.6) 100%);
+  z-index: 1;
+}
+
+.hero-wrap.modern-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-wrap .slider-text {
+  height: 100vh;
+  min-height: 750px;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 3;
+  position: relative;
+}
+
+.hero-wrap .slider-text .text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-wrap .slider-text .subheading {
+  display: inline-block;
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+  font-weight: 700;
+  color: #fff;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 25px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.highlight-text {
+  background: linear-gradient(45deg, #8ec5fc, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-wrap .slider-text p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 35px;
+  font-weight: 500;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.modern-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(90, 24, 154, 0.3);
+  border: none;
+}
+
+.modern-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(90, 24, 154, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.modern-btn i {
+  transition: transform 0.3s ease;
+}
+
+.modern-btn:hover i {
+  transform: translateX(5px);
+}
+
+.modern-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: white;
+  padding: 15px 35px;
+  border: 2px solid white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+}
+
+.modern-btn-outline:hover {
+  background: white;
+  color: #5a189a;
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+.hero-image-section {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.floating-card {
+  position: absolute;
+  background: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #5a189a;
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-card i {
+  font-size: 1.2rem;
+  color: #8ec5fc;
+}
+
+.card-1 {
+  top: 15%;
+  right: 20%;
+  animation-delay: 0s;
+}
+
+.card-2 {
+  top: 50%;
+  left: 10%;
+  animation-delay: 1s;
+}
+
+.card-3 {
+  bottom: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modern-btn, .modern-btn-outline {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .hero-image-section {
+    height: 300px;
+    margin-top: 40px;
+  }
+  
+  .floating-card {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -163,42 +704,98 @@
   <!-- End Header Section -->
 
   <div class="st-content">
-    <div class="st-height-b125 st-height-lg-b80"></div>
+
+    
     <!-- Start Hero Seciton -->
-    <div class="st-slider st-style1 st-slider-animation1">
-        <div class="slick-container" data-autoplay="0" data-loop="1" data-speed="800" data-autoplay-timeout="1000"
-          data-center="0" data-slides-per-view="1">
-          <div class="slick-wrapper">
-            <div class="slick-slide-in">
-              <div class="st-hero st-style1 st-size1">
-                <div class="st-hero-bg st-dynamic-bg st-bg" data-src="../images/hpage.gif"
-                  style="background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; height: 100vh;">
+    <section class="hero-wrap modern-hero" style="background-image: url('../images/produk2.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center">
+          <div class="col-lg-6">
+            <div class="text mt-5 pt-5" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
+              <span class="subheading">Produk Unggulan</span>
+              <h1 class="mb-4">Solusi Kesehatan <span class="highlight-text">Terdepan</span></h1>
+              <p class="mb-4">PT SMI menyediakan berbagai instrumen dan reagen laboratorium medis berkualitas tinggi untuk mendukung pemeriksaan yang akurat dan efisien.</p>
+              <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary modern-btn">
+                  <span>Lihat Produk</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-outline modern-btn-outline">
+                  <span>Hubungi Kami</span>
+                  <i class="fas fa-phone"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image-section" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">
+              <div class="floating-elements">
+                <div class="floating-card card-1">
+                  <i class="fas fa-microscope"></i>
+                  <span>Lab Quality</span>
                 </div>
-  
-                <div class="container">
-                  <div class="st-hero-text">
-                    <h1 class="text-center">
-                       ~ PRODUCT ~
-                    </h1>
-                  
-                 
-                    <div class="st-height-b15 st-height-lg-b15"></div>
-                  </div>
+                <div class="floating-card card-2">
+                  <i class="fas fa-certificate"></i>
+                  <span>Certified</span>
+                </div>
+                <div class="floating-card card-3">
+                  <i class="fas fa-award"></i>
+                  <span>Terpercaya</span>
                 </div>
               </div>
             </div>
-  
           </div>
-        </div><!-- .slick-container -->
-        <div class="pagination st-style2 st-hidden"></div> <!-- If dont need Pagination then add class .st-hidden -->
-        <div class="swipe-arrow st-style2"> <!-- If dont need navigation then add class .st-hidden -->
-          <div class="slick-arrow-left"><i class="fa fa-chevron-left"></i></div>
-          <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
         </div>
-      </div><!-- .st-slider -->
-    <!-- End Hero Seciton -->
-<p></p>
-    <!-- Start Feature Seciton -->
+      </div>
+    </section>
+
+    <!-- End Feature Seciton -->
+
+   
+    <!-- Start Product Section -->
+    <section id="Product">
+     
+      <div class="container">
+        
+    <!-- Start Products Section -->
+    <section class="products-modern-section sec-pad-2" data-aos="fade-up">
+      <div class="auto-container">
+        <!-- Header Section -->
+        <div class="products-header" data-aos="fade-down" data-aos-delay="200">
+          <div class="sec-title-modern">
+            <span class="subtitle-badge">Produk Unggulan</span>
+            <h2 class="main-title">Katalog Produk <span class="highlight-text">PT SMI</span></h2>
+          </div>
+          <div class="description-text">
+            <p>Jelajahi berbagai kategori produk berkualitas tinggi dari PT Sentral Medika Indonesia untuk kebutuhan laboratorium dan diagnostik medis.</p>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="modern-products-grid" id="brand-list-modern">
+          <!-- Products will be loaded here -->
+        </div>
+
+        <!-- CTA Section -->
+        <div class="products-cta" data-aos="fade-up" data-aos-delay="300">
+          <div class="cta-content">
+            <h3>Butuh Konsultasi Produk?</h3>
+            <p>Tim ahli kami siap membantu Anda memilih produk yang tepat sesuai kebutuhan</p>
+            <a href="mailto:office@sentralmedika.co.id" class="modern-btn">
+              <span>Hubungi Kami</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+    <!-- End department Section -->
+
+
+
+      <!-- Start Feature Seciton -->
     <section>
     
       <div class="container">
@@ -235,1278 +832,7 @@
       </div>
     </section>
 
-    <!-- End Feature Seciton -->
-
-   
-    <!-- Start Product Section -->
-    <section id="Product">
-      <div class="st-height-b120 st-height-lg-b80"></div>
-      <div class="container">
-        <div class="st-section-heading st-style1">
-          <h2 class="st-section-heading-title">Our Product</h2>
-          <div class="st-seperator">
-            <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-            <div class="st-seperator-center"><img src="../images/logopolos.jpg" alt="icon"></div>
-            <div class="st-seperator-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-          </div>
-          <div class="st-section-heading-subtitle"></div>
-        </div>
-        <div class="st-height-b40 st-height-lg-b40"></div>
-      </div>
-      <div class="container">
-        <div class="st-tabs st-fade-tabs st-style1">
-          <ul class="st-tab-links st-style1 st-mp0">
-            <li class="st-tab-title active ">
-              <a href="#reagen" class="st-blue-box">
-                <img src="../images/reagen.png" alt="icon">
-                <span>Larutan Reagen</span>
-              </a>
-            </li>
-         
-            <li class="st-tab-title">
-              <a href="#elektro" class="st-green-box">
-
-                <img src="../images/elektro.png" alt="icon">
-                <span>Peralatan Elektromedik</span>
-              </a>
-            </li>
-            <li class="st-tab-title">
-              <a href="#ivd" class="st-dip-blue-box">
-
-                <img src="../images/ivd.png" alt="icon">
-                <span>In Vitro Diagnostics (IVD)</span>
-              </a>
-            </li>
-            <li class="st-tab-title">
-              <a href="#Clinical-chemistry" class="st-dip-blue-box">
-
-                <img src="../images/ivd.png" alt="icon">
-                <span>Kimia Klinik</span>
-              </a>
-            </li>
-            <li class="st-tab-title">
-              <a href="#Imunologi" class="st-dip-blue-box">
-
-                <img src="../images/Imunologi.png" alt="icon">
-                <span>Imunologi</span>
-              </a>
-            </li>
-            <li class="st-tab-title">
-              <a href="#Gastroenterology" class="st-dip-blue-box">
-
-                <img src="../images/Gastroenterologi.png" alt="icon">
-                <span>Gastroenterologi</span>
-              </a>
-            </li>
-            <li class="st-tab-title">
-              <a href="#Coagulation" class="st-dip-blue-box">
-
-                <img src="../images/ivd.png" alt="icon">
-                <span>Coagulation</span>
-              </a>
-            </li>
-            <li class="st-tab-title">
-              <a href="#Rapid" class="st-dip-blue-box">
-
-                <img src="../images/rapid.png" alt="icon">
-                <span>Rapid Tests</span>
-              </a>
-            </li>
-            <li class="st-tab-title">
-              <a href="#Elisa" class="st-dip-blue-box">
-
-                <img src="../images/elisa.png" alt="icon">
-                <span>Elisa</span>
-              </a>
-            </li>
-            <li class="st-tab-title">
-              <a href="#PeralatanLaboratorium" class="st-dip-blue-box">
-
-                <img src="../images/alatlab.png" alt="icon">
-                <span>Peralatan Laboratorium</span>
-              </a>
-            </li>
-
-          </ul>
-          <div class="st-height-b25 st-height-lg-b25"></div>
-          <div class="tab-content">
-            <div id="reagen" class="st-tab active">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/reagend.png" width="505px" alt=""></div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="st-vertical-middle">
-                      <div class="st-vertical-middle-in">
-                        <div class="st-imagebox-info">
-                          <h2 class="st-imagebox-title">Welcome to our <span>Larutan Reagen</span></h2>
-                          <h4 class="st-imagebox-subtitle"></h4>
-                          <div class="st-imagebox-text">Kami menyediakan berbagai larutan reagen berkualitas tinggi yang
-                            dirancang untuk mendukung kebutuhan laboratorium dan penelitian medis Anda. Larutan ini
-                            dirancang untuk memberikan hasil yang akurat dan konsisten dalam pengujian diagnostik.</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-      
-            <div id="elektro" class="st-tab">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/elektrod.png" width="505px" alt=""></div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="st-vertical-middle">
-                      <div class="st-vertical-middle-in">
-                        <div class="st-imagebox-info">
-                          <h2 class="st-imagebox-title">Welcome to our <span>Peralatan Elektromedik</span></h2>
-                          <h4 class="st-imagebox-subtitle"></h4>
-                          <div class="st-imagebox-text">Kami menghadirkan peralatan elektromedik dengan teknologi
-                            mutakhir untuk membantu diagnosa dan terapi medis secara akurat. Produk kami dirancang untuk
-                            memberikan keandalan dan efisiensi tinggi.</div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="ivd" class="st-tab">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/ivdd.png" width="505px" alt=""></div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="st-vertical-middle">
-                      <div class="st-vertical-middle-in">
-                        <div class="st-imagebox-info">
-                          <h2 class="st-imagebox-title">Welcome to our <span>In Vitro Diagnostics (IVD)</span></h2>
-                          <h4 class="st-imagebox-subtitle"></h4>
-                          <div class="st-imagebox-text">Solusi diagnostik in vitro kami dirancang untuk memberikan hasil
-                            yang cepat dan akurat dalam pengujian laboratorium. Kami mendukung kemajuan di bidang
-                            kesehatan dengan produk diagnostik yang terpercaya.</div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="Clinical-chemistry" class="st-tab">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/ivdd.png" width="505px" alt="">
-                      <h3 class="st-imagebox-title"><span>Clinical chemistry</span></h3>
-                      <p style="text-align: justify;">
-                      Kimia klinik merupakan cabang dari patologi klinis yang fokus utamanya adalah pemeriksaan
-                      cairan tubuh. Saat ini, sebagian besar laboratorium modern telah menggunakan sistem otomatisasi tingkat tinggi untuk
-                      menangani volume pengujian yang besar, terutama di lingkungan rumah sakit. Proses pengujian dilakukan dengan
-                      pengawasan ketat dan pengendalian mutu yang terstandar. Seluruh pemeriksaan yang berkaitan dengan biokimia termasuk
-                      dalam kategori patologi kimia. Pengujian dapat dilakukan pada berbagai jenis cairan tubuh, namun umumnya dilakukan
-                      pada serum atau plasma.
-                    </p>
-                      <p>Komponen dalam Kimia Klinik:</p>
-                    
-                      <li>Bahan reagen
-                    
-                      <li> Kalibrator dan bahan kontrol kualitas
-                    
-                      <li> Proses kromatografi berbasis tabung
-                    
-                      <li> Cairan pembersih untuk alat analisis klinik
-                    
-                      <li> Alat analis kimia klinik (Clinical Chemistry Analyzer)
-                   </div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                        <div class="st-imagebox-info">
-                          
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Reagent
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      ACID PHOSPHATASE
-<hr>
-ALBUMIN
-<hr>
-ALKALINE PHOSPHATASE BR
-<hr>
-ALT/GPT BR opt.
-<hr>
-AMYLASE MR
-<hr>
-AST/GOT BR opt.
-<hr>
-BILIRUBIN (TOTAL AND DIRECT)
-<hr>
-BILIRUBIN DIRECT DPD
-<hr>
-CALCIUM ARSENAZO III COLOR
-<hr>
-CALCIUM OCC
-<hr>
-CHLORIDE
-<hr>
-CHOLESTEROL MR
-<hr>
-CHOLINESTERASE
-<hr>
-CREATINE KINASE BR
-<hr>
-CREATINE KINASE MB
-<hr>
-CREATININE
-<hr>
-CREATININE ENZIMATIC
-<hr>
-FRUCTOSAMINE
-<hr>
-GGT BR opt.
-<hr>
-GLUCOSE MR
-<hr>
-GOT/GPT color
-<hr>
-HDL-CHOLESTEROL
-<hr>
-HDL-CHOLESTEROL DIRECT
-<hr>
-HEMOGLOBIN
-<hr>
-HEMOGLOBIN MR
-<hr>
-IRON CROMAZUROL
-<hr>
-IRON FERROZINE
-<hr>
-LDH BR
-<hr>
-LDL-CHOLESTEROL
-<hr>
-LDL-CHOLESTEROL DIRECT
-<hr>
-LIPASE
-<hr>
-MAGNESIUM
-<hr>
-PHOSPHORUS
-<hr>
-PHOSPHORUS UV
-<hr>
-POTASSIUM
-<hr>
-PROTEIN (URINE AND CSF)
-<hr>
-SODIUM
-<hr>
-TIBC
-<hr>
-TOTAL PROTEIN
-<hr>
-TRIGLYCERIDES MR
-<hr>
-UREA BERTHELOT
-<hr>
-UREA/BUN BR
-<hr>
-URIC ACID MR
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Kalibrator dan Kontrol
-                                   <span class="custom-accordion-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      ALBUMIN Standard 5 g/dL
-<hr>
-BILIRUBIN Standard
-<hr>
-CALCIUM / MAGNESIUM Standard
-<hr>
-CHLORIDE / PHOSPHORUS Standard
-<hr>
-CHOLESTEROL Standard 200 mg/dL
-<hr>
-CREATININE Standard 2 mg/dL
-<hr>
-FRUCTOSAMINE Standard
-<hr>
-<hr>
-GLUCOSE Standard 100 mg/dL
-<hr>
-HDL CHOLESTEROL Standard 50 mg/dL
-<hr>
-HEMOGLOBIN Standard 12 g/dL
-<hr>
-HUMAN HDL-LDL Calibrator
-<hr>
-HUMAN LPD CONTROL
-<hr>
-HUMAN MULTISERA ABNORMAL
-<hr>
-HUMAN MULTISERA NORMAL
-<hr>
-IRON Standard 100 µg/dL
-<hr>
-LDL-Colesterol Standard 50 mg/dL
-<hr>
-LIPASE Calibrator
-<hr>
-MULTICALIBRATOR CC/H
-<hr>
-PROTEIN (URINE AND CSF) Standard 2 g/dL
-<hr>
-PROTEIN TOTAL Standard 7 g/dL
-<hr>
-TRIGLYCERIDES Standard 200 mg/dL
-<hr>
-UREA Standard 50 mg/dL
-<hr>
-URIC ACID Standard 6 mg/dL
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Kromatografi dalam tabung
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      Glycated HbA1c
-                                      <hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Larutan pembersih untuk penganalisa klinis
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      KROMA Deproteinization Solution
-                                      <hr>
-KROMA Extrawash cuvettes solution
-<hr>
-KROMA Systemic solution
-<hr>
-LIDA500 Cleaner Solution
-<hr>
-LIDA500 Extrawash Cuvette Solution
-<hr>
-TEMIS iso-CLEAN
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Penganalisis Kimia Klinis
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      KROMA Automatic Clinical Chemistry Analyzer 150 t/h
-                                      <hr>
-KROMA PLUS Automatic Clinical Chemistry Analyzer 240 t/h
-<hr>
-LIDA500 Clinical Chemistry Analyzer 420 t/h
-<hr>
-TEMIS Semi-automatic Clinical Analyzer
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  
-                                  
-                             
-                         
-                            
-
-                         
-              
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-
-
-
-            <div id="Imunologi" class="st-tab">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/ivdd.png" width="505px" alt="">
-                      <h3 class="st-imagebox-title"><span>Imunologi</span></h3>
-                      <p style="text-align: justify;">
-                        munologi merupakan bidang dalam ilmu biologi dan biomedis yang fokus pada kajian sistem imun, yaitu kumpulan organ, jaringan, dan sel pada hewan vertebrata yang berperan dalam mengenali serta merespons zat asing melalui respons imun. Sementara itu, imunoassay adalah metode pengujian yang digunakan untuk mendeteksi adanya antigen atau antibodi dalam sampel tubuh manusia, dengan memanfaatkan reagen khusus yang mengandung antigen atau antibodi tertentu untuk mengidentifikasi komponen yang dimaksud.
-                    </p>
-                     
-                   </div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                        <div class="st-imagebox-info">
-                          
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Turbidimetri - Reagen antiserum
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      C3 at
-                                      <hr>
-                                      C4 at
-                                      <hr>
-                                      IgA at
-                                      <hr>
-                                      IgG at
-                                      <hr>
-                                      IgM at
-                                      <hr>
-                                      Transferrin at
-                                      <hr>
-                                      α1-ac. glycoprotein at
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Turbidimetri - Reagen Lateks
-                                   <span class="custom-accordion-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      ASLO-Turbidimetric
-                                      <hr>
-                                      B2-M Turbidimetric
-                                      <hr>
-                                      CRP-Turbidimetric
-                                      <hr>
-                                      D-Dimer Turbidimetric
-                                      <hr>
-                                      Ferritin-Turbidimetric
-                                      <hr>
-                                      HbA1c-Turbidimetric
-                                      <hr>
-                                      Microalbumin-Turbidimetric
-                                      <hr>
-                                      RF-Turbidimetric
-                                      <hr>
-                                      us-CRP Turbidimetric
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Turbidimetri - Kontrol dan Kalibrator
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      ASLO-Turbidimetric Calibrator
-                                      <hr>
-                                      B2-M Turbidimetric Calibrator
-                                      <hr>
-                                      CRP-Turbidimetric Calibrator
-                                      <hr>
-                                      D-Dimer Turbidimetric Calibrator
-                                      <hr>
-                                      D-Dimer Turbidimetric Control
-                                      <hr>
-                                      Ferritin-Turbidimetric Calibrator
-                                      <hr>
-                                      HbA1c Calibrator
-                                      <hr>
-                                      HbA1c Control
-                                      <hr>
-                                      Microalbumin-Turbidimetric Calibrator
-                                      <hr>
-                                      Microalbumin-Turbidimetric Control
-                                      <hr>
-                                      Plasma Protein Control (N-I)
-                                      <hr>
-                                      Plasma Protein Control (N-II)
-                                      <hr>
-                                      Plasma Protein Multicalibrator
-                                      <hr>
-                                      RF-Turbidimetric Calibrator
-                                      <hr>
-                                      us-CRP Turbidimetric Calibrator
-                                      <hr>
-                                      us-CRP Turbidimetric Control
-                                      <hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      ELISA - Reagen
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      Free T3 EIA 96 TEST
-                                      <hr>
-TESTOSTERONE EIA 96 TEST
-<hr>
-TSH EIA 96 TEST
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                              
-                                  
-                                  
-                             
-                         
-                            
-
-                         
-              
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-      
-
-            <div id="Gastroenterology" class="st-tab">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/ivdd.png" width="505px" alt="">
-                      <h3 class="st-imagebox-title"><span>Gastroenterology</span></h3>
-                      <p style="text-align: justify;">
-                        Gastroenterologi adalah cabang ilmu kedokteran yang secara khusus menangani berbagai gangguan dan penyakit yang memengaruhi sistem pencernaan, meliputi esofagus, lambung, hati dan saluran empedu, pankreas, usus halus (duodenum, jejunum, ileum), usus besar (kolon), hingga rektum. Di LiNEAR, kami telah merancang sistem berbasis serangkaian uji reagen turbidimetri lateks yang dikombinasikan dengan perangkat analisa otomatis, sehingga memungkinkan proses otomatisasi, pengukuran, dan analisis parameter yang berkaitan dengan berbagai penyakit lambung dilakukan secara lebih efisien dan akurat.
-                    </p>
-                     
-                   </div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                        <div class="st-imagebox-info">
-                          
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Reagents
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      i-CPF Turbidimetric Calprotectin
-                                      <hr>
-                                      i-FOB Turbidimetric Fecal Occult Blood
-                                      <hr>
-                                      i-TRA Turbidimetric Transferrin
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Gastroenterology Analyzers
-                                   <span class="custom-accordion-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      Kroma iT Automatic Immunological Analyzer
-                                      <hr>
-                                      KROMA Plus iT Automatic Immunological Analyzer
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                          
-                            
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-
-
-            
-            <div id="Coagulation" class="st-tab">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/ivdd.png" width="505px" alt="">
-                      <h3 class="st-imagebox-title"><span>Coagulation</span></h3>
-                      <p style="text-align: justify;">
-                        Proses pembekuan darah adalah mekanisme yang kompleks yang menghasilkan pembentukan bekuan darah sebagai respons terhadap cedera. Proses ini merupakan komponen vital dari hemostasis, di mana bekuan fibrin terbentuk untuk menutupi dan menutup luka pada dinding pembuluh darah guna menghentikan pendarahan. Proses ini mencakup aktivasi, perlekatan, dan penggumpalan trombosit, serta pembentukan dan pematangan fibrin.
-  </p>
-                     
-                   </div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                        <div class="st-imagebox-info">
-                          
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Reagents
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      APTT
-                                      <hr>
-                                      Calcium Chloride
-                                      <hr>
-                                      D-Dimer Turbidimetric
-                                      <hr>
-                                      Fibrinogen
-                                      <hr>
-                                      PT-HS
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                     Coagulation Analyzers                                <span class="custom-accordion-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      D-Dimer Turbidimetric Calibrator
-                                      <hr>
-                                      D-Dimer Turbidimetric Control
-                                      <hr>
-                                      PLASMA CONTROL Level 1
-                                      <hr>
-                                      PLASMA CONTROL Level 2
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Coagulation Analyzers                                <span class="custom-accordion-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      ALTHEA Auto-Coagulation Analyzer
-                                      <hr>
-                                      ARES Semi-Automatic Coagulometer
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                            
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-
-            <div id="Hematologi" class="st-tab">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/ivdd.png" width="505px" alt="">
-                      <h3 class="st-imagebox-title"><span>Hematologi</span></h3>
-                      <p style="text-align: justify;">
-                        Hematologi merupakan cabang ilmu kedokteran yang mempelajari asal-usul, diagnosis, penanganan, prognosis, serta pencegahan berbagai penyakit yang berkaitan dengan darah dan organ pembentuk hemolinfo. Kajian ini mencakup analisis sel-sel darah dan kondisi darah secara keseluruhan, termasuk penghitungan sel darah merah (hematokrit), jumlah leukosit, kadar hemoglobin, laju endap eritrosit (LED), serta pemeriksaan diferensial jumlah leukosit (WBC).  </p>
-                     
-                   </div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                        <div class="st-imagebox-info">
-                          
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      HEMATOLOGI - Reagen & Kontrol
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      STEL3 – Cleaner
-                                      <hr>
-                                      STEL3 – Diluent
-                                      <hr>
-                                      STEL3 – Extra Cleaner
-                                      <hr>
-                                      STEL3 – Hematology Control
-                                      <hr>
-                                      STEL3 – Lyser
-                                 
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      HEMATOLOGI Analyzers                                <span class="custom-accordion-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      STEL3 – Hematology Analyzer
-                                     
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      ESR - Analyzers                                    </div>
-                                    <div class="custom-accordian-body">
-                                      IRIA 5 pos
-                                      <hr>
-                                      LENA NE 20 pos
-                                      <hr>
-                                      THERMA NE 100 pos
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      ESR - Tubes and accesories                                    </div>
-                                    <div class="custom-accordian-body">
-                                      Plus-Sed auto
-                                      <hr>
-                                      Vacused
-                                      <hr>
-                                      Visual-Sed Rack
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      ESR - Controls                                    </div>
-                                    <div class="custom-accordian-body">
-                                      ESR Control
-                                      <hr>
-                                      QC1: ERS Control
-                                      <hr>
-                                      QC2: ERS Control
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      IMMUNOHEMATOLOGY                                    </div>
-                                    <div class="custom-accordian-body">
-                                      Anti-A
-                                      <hr>
-                                      Anti-A+B
-                                      <hr>
-                                      Anti-B
-                                      <hr>
-                                      Anti-D (IgM/IgG)
-                                      <hr>
-                                      ANTI-HUMAN GLOBULIN (polyspecific)
-                                      <hr>
-                                      BOVINE ALBUMIN 30%
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                            
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-
-            <div id="Rapid" class="st-tab">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/ivdd.png" width="505px" alt="">
-                      <h3 class="st-imagebox-title"><span>Rapid Tests</span></h3>
-                      <p style="text-align: justify;">
-                        Tes diagnostik cepat adalah tes diagnostik medis yang cepat dan mudah dilakukan. RDT cocok untuk pemeriksaan medis awal atau darurat. Hasil tes dapat diperoleh di hari yang sama, biasanya dalam waktu sekitar 10-20 menit. LiNEAR menawarkan berbagai macam tes cepat termasuk: Tes aglutinasi untuk deteksi Antigen Demam, Rheumatoid, Sifilis, Autoimun, dan Serodiagnostik Kehamilan. Tes cepat (Satu Langkah) untuk Hormon, Serologi dan Virologi, Obat-obatan Terlarang, Penanda tumor, Penyakit menular, dan Urianalisis.
-                       </p>
-                     
-                   </div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                        <div class="st-imagebox-info">
-                          
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      ANTIGEN DEMAM
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      AGLUTININ NEGATIVE
-                                      <hr>
-                                      BRUCELLA ABORTUS
-                                      <hr>
-                                      BRUCELLA MELITENSIS
-                                      <hr>
-                                      BRUCELLA POSITIVE CONTROL
-                                      <hr>
-                                      FEBRILE ANTIGEN KIT 6×5 mL
-                                      <hr>
-                                      FEBRILE ANTIGEN KIT 8×5 mL
-                                      <hr>
-                                      PROTEUS OX19
-                                      <hr>
-                                      PROTEUS OX2
-                                      <hr>
-                                      PROTEUS OXK
-                                      <hr>
-                                      PROTEUS POSITIVE CONTROL
-                                      <hr>
-                                      ROSE BENGAL
-                                      <hr>
-                                      S. PARATYPHI A-H
-                                      <hr>
-                                      S. PARATYPHI A-O
-                                      <hr>
-                                      S. PARATYPHI B-H
-                                      <hr>
-                                      S. PARATYPHI B-O
-                                      <hr>
-                                      S. PARATYPHI C-H
-                                      <hr>
-                                      S. PARATYPHI C-O
-                                      <hr>
-                                      S. TYPHI H
-                                      <hr>
-                                      S. TYPHI O
-                                      <hr>
-                                      SALMONELLA POSITIVE CONTROL
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      SERODIAGNOSTIK. Reumatoid                           <span class="custom-accordion-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      ASLO-LATEX                       
-                                      <hr>
-                                      CRP-LATEX                       
-                                      <hr>
-                                      RF-LATEX                       
-                                      <hr>
-                                      RF-WAALER                       
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      SERODIAGNOSTIC - Syphilis                                  </div>
-                                    <div class="custom-accordian-body">
-                                      RPR CARBON
-                                      <hr>
-                                      TPHA
-                                      <hr>
-                                      VDRL MR
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      SERODIAGNOSTIK - Tes lainnya                                  </div>
-                                    <div class="custom-accordian-body">
-                                      hCG-LATEX
-                                      <hr>
-                                      SLE-Latex
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Satu Langkah (RDT) - Hormon                                    </div>
-                                    <div class="custom-accordian-body">
-                                      b-hCG cassette
-                                      <hr>
-                                      b-hCG strip
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      One Step (RDT) - Serologi dan Virologi                                   </div>
-                                    <div class="custom-accordian-body">
-                                      ANTI HIV Ab/Ag
-                                      <hr>
-                                      ANTI-HCV cassette
-                                      <hr>
-                                      ANTI-HIV 1/2 cassette
-                                      <hr>
-                                      CHAGAS cassette
-                                      <hr>
-                                      CHIK cassette
-                                      <hr>
-                                      Chikungunya/Dengue
-                                      <hr>
-                                      DENGUE Ag
-                                      <hr>
-                                      DENGUE IgG/IgM
-                                      <hr>
-                                      HAV IgM cassette
-                                      <hr>
-                                      HBsAg cassette
-                                      <hr>
-                                      HELICOBACTER PYLORI Ab cassette
-                                      <hr>
-                                      HELICOBACTER PYLORI Ag cassette
-                                      <hr>
-                                      HELICOBACTER PYLORI Ag strip
-                                      <hr>
-                                      MALARIA
-                                      <hr>
-                                      Ruba IgG/IgM
-                                      <hr>
-                                      STREP-A cassette
-                                      <hr>
-                                      Toxo IgG/IgM
-                                      <hr>
-                                      TREPONEMA PALLIDUM CASSETTE
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                            <!-- .st-accordian -->
-                            <div class="custom-accordian">
-                              <div class="custom-accordian-title">
-                                Satu Langkah (RDT) - Penanda tumor                                    </div>
-                              <div class="custom-accordian-body">
-                                FECAL OCCULT BLOOD cassette
-<hr>
-                              </div>
-                            </div>
-                            <div class="custom-accordian">
-                              <div class="custom-accordian-title">
-                                One Step (RDT) - Obat-obatan terlarang                                    </div>
-                              <div class="custom-accordian-body">
-                                AMP Amphetamine cassette
-                                <hr>
-                                AMP Amphetamine strip
-                                <hr>
-                                BAR Barbiturates cassette
-                                <hr>
-                                BAR Barbiturates strip
-                                <hr>
-                                BZO Benzodiazepines cassette
-                                <hr>
-                                BZO Benzodiazepines strip
-                                <hr>
-                                COC Cocaine cassette
-                                <hr>
-                                COC Cocaine strip
-                                <hr>
-                                MDMA Ecstasy cassette
-                                <hr>
-                                MDMA Ecstasy strip
-                                <hr>
-                                MDP Screen 12 cassette
-                                <hr>
-                                MDP Screen 12 panel
-                                <hr>
-                                MET Methamphetamine cassette
-                                <hr>
-                                MET Methamphetamine strip
-                                <hr>
-                                MOP Morphine cassette
-                                <hr>
-                                MOP Morphine strip
-                                <hr>
-                                MTD Methadone cassette
-                                <hr>
-                                MTD Methadone strip
-                                <hr>
-                                OPI Opiate cassette
-                                <hr>
-                                OPI Opiate strip
-                                <hr>
-                                PCP Phencyclidine cassette
-                                <hr>
-                                PCP Phencyclidine strip
-                                <hr>
-                                TCA Tricyclic Antidepresant cassette
-                                <hr>
-                                TCA Tricyclic Antidepresant strip
-                                <hr>
-                                THC cassette
-                                <hr>
-                                THC strip
-<hr>
-                              </div>
-                            </div>
-                            <div class="custom-accordian">
-                              <div class="custom-accordian-title">
-                                One Step (RDT) - Penyakit menular                                 </div>
-                              <div class="custom-accordian-body">
-                                ADENOVIRUS Cassette
-                                <hr>
-                                CHLAMYDIA
-                                <hr>
-                                CRYPTO Cassette
-                                <hr>
-                                E. COLI Cassette
-                                <hr>
-                                GIARDIA Cassette
-                                <hr>
-                                INFLUENZA A+B Cassette
-                                <hr>
-                                ROTAVIRUS
-                                <hr>
-                                RSV cassette
-<hr>
-                              </div>
-                            </div>
-                            <div class="custom-accordian">
-                              <div class="custom-accordian-title">
-                                Urianalysis                                   </div>
-                              <div class="custom-accordian-body">
-                                DARA – Urine Strips Reader
-                                <hr>
-                                Urine Strips (DARA)
-                                <hr>
-                                Urine Strips (visual)
-<hr>
-                              </div>
-                            </div>
-                            <div class="custom-accordian">
-                              <div class="custom-accordian-title">
-                                Radial Immunodifusion                                  </div>
-                              <div class="custom-accordian-body">
-                                (IgA+IgG+IgM) id
-                                <hr>
-                                ANTITHROMBIN III id
-                                <hr>
-                                C3 id
-                                <hr>
-                                C4 id
-                                <hr>
-                                IgA id
-                                <hr>
-                                IgG id
-                                <hr>
-                                IgM id
-                                <hr>
-                                TRANSFERRIN id
-<hr>
-                              </div>
-                            </div>
-
-
-
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-
-
-            <div id="Elisa" class="st-tab">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/ivdd.png" width="505px" alt="">
-                      <h3 class="st-imagebox-title"><span>Elisa</span></h3>
-                      <p style="text-align: justify;">
-                        ELISA (Enzyme-Linked ImmunoSorbent Assay) merupakan metode immunoassay yang mendeteksi keberadaan antigen yang telah diimobilisasi menggunakan antibodi yang terkonjugasi dengan enzim, yang kemudian menghasilkan reaksi yang dapat diamati. Teknik ini banyak digunakan di berbagai laboratorium untuk mengidentifikasi keberadaan antibodi tertentu dalam sampel darah pasien. Untuk mendeteksi antigen, digunakan molekul gabungan yang terdiri dari antibodi—yang secara spesifik mengenali antigen—dan enzim, yang diaktifkan serta memperkuat proses pengikatan antigen.
-                        </p>
-                     
-                   </div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                        <div class="st-imagebox-info">
-                          
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Analyzers
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      GEA Microplate Reader
-                                      <hr>
-                                      SAGA Elisa Washer
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Reagents                               <span class="custom-accordion-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      Free T3 EIA 96 TEST
-                                      <hr>
-                                      Free T4 EIA 96 TEST
-                                      <hr>
-                                      FSH EIA 96 TEST
-                                      <hr>
-                                      hCG EIA 96 TEST
-                                      <hr>
-                                      LH EIA 96 TEST
-                                      <hr>
-                                      PROGESTERONE EIA 96 TEST
-                                      <hr>
-                                      Prolactin EIA 96 TEST
-                                      <hr>
-                                      PSA EIA 96 TEST
-                                      <hr>
-                                      T3 EIA 96 TEST
-                                      <hr>
-                                      T4 EIA 96 TEST
-                                      <hr>
-                                      TESTOSTERONE EIA 96 TEST
-                                      <hr>
-                                      TSH EIA 96 TEST
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                              
-                            
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-
-            <div id="PeralatanLaboratorium" class="st-tab">
-              <div class="st-imagebox st-style2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="st-imagebox-img"><img src="../images/ivdd.png" width="505px" alt="">
-                      <h3 class="st-imagebox-title"><span>Peralatan Laboratorium</span></h3>
-                      <p style="text-align: justify;">
-                        Sejak tahun 2015, Sentral Medika Indonesia berkomitmen untuk menyediakan produk-produk berkualitas tinggi dengan harga yang terjangkau. Dalam upaya memenuhi berbagai kebutuhan laboratorium klinis, kami terus memperluas lini produk kami dan menjangkau pelanggan melalui jaringan distribusi yang luas dan terpercaya.
-                        </p>
-                     
-                   </div>
-                    <div class="st-height-b0 st-height-lg-b30"></div>
-                  </div>
-                  <div class="col-lg-6">
-                        <div class="st-imagebox-info">
-                          
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Pipet
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      12 CHANNEL ADJUSTABLE PIPETTES
-                                      <hr>
-                                      8 Channel Adjustable Pipettes
-                                      <hr>
-                                      Pipettes – accesories
-                                      <hr>
-                                      Single Channel Adjustable Pipettes
-                                      <hr>
-                                      Single Channel Fixed Pipettes
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Penganalisis Kimia Klinis                               <span class="custom-accordion-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      KROMA Automatic Clinical Chemistry Analyzer 150 t/h
-                                      <hr>
-KROMA PLUS Automatic Clinical Chemistry Analyzer 240 t/h
-<hr>
-LIDA500 Clinical Chemistry Analyzer 420 t/h
-<hr>
-TEMIS Semi-automatic Clinical Analyzer
-<hr>
-                                    </div>
-                                  </div><!-- .st-accordian -->
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Coagulation Analyzers
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      ALTHEA Auto-Coagulation Analyzer
-                                      <hr>
-                                      ARES Semi-Automatic Coagulometer
-<hr>
-                                    </div>
-                                  </div>
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Hematology Analyzers
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      STEL3 – Hematology Analyzer
-<hr>
-                                    </div>
-                                  </div>
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Laju Sedimentasi Eritrosit (Analisis ESR)
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      IRIA 5 pos
-                                      <hr>
-                                      LENA NE 20 pos
-                                      <hr>
-                                      THERMA NE 100 pos
-<hr>
-                                    </div>
-                                  </div>
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Urianalysis Analyzers
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      DARA – Urine Strips Reader
-<hr>
-                                    </div>
-                                  </div>
-
-                                  <div class="custom-accordian">
-                                    <div class="custom-accordian-title">
-                                      Elisa Analyzers
-                                      <span class="custom-accordian-toggle fa fa-angle-down"></span>
-                                    </div>
-                                    <div class="custom-accordian-body">
-                                      GEA Microplate Reader
-                                      <hr>
-                                      SAGA Elisa Washer
-<hr>
-                                    </div>
-                                  </div>
-
-
-
-                              
-                            
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-
-
-
-
-          </div>
-        </div><!-- .st-tabs -->
-      </div>
-      <div class="st-height-b120 st-height-lg-b80"></div>
-    </section>
-    <!-- End department Section -->
-
-
-
-    <hr>
-   
+    <div class="st-height-b100 st-height-lg-b30"></div>
     <!-- Start Logo Carousel -->
     <div class="st-section-heading st-style1">
         <h2 class="st-section-heading-title">Our Brand</h2>
@@ -1695,7 +1021,42 @@ TEMIS Semi-automatic Clinical Analyzer
   <script src="../js/main.js?v=2"></script>
   <script src="../js/produk.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<!-- Tambahkan efek parallax scroll ke semua .slick-container yang punya .st-hero-bg di dalamnya -->
+<script>
+  // Pastikan background image tetap di tempat, konten bergerak ke atas saat scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    var heroBg = document.querySelector('.st-hero-bg.st-dynamic-bg');
+    if (heroBg && heroBg.dataset.src) {
+      heroBg.style.backgroundImage = 'url(' + heroBg.dataset.src + ')';
+    }
+  });
+</script>
 </body>
+  <!-- AOS Animate On Scroll JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 900
+    });
+  </script>
+<script>
+  fetch('https://portal.sentralmedika.co.id/api/brands')
+    .then(res => res.json())
+    .then(res => {
+      if(res.success) {
+        document.getElementById('brand-list-modern').innerHTML = res.data.map((b, i) => `
+          <a href="/product/${b.slug}/" class="modern-product-card" data-aos="zoom-in" data-aos-delay="${i*100}">
+            <div class="modern-product-image">
+              <img src="${b.foto}" alt="${b.nama}">
+            </div>
+            <div class="modern-product-info">
+              <h3 class="modern-product-title">${b.nama}</h3>
+            </div>
+          </a>
+        `).join('');
+      }
+    });
+</script>
 
 </html>
