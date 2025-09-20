@@ -356,7 +356,7 @@
   }
 
   .produk-link-card-body::after {
-    content: '\f1c1';
+    content: '\f15b'; /* Default file icon */
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     position: absolute;
@@ -369,38 +369,40 @@
 
   /* Dynamic icons based on file type */
   .produk-link-card[data-file-type="pdf"] .produk-link-card-body::after {
-    content: '\f1c1';
+    content: '\f1c1'; /* fa-file-pdf */
   }
 
   .produk-link-card[data-file-type="doc"] .produk-link-card-body::after,
   .produk-link-card[data-file-type="docx"] .produk-link-card-body::after {
-    content: '\f1c2';
+    content: '\f1c2'; /* fa-file-word */
   }
 
   .produk-link-card[data-file-type="xls"] .produk-link-card-body::after,
   .produk-link-card[data-file-type="xlsx"] .produk-link-card-body::after {
-    content: '\f1c3';
+    content: '\f1c3'; /* fa-file-excel */
   }
 
   .produk-link-card[data-file-type="ppt"] .produk-link-card-body::after,
   .produk-link-card[data-file-type="pptx"] .produk-link-card-body::after {
-    content: '\f1c4';
+    content: '\f1c4'; /* fa-file-powerpoint */
   }
 
   .produk-link-card[data-file-type="jpg"] .produk-link-card-body::after,
   .produk-link-card[data-file-type="jpeg"] .produk-link-card-body::after,
   .produk-link-card[data-file-type="png"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="gif"] .produk-link-card-body::after {
-    content: '\f1c5';
+  .produk-link-card[data-file-type="gif"] .produk-link-card-body::after,
+  .produk-link-card[data-file-type="webp"] .produk-link-card-body::after {
+    content: '\f1c5'; /* fa-file-image */
   }
 
   .produk-link-card[data-file-type="zip"] .produk-link-card-body::after,
-  .produk-link-card[data-file-type="rar"] .produk-link-card-body::after {
-    content: '\f1c6';
+  .produk-link-card[data-file-type="rar"] .produk-link-card-body::after,
+  .produk-link-card[data-file-type="7z"] .produk-link-card-body::after {
+    content: '\f1c6'; /* fa-file-archive */
   }
 
   .produk-link-card[data-file-type="txt"] .produk-link-card-body::after {
-    content: '\f15c';
+    content: '\f15c'; /* fa-file-text */
   }
 
   .produk-link-card-title {
@@ -1241,6 +1243,9 @@
         // Extract file extension from URL
         const urlParts = l.url.split('.');
         const fileExtension = urlParts[urlParts.length - 1].toLowerCase();
+        
+        // Debug: log file extension detection
+        console.log('File URL:', l.url, 'Extension:', fileExtension);
         
         return `
         <div class="produk-link-card" data-file-type="${fileExtension}">
