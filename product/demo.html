@@ -69,13 +69,269 @@
 }
 </script>
 <style>
-  .produk-card-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    justify-content: flex-start;
-    margin-bottom: 32px;
+/* Modern Products Section Styles */
+.products-modern-section {
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+  padding-bottom: 7svh;
+  padding-top: 7svh;
+}
+
+.products-modern-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+  background-size: cover;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.sec-title-modern {
+  margin-bottom: 30px;
+}
+
+.subtitle-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.highlight-text {
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description-text {
+  margin: 25px 0;
+}
+
+.description-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  font-weight: 500;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.modern-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.modern-product-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(90, 24, 154, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.modern-product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(90, 24, 154, 0.05), rgba(142, 197, 252, 0.05));
+  opacity: 0;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.modern-product-card:hover::before {
+  opacity: 1;
+}
+
+.modern-product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(90, 24, 154, 0.2);
+  border-color: rgba(142, 197, 252, 0.3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.modern-product-image {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(45deg, #f8fafc, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.modern-product-card:hover .modern-product-image {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.modern-product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 4px 15px rgba(0,0,0,0.1));
+}
+
+.modern-product-card:hover .modern-product-image img {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1) drop-shadow(0 4px 15px rgba(255,255,255,0.3));
+}
+
+.modern-product-info {
+  padding: 25px;
+  text-align: center;
+}
+
+.modern-product-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  line-height: 1.3;
+  transition: all 0.4s ease;
+}
+
+.modern-product-card:hover .modern-product-title {
+  color: #5a189a;
+}
+
+.products-cta {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 50px 40px;
+  border: 2px solid rgba(142, 197, 252, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.cta-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.modern-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(90, 24, 154, 0.2);
+}
+
+.modern-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(90, 24, 154, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.modern-btn i {
+  transition: transform 0.3s ease;
+}
+
+.modern-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 1.8rem;
   }
+  
+  .modern-products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .modern-product-image {
+    height: 150px;
+    padding: 20px;
+  }
+  
+  .modern-product-info {
+    padding: 20px;
+  }
+  
+  .modern-product-title {
+    font-size: 1.1rem;
+  }
+  
+  .products-cta {
+    padding: 30px 20px;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Legacy styles for compatibility */
+.produk-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-start;
+  margin-bottom: 32px;
+}</style>
   .produk-card {
     background: #fff;
     border-radius: 18px;
@@ -129,50 +385,89 @@
   }
 </style>
 <style>
-  /* Parallax Hero: background tetap, section konten bergerak */
-  .st-hero-bg.st-dynamic-bg {
-    position: fixed;
+.hero-wrap {
+  height: 100vh;
+  min-height: 100%;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  z-index: 0; }
+  .hero-wrap .overlay {
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background: #111111;
+    z-index: -1; }
+  .hero-wrap.hero-wrap-2 {
+    min-height: auto;
+    height: 700px;
+    background-position: top center;
+    background-attachment: fixed; }
+    .hero-wrap.hero-wrap-2 .overlay {
+      opacity: 0; }
+    .hero-wrap.hero-wrap-2 .slider-text {
+      min-height: auto;
+      height: 700px; }
+  .hero-wrap .slider-text {
     height: 100vh;
-    z-index: -1;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    will-change: transform;
-  }
-  .st-slider.st-style1.st-slider-animation1 {
-    position: relative;
-    z-index: 1;
-    background: transparent;
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-top: 120px;
-    padding-bottom: 0;
-  }
-  .st-hero-text {
-    position: relative;
-    z-index: 2;
-    margin-top: 320px;
-    margin-bottom: 0;
-    background: rgba(255,255,255,0.0);
-    box-shadow: none;
-  }
-  @media (max-width: 991px) {
-    .st-slider.st-style1.st-slider-animation1 {
-      min-height: 60vh;
-      padding-top: 60px;
-    }
-    .st-hero-text {
-      margin-top: 120px;
-    }
-    .st-hero-bg.st-dynamic-bg {
-      height: 60vh;
-    }
-  }
+    min-height: 750px;
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 3; }
+    .hero-wrap .slider-text .text {
+      position: relative;
+      z-index: 0; }
+    .hero-wrap .slider-text .subheading {
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      display: inline-block;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      position: relative;
+      z-index: 0; }
+    .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+      font-weight: 600;
+      color: #fff;
+      font-size: 40px;
+      line-height: 1.2; }
+      .hero-wrap .slider-text h1 span, .hero-wrap .slider-text .h1 span {
+        color: #1eb2a6; }
+      @media (max-width: 767.98px) {
+        .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+          font-size: 40px; } }
+    @media (max-width: 575.98px) {
+      .hero-wrap .slider-text .btn {
+        width: 100%;
+        display: block;
+        margin-bottom: 5px; } }
+    .hero-wrap .slider-text .breadcrumbs {
+      font-size: 14px;
+      margin-bottom: 10px;
+      z-index: 99;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8); }
+      .hero-wrap .slider-text .breadcrumbs span {
+        color: rgba(255, 255, 255, 0.8); }
+        .hero-wrap .slider-text .breadcrumbs span i {
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 12px; }
+        .hero-wrap .slider-text .breadcrumbs span a {
+          color: rgba(255, 255, 255, 0.8); }
+          .hero-wrap .slider-text .breadcrumbs span a:hover, .hero-wrap .slider-text .breadcrumbs span a:focus {
+            color: #1eb2a6; }
+            .hero-wrap .slider-text .breadcrumbs span a:hover i, .hero-wrap .slider-text .breadcrumbs span a:focus i {
+              color: #1eb2a6; }
+    .hero-wrap .slider-text .bread {
+      font-weight: 400;
+      color: #fff;
+      font-size: 70px; }
 </style>
 </head>
 
@@ -269,41 +564,26 @@
   <!-- End Header Section -->
 
   <div class="st-content">
-    <div class="st-height-b125 st-height-lg-b80"></div>
+    <div class="st-height-b100 st-height-lg-b30"></div>
 
     
     <!-- Start Hero Seciton -->
-    <div class="st-slider st-style1 st-slider-animation1">
-        <div class="slick-container" data-autoplay="0" data-loop="1" data-speed="800" data-autoplay-timeout="1000"
-          data-center="0" data-slides-per-view="1">
-          <div class="slick-wrapper">
-            <div class="slick-slide-in">
-              <div class="st-hero st-style1 st-size1">
-                <div class="st-hero-bg st-dynamic-bg st-bg" data-src="../images/produk1.jpg"
-                  style="background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; height: 100vh;">
-                </div>
-  
-                <div class="container">
-                  <div class="st-hero-text">
-                    <h1 class="text-center">
-                       ~ PRODUCT ~
-                    </h1>
-                  
-                 
-                    <div class="st-height-b15 st-height-lg-b15"></div>
-                  </div>
-                </div>
-              </div>
+       <section class="hero-wrap" style="background-image: url('../images/produk2.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center">
+        	<div class="col-lg-5">
+            <div class="text mt-5 pt-5" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+              <span class="subheading">Welcome to Academia</span>
+              <h1 class="mb-4">Best Online Education Expertise </h1>
+              <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <p><a href="#" class="btn btn-primary p-4 py-3">Get Started Now! <span class="ion-ios-arrow-round-forward"></span></a> <a href="#" class="btn btn-white p-4 py-3">View Course <span class="ion-ios-arrow-round-forward"></span></a></p>
             </div>
-  
           </div>
-        </div><!-- .slick-container -->
-        <div class="pagination st-style2 st-hidden"></div> <!-- If dont need Pagination then add class .st-hidden -->
-        <div class="swipe-arrow st-style2"> <!-- If dont need navigation then add class .st-hidden -->
-          <div class="slick-arrow-left"><i class="fa fa-chevron-left"></i></div>
-          <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
         </div>
-      </div><!-- .st-slider -->
+      </div>
+    </section>
+<!-- .st-slider -->
     <!-- End Hero Seciton -->
 <p></p>
     <!-- Start Feature Seciton -->
@@ -361,12 +641,37 @@
         </div>
         <div class="st-height-b40 st-height-lg-b40"></div>
       </div>
-     <!-- produknya -->
+    <!-- Start Products Section -->
+    <section class="products-modern-section sec-pad-2" data-aos="fade-up">
+      <div class="auto-container">
+        <!-- Header Section -->
+        <div class="products-header" data-aos="fade-down" data-aos-delay="200">
+          <div class="sec-title-modern">
+            <span class="subtitle-badge">Produk Unggulan</span>
+            <h2 class="main-title">Katalog Produk <span class="highlight-text">PT SMI</span></h2>
+          </div>
+          <div class="description-text">
+            <p>Jelajahi berbagai kategori produk berkualitas tinggi dari PT Sentral Medika Indonesia untuk kebutuhan laboratorium dan diagnostik medis.</p>
+          </div>
+        </div>
 
-      <div class="produk-card-grid" id="brand-list"></div>
+        <!-- Products Grid -->
+        <div class="modern-products-grid" id="brand-list-modern">
+          <!-- Products will be loaded here -->
+        </div>
 
-
-      <div class="st-height-b120 st-height-lg-b80"></div>
+        <!-- CTA Section -->
+        <div class="products-cta" data-aos="fade-up" data-aos-delay="300">
+          <div class="cta-content">
+            <h3>Butuh Konsultasi Produk?</h3>
+            <p>Tim ahli kami siap membantu Anda memilih produk yang tepat sesuai kebutuhan</p>
+            <a href="mailto:office@sentralmedika.co.id" class="modern-btn">
+              <span>Hubungi Kami</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- End department Section -->
 
@@ -586,10 +891,14 @@
     .then(res => res.json())
     .then(res => {
       if(res.success) {
-        document.getElementById('brand-list').innerHTML = res.data.map((b, i) => `
-          <a href="/product/${b.slug}/" class="produk-card" data-aos="fade-up" data-aos-delay="${i*100}">
-            <img src="${b.foto}" class="produk-card-img" alt="${b.nama}">
-            <div class="produk-card-title">${b.nama}</div>
+        document.getElementById('brand-list-modern').innerHTML = res.data.map((b, i) => `
+          <a href="/product/${b.slug}/" class="modern-product-card" data-aos="zoom-in" data-aos-delay="${i*100}">
+            <div class="modern-product-image">
+              <img src="${b.foto}" alt="${b.nama}">
+            </div>
+            <div class="modern-product-info">
+              <h3 class="modern-product-title">${b.nama}</h3>
+            </div>
           </a>
         `).join('');
       }
