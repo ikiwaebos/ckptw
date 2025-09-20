@@ -391,83 +391,223 @@
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: center center;
   background-attachment: fixed;
-  z-index: 0; }
-  .hero-wrap .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    background: #111111;
-    z-index: -1; }
-  .hero-wrap.hero-wrap-2 {
-    min-height: auto;
-    height: 700px;
-    background-position: top center;
-    background-attachment: fixed; }
-    .hero-wrap.hero-wrap-2 .overlay {
-      opacity: 0; }
-    .hero-wrap.hero-wrap-2 .slider-text {
-      min-height: auto;
-      height: 700px; }
-  .hero-wrap .slider-text {
-    height: 100vh;
-    min-height: 750px;
-    color: rgba(255, 255, 255, 0.8);
-    z-index: 3; }
-    .hero-wrap .slider-text .text {
-      position: relative;
-      z-index: 0; }
-    .hero-wrap .slider-text .subheading {
-      text-transform: uppercase;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 14px;
-      display: inline-block;
-      letter-spacing: 2px;
-      margin-bottom: 5px;
-      position: relative;
-      z-index: 0; }
-    .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
-      font-weight: 600;
-      color: #fff;
-      font-size: 40px;
-      line-height: 1.2; }
-      .hero-wrap .slider-text h1 span, .hero-wrap .slider-text .h1 span {
-        color: #1eb2a6; }
-      @media (max-width: 767.98px) {
-        .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
-          font-size: 40px; } }
-    @media (max-width: 575.98px) {
-      .hero-wrap .slider-text .btn {
-        width: 100%;
-        display: block;
-        margin-bottom: 5px; } }
-    .hero-wrap .slider-text .breadcrumbs {
-      font-size: 14px;
-      margin-bottom: 10px;
-      z-index: 99;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.8); }
-      .hero-wrap .slider-text .breadcrumbs span {
-        color: rgba(255, 255, 255, 0.8); }
-        .hero-wrap .slider-text .breadcrumbs span i {
-          color: rgba(255, 255, 255, 0.8);
-          font-size: 12px; }
-        .hero-wrap .slider-text .breadcrumbs span a {
-          color: rgba(255, 255, 255, 0.8); }
-          .hero-wrap .slider-text .breadcrumbs span a:hover, .hero-wrap .slider-text .breadcrumbs span a:focus {
-            color: #1eb2a6; }
-            .hero-wrap .slider-text .breadcrumbs span a:hover i, .hero-wrap .slider-text .breadcrumbs span a:focus i {
-              color: #1eb2a6; }
-    .hero-wrap .slider-text .bread {
-      font-weight: 400;
-      color: #fff;
-      font-size: 70px; }
+  z-index: 0;
+}
+
+.hero-wrap .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+  background: linear-gradient(135deg, rgba(90, 24, 154, 0.8) 0%, rgba(102, 126, 234, 0.6) 100%);
+  z-index: 1;
+}
+
+.hero-wrap.modern-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-wrap .slider-text {
+  height: 100vh;
+  min-height: 750px;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 3;
+  position: relative;
+}
+
+.hero-wrap .slider-text .text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-wrap .slider-text .subheading {
+  display: inline-block;
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+  font-weight: 700;
+  color: #fff;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 25px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.highlight-text {
+  background: linear-gradient(45deg, #8ec5fc, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-wrap .slider-text p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 35px;
+  font-weight: 500;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.modern-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(90, 24, 154, 0.3);
+  border: none;
+}
+
+.modern-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(90, 24, 154, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.modern-btn i {
+  transition: transform 0.3s ease;
+}
+
+.modern-btn:hover i {
+  transform: translateX(5px);
+}
+
+.modern-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: white;
+  padding: 15px 35px;
+  border: 2px solid white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+}
+
+.modern-btn-outline:hover {
+  background: white;
+  color: #5a189a;
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+.hero-image-section {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.floating-card {
+  position: absolute;
+  background: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #5a189a;
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-card i {
+  font-size: 1.2rem;
+  color: #8ec5fc;
+}
+
+.card-1 {
+  top: 15%;
+  right: 20%;
+  animation-delay: 0s;
+}
+
+.card-2 {
+  top: 50%;
+  left: 10%;
+  animation-delay: 1s;
+}
+
+.card-3 {
+  bottom: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modern-btn, .modern-btn-outline {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .hero-image-section {
+    height: 300px;
+    margin-top: 40px;
+  }
+  
+  .floating-card {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+}
 </style>
 </head>
 
@@ -568,16 +708,43 @@
 
     
     <!-- Start Hero Seciton -->
-       <section class="hero-wrap" style="background-image: url('../images/produk2.jpg');">
+    <section class="hero-wrap modern-hero" style="background-image: url('../images/produk2.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center">
-        	<div class="col-lg-5">
-            <div class="text mt-5 pt-5" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-              <span class="subheading">Welcome to Academia</span>
-              <h1 class="mb-4">Best Online Education Expertise </h1>
-              <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <p><a href="#" class="btn btn-primary p-4 py-3">Get Started Now! <span class="ion-ios-arrow-round-forward"></span></a> <a href="#" class="btn btn-white p-4 py-3">View Course <span class="ion-ios-arrow-round-forward"></span></a></p>
+          <div class="col-lg-6">
+            <div class="text mt-5 pt-5" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
+              <span class="subheading">Produk Unggulan</span>
+              <h1 class="mb-4">Solusi Kesehatan <span class="highlight-text">Terdepan</span></h1>
+              <p class="mb-4">PT SMI menyediakan berbagai instrumen dan reagen laboratorium medis berkualitas tinggi untuk mendukung pemeriksaan yang akurat dan efisien.</p>
+              <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary modern-btn">
+                  <span>Lihat Produk</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-outline modern-btn-outline">
+                  <span>Hubungi Kami</span>
+                  <i class="fas fa-phone"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image-section" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">
+              <div class="floating-elements">
+                <div class="floating-card card-1">
+                  <i class="fas fa-microscope"></i>
+                  <span>Lab Quality</span>
+                </div>
+                <div class="floating-card card-2">
+                  <i class="fas fa-certificate"></i>
+                  <span>Certified</span>
+                </div>
+                <div class="floating-card card-3">
+                  <i class="fas fa-award"></i>
+                  <span>Terpercaya</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -630,17 +797,7 @@
     <section id="Product">
       <div class="st-height-b120 st-height-lg-b80"></div>
       <div class="container">
-        <div class="st-section-heading st-style1">
-          <h2 class="st-section-heading-title">Our Product</h2>
-          <div class="st-seperator">
-            <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-            <div class="st-seperator-center"><img src="../images/logopolos.jpg" alt="icon"></div>
-            <div class="st-seperator-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-          </div>
-          <div class="st-section-heading-subtitle"></div>
-        </div>
-        <div class="st-height-b40 st-height-lg-b40"></div>
-      </div>
+        
     <!-- Start Products Section -->
     <section class="products-modern-section sec-pad-2" data-aos="fade-up">
       <div class="auto-container">
@@ -673,6 +830,7 @@
         </div>
       </div>
     </section>
+    </div>
     <!-- End department Section -->
 
 
