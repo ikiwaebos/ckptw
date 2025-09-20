@@ -196,13 +196,13 @@
 
     .product-floating-card.card-1 {
       top: 15%;
-      right: 10%;
+      left: 10%;
       animation-delay: 0s;
     }
 
     .product-floating-card.card-2 {
       bottom: 20%;
-      left: 5%;
+      right: 15%;
       animation-delay: 1.5s;
     }
 
@@ -531,8 +531,27 @@
 <div class="container">
     <div class="row align-items-center clearfix">
       
-      <!-- Content Section -->
-      <div class="col-lg-6 col-md-12 col-sm-12 content-column" data-aos="fade-right">
+      <!-- Image Section (Moved to Left) -->
+      <div class="col-lg-6 col-md-12 col-sm-12 image-column" data-aos="fade-right">
+        <div class="product-image-container">
+          <div class="product-image-wrapper">
+            <div class="product-floating-elements">
+              <div class="product-floating-card card-1" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fas fa-award"></i>
+                <span>Certified</span>
+              </div>
+              <div class="product-floating-card card-2" data-aos="zoom-in" data-aos-delay="500">
+                <i class="fas fa-shield-alt"></i>
+                <span>Quality</span>
+              </div>
+            </div>
+            <img id="brand-img-modern" class="product-main-image" src="" alt="Product Image">
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Section (Moved to Right) -->
+      <div class="col-lg-6 col-md-12 col-sm-12 content-column" data-aos="fade-left">
         <div class="product-content-block">
           <div class="content-box">
             <div class="product-sec-title">
@@ -550,25 +569,6 @@
             <div id="modern-produk-accordions">
               <!-- Modern accordions will be injected here -->
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Image Section -->
-      <div class="col-lg-6 col-md-12 col-sm-12 image-column" data-aos="fade-left">
-        <div class="product-image-container">
-          <div class="product-image-wrapper">
-            <div class="product-floating-elements">
-              <div class="product-floating-card card-1" data-aos="zoom-in" data-aos-delay="400">
-                <i class="fas fa-award"></i>
-                <span>Certified</span>
-              </div>
-              <div class="product-floating-card card-2" data-aos="zoom-in" data-aos-delay="500">
-                <i class="fas fa-shield-alt"></i>
-                <span>Quality</span>
-              </div>
-            </div>
-            <img id="brand-img-modern" class="product-main-image" src="" alt="Product Image">
           </div>
         </div>
       </div>
