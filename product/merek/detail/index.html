@@ -101,6 +101,307 @@
 }
 </style>
 </head>
+
+<style>
+  /* Modern CSS Theme - Consistent with About Page */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #444;
+    background: #f8f9ff;
+  }
+
+  /* Product Detail Section Wrapper */
+  .product-detail-wrapper {
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+    padding: 80px 0;
+    margin-top: 0;
+  }
+
+  .product-detail-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+    background-size: cover;
+  }
+
+  /* Breadcrumb Styles */
+  .breadcrumb {
+    background: white;
+    border-radius: 15px;
+    padding: 15px 25px;
+    box-shadow: 0 5px 20px rgba(90, 24, 154, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .breadcrumb:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(90, 24, 154, 0.15);
+    border-color: rgba(142, 197, 252, 0.3);
+  }
+
+  .breadcrumb a {
+    color: #5a189a;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: #8ec5fc;
+  }
+
+  /* Product Image Box */
+  .st-imagebox {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(90, 24, 154, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+  }
+
+  .st-imagebox:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(90, 24, 154, 0.15);
+    border-color: rgba(142, 197, 252, 0.3);
+  }
+
+  .st-imagebox-img img {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(90, 24, 154, 0.1);
+    transition: all 0.4s ease;
+  }
+
+  .st-imagebox-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(90, 24, 154, 0.2);
+  }
+
+  .st-imagebox-img h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 30px 0 20px 0;
+    line-height: 1.2;
+  }
+
+  .st-imagebox-img p {
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  /* Product Info Styles */
+  .st-imagebox-info h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #5a189a;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .st-imagebox-info h4::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(45deg, #5a189a, #8ec5fc);
+    border-radius: 2px;
+  }
+
+  /* Dropdown Override */
+  #produk-list-merek-dropdown {
+    width: 100% !important;
+    padding: 12px 20px !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    font-size: 1rem !important;
+    background: white !important;
+    color: #444 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 5px 15px rgba(90, 24, 154, 0.1) !important;
+  }
+
+  #produk-list-merek-dropdown:focus {
+    outline: none !important;
+    border-color: #8ec5fc !important;
+    box-shadow: 0 0 0 3px rgba(142, 197, 252, 0.1) !important;
+  }
+
+  #produk-list-merek-dropdown:hover {
+    border-color: #5a189a !important;
+  }
+
+  /* File List Styles */
+  #file-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(45deg, #5a189a, #8ec5fc);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(90, 24, 154, 0.2);
+    margin-bottom: 10px;
+  }
+
+  #file-list a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(90, 24, 154, 0.3);
+    text-decoration: none;
+    color: white;
+  }
+
+  /* Icon Box Improvements */
+  .st-iconbox {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px rgba(90, 24, 154, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    text-align: center;
+    height: 100%;
+  }
+
+  .st-iconbox:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(90, 24, 154, 0.15);
+    border-color: rgba(142, 197, 252, 0.3);
+  }
+
+  .st-iconbox-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+  }
+
+  .st-purple-box {
+    background: linear-gradient(45deg, #5a189a, #8ec5fc) !important;
+  }
+
+  .st-green-box {
+    background: linear-gradient(45deg, #10b981, #34d399) !important;
+  }
+
+  .st-iconbox:hover .st-iconbox-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .st-iconbox-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    line-height: 1.3;
+  }
+
+  .st-iconbox-text {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  /* Section Heading */
+  .st-section-heading-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #5a189a, #8ec5fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Logo Carousel Improvements */
+  .st-logo-carousel {
+    background: white !important;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(90, 24, 154, 0.1);
+    transition: all 0.4s ease;
+    margin: 10px;
+  }
+
+  .st-logo-carousel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(90, 24, 154, 0.15);
+  }
+
+  .st-logo-carousel img {
+    transition: all 0.4s ease;
+  }
+
+  .st-logo-carousel:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Gray Background Section */
+  .st-gray-bg {
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%) !important;
+    padding: 80px 0;
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .st-imagebox {
+      padding: 30px 20px;
+    }
+    
+    .st-imagebox-img h1 {
+      font-size: 2rem;
+    }
+    
+    .st-iconbox {
+      padding: 30px 20px;
+      margin-bottom: 30px;
+    }
+    
+    .st-section-heading-title {
+      font-size: 2rem;
+    }
+    
+    .product-detail-wrapper {
+      padding: 60px 0;
+    }
+  }
+</style>
+
 <style>
   .img-modal {
     display: none;
@@ -291,8 +592,9 @@
     
 
     <!-- End Feature Seciton -->
-    <div style="margin-top: 8rem;"></div>
-    <section class="container mt-5 mb-5">
+    <div class="product-detail-wrapper">
+      <div style="margin-top: 2rem;"></div>
+      <section class="container mt-5 mb-5">
       <div class="breadcrumb mb-4" style="margin: 24px 0 16px 0; font-size: 1rem; color: #222;">
       <a href="/product" style="color: #007bff; text-decoration: none;">Products</a> 
       <span>&nbsp; &gt; &nbsp;</span>
@@ -300,9 +602,9 @@
       <span>&nbsp; &gt; &nbsp;</span>
       <span id="breadcrumb-product"></span>
     </div>
-      <div class="st-imagebox st-style2">
+      <div class="st-imagebox st-style2" data-aos="fade-up">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-aos="fade-right">
             <div class="st-imagebox-img">
               <div style="text-align: center;">
                 <img id="product-image" src="" style="max-width:250px; width:100%; height:auto; cursor:pointer;" alt="">
@@ -313,17 +615,17 @@
             </div>
             <div class="st-height-b0 st-height-lg-b30"></div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-aos="fade-left">
             <div class="st-imagebox-info">
-              <div id="produk-list-merek" class="mb-4">
+              <div id="produk-list-merek" class="mb-4" data-aos="zoom-in" data-aos-delay="200">
   <h4>Produk lain dari merek ini:</h4>
   <select id="produk-list-merek-dropdown">
     <option value="">Pilih produk...</option>
   </select>
 </div>
 
-              <h4 class="mb-4">File yang tersedia</h4>
-              <div id="file-list"></div>
+              <h4 class="mb-4" data-aos="fade-up" data-aos-delay="300">File yang tersedia</h4>
+              <div id="file-list" data-aos="fade-up" data-aos-delay="400"></div>
 
 
 
@@ -334,8 +636,8 @@
 
       </div>
 
-    </section>
-
+      </section>
+    </div>
 
     <hr>
 
@@ -343,7 +645,7 @@
 
       <div class="container mt-5 mb-5">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-aos="fade-right">
             <div class="st-iconbox st-style1">
               <div class="st-iconbox-icon st-purple-box">
                 <img src="../../../images/sni.svg" width="50px">
@@ -357,7 +659,7 @@
             <div class="st-height-b0 st-height-lg-b30"></div>
           </div>
           <!-- .col -->
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-aos="fade-left">
             <div class="st-iconbox st-style1">
               <div class="st-iconbox-icon st-green-box">
                 <img src="../../../images/bangga.png" width="150px">
@@ -377,7 +679,7 @@
 
     <!-- Start Logo Carousel -->
 
-    <div class="st-section-heading st-style1">
+    <div class="st-section-heading st-style1" data-aos="fade-up">
       <h2 class="st-section-heading-title">Our Brand</h2>
       <div class="st-seperator">
         <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
@@ -386,7 +688,7 @@
       </div>
       <div class="st-section-heading-subtitle"></div>
     </div>
-    <div class="st-gray-bg mt-5">
+    <div class="st-gray-bg mt-5" data-aos="fade-up">
       <div class="container">
         <div class="st-slider st-style2 st-pricing-wrap">
           <div class="slick-container" data-autoplay="0" data-loop="1" data-speed="600" data-center="0"
@@ -682,6 +984,18 @@
           if (e.key === 'Escape') modal.style.display = 'none';
         });
       }
+    });
+  </script>
+
+  <!-- AOS Animate On Scroll JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
     });
   </script>
 
