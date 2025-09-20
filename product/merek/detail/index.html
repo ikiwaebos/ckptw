@@ -620,6 +620,146 @@
   }
 </style>
 
+<style>
+  /* Brand Wrapper Styles - Same as merek/index.html */
+  .brand-wrapper {
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+    padding: 80px 0;
+    margin-top: 50px;
+  }
+
+  .brand-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+    background-size: cover;
+  }
+
+  /* Brand Section Styles */
+  .brand-carousel-section {
+    background: transparent;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .brand-section-title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .brand-section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+
+  .brand-highlight {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .brand-subtitle {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .modern-brand-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+  }
+
+  .modern-brand-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
+
+  .modern-brand-card img {
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .modern-brand-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .modern-brand-card h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+
+  .modern-brand-card p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .brand-badge {
+      padding: 8px 15px;
+    }
+    
+    .brand-wrapper {
+      padding: 60px 0;
+      margin-top: 30px;
+    }
+
+    .brand-section-title h2 {
+      font-size: 1.8rem;
+    }
+
+    .modern-brand-card {
+      padding: 25px;
+      margin: 8px;
+    }
+
+    .modern-brand-card img {
+      height: 100px;
+    }
+  }
+</style>
+
 <body>
   <div id="ad-detector" style="width: 1px; height: 1px; position: absolute; left: -9999px;">
     <script>/* Iklan palsu */</script>
