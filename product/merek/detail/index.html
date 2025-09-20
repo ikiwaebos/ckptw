@@ -367,6 +367,42 @@
     font-size: 1.2rem;
   }
 
+  /* Dynamic icons based on file type */
+  .produk-link-card[data-file-type="pdf"] .produk-link-card-body::after {
+    content: '\f1c1';
+  }
+
+  .produk-link-card[data-file-type="doc"] .produk-link-card-body::after,
+  .produk-link-card[data-file-type="docx"] .produk-link-card-body::after {
+    content: '\f1c2';
+  }
+
+  .produk-link-card[data-file-type="xls"] .produk-link-card-body::after,
+  .produk-link-card[data-file-type="xlsx"] .produk-link-card-body::after {
+    content: '\f1c3';
+  }
+
+  .produk-link-card[data-file-type="ppt"] .produk-link-card-body::after,
+  .produk-link-card[data-file-type="pptx"] .produk-link-card-body::after {
+    content: '\f1c4';
+  }
+
+  .produk-link-card[data-file-type="jpg"] .produk-link-card-body::after,
+  .produk-link-card[data-file-type="jpeg"] .produk-link-card-body::after,
+  .produk-link-card[data-file-type="png"] .produk-link-card-body::after,
+  .produk-link-card[data-file-type="gif"] .produk-link-card-body::after {
+    content: '\f1c5';
+  }
+
+  .produk-link-card[data-file-type="zip"] .produk-link-card-body::after,
+  .produk-link-card[data-file-type="rar"] .produk-link-card-body::after {
+    content: '\f1c6';
+  }
+
+  .produk-link-card[data-file-type="txt"] .produk-link-card-body::after {
+    content: '\f15c';
+  }
+
   .produk-link-card-title {
     font-size: 1.1rem;
     font-weight: 600;
@@ -813,69 +849,70 @@
 
     <!-- Start Logo Carousel -->
 
-    <div class="st-section-heading st-style1" data-aos="fade-up">
-      <h2 class="st-section-heading-title">Our Brand</h2>
-      <div class="st-seperator">
-        <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-        <div class="st-seperator-center"><img src="../../../images/logopolos.jpg" alt="icon"></div>
-        <div class="st-seperator-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-      </div>
-      <div class="st-section-heading-subtitle"></div>
-    </div>
-    <div class="st-gray-bg mt-5" data-aos="fade-up">
-      <div class="container">
-        <div class="st-slider st-style2 st-pricing-wrap">
-          <div class="slick-container" data-autoplay="0" data-loop="1" data-speed="600" data-center="0"
+   <div class="brand-wrapper">
+      <section class="brand-carousel-section" data-aos="fade-up">
+        <div class="container">
+          <div class="brand-section-title">
+            <div class="brand-badge">
+              <i class="fas fa-award"></i>
+              <span>Trusted Brands</span>
+            </div>
+            <h2>Our <span class="brand-highlight">Brands</span></h2>
+            <p class="brand-subtitle">
+              Trusted medical equipment brands for modern healthcare
+            </p>
+          </div>
+        
+        <div class="st-slider st-style2">
+          <div class="slick-container" data-autoplay="1" data-loop="1" data-speed="600" data-center="0"
             data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2" data-md-slides="3"
             data-lg-slides="4" data-add-slides="5">
             <div class="slick-wrapper">
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-orange-box">
-                  <img src="../../../images/onecare.png" alt="client1">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="100">
+                  <img src="../../images/onecare.png" alt="OneCare">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-blue-box">
-                  <img src="../../../images/onetech.png" alt="client2">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="200">
+                  <img src="../../images/onetech.png" alt="OneTech">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-red-box">
-                  <img src="../../../images/hemapro.png" alt="client3">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="300">
+                  <img src="../../images/hemapro.png" alt="HemaPro">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-green-box">
-                  <img src="../../../images/java.png" alt="client4">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="400">
+                  <img src="../../images/java.png" alt="Java">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-dip-blue-box">
-                  <img src="../../../images/medimax.png" alt="client5">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="500">
+                  <img src="../../images/medimax.png" alt="Medimax">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-orange-box">
-                  <img src="../../../images/danur.png" alt="client1">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="600">
+                  <img src="../../images/danur.png" alt="Danur">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-orange-box">
-                  <img src="../../../images/lis.png" alt="client1">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="700">
+                  <img src="../../images/lis.png" alt="LIS">
                 </div>
               </div>
-
             </div>
           </div><!-- .slick-container -->
           <div class="pagination st-style1 st-flex st-hidden"></div>
-          <!-- If dont need Pagination then add class .st-hidden -->
-          <div class="swipe-arrow st-style1"> <!-- If dont need navigation then add class .st-hidden -->
+          <div class="swipe-arrow st-style1">
             <div class="slick-arrow-left"><i class="fa fa-chevron-left"></i></div>
             <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
           </div>
         </div><!-- .st-slider -->
       </div>
-      <div class="st-height-b120 st-height-lg-b80"></div>
+    </section>
     </div>
     <!-- End Logo Carousel -->
 
@@ -1060,15 +1097,21 @@
 
       // File produk
       const fileList = document.getElementById("file-list");
-      fileList.innerHTML = (product.files || []).map(l => `
-        <div class="produk-link-card">
+      fileList.innerHTML = (product.files || []).map(l => {
+        // Extract file extension from URL
+        const urlParts = l.url.split('.');
+        const fileExtension = urlParts[urlParts.length - 1].toLowerCase();
+        
+        return `
+        <div class="produk-link-card" data-file-type="${fileExtension}">
           <a href="${l.url}" target="_blank">
             <div class="produk-link-card-body">
               <div class="produk-link-card-title">${l.title}</div>
             </div>
           </a>
         </div>
-      `).join("");
+      `;
+      }).join("");
     } else {
       // Ganti isi body penuh dengan 404
       document.title = "404 - Produk Tidak Ditemukan";
