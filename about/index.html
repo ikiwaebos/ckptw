@@ -3970,6 +3970,201 @@
 }
 
 </style>
+<style>
+/* Hero Section - Konsisten dengan halaman lain */
+.hero-wrap {
+  height: 100vh;
+  min-height: 100%;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.hero-wrap .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+  background: linear-gradient(135deg, rgba(90, 24, 154, 0.8) 0%, rgba(102, 126, 234, 0.6) 100%);
+  z-index: 1;
+}
+
+.hero-wrap.modern-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-wrap .slider-text {
+  height: 100vh;
+  min-height: 750px;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 3;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero-wrap .slider-text .text {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-wrap .slider-text .subheading {
+  display: inline-block;
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+  font-weight: 700;
+  color: #fff;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 25px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.highlight-text {
+  background: linear-gradient(45deg, #ffd700, #ffeb3b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+.hero-wrap .slider-text p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 35px;
+  font-weight: 500;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modern-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(90, 24, 154, 0.3);
+  border: none;
+}
+
+.modern-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(90, 24, 154, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.modern-btn i {
+  transition: transform 0.3s ease;
+}
+
+.modern-btn:hover i {
+  transform: translateY(3px);
+}
+
+.modern-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: white;
+  padding: 15px 35px;
+  border: 2px solid white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+}
+
+.modern-btn-outline:hover {
+  background: white;
+  color: #5a189a;
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+.modern-btn-outline:hover i {
+  transform: translateX(5px);
+}
+
+@media (max-width: 767px) {
+  .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-wrap .slider-text p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .modern-btn, .modern-btn-outline {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .hero-wrap {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-wrap .slider-text .subheading {
+    font-size: 0.8rem;
+    padding: 6px 16px;
+  }
+  
+  .modern-btn, .modern-btn-outline {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -4063,37 +4258,30 @@
   <div class="st-content">
     <div class="st-height-b125 st-height-lg-b80"></div>
     <!-- Start Hero Seciton -->
-    <div class="st-slider st-style1 st-slider-animation1">
-      <div class="slick-container" data-autoplay="0" data-loop="1" data-speed="800" data-autoplay-timeout="1000"
-        data-center="0" data-slides-per-view="1">
-        <div class="slick-wrapper">
-          <div class="slick-slide-in">
-            <div class="st-hero st-style1 st-size1">
-              <div class="st-hero-bg st-dynamic-bg st-bg" data-src="../images/about.jpg"
-                style="background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; height: 100vh;">
-              </div>
-
-              <div class="container">
-                <div class="st-hero-text">
-                  <h1 class="text-center">
-                     ~ ABOUT ~
-                  </h1>
-                
-               
-                  <div class="st-height-b15 st-height-lg-b15"></div>
-                </div>
-              </div>
-            </div>
+    <section class="hero-wrap modern-hero" style="background-image: url('../images/about.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="text mt-5 pt-5 text-center" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+          <span class="subheading">Tentang Kami</span>
+          <h1 class="mb-4">PT. Sentral Medika <span class="highlight-text">Indonesia</span></h1>
+          <p class="mb-4">Perusahaan manufaktur alat kesehatan berstandar nasional yang bangga mendukung kesehatan Indonesia melalui inovasi dan kualitas terdepan.</p>
+          <div class="hero-buttons">
+            <a href="#company-profile" class="btn btn-primary modern-btn">
+              <span>Pelajari Lebih Lanjut</span>
+              <i class="fas fa-arrow-down"></i>
+            </a>
+            <a href="../product/" class="btn btn-outline modern-btn-outline">
+              <span>Lihat Produk</span>
+              <i class="fas fa-box"></i>
+            </a>
           </div>
-
         </div>
-      </div><!-- .slick-container -->
-      <div class="pagination st-style2 st-hidden"></div> <!-- If dont need Pagination then add class .st-hidden -->
-      <div class="swipe-arrow st-style2"> <!-- If dont need navigation then add class .st-hidden -->
-        <div class="slick-arrow-left"><i class="fa fa-chevron-left"></i></div>
-        <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
       </div>
-    </div><!-- .st-slider -->
+    </div>
+  </div>
+</section>
     <!-- End Hero Seciton -->
 
     <!-- Start Feature Seciton -->
