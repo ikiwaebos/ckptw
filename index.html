@@ -66,7 +66,169 @@
     "description": "PT. Sentral Medika Indonesia - Produsen alat kesehatan berstandar nasional yang bangga mendukung kesehatan Indonesia."
 }
 </script>
+<style>
+   /* Brand Wrapper Styles - Same as detail/index.html */
+    .brand-wrapper {
+      background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding-left: calc(50vw - 50%);
+      padding-right: calc(50vw - 50%);
+      padding: 80px 0;
+      margin-top: 50px;
+    }
 
+    .brand-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+      background-size: cover;
+    }
+
+    /* Brand Section Styles */
+    .brand-carousel-section {
+      background: transparent;
+      padding: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .brand-section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      line-height: 1.2;
+      margin: 15px 0 20px 0;
+    }
+
+    .brand-highlight {
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .brand-subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin: 0;
+      font-weight: 500;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Modern Brand Card Styles */
+    .modern-brand-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(90, 24, 154, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.4s ease;
+      margin: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modern-brand-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(90, 24, 154, 0.05), rgba(142, 197, 252, 0.05));
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .modern-brand-card:hover::before {
+      opacity: 1;
+    }
+
+    .modern-brand-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(90, 24, 154, 0.2);
+      border-color: rgba(142, 197, 252, 0.3);
+    }
+
+    .modern-brand-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .modern-brand-card:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .product-sec-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .product-image-container {
+        height: 350px;
+        margin-top: 30px;
+      }
+      
+      .product-main-image {
+        max-width: 300px;
+        max-height: 300px;
+      }
+      
+      .product-floating-card {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+      }
+      
+      .brand-wrapper {
+        padding: 60px 0;
+        margin-top: 30px;
+      }
+
+      .brand-section-title h2 {
+        font-size: 1.8rem;
+      }
+
+      .modern-brand-card {
+        padding: 25px;
+        margin: 8px;
+      }
+
+      .modern-brand-card img {
+        height: 100px;
+      }
+    }
+</style>
 </head>
 
 <body>
@@ -261,64 +423,73 @@
 
    
 
-    <!-- Start Logo Carousel -->
-    <div class="st-gray-bg">
-      <div class="st-height-b120 st-height-lg-b80"></div>
-      <div class="container">
-        <div class="st-slider st-style2 st-pricing-wrap">
-          <div class="slick-container" data-autoplay="0" data-loop="1" data-speed="600" data-center="0"
+   <!-- Start Brand Carousel -->
+    <div class="brand-wrapper">
+      <section class="brand-carousel-section" data-aos="fade-up">
+        <div class="container">
+          <div class="brand-section-title">
+            <div class="brand-badge">
+              <i class="fas fa-award"></i>
+              <span>Trusted Brands</span>
+            </div>
+            <h2>Our <span class="brand-highlight">Brands</span></h2>
+            <p class="brand-subtitle">
+              Trusted medical equipment brands for modern healthcare
+            </p>
+          </div>
+        
+        <div class="st-slider st-style2">
+          <div class="slick-container" data-autoplay="1" data-loop="1" data-speed="600" data-center="0"
             data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2" data-md-slides="3"
             data-lg-slides="4" data-add-slides="5">
             <div class="slick-wrapper">
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-orange-box">
-                  <img src="images/onecare.png" alt="client1">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="100">
+                  <img src="../../images/onecare.png" alt="OneCare">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-blue-box">
-                  <img src="images/onetech.png" alt="client2">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="200">
+                  <img src="../../images/onetech.png" alt="OneTech">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-red-box">
-                  <img src="images/hemapro.png" alt="client3">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="300">
+                  <img src="../../images/hemapro.png" alt="HemaPro">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-green-box">
-                  <img src="images/java.png" alt="client4">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="400">
+                  <img src="../../images/java.png" alt="Java">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-dip-blue-box">
-                  <img src="images/medimax.png" alt="client5">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="500">
+                  <img src="../../images/medimax.png" alt="Medimax">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-orange-box">
-                  <img src="images/danur.png" alt="client1">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="600">
+                  <img src="../../images/danur.png" alt="Danur">
                 </div>
               </div>
               <div class="slick-slide-in">
-                <div class="st-logo-carousel st-style1 st-orange-box">
-                  <img src="images/lis.png" alt="client1">
+                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="700">
+                  <img src="../../images/lis.png" alt="LIS">
                 </div>
               </div>
-
             </div>
           </div><!-- .slick-container -->
           <div class="pagination st-style1 st-flex st-hidden"></div>
-          <!-- If dont need Pagination then add class .st-hidden -->
-          <div class="swipe-arrow st-style1"> <!-- If dont need navigation then add class .st-hidden -->
+          <div class="swipe-arrow st-style1">
             <div class="slick-arrow-left"><i class="fa fa-chevron-left"></i></div>
             <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
           </div>
         </div><!-- .st-slider -->
       </div>
-      <div class="st-height-b120 st-height-lg-b80"></div>
+    </section>
     </div>
-    <!-- End Logo Carousel -->
+    <!-- End Brand Carousel -->
 
 
     <div class="st-google-map">
