@@ -88,19 +88,6 @@
     </div>
   </div>
 
-  <!-- Tombol Toggle di bawahnya langsung -->
-  <div class="togglle-button" onclick="toggleFlagContainer()">🌐 &#9654;</div>
-  
-  <!-- Container Bendera -->
-  <div class="flag-container">
-    <p><strong>Double Klik:</strong></p>
-    <button onclick="changeLang('en')" title="English">🇬🇧</button>
-    <button onclick="changeLang('fr')" title="French">🇫🇷</button>
-    <button onclick="changeLang('es')" title="Spanish">🇪🇸</button>
-    <button onclick="changeLang('hi')" title="Hindi">🇮🇳</button>
-    <button onclick="changeLang('de')" title="German">🇩🇪</button>
-  </div>
-
   <!-- Start Header Section -->
   <header class="st-site-header st-style1 st-sticky-header">
     <div class="st-top-header">
@@ -153,6 +140,14 @@
                 <li><a href="https://www.sentralmedika.co.id/about" class="st-smooth-move">About</a></li>
                 <li><a href="https://www.sentralmedika.co.id/product" class="st-smooth-move">Product</a></li>
                 <li><a href="https://karir.sentralmedika.co.id" class="st-smooth-move">Karir</a></li>
+
+                <!-- <li class="menu-item-has-children"><a href="#blog" class="st-smooth-move">Blog</a>
+                  <ul>
+                    <li><a href="/blog-right-sidebar">Blog Right Sidebar</a></li>
+                    <li><a href="/blog-left-sidebar">Blog Left Sidebar</a></li>
+                    <li><a href="/blog-no-sidebar">Blog No Sidebar</a></li>
+                  </ul>
+                </li>-->
               </ul>
             </div>
           </div>
@@ -264,6 +259,8 @@
 
     <!-- End Feature Seciton -->
 
+   
+
     <!-- Start Logo Carousel -->
     <div class="st-gray-bg">
       <div class="st-height-b120 st-height-lg-b80"></div>
@@ -323,6 +320,7 @@
     </div>
     <!-- End Logo Carousel -->
 
+
     <div class="st-google-map">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.151315828906!2d110.358081!3d-6.9914521999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708afb48866f63%3A0x98aea1307ba03807!2sPT.%20Sentral%20Medika%20Indonesia!5e0!3m2!1sid!2sid!4v1737129473661!5m2!1sid!2sid"
@@ -330,6 +328,18 @@
     </div>
     <div id="google_translate_element" style="display: none;"></div>
 
+    <!-- Tombol Toggle di bawahnya langsung -->
+    <div class="togglle-button" onclick="toggleFlagContainer()">🌐 &#9654;</div>
+    
+    <!-- Container Bendera -->
+    <div class="flag-container">
+      <p><strong>Double Klik:</strong></p>
+      <button onclick="changeLang('en')" title="English">🇬🇧</button>
+      <button onclick="changeLang('fr')" title="French">🇫🇷</button>
+      <button onclick="changeLang('es')" title="Spanish">🇪🇸</button>
+      <button onclick="changeLang('hi')" title="Hindi">🇮🇳</button>
+      <button onclick="changeLang('de')" title="German">🇩🇪</button>
+    </div>
   </div>
   <!-- Start Footer -->
   <footer class="st-site-footer st-sticky-footer st-dynamic-bg" data-src="assets/img/footer-bg.png">
@@ -452,71 +462,6 @@
       ]
     }
     </script>
-
-  <!-- Add Google Translate Script -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'id',
-        includedLanguages: 'en,fr,es,hi,de',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-
-    function changeLang(langCode) {
-      var selectElement = document.querySelector('#google_translate_element select');
-      if (selectElement) {
-        selectElement.value = langCode;
-        selectElement.dispatchEvent(new Event('change'));
-      }
-    }
-
-    function toggleFlagContainer() {
-      var container = document.querySelector('.flag-container');
-      container.style.display = container.style.display === 'none' ? 'block' : 'none';
-    }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-  <style>
-    .togglle-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #007bff;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 50px;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      font-size: 14px;
-    }
-    .flag-container {
-      position: fixed;
-      bottom: 70px;
-      right: 20px;
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 1000;
-      display: none;
-    }
-    .flag-container button {
-      margin: 5px;
-      border: none;
-      background: none;
-      font-size: 24px;
-      cursor: pointer;
-      border-radius: 5px;
-      padding: 5px;
-    }
-    .flag-container button:hover {
-      background: #f0f0f0;
-    }
-  </style>
     
 </body>
 
