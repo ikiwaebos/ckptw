@@ -237,9 +237,11 @@
 
 /** about-style-four **/
 
-.about-style-four{
-  background-color: #F8FAFD;
+/* Production & R&D Section Styles - Konsisten dengan section lain */
+.production-rd-section {
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
   position: relative;
+  overflow: hidden;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   padding-left: calc(50vw - 50%);
@@ -248,77 +250,116 @@
   padding-top: 7svh;
 }
 
-.about-style-four .image_block_5 .image-box{
-  margin-right: 30px;
-}
-
-.image_block_5 .image-box .shape .shape-3 {
-  position: absolute;
-  top: 115px;
-  left: -40px;
-  width: 173px;
-  height: 173px;
-  background-repeat: no-repeat;
-}
-
-.image_block_5 .image-box .shape .shape-4 {
-  position: absolute;
-  right: 0px;
-  bottom: 100px;
-  width: 173px;
-  height: 173px;
-  background-repeat: no-repeat;
-}
-
-.image_block_5 .image-box .shape .shape-5{
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  width: 510px;
-  height: 525px;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
-.about-style-four .content_block_1 .content-box .singl-block .single-item{
-  padding: 0px 10px;
-  margin: 0px;
-  padding-top: 40px;
-}
-
-.about-style-four .content_block_1 .content-box .singl-block .single-item .icon-box{
-  position: relative;
-  margin-bottom: 25px;
-  background: #edf2f7;
-}
-
-.about-style-four .content_block_1 .content-box .singl-block{
-  max-width: 100%;
-  border-top: 1px solid #ededed;
-  margin-top: 0px;
-  padding-top: 0px;
-}
-
-.about-style-four .content_block_1 .content-box .singl-block .single-item:before{
-  position: absolute;
+.production-rd-section::before {
   content: '';
-  background: #ededed;
-  width: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  top: 0px;
-  right: -15px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+  background-size: cover;
 }
 
-.about-style-four .content_block_1 .content-box .singl-block .single-column:last-child .single-item:before{
-  display: none;
+.production-content-block {
+  position: relative;
+  z-index: 2;
 }
 
-.about-style-four .content_block_1 .content-box .sec-title{
-  margin-bottom: 34px;
+.production-image-block {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.about-style-four .content_block_1 .content-box .text p{
-  margin-bottom: 31px;
+.production-image-block .image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.production-image-block .main-animation {
+  width: 80%;
+  height: 80%;
+  z-index: 1;
+  position: relative;
+}
+
+.production-image-block .floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.production-image-block .floating-card {
+  position: absolute;
+  background: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(90, 24, 154, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #5a189a;
+  animation: float 3s ease-in-out infinite;
+}
+
+.production-image-block .floating-card i {
+  font-size: 1.2rem;
+  color: #8ec5fc;
+}
+
+.production-image-block .card-1 {
+  top: 15%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.production-image-block .card-2 {
+  bottom: 30%;
+  left: 5%;
+  animation-delay: 1.5s;
+}
+
+.production-image-block .card-3 {
+  top: 50%;
+  right: 5%;
+  animation-delay: 2.5s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .production-rd-section {
+    padding: 60px 20px;
+  }
+  
+  .main-title {
+    font-size: 1.8rem;
+  }
+  
+  .stats-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .production-image-block .floating-card {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+  
+  .production-image-block {
+    height: 350px;
+    margin-top: 30px;
+  }
 }
 
 </style>
@@ -4496,38 +4537,79 @@
         </section>
 
 
-         <section class="about-style-four sec-pad">
+      <!-- Start Production & R&D Section -->
+<section class="production-rd-section" data-aos="fade-up">
     <div class="auto-container">
-        <div class="row clearfix">
+        <div class="row align-items-center clearfix">
             <!-- Image Section -->
-            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                <div class="image_block_5">
-                    <div class="image-box">
-                       
-                      <lottie-player src="https://lottie.host/3e6fe85f-0ed1-488e-898f-f303d337f05e/0D8kHuHVTN.json" background="transparent" speed="1"  loop autoplay></lottie-player>  </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 image-column" data-aos="fade-right">
+                <div class="production-image-block">
+                    <div class="image-wrapper">
+                        <div class="floating-elements">
+                            <div class="floating-card card-1" data-aos="zoom-in" data-aos-delay="400">
+                                <i class="fas fa-industry"></i>
+                                <span>5,000 m²</span>
+                            </div>
+                            <div class="floating-card card-2" data-aos="zoom-in" data-aos-delay="500">
+                                <i class="fas fa-users"></i>
+                                <span>80+ Staff</span>
+                            </div>
+                            <div class="floating-card card-3" data-aos="zoom-in" data-aos-delay="600">
+                                <i class="fas fa-microscope"></i>
+                                <span>Clean Room</span>
+                            </div>
+                        </div>
+                        <div class="main-animation">
+                            <lottie-player src="https://lottie.host/3e6fe85f-0ed1-488e-898f-f303d337f05e/0D8kHuHVTN.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Content Section -->
-            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                <div class="content_block_1">
-                    <div class="content-box ml-70">
-                        <div class="sec-title">
-                            <h6>R&D dan Produksi</h6>
-                            <h2>Inovasi dan Fasilitas Produksi PT SMI</h2>
+            <div class="col-lg-6 col-md-12 col-sm-12 content-column" data-aos="fade-left">
+                <div class="production-content-block">
+                    <div class="content-box">
+                        <div class="sec-title-modern">
+                            <span class="subtitle-badge">R&D dan Produksi</span>
+                            <h2 class="main-title">Inovasi dan Fasilitas <span class="highlight-text">Produksi PT SMI</span></h2>
                         </div>
-                        <div class="bold-text">
-                            <p>PT SMI mengoperasikan fasilitas produksi modern seluas <strong>5.000 m²</strong> yang dilengkapi dengan <strong>Cleanroom berstandar internasional</strong>. Operasional didukung oleh lebih dari 80 tenaga profesional yang kompeten di bidangnya.</p>
+                        
+                        <div class="description-text">
+                            <p>PT SMI mengoperasikan fasilitas produksi modern seluas <span class="stat-highlight">5.000 m²</span> yang dilengkapi dengan <span class="stat-highlight">Cleanroom berstandar internasional</span>. Operasional didukung oleh lebih dari 80 tenaga profesional yang kompeten di bidangnya.</p>
                         </div>
-                        <div class="text">
+                        
+                        <div class="achievement-text">
                             <p>Dalam upaya meningkatkan kualitas dan inovasi produk, PT SMI menjalin kolaborasi dengan peneliti dari berbagai universitas ternama, termasuk Universitas Diponegoro. Sinergi ini memperkuat posisi PT SMI sebagai produsen alat kesehatan yang inovatif dan berdaya saing tinggi.</p>
                         </div>
 
-                        <!-- Feature Block -->
+                        <!-- Stats Cards -->
+                        <div class="stats-container">
+                            <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="stat-icon">
+                                    <i class="fas fa-industry"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>5,000</h4>
+                                    <p>Square Meters</p>
+                                </div>
+                            </div>
+                            <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>80+</h4>
+                                    <p>Professionals</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature Highlights Block - Updated to match style -->
                         <div class="feature-highlights-block">
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-6 col-sm-12 feature-column">
-                                    <div class="feature-item">
+                                    <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
                                         <div class="feature-icon-wrapper">
                                             <div class="feature-icon-box">
                                                 <i class="fas fa-industry"></i>
@@ -4540,7 +4622,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 feature-column">
-                                    <div class="feature-item">
+                                    <div class="feature-item" data-aos="fade-up" data-aos-delay="150">
                                         <div class="feature-icon-wrapper">
                                             <div class="feature-icon-box">
                                                 <i class="fas fa-flask"></i>
@@ -4555,12 +4637,21 @@
                             </div>
                         </div>
                         <!-- End Feature Block -->
+
+                        <div class="cta-button" data-aos="fade-up" data-aos-delay="300">
+                            <a href="../product/" class="modern-btn">
+                                <span>Lihat Produk Kami</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!-- End Production & R&D Section -->
+
 
        
         <!-- Jangkauan Pasar -->
