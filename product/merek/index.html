@@ -251,23 +251,64 @@
       color: white;
     }
 
-    .modern-accordion-content {
-      padding: 0 25px;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
 
-    .modern-accordion-content.active {
-      padding: 20px 25px;
-      max-height: 300px;
-    }
+/* Update accordion content styles */
+.modern-accordion-content {
+  padding: 0 25px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
 
-    .modern-accordion-content p {
-      color: #64748b;
-      line-height: 1.6;
-      margin: 0;
-    }
+.modern-accordion-content.active {
+  padding: 20px 25px;
+  max-height: 600px; /* Increased from 300px to 600px */
+  overflow-y: auto; /* Add scroll if needed */
+}
+
+/* Style for product links inside accordion */
+.modern-accordion-content a {
+  color: #64748b;
+  text-decoration: none;
+  display: block;
+  padding: 12px 0; /* Increased padding */
+  border-bottom: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+.modern-accordion-content a:hover {
+  color: #5a189a !important;
+  background: rgba(90, 24, 154, 0.05);
+  padding-left: 10px;
+  transform: translateX(5px);
+}
+
+.modern-accordion-content a:last-child {
+  border-bottom: none;
+}
+
+/* Custom scrollbar for accordion content */
+.modern-accordion-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modern-accordion-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.modern-accordion-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #5a189a, #8ec5fc);
+  border-radius: 10px;
+}
+
+.modern-accordion-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #4a0d7a, #6ea5dc);
+}
+
 
     .accordion-icon {
       transition: transform 0.3s ease;
@@ -398,6 +439,29 @@
     .modern-brand-card:hover img {
       transform: scale(1.1);
     }
+   
+.accordion-items-wrapper {
+  padding: 10px 0;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.product-count {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.modern-accordion-header:not(.active) .product-count {
+  color: #8ec5fc;
+}
+
+.product-number {
+  color: #8ec5fc;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
 
     /* Responsive Design */
     @media (max-width: 768px) {
@@ -437,6 +501,14 @@
       .modern-brand-card img {
         height: 100px;
       }
+        .modern-accordion-content.active {
+    max-height: 400px;
+  }
+  
+  .modern-accordion-content a {
+    padding: 10px 0;
+    font-size: 0.95rem;
+  }
     }
   </style>
   <script type="application/ld+json">
@@ -916,26 +988,28 @@ console.log('API Response - Brands:', brands.length);
   // Render modern accordion per kategori
   const container = document.getElementById('modern-produk-accordions');
   container.innerHTML = '';
-  Object.keys(kategoriMap).forEach((kat, index) => {
-    const items = kategoriMap[kat].map(p =>
-      `<a href="/product/${slug}/detail/${p.slug}" style="color: #64748b; text-decoration: none; display: block; padding: 8px 0; border-bottom: 1px solid #e2e8f0; transition: color 0.3s ease;" onmouseover="this.style.color='#5a189a'" onmouseout="this.style.color='#64748b'">${p.nama}</a>`
-    ).join('');
-    
-    container.innerHTML += `
-      <div class="modern-accordion" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
-        <button class="modern-accordion-header" data-category="${kat}">
-          ${kat}
-          <i class="fas fa-chevron-down accordion-icon"></i>
-        </button>
-        <div class="modern-accordion-content">
-          <div style="padding: 10px 0;">
-            ${items}
-          </div>
+Object.keys(kategoriMap).forEach((kat, index) => {
+  const items = kategoriMap[kat].map((p, itemIndex) =>
+    `<a href="/product/${slug}/detail/${p.slug}" data-product-id="${p.id}">
+      <span class="product-number">${itemIndex + 1}.</span>
+      ${p.nama}
+    </a>`
+  ).join('');
+  
+  container.innerHTML += `
+    <div class="modern-accordion" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+      <button class="modern-accordion-header" data-category="${kat}">
+        ${kat} <span class="product-count">(${kategoriMap[kat].length} products)</span>
+        <i class="fas fa-chevron-down accordion-icon"></i>
+      </button>
+      <div class="modern-accordion-content">
+        <div class="accordion-items-wrapper">
+          ${items}
         </div>
       </div>
-    `;
-  });
-
+    </div>
+  `;
+});
   // Inisialisasi event listener accordion modern
   document.querySelectorAll('.modern-accordion-header').forEach(function(header) {
     header.addEventListener('click', function() {
