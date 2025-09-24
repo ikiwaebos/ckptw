@@ -871,6 +871,8 @@ async function loadBrandAndProducts() {
   if (productIdx !== -1 && pathParts.length > productIdx + 1) {
     slug = pathParts[productIdx + 1];
   }
+  console.log('Current URL:', window.location.pathname);
+  console.log('Extracted slug:', slug);
 
   // Fetch data
   const [brandsRes, productsRes] = await Promise.all([
