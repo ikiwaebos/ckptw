@@ -881,6 +881,10 @@ async function loadBrandAndProducts() {
   ]);
   const brands = (await brandsRes.json()).data;
   const products = (await productsRes.json()).data;
+  
+console.log('API Response - Brands:', brands.length);
+    console.log('API Response - Products:', products.length);
+    console.log('First product sample:', products[0]);
 
   // Temukan brand yang sesuai
   const brand = brands.find(b => b.slug === slug);
