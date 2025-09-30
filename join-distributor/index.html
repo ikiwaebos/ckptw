@@ -1,92 +1,1195 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Distributor - PT. Sentral Medika Indonesia</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/fontawesome.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/distributor.css">
-    <link rel="icon" href="../images/logopolos.jpg">
+  <!-- AOS Animate On Scroll CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TQLJ37G4');</script>
+  <!-- End Google Tag Manager -->
+   
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6N1V7Z4EE1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6N1V7Z4EE1');
+</script>
+
+  <!-- Meta Tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Sentral Medika Indonesia">
+  <!-- Page Title -->
+  <title>Join Distributor - PT. SENTRAL MEDIKA INDONESIA</title>
+  <link rel="shortcut icon" type="image/png" href="../images/logopolos.jpg" />
+  <meta name="keywords" content="distributor, sentral medika indonesia, smi, pt. sentral medika indonesia, mitra distribusi" />
+  <meta property="og:type" content="website" />
+  <meta property="twitter:type" content="website" />
+  <meta property="og:url" content="Sentral Medika Indonesia" />
+  <meta property="twitter:url" content="Sentral Medika Indonesia" />
+  <meta property="og:title" content="Join Distributor - Sentral Medika Indonesia" />
+  <meta property="twitter:title" content="Join Distributor - Sentral Medika Indonesia" />
+  <meta property="og:description" content="Bergabunglah sebagai distributor resmi PT. Sentral Medika Indonesia dan raih peluang bisnis yang menguntungkan" />
+  <meta property="twitter:description" content="Bergabunglah sebagai distributor resmi PT. Sentral Medika Indonesia dan raih peluang bisnis yang menguntungkan" />
+  <meta property="og:image" content="../images/logopolos.jpg" />
+  <meta property="twitter:image" content="../images/logopolos.jpg" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="description" content="Bergabunglah sebagai distributor resmi PT. Sentral Medika Indonesia. Dapatkan akses eksklusif ke produk alat kesehatan berkualitas dan dukungan bisnis yang komprehensif.">
+  
+  <!-- Favicon Icon -->
+  <link rel="icon" href="../images/logopolos.jpg">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/fontawesome.css">
+  <link rel="stylesheet" href="../css/slick.css">
+  <link rel="stylesheet" href="../css/lightgallery.min.css">
+  <link rel="stylesheet" href="../css/animate.css">
+  <link rel="stylesheet" href="../css/jQueryUi.min.css">
+  <link rel="stylesheet" href="../css/textRotate.css">
+  <link rel="stylesheet" href="../css/select2.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    /* Hero Section - Konsisten dengan halaman about */
+    .hero-wrap {
+      height: 100vh;
+      min-height: 100%;
+      position: relative;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      z-index: 0;
+    }
+
+    .hero-wrap .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.7;
+      background: linear-gradient(135deg, rgba(90, 24, 154, 0.8) 0%, rgba(102, 126, 234, 0.6) 100%);
+      z-index: 1;
+    }
+
+    .hero-wrap.modern-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-wrap .slider-text {
+      height: 100vh;
+      min-height: 750px;
+      color: rgba(255, 255, 255, 0.9);
+      z-index: 3;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-wrap .slider-text .text {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero-wrap .slider-text .subheading {
+      display: inline-block;
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: none;
+    }
+
+    .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+      font-weight: 700;
+      color: #fff;
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 25px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .highlight-text {
+      background: linear-gradient(45deg, #ffd700, #ffeb3b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+    }
+
+    .hero-wrap .slider-text p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 35px;
+      font-weight: 500;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .modern-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(90, 24, 154, 0.3);
+      border: none;
+    }
+
+    .modern-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(90, 24, 154, 0.4);
+      color: white;
+      text-decoration: none;
+    }
+
+    .modern-btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .modern-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    .modern-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: transparent;
+      color: white;
+      padding: 15px 35px;
+      border: 2px solid white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.4s ease;
+    }
+
+    .modern-btn-outline:hover {
+      background: white;
+      color: #5a189a;
+      transform: translateY(-3px);
+      text-decoration: none;
+    }
+
+    .modern-btn-outline:hover i {
+      transform: translateX(5px);
+    }
+
+    /* Full Width Section Styles */
+    .portfolio-section, .benefits-section, .requirements-section, .support-section, .cta-section {
+      background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding-left: calc(50vw - 50%);
+      padding-right: calc(50vw - 50%);
+      padding-bottom: 7svh;
+      padding-top: 7svh;
+    }
+
+    .portfolio-section::before, .benefits-section::before, .requirements-section::before, .support-section::before, .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+      background-size: cover;
+    }
+
+    /* Section Titles */
+    .sec-title-modern {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .subtitle-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .main-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      line-height: 1.2;
+      margin: 15px 0 20px 0;
+    }
+
+    .description-text {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin: 0;
+      font-weight: 500;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .benefit-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(90, 24, 154, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.4s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(90, 24, 154, 0.05), rgba(142, 197, 252, 0.05));
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .benefit-card:hover::before {
+      opacity: 1;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(90, 24, 154, 0.2);
+      border-color: rgba(142, 197, 252, 0.3);
+    }
+
+    .benefit-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 2rem;
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefit-card h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefit-card p {
+      color: #64748b;
+      line-height: 1.6;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Requirements List */
+    .requirements-list {
+      max-width: 800px;
+      margin: 50px auto 0;
+    }
+
+    .requirement-item {
+      background: white;
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(90, 24, 154, 0.1);
+      border-left: 5px solid #8ec5fc;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .requirement-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(90, 24, 154, 0.15);
+    }
+
+    .requirement-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .requirement-content h5 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+
+    .requirement-content p {
+      color: #64748b;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Support Features */
+    .support-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    .support-feature {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(90, 24, 154, 0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .support-feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(90, 24, 154, 0.15);
+    }
+
+    .support-feature i {
+      font-size: 2.5rem;
+      background: linear-gradient(45deg, #5a189a, #8ec5fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+
+    .support-feature h5 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .support-feature p {
+      color: #64748b;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #5a189a 0%, #8ec5fc 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .cta-section .main-title {
+      color: white;
+    }
+
+    .cta-section .description-text {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .cta-big-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      background: white;
+      color: #5a189a;
+      padding: 20px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      margin-top: 30px;
+    }
+
+    .cta-big-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      color: #5a189a;
+      text-decoration: none;
+    }
+
+    .cta-big-btn i {
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-big-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 767px) {
+      .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-wrap .slider-text p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
+      
+      .modern-btn, .modern-btn-outline {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+      
+      .hero-wrap {
+        background-attachment: scroll;
+      }
+
+      .main-title {
+        font-size: 1.8rem;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .benefit-card {
+        padding: 30px 20px;
+      }
+
+      .requirement-item {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+
+      .support-features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-wrap .slider-text .subheading {
+        font-size: 0.8rem;
+        padding: 6px 16px;
+      }
+      
+      .modern-btn, .modern-btn-outline {
+        padding: 12px 28px;
+        font-size: 1rem;
+      }
+
+      .main-title {
+        font-size: 1.5rem;
+      }
+
+      .cta-big-btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PT. Sentral Medika",
+    "url": "https://sentralmedika.co.id",
+    "logo": "https://sentralmedika.co.id/logonyaa.png",
+    "description": "PT. Sentral Medika Indonesia - Bergabunglah sebagai distributor resmi dan raih peluang bisnis yang menguntungkan."
+}
+</script>
+
 </head>
 
 <body>
-    <header class="st-site-header st-style1 st-sticky-header">
-        <div class="container">
-            <div class="st-main-header-in">
-                <div class="st-main-header-left">
-                    <a class="st-site-branding" href="/"><img src="../images/logonyaa.png" alt="SMI"></a>
-                </div>
-                <div class="st-main-header-right">
-                    <div class="st-nav">
-                        <ul class="st-nav-list st-onepage-nav">
-                            <li><a href="../index.html" class="st-smooth-move">Home</a></li>
-                            <li><a href="../about/index.html" class="st-smooth-move">About</a></li>
-                            <li><a href="../product/index.html" class="st-smooth-move">Product</a></li>
-                            <li><a href="../karir/index.html" class="st-smooth-move">Karir</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+<div id="ad-detector" style="width: 1px; height: 1px; position: absolute; left: -9999px;">
+  <script>/* Iklan palsu */</script>
+</div>
 
-    <div class="container">
-        <div class="st-height-b125 st-height-lg-b80"></div>
-        <section class="join-distributor-section">
-            <h1>Join Our Distributor Network</h1>
-            <p>PT. Sentral Medika Indonesia is looking for dedicated distributors to help us expand our reach and provide high-quality medical equipment to healthcare providers across Indonesia. If you are interested in becoming a distributor, please follow the steps below:</p>
-            <h2>How to Become a Distributor</h2>
-            <ol>
-                <li>Fill out the registration form by clicking the link below.</li>
-                <li>Our team will review your application and get back to you shortly.</li>
-                <li>Once approved, you will receive further instructions on how to proceed.</li>
-            </ol>
-            <p>To register, please click the link below:</p>
-            <a href="https://forms.gle/dEhvcYetYq9uZagq5" class="st-btn st-style1 st-size-medium st-color3 st-smooth-move">Register Now</a>
-        </section>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQLJ37G4"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <div class="st-perloader">
+    <div class="st-perloader-in">
+      <div class="st-wave-first">
+        <img src="../images/logopolos.jpg" alt="" style="width: 100px; height: 100px;">
+      </div>
+      <div class="st-wave-second">
+        <img src="../images/logopoloss.png" alt="" style="width: 100px; height: 100px;">
+      </div>
     </div>
+  </div>
 
-    <footer class="st-site-footer st-sticky-footer st-dynamic-bg" data-src="../assets/img/footer-bg.png">
-        <div class="st-main-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 mb-4">
-                        <div class="st-footer-widget">
-                            <div class="st-text-field">
-                                <img src="../images/logo.png" alt="SMI" class="st-footer-logo" style="width: 150px; height: 70px;">
-                                <div class="st-footer-text">PT. Sentral Medika Indonesia (SMI) is a manufacturer of medical devices committed to providing high-quality healthcare solutions.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 mb-4">
-                        <div class="st-footer-widget">
-                            <h2 class="st-footer-widget-title">Contacts</h2>
-                            <ul class="st-footer-contact-list st-mp0">
-                                <li><span class="st-footer-contact-title">Email:</span>office@sentralmedika.co.id</li>
-                                <li><span class="st-footer-contact-title">Phone:</span>(024) 76431005</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Start Header Section -->
+  <header class="st-site-header st-style1 st-sticky-header">
+    <div class="st-top-header">
+      <div class="container">
+        <div class="st-top-header-in">
+          <ul class="st-top-header-list">
+            <li>
+              <svg enable-background="new 0 0 479.058 479.058" viewBox="0 0 479.058 479.058"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z">
+                </path>
+              </svg>
+              <a href="mailto:office@sentralmedika.co.id">office@sentralmedika.co.id</a>
+            </li>
+            <li>
+              <svg enable-background="new 0 0 512.021 512.021" viewBox="0 0 512.021 512.021"
+                xmlns="http://www.w3.org/2000/svg">
+                <g>
+                  <path
+                    d="m367.988 512.021c-16.528 0-32.916-2.922-48.941-8.744-70.598-25.646-136.128-67.416-189.508-120.795s-95.15-118.91-120.795-189.508c-8.241-22.688-10.673-46.108-7.226-69.612 3.229-22.016 11.757-43.389 24.663-61.809 12.963-18.501 30.245-33.889 49.977-44.5 21.042-11.315 44.009-17.053 68.265-17.053 7.544 0 14.064 5.271 15.645 12.647l25.114 117.199c1.137 5.307-.494 10.829-4.331 14.667l-42.913 42.912c40.482 80.486 106.17 146.174 186.656 186.656l42.912-42.913c3.837-3.837 9.36-5.466 14.667-4.331l117.199 25.114c7.377 1.581 12.647 8.101 12.647 15.645 0 24.256-5.738 47.224-17.054 68.266-10.611 19.732-25.999 37.014-44.5 49.977-18.419 12.906-39.792 21.434-61.809 24.663-6.899 1.013-13.797 1.518-20.668 1.519zm-236.349-479.321c-31.995 3.532-60.393 20.302-79.251 47.217-21.206 30.265-26.151 67.49-13.567 102.132 49.304 135.726 155.425 241.847 291.151 291.151 34.641 12.584 71.867 7.64 102.132-13.567 26.915-18.858 43.685-47.256 47.217-79.251l-95.341-20.43-44.816 44.816c-4.769 4.769-12.015 6.036-18.117 3.168-95.19-44.72-172.242-121.772-216.962-216.962-2.867-6.103-1.601-13.349 3.168-18.117l44.816-44.816z">
+                  </path>
+                  <path
+                    d="m496.02 272c-8.836 0-16-7.164-16-16 0-123.514-100.486-224-224-224-8.836 0-16-7.164-16-16s7.164-16 16-16c68.381 0 132.668 26.628 181.02 74.98s74.98 112.639 74.98 181.02c0 8.836-7.163 16-16 16z">
+                  </path>
+                  <path
+                    d="m432.02 272c-8.836 0-16-7.164-16-16 0-88.224-71.776-160-160-160-8.836 0-16-7.164-16-16s7.164-16 16-16c105.869 0 192 86.131 192 192 0 8.836-7.163 16-16 16z">
+                  </path>
+                  <path
+                    d="m368.02 272c-8.836 0-16-7.164-16-16 0-52.935-43.065-96-96-96-8.836 0-16-7.164-16-16s7.164-16 16-16c70.58 0 128 57.42 128 128 0 8.836-7.163 16-16 16z">
+                  </path>
+                </g>
+              </svg>
+              <a href="#">(024) 76431005</a>
+            </li>
+          </ul>
         </div>
-        <div class="st-copyright-wrap">
-            <div class="container">
-                <div class="st-copyright-in">
-                    <div class="st-left-copyright">
-                        <div class="st-copyright-text">Copyright 2024. PT. Sentral Medika Indonesia</div>
-                    </div>
-                </div>
+      </div>
+    </div>
+    <div class="st-main-header">
+      <div class="container">
+        <div class="st-main-header-in">
+          <div class="st-main-header-left">
+            <a class="st-site-branding" href="/"><img src="../images/logonyaa.png" alt="SMI"></a>
+          </div>
+          <div class="st-main-header-right">
+            <div class="st-nav">
+              <ul class="st-nav-list">
+                <li><a href="https://www.sentralmedika.co.id/">Home</a></li>
+                <li><a href="https://www.sentralmedika.co.id/about">About</a></li>
+                <li><a href="https://www.sentralmedika.co.id/product">Product</a></li>
+                <li><a href="https://karir.sentralmedika.co.id">Karir</a></li>
+                <li><a href="#" class="active">Join Distributor</a></li>
+              </ul>
             </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </header>
+  <!-- End Header Section -->
 
-    <script src="../js/jquery-1.12.4.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
+  <div class="st-content">
+
+    <!-- Start Hero Section -->
+    <section class="hero-wrap modern-hero" style="background-image: url('../images/distributor-hero.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="text mt-5 pt-5 text-center" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+              <span class="subheading">Partnership Opportunity</span>
+              <h1 class="mb-4">Bergabung Sebagai <span class="highlight-text">Distributor Resmi</span></h1>
+              <p class="mb-4">Raih peluang bisnis yang menguntungkan dengan menjadi mitra distribusi resmi PT. Sentral Medika Indonesia. Dapatkan akses eksklusif ke produk alat kesehatan berkualitas tinggi dan dukungan bisnis yang komprehensif.</p>
+              <div class="hero-buttons">
+                <a href="https://forms.gle/cLqL31TaCBRkMUaS8" target="_blank" class="modern-btn">
+                  <span>Daftar Sekarang</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#benefits" class="modern-btn-outline">
+                  <span>Pelajari Keuntungan</span>
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero Section -->
+
+    <!-- Start Company Profile Section -->
+    <section class="portfolio-section sec-pad-2" data-aos="fade-up">
+      <div class="auto-container">
+        <div class="row align-items-center clearfix">
+          <div class="col-lg-6 col-md-12 col-sm-12 content-column" data-aos="fade-right">
+            <div class="portfolio-content-block">
+              <div class="content-box">
+                <div class="sec-title-modern">
+                  <span class="subtitle-badge">
+                    <i class="fas fa-building"></i>
+                    Tentang PT SMI
+                  </span>
+                  <h2 class="main-title">Perusahaan Manufaktur <span class="highlight-text">Alat Kesehatan Terpercaya</span></h2>
+                </div>
+                
+                <div class="description-text">
+                  <p>PT. Sentral Medika Indonesia (SMI) adalah perusahaan manufaktur alat kesehatan yang telah berpengalaman lebih dari 10 tahun dalam memproduksi larutan reagen, barang medis habis pakai, peralatan elektromedik, dan diagnostik in vitro (IVD).</p>
+                </div>
+                
+                <div class="achievement-text">
+                  <p>Dengan fasilitas produksi seluas 5.000 m² yang dilengkapi cleanroom berstandar internasional dan didukung lebih dari 80 tenaga profesional, PT SMI berkomitmen menghadirkan produk berkualitas tinggi untuk mendukung kesehatan Indonesia.</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-container" style="display: flex; gap: 20px; margin-top: 30px;">
+                  <div class="stat-card" style="background: white; padding: 20px; border-radius: 15px; text-align: center; flex: 1; box-shadow: 0 5px 20px rgba(90, 24, 154, 0.1);" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-icon" style="margin-bottom: 10px;">
+                      <i class="fas fa-calendar-alt" style="font-size: 2rem; color: #8ec5fc;"></i>
+                    </div>
+                    <div class="stat-info">
+                      <h4 style="color: #5a189a; margin-bottom: 5px;">10+</h4>
+                      <p style="color: #64748b; margin: 0;">Tahun Pengalaman</p>
+                    </div>
+                  </div>
+                  <div class="stat-card" style="background: white; padding: 20px; border-radius: 15px; text-align: center; flex: 1; box-shadow: 0 5px 20px rgba(90, 24, 154, 0.1);" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-icon" style="margin-bottom: 10px;">
+                      <i class="fas fa-award" style="font-size: 2rem; color: #8ec5fc;"></i>
+                    </div>
+                    <div class="stat-info">
+                      <h4 style="color: #5a189a; margin-bottom: 5px;">100%</h4>
+                      <p style="color: #64748b; margin: 0;">Buatan Indonesia</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Section -->
+          <div class="col-lg-6 col-md-12 col-sm-12 image-column" data-aos="fade-left">
+            <div class="portfolio-image-block">
+              <div class="image-wrapper">
+                <div class="floating-elements">
+                  <div class="floating-card card-1" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-industry"></i>
+                    <span>5,000 m²</span>
+                  </div>
+                  <div class="floating-card card-2" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fas fa-users"></i>
+                    <span>80+ Staff</span>
+                  </div>
+                </div>
+                <div class="main-animation">
+                  <lottie-player src="https://lottie.host/8fd99230-ccdc-4d00-a12f-a957730e52ad/IHGJ2SMCp0.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Company Profile Section -->
+
+    <!-- Start Benefits Section -->
+    <section id="benefits" class="benefits-section" data-aos="fade-up">
+      <div class="auto-container">
+        <div class="sec-title-modern">
+          <span class="subtitle-badge">
+            <i class="fas fa-handshake"></i>
+            Keuntungan Mitra
+          </span>
+          <h2 class="main-title">Mengapa Bergabung Sebagai <span class="highlight-text">Distributor Kami?</span></h2>
+          <p class="description-text">
+            Dapatkan berbagai keuntungan eksklusif dan dukungan penuh untuk mengembangkan bisnis distribusi Anda
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="benefit-icon">
+              <i class="fas fa-percentage"></i>
+            </div>
+            <h4>Margin Keuntungan Kompetitif</h4>
+            <p>Dapatkan margin keuntungan yang menarik dan kompetitif untuk setiap penjualan produk, dengan sistem harga bertingkat berdasarkan volume pembelian.</p>
+          </div>
+
+          <div class="benefit-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="benefit-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h4>Produk Berkualitas Terpercaya</h4>
+            <p>Akses eksklusif ke produk alat kesehatan berkualitas tinggi yang telah bersertifikat dan memenuhi standar nasional serta internasional.</p>
+          </div>
+
+          <div class="benefit-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="benefit-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h4>Perlindungan Wilayah Eksklusif</h4>
+            <p>Dapatkan hak distribusi eksklusif untuk wilayah tertentu, memberikan Anda keunggulan kompetitif dan potensi pasar yang terjamin.</p>
+          </div>
+
+          <div class="benefit-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="benefit-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h4>Pelatihan & Edukasi Produk</h4>
+            <p>Program pelatihan komprehensif tentang produk, teknik penjualan, dan pengetahuan industri untuk meningkatkan kompetensi tim Anda.</p>
+          </div>
+
+          <div class="benefit-card" data-aos="zoom-in" data-aos-delay="500">
+            <div class="benefit-icon">
+              <i class="fas fa-bullhorn"></i>
+            </div>
+            <h4>Dukungan Marketing & Promosi</h4>
+            <p>Material marketing lengkap, dukungan promosi, dan strategi pemasaran untuk membantu meningkatkan penjualan di wilayah Anda.</p>
+          </div>
+
+          <div class="benefit-card" data-aos="zoom-in" data-aos-delay="600">
+            <div class="benefit-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h4>Customer Support 24/7</h4>
+            <p>Tim customer support yang siap membantu Anda kapan saja untuk menangani pertanyaan produk, technical support, dan keluhan pelanggan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Benefits Section -->
+
+    <!-- Start Requirements Section -->
+    <section class="requirements-section" data-aos="fade-up">
+      <div class="auto-container">
+        <div class="sec-title-modern">
+          <span class="subtitle-badge">
+            <i class="fas fa-clipboard-check"></i>
+            Persyaratan Mitra
+          </span>
+          <h2 class="main-title">Syarat & Ketentuan <span class="highlight-text">Menjadi Distributor</span></h2>
+          <p class="description-text">
+            Persyaratan yang harus dipenuhi untuk bergabung sebagai mitra distributor resmi PT. Sentral Medika Indonesia
+          </p>
+        </div>
+
+        <div class="requirements-list">
+          <div class="requirement-item" data-aos="fade-right" data-aos-delay="100">
+            <div class="requirement-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="requirement-content">
+              <h5>Legalitas Perusahaan</h5>
+              <p>Memiliki badan usaha yang legal (PT/CV) dengan SIUP, TDP, NPWP, dan izin usaha perdagangan alat kesehatan yang masih berlaku.</p>
+            </div>
+          </div>
+
+          <div class="requirement-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="requirement-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="requirement-content">
+              <h5>Pengalaman Bisnis</h5>
+              <p>Minimal 2 tahun pengalaman dalam distribusi produk kesehatan atau medis, dengan track record yang dapat diverifikasi.</p>
+            </div>
+          </div>
+
+          <div class="requirement-item" data-aos="fade-right" data-aos-delay="300">
+            <div class="requirement-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="requirement-content">
+              <h5>Kemampuan Finansial</h5>
+              <p>Memiliki modal kerja yang memadai untuk menjalankan operasional distribusi dan pembelian stok produk dalam jumlah minimum yang ditentukan.</p>
+            </div>
+          </div>
+
+          <div class="requirement-item" data-aos="fade-right" data-aos-delay="400">
+            <div class="requirement-icon">
+              <i class="fas fa-warehouse"></i>
+            </div>
+            <div class="requirement-content">
+              <h5>Fasilitas Penyimpanan</h5>
+              <p>Memiliki gudang atau fasilitas penyimpanan yang memenuhi standar untuk produk alat kesehatan dengan sistem cold chain jika diperlukan.</p>
+            </div>
+          </div>
+
+          <div class="requirement-item" data-aos="fade-right" data-aos-delay="500">
+            <div class="requirement-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="requirement-content">
+              <h5>Tim Profesional</h5>
+              <p>Memiliki tim sales dan marketing yang berpengalaman dalam industri kesehatan, serta customer service yang responsive.</p>
+            </div>
+          </div>
+
+          <div class="requirement-item" data-aos="fade-right" data-aos-delay="600">
+            <div class="requirement-icon">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <div class="requirement-content">
+              <h5>Jaringan Pelanggan</h5>
+              <p>Memiliki jaringan pelanggan yang established seperti rumah sakit, klinik, laboratorium, atau apotek di wilayah target distribusi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Requirements Section -->
+
+    <!-- Start Support Section -->
+    <section class="support-section" data-aos="fade-up">
+      <div class="auto-container">
+        <div class="sec-title-modern">
+          <span class="subtitle-badge">
+            <i class="fas fa-hands-helping"></i>
+            Dukungan Kami
+          </span>
+          <h2 class="main-title">Dukungan Penuh Untuk <span class="highlight-text">Kesuksesan Anda</span></h2>
+          <p class="description-text">
+            Kami berkomitmen memberikan dukungan terbaik untuk memastikan kesuksesan bisnis distribusi Anda
+          </p>
+        </div>
+
+        <div class="support-features">
+          <div class="support-feature" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fas fa-box"></i>
+            <h5>Manajemen Stok</h5>
+            <p>Sistem manajemen inventory yang efisien dan bantuan perencanaan stok optimal.</p>
+          </div>
+
+          <div class="support-feature" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fas fa-shipping-fast"></i>
+            <h5>Logistik & Pengiriman</h5>
+            <p>Dukungan logistik dan sistem pengiriman yang handal ke seluruh wilayah distribusi.</p>
+          </div>
+
+          <div class="support-feature" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fas fa-chart-bar"></i>
+            <h5>Laporan Penjualan</h5>
+            <p>Dashboard analytics dan laporan penjualan real-time untuk monitoring performa bisnis.</p>
+          </div>
+
+          <div class="support-feature" data-aos="zoom-in" data-aos-delay="400">
+            <i class="fas fa-tools"></i>
+            <h5>Technical Support</h5>
+            <p>Tim teknis yang siap membantu troubleshooting dan maintenance produk elektromedis.</p>
+          </div>
+
+          <div class="support-feature" data-aos="zoom-in" data-aos-delay="500">
+            <i class="fas fa-certificate"></i>
+            <h5>Sertifikasi Produk</h5>
+            <p>Bantuan dalam proses sertifikasi dan registrasi produk sesuai regulasi setempat.</p>
+          </div>
+
+          <div class="support-feature" data-aos="zoom-in" data-aos-delay="600">
+            <i class="fas fa-handshake"></i>
+            <h5>Partnership Manager</h5>
+            <p>Dedicated partnership manager untuk memastikan hubungan bisnis yang optimal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Support Section -->
+
+    <!-- Start CTA Section -->
+    <section class="cta-section" data-aos="fade-up">
+      <div class="auto-container">
+        <div class="sec-title-modern">
+          <span class="subtitle-badge" style="background: rgba(255, 255, 255, 0.2);">
+            <i class="fas fa-rocket"></i>
+            Mulai Sekarang
+          </span>
+          <h2 class="main-title">Siap Bergabung Menjadi <span style="color: #ffd700;">Mitra Distributor?</span></h2>
+          <p class="description-text">
+            Jangan lewatkan kesempatan emas ini! Bergabunglah dengan jaringan distributor PT. Sentral Medika Indonesia dan raih peluang bisnis yang menguntungkan di industri kesehatan yang terus berkembang.
+          </p>
+          
+          <a href="https://forms.gle/cLqL31TaCBRkMUaS8" target="_blank" class="cta-big-btn" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fas fa-paper-plane"></i>
+            <span>Daftar Menjadi Distributor Sekarang</span>
+          </a>
+          
+          <div style="margin-top: 30px; font-size: 0.95rem; opacity: 0.9;">
+            <p>📞 Hubungi kami di <strong>(024) 76431005</strong> atau email <strong>office@sentralmedika.co.id</strong> untuk informasi lebih lanjut</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End CTA Section -->
+
+  </div>
+
+  <!-- Start Footer -->
+  <footer class="st-site-footer st-sticky-footer st-dynamic-bg" data-src="assets/img/footer-bg.png">
+    <div class="st-main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="st-footer-widget">
+              <div class="st-text-field">
+                <img src="../images/logo.png" alt="SMI" class="st-footer-logo" style="width: 150px; height: 70px;">
+                <div class="st-height-b25 st-height-lg-b25"></div>
+                <div class="st-footer-text">PT. Sentral Medika Indonesia (SMI) adalah perusahaan manufaktur alat
+                  kesehatan yang memproduksi larutan reagen, barang medis habis pakai, peralatan elektromedik, dan
+                  diagnostik in vitro (IVD).</div>
+                <div class="st-height-b25 st-height-lg-b25"></div>
+                <ul class="st-social-btn st-style1 st-mp0">
+                  <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                  <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                  <li><a href="#"><i class="fab fa-pinterest-square"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- .col -->
+
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="st-footer-widget">
+              <h2 class="st-footer-widget-title">Contacts</h2>
+              <ul class="st-footer-contact-list st-mp0">
+                <li><span class="st-footer-contact-title">Address:</span>Kawasan Industri Candi Jl. Gatot Subroto Blok K
+                  No. 22, Desa/KelurahanPurwoyoso, Kec. Ngaliyan, Kota Semarang, Provinsi Jawa Tengah,Kode Pos: 50184,
+                  semarang.</li>
+                <li><span class="st-footer-contact-title">Email:</span>office@sentralmedika.co.id</li>
+                <li><span class="st-footer-contact-title">Phone:</span>(024) 76431005 </li>
+              </ul>
+            </div>
+          </div><!-- .col -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="st-footer-widget">
+              <h2 class="st-footer-widget-title">Tautan</h2>
+              <ul class="st-footer-contact-list st-mp0">
+                <li><span class="st-footer-contact-title"><a href="../about/">About</a></li>
+                  <li><span class="st-footer-contact-title"><a href="../product/">Product</a></li>
+                  <li><span class="st-footer-contact-title"><a href="../join-distributor/">Join Distributor</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="st-copyright-wrap">
+      <div class="container">
+        <div class="st-copyright-in">
+          <div class="st-left-copyright">
+            <div class="st-copyright-text">Copyright 2024. PT. Sentral Medika Indonesia</div>
+          </div>
+          <div class="st-right-copyright">
+            <div id="st-backtotop"><i class="fas fa-angle-up"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Start Video Popup -->
+  <div class="st-video-popup">
+    <div class="st-video-popup-overlay"></div>
+    <div class="st-video-popup-content">
+      <div class="st-video-popup-layer"></div>
+      <div class="st-video-popup-container">
+        <div class="st-video-popup-align">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="about:blank"></iframe>
+          </div>
+        </div>
+        <div class="st-video-popup-close"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="google_translate_element" style="display: none;"></div>
+
+  <!-- Tombol Toggle di bawahnya langsung -->
+  <div class="togglle-button" onclick="toggleFlagContainer()">🌐 &#9654;</div>
+
+  <!-- Container Bendera -->
+  <div class="flag-container">
+    <p><strong>Double Klik:</strong></p>
+    <button onclick="changeLang('en')" title="English">🇬🇧</button>
+    <button onclick="changeLang('fr')" title="French">🇫🇷</button>
+    <button onclick="changeLang('es')" title="Spanish">🇪🇸</button>
+    <button onclick="changeLang('hi')" title="Hindi">🇮🇳</button>
+    <button onclick="changeLang('de')" title="German">🇩🇪</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Scripts -->
+  <script src="../js/modernizr-3.5.0.min.js"></script>
+  <script src="../js/jquery-1.12.4.min.js"></script>
+  <script src="../js/isotope.pkg.min.js"></script>
+  <script src="../js/jquery.slick.min.js"></script>
+  <script src="../js/mailchimp.min.js"></script>
+  <script src="../js/counter.min.js"></script>
+  <script src="../js/lightgallery.min.js"></script>
+  <script src="../js/ripples.min.js"></script>
+  <script src="../js/wow.min.js"></script>
+  <script src="../js/jQueryUi.js"></script>
+  <script src="../js/textRotate.min.js"></script>
+  <script src="../js/select2.min.js"></script>
+  <script src="../js/main.js?v=2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Add Google Translate Script -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'id',
+        includedLanguages: 'en,fr,es,hi,de',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    function changeLang(langCode) {
+      var selectElement = document.querySelector('#google_translate_element select');
+      if (selectElement) {
+        selectElement.value = langCode;
+        selectElement.dispatchEvent(new Event('change'));
+      }
+    }
+
+    function toggleFlagContainer() {
+      var container = document.querySelector('.flag-container');
+      container.style.display = container.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <style>
+    .togglle-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      font-size: 14px;
+    }
+    .flag-container {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      display: none;
+    }
+    .flag-container button {
+      margin: 5px;
+      border: none;
+      background: none;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 5px;
+    }
+    .flag-container button:hover {
+      background: #f0f0f0;
+    }
+  </style>
+
+  <!-- AOS Animate On Scroll JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  
+  <script>
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      duration: 900,
+      easing: 'ease-out-cubic'
+    });
+    
+    // Reinitialize AOS after dynamic content loading
+    function refreshAOS() {
+      AOS.refresh();
+    }
+    
+    // Call refresh after a short delay to ensure content is loaded
+    setTimeout(refreshAOS, 1000);
+  </script>
+
 </body>
 
 </html>
