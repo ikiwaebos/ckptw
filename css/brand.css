@@ -1,0 +1,462 @@
+
+  
+    /* Modern Product Section Styles */
+    .modern-product-section {
+      background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding-left: calc(50vw - 50%);
+      padding-right: calc(50vw - 50%);
+      padding-bottom: 7svh;
+      padding-top: 15svh;
+    }
+
+    .modern-product-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+      background-size: cover;
+    }
+
+    .product-content-block {
+      position: relative;
+      z-index: 2;
+    }
+
+    .product-sec-title {
+      margin-bottom: 30px;
+    }
+
+    .product-sec-title h6 {
+      display: inline-block;
+      background: linear-gradient(45deg, #18689a, #8ec5fc);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .product-sec-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+
+    .product-highlight {
+      background: linear-gradient(45deg, #18689a, #8ec5fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .product-description {
+      margin: 25px 0;
+    }
+
+    .product-description p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
+      font-weight: 500;
+    }
+
+    .product-image-container {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-main-image {
+      max-width: 400px;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(90, 24, 154, 0.15);
+      transition: all 0.4s ease;
+      background: white;
+      padding: 20px;
+    }
+
+    .product-main-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 45px rgba(90, 24, 154, 0.25);
+    }
+
+    .product-floating-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .product-floating-card {
+      position: absolute;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(90, 24, 154, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: #18689a;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .product-floating-card i {
+      font-size: 1.2rem;
+      color: #8ec5fc;
+    }
+
+    .product-floating-card.card-1 {
+      top: 15%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .product-floating-card.card-2 {
+      bottom: 20%;
+      right: 15%;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .modern-accordion {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(90, 24, 154, 0.1);
+      margin-bottom: 15px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .modern-accordion:hover {
+      border-color: rgba(142, 197, 252, 0.3);
+      box-shadow: 0 10px 30px rgba(90, 24, 154, 0.15);
+    }
+
+    .modern-accordion-header {
+      padding: 20px 25px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+      border: none;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .modern-accordion-header:hover {
+      background: linear-gradient(135deg, #f0f7fa 0%, #f8f9ff 100%);
+    }
+
+    .modern-accordion-header.active {
+      background: linear-gradient(45deg, #18689a, #8ec5fc);
+      color: white;
+    }
+
+
+    /* Update accordion content styles */
+    .modern-accordion-content {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+
+    .modern-accordion-content.active {
+      padding: 20px 25px;
+      max-height: 600px;
+      /* Increased from 300px to 600px */
+      overflow-y: auto;
+      /* Add scroll if needed */
+    }
+
+    /* Style for product links inside accordion */
+    .modern-accordion-content a {
+      color: #64748b;
+      text-decoration: none;
+      display: block;
+      padding: 12px 0;
+      /* Increased padding */
+      border-bottom: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      border-radius: 5px;
+      margin-bottom: 2px;
+    }
+
+    .modern-accordion-content a:hover {
+      color: #18689a !important;
+      background: rgba(90, 24, 154, 0.05);
+      padding-left: 10px;
+      transform: translateX(5px);
+    }
+
+    .modern-accordion-content a:last-child {
+      border-bottom: none;
+    }
+
+    /* Custom scrollbar for accordion content */
+    .modern-accordion-content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .modern-accordion-content::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .modern-accordion-content::-webkit-scrollbar-thumb {
+      background: linear-gradient(45deg, #18689a, #8ec5fc);
+      border-radius: 10px;
+    }
+
+    .modern-accordion-content::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(45deg, #4a0d7a, #6ea5dc);
+    }
+
+
+    .accordion-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .modern-accordion-header.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Brand Wrapper Styles - Same as detail/index.html */
+    .brand-wrapper {
+      background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding-left: calc(50vw - 50%);
+      padding-right: calc(50vw - 50%);
+      padding: 80px 0;
+      margin-top: 50px;
+    }
+
+    .brand-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+      background-size: cover;
+    }
+
+    /* Brand Section Styles */
+    .brand-carousel-section {
+      background: transparent;
+      padding: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(45deg, #18689a, #8ec5fc);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .brand-section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      line-height: 1.2;
+      margin: 15px 0 20px 0;
+    }
+
+    .brand-highlight {
+      background: linear-gradient(45deg, #18689a, #8ec5fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .brand-subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin: 0;
+      font-weight: 500;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Modern Brand Card Styles */
+    .modern-brand-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(90, 24, 154, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.4s ease;
+      margin: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modern-brand-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(90, 24, 154, 0.05), rgba(142, 197, 252, 0.05));
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .modern-brand-card:hover::before {
+      opacity: 1;
+    }
+
+    .modern-brand-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(90, 24, 154, 0.2);
+      border-color: rgba(142, 197, 252, 0.3);
+    }
+
+    .modern-brand-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .modern-brand-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .accordion-items-wrapper {
+      padding: 10px 0;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .product-count {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+    }
+
+    .modern-accordion-header:not(.active) .product-count {
+      color: #8ec5fc;
+    }
+
+    .product-number {
+      color: #8ec5fc;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .product-sec-title h2 {
+        font-size: 1.8rem;
+      }
+
+      .product-image-container {
+        height: 350px;
+        margin-top: 30px;
+      }
+
+      .product-main-image {
+        max-width: 300px;
+        max-height: 300px;
+      }
+
+      .product-floating-card {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+      }
+
+      .brand-wrapper {
+        padding: 60px 0;
+        margin-top: 30px;
+      }
+
+      .brand-section-title h2 {
+        font-size: 1.8rem;
+      }
+
+      .modern-brand-card {
+        padding: 25px;
+        margin: 8px;
+      }
+
+      .modern-brand-card img {
+        height: 100px;
+      }
+
+      .modern-accordion-content.active {
+        max-height: 400px;
+      }
+
+      .modern-accordion-content a {
+        padding: 10px 0;
+        font-size: 0.95rem;
+      }
+    }
