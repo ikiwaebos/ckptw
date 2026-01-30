@@ -1,9 +1,4 @@
 
-  AOS.init({
-    once: true,
-    duration: 900
-  });
-
   fetch('https://portal.sentralmedika.co.id/api/brands')
     .then(res => res.json())
     .then(res => {
