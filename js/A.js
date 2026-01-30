@@ -49,5 +49,14 @@
         console.warn('Fetch brands failed:', err);
       });
 
+      if (typeof AOS !== 'undefined') {
+    AOS.init({
+      once: true,
+      duration: 900
+    });
+  }
+
   });
 })();
+
+
