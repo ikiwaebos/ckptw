@@ -1,4 +1,13 @@
 
+      // Pastikan background image tetap di tempat, konten bergerak ke atas saat scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      var heroBg = document.querySelector('.st-hero-bg.st-dynamic-bg');
+      if (heroBg && heroBg.dataset.src) {
+        heroBg.style.backgroundImage = 'url(' + heroBg.dataset.src + ')';
+      }
+    });
+
+  
   fetch('https://portal.sentralmedika.co.id/api/brands')
     .then(res => res.json())
     .then(res => {

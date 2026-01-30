@@ -94,10 +94,3 @@ window.addEventListener('load', function () {
 });
 
 
-    // Pastikan background image tetap di tempat, konten bergerak ke atas saat scroll
-    document.addEventListener('DOMContentLoaded', function () {
-      var heroBg = document.querySelector('.st-hero-bg.st-dynamic-bg');
-      if (heroBg && heroBg.dataset.src) {
-        heroBg.style.backgroundImage = 'url(' + heroBg.dataset.src + ')';
-      }
-    });
