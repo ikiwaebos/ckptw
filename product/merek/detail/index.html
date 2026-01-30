@@ -61,6 +61,7 @@
   <link rel="stylesheet" href="../../../css/select2.min.css">
   <link rel="stylesheet" href="../../../css/style.css">
   <link rel="stylesheet" href="../../../css/produk.css?v=2">
+  <link rel="stylesheet" href="../../../css/detail.css">
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -71,650 +72,8 @@
     "description": "PT. Sentral Medika Indonesia - Produsen alat kesehatan berstandar nasional yang bangga mendukung kesehatan Indonesia."
 }
 </script>
-<style>
-#produk-list-merek-dropdown {
-  width: 100%;
-  max-width: 350px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  background: #fff;
-  font-size: 15px;
-  color: #333;
-  outline: none;
-  appearance: none; /* Hilangkan arrow default */
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23777' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 18px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: all 0.2s ease-in-out;
-}
 
-#produk-list-merek-dropdown:hover {
-  border-color: #888;
-}
-
-#produk-list-merek-dropdown:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
-}
-</style>
 </head>
-
-<style>
-  /* Modern CSS Theme - Consistent with About Page */
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #444;
-    background: #f8f9ff;
-  }
-
-  /* Product Detail Section Wrapper */
-  .product-detail-wrapper {
-    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
-    position: relative;
-    overflow: hidden;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding-left: calc(50vw - 50%);
-    padding-right: calc(50vw - 50%);
-    padding: 80px 0;
-    margin-top: 0;
-  }
-
-  .product-detail-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
-    background-size: cover;
-  }
-
-  /* Breadcrumb Styles */
-  .breadcrumb {
-    background: white;
-    border-radius: 15px;
-    padding: 15px 25px;
-    box-shadow: 0 5px 20px rgba(90, 24, 154, 0.1);
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    margin-bottom: 30px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .breadcrumb:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(90, 24, 154, 0.15);
-    border-color: rgba(142, 197, 252, 0.3);
-  }
-
-  .breadcrumb a {
-    color: #18689a;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-
-  .breadcrumb a:hover {
-    color: #8ec5fc;
-  }
-
-  /* Product Image Box */
-  .st-imagebox {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 15px 35px rgba(90, 24, 154, 0.1);
-    border: 2px solid transparent;
-    transition: all 0.4s ease;
-    position: relative;
-    z-index: 2;
-  }
-
-  .st-imagebox:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 50px rgba(90, 24, 154, 0.15);
-    border-color: rgba(142, 197, 252, 0.3);
-  }
-
-  .st-imagebox-img img {
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(90, 24, 154, 0.1);
-    transition: all 0.4s ease;
-  }
-
-  .st-imagebox-img img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 40px rgba(90, 24, 154, 0.2);
-  }
-
-  .st-imagebox-img h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin: 30px 0 20px 0;
-    line-height: 1.2;
-  }
-
-  .st-imagebox-img p {
-    font-size: 1.1rem;
-    color: #64748b;
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
-
-  /* Product Info Styles */
-  .st-imagebox-info h4 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #18689a;
-    margin-bottom: 20px;
-    position: relative;
-  }
-
-  .st-imagebox-info h4::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(45deg, #18689a, #8ec5fc);
-    border-radius: 2px;
-  }
-
-  /* Dropdown Override */
-  #produk-list-merek-dropdown {
-    width: 100% !important;
-    padding: 12px 20px !important;
-    border: 2px solid #e2e8f0 !important;
-    border-radius: 10px !important;
-    font-size: 1rem !important;
-    background: white !important;
-    color: #444 !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 5px 15px rgba(90, 24, 154, 0.1) !important;
-  }
-
-  #produk-list-merek-dropdown:focus {
-    outline: none !important;
-    border-color: #8ec5fc !important;
-    box-shadow: 0 0 0 3px rgba(142, 197, 252, 0.1) !important;
-  }
-
-  #produk-list-merek-dropdown:hover {
-    border-color: #18689a !important;
-  }
-
-  /* Files Section Styles */
-  .files-section {
-    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
-    border-radius: 20px;
-    padding: 40px;
-    margin: 30px 0;
-    box-shadow: 0 10px 30px rgba(90, 24, 154, 0.1);
-    border: 2px solid rgba(142, 197, 252, 0.1);
-  }
-
-  .files-header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .files-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(45deg, #18689a, #8ec5fc);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
-
-  .files-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin: 15px 0 10px 0;
-    line-height: 1.2;
-  }
-
-  .files-subtitle {
-    font-size: 1rem;
-    color: #64748b;
-    margin: 0;
-    font-weight: 500;
-  }
-
-  #file-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-  }
-
-  .produk-link-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(90, 24, 154, 0.1);
-    border: 2px solid transparent;
-    transition: all 0.4s ease;
-    position: relative;
-  }
-
-  .produk-link-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(45deg, #18689a, #8ec5fc);
-  }
-
-  .produk-link-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(90, 24, 154, 0.2);
-    border-color: rgba(142, 197, 252, 0.3);
-  }
-
-  .produk-link-card a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-  }
-
-  .produk-link-card-body {
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .file-icon {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(45deg, #18689a, #8ec5fc);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 1.5rem;
-  }
-
-  .file-icon i {
-    color: white !important;
-  }
-
-  .produk-link-card-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #2c3e50;
-    line-height: 1.4;
-    flex: 1;
-  }
-
-  .produk-link-card:hover .produk-link-card-title {
-    color: #18689a;
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .files-section {
-      padding: 25px;
-      margin: 20px 0;
-    }
-
-    .files-title {
-      font-size: 1.6rem;
-    }
-
-    #file-list {
-      grid-template-columns: 1fr;
-      gap: 15px;
-    }
-
-    .produk-link-card-body {
-      padding: 20px;
-    }
-  }
-
-  /* Icon Box Improvements */
-  .st-iconbox {
-    background: white;
-    border-radius: 20px;
-    padding: 40px 30px;
-    box-shadow: 0 15px 35px rgba(90, 24, 154, 0.1);
-    border: 2px solid transparent;
-    transition: all 0.4s ease;
-    text-align: center;
-    height: 100%;
-  }
-
-  .st-iconbox:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(90, 24, 154, 0.15);
-    border-color: rgba(142, 197, 252, 0.3);
-  }
-
-  .st-iconbox-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.4s ease;
-  }
-
-  .st-purple-box {
-    background: linear-gradient(45deg, #18689a, #8ec5fc) !important;
-  }
-
-  .st-green-box {
-    background: linear-gradient(45deg, #10b981, #34d399) !important;
-  }
-
-  .st-iconbox:hover .st-iconbox-icon {
-    transform: scale(1.1) rotate(5deg);
-  }
-
-  .st-iconbox-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 15px;
-    line-height: 1.3;
-  }
-
-  .st-iconbox-text {
-    font-size: 1rem;
-    color: #64748b;
-    line-height: 1.6;
-  }
-
-  /* Section Heading */
-  .st-section-heading-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 20px;
-    background: linear-gradient(45deg, #18689a, #8ec5fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Logo Carousel Improvements */
-  .st-logo-carousel {
-    background: white !important;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(90, 24, 154, 0.1);
-    transition: all 0.4s ease;
-    margin: 10px;
-  }
-
-  .st-logo-carousel:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(90, 24, 154, 0.15);
-  }
-
-  .st-logo-carousel img {
-    transition: all 0.4s ease;
-  }
-
-  .st-logo-carousel:hover img {
-    transform: scale(1.05);
-  }
-
-  /* Gray Background Section */
-  .st-gray-bg {
-    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%) !important;
-    padding: 80px 0;
-    position: relative;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding-left: calc(50vw - 50%);
-    padding-right: calc(50vw - 50%);
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .st-imagebox {
-      padding: 30px 20px;
-    }
-    
-    .st-imagebox-img h1 {
-      font-size: 2rem;
-    }
-    
-    .st-iconbox {
-      padding: 30px 20px;
-      margin-bottom: 30px;
-    }
-    
-    .st-section-heading-title {
-      font-size: 2rem;
-    }
-    
-    .product-detail-wrapper {
-      padding: 60px 0;
-    }
-  }
-</style>
-
-<style>
-  .img-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-  }
-
-  .img-modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90vw;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    box-shadow: 0 8px 40px #000a;
-    border-radius: 10px;
-  }
-
-  .img-modal-close {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-    color: #fff;
-    font-size: 48px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 10001;
-    text-shadow: 0 2px 8px #000;
-  }
-
-  #img-modal-caption {
-    color: #fff;
-    text-align: center;
-    margin-top: 16px;
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 600px) {
-    .img-modal-content {
-      max-width: 98vw;
-      max-height: 70vh;
-    }
-
-    .img-modal-close {
-      top: 10px;
-      right: 16px;
-      font-size: 36px;
-    }
-  }
-</style>
-
-<style>
-  /* Brand Wrapper Styles - Same as merek/index.html */
-  .brand-wrapper {
-    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
-    position: relative;
-    overflow: hidden;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding-left: calc(50vw - 50%);
-    padding-right: calc(50vw - 50%);
-    padding: 80px 0;
-    margin-top: 50px;
-  }
-
-  .brand-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
-    background-size: cover;
-  }
-
-  /* Brand Section Styles */
-  .brand-carousel-section {
-    background: transparent;
-    padding: 0;
-    position: relative;
-    z-index: 2;
-  }
-
-  .brand-section-title {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .brand-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #667eea 0%, #18689a 100%);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-  }
-
-  .brand-section-title h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 15px;
-  }
-
-  .brand-highlight {
-    background: linear-gradient(135deg, #667eea 0%, #18689a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .brand-subtitle {
-    font-size: 1.1rem;
-    color: #6c757d;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  .modern-brand-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    margin: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    text-align: center;
-    border: 1px solid #f0f0f0;
-  }
-
-  .modern-brand-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  }
-
-  .modern-brand-card img {
-    height: 120px;
-    object-fit: contain;
-    margin-bottom: 20px;
-    transition: all 0.3s ease;
-  }
-
-  .modern-brand-card:hover img {
-    transform: scale(1.05);
-  }
-
-  .modern-brand-card h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 10px;
-  }
-
-  .modern-brand-card p {
-    color: #6c757d;
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .brand-badge {
-      padding: 8px 15px;
-    }
-    
-    .brand-wrapper {
-      padding: 60px 0;
-      margin-top: 30px;
-    }
-
-    .brand-section-title h2 {
-      font-size: 1.8rem;
-    }
-
-    .modern-brand-card {
-      padding: 25px;
-      margin: 8px;
-    }
-
-    .modern-brand-card img {
-      height: 100px;
-    }
-  }
-</style>
-
 <body>
   <div id="ad-detector" style="width: 1px; height: 1px; position: absolute; left: -9999px;">
     <script>/* Iklan palsu */</script>
@@ -788,17 +147,9 @@
                 <li><a href="https://www.sentralmedika.co.id/">Home</a></li>
                 <li><a href="https://www.sentralmedika.co.id/about">About</a></li>
                 <li><a href="#" class="active">Product</a></li>
-                   <li><a href="https://sentralmedika.co.id/join-distributor" class="st-smooth-movest-smooth-move">Join Distributor</a></li>
+                <li><a href="https://sentralmedika.co.id/join-distributor" class="st-smooth-movest-smooth-move">Join
+                    Distributor</a></li>
                 <li><a href="https://karir.sentralmedika.co.id">Karir</a></li>
- 
-
-                <!-- <li class="menu-item-has-children"><a href="#blog" class="st-smooth-move">Blog</a>
-                  <ul>
-                    <li><a href="/blog-right-sidebar">Blog Right Sidebar</a></li>
-                    <li><a href="/blog-left-sidebar">Blog Left Sidebar</a></li>
-                    <li><a href="/blog-no-sidebar">Blog No Sidebar</a></li>
-                  </ul>
-                </li>-->
               </ul>
             </div>
           </div>
@@ -809,98 +160,60 @@
   <!-- End Header Section -->
 
   <div class="st-content">
-   
-    <!-- Start Hero Seciton -->
-    <!-- <div class="st-slider st-style1 st-slider-animation1">
-      <div class="slick-container" data-autoplay="0" data-loop="1" data-speed="800" data-autoplay-timeout="1000"
-        data-center="0" data-slides-per-view="1">
-        <div class="slick-wrapper">
-          <div class="slick-slide-in">
-            <div class="st-hero st-style1 st-size1">
-              <div class="st-hero-bg st-dynamic-bg st-bg" data-src="../../../images/hpage.gif"
-                style="background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; height: 100vh;">
-              </div>
-
-              <div class="container">
-                <div class="st-hero-text">
-                  <h1 class="text-center">
-                    ~ PRODUCT ~
-                  </h1>
-
-
-                  <div class="st-height-b15 st-height-lg-b15"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="pagination st-style2 st-hidden"></div> 
-      <div class="swipe-arrow st-style2">
-        <div class="slick-arrow-left"><i class="fa fa-chevron-left"></i></div>
-        <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
-      </div>
-    </div> -->
-    <!-- .st-slider -->
-    <!-- End Hero Seciton -->
-
-    <!-- Start Feature Seciton -->
-    
-
     <!-- End Feature Seciton -->
     <div class="product-detail-wrapper">
       <div style="padding-top: 2rem;"></div>
       <section class="container mt-5 mb-5">
-      <div class="breadcrumb mb-4" style="margin: 24px 0 16px 0; font-size: 1rem; color: #222;">
-      <a href="/product" style="color: #007bff; text-decoration: none;">Products</a> 
-      <span>&nbsp; &gt; &nbsp;</span>
-      <span id="breadcrumb-merek"></span>
-      <span>&nbsp; &gt; &nbsp;</span>
-      <span id="breadcrumb-product"></span>
-    </div>
-      <div class="st-imagebox st-style2" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-right">
-            <div class="st-imagebox-img">
-              <div style="text-align: center;">
-                <img id="product-image" src="" style="max-width:250px; width:100%; height:auto; cursor:pointer;" alt="">
-              </div>
-              <h1 id="product-name"></h1>
-              <p id="product-description"></p>
-
-            </div>
-            <div class="st-height-b0 st-height-lg-b30"></div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-left">
-            <div class="st-imagebox-info">
-              <div id="produk-list-merek" class="mb-4" data-aos="zoom-in" data-aos-delay="200">
-  <h4>Produk lain dari merek ini:</h4>
-  <select id="produk-list-merek-dropdown">
-    <option value="">Pilih produk...</option>
-  </select>
-</div>
-
-              <div class="files-section">
-                <div class="files-header" data-aos="fade-up" data-aos-delay="300">
-                  <div class="files-badge">
-                    <i class="fas fa-download"></i>
-                    <span>File Downloads</span>
-                  </div>
-                  <h4 class="files-title">File yang tersedia</h4>
-                  <p class="files-subtitle">Unduh dokumen pendukung produk</p>
-                </div>
-                <div id="file-list" data-aos="fade-up" data-aos-delay="400"></div>
-              </div>
-
-
-
-
-            </div>
-          </div>
+        <div class="breadcrumb mb-4" style="margin: 24px 0 16px 0; font-size: 1rem; color: #222;">
+          <a href="/product" style="color: #007bff; text-decoration: none;">Products</a>
+          <span>&nbsp; &gt; &nbsp;</span>
+          <span id="breadcrumb-merek"></span>
+          <span>&nbsp; &gt; &nbsp;</span>
+          <span id="breadcrumb-product"></span>
         </div>
+        <div class="st-imagebox st-style2" data-aos="fade-up">
+          <div class="row">
+            <div class="col-lg-6" data-aos="fade-right">
+              <div class="st-imagebox-img">
+                <div style="text-align: center;">
+                  <img id="product-image" src="" style="max-width:250px; width:100%; height:auto; cursor:pointer;"
+                    alt="">
+                </div>
+                <h1 id="product-name"></h1>
+                <p id="product-description"></p>
 
-      </div>
+              </div>
+              <div class="st-height-b0 st-height-lg-b30"></div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+              <div class="st-imagebox-info">
+                <div id="produk-list-merek" class="mb-4" data-aos="zoom-in" data-aos-delay="200">
+                  <h4>Produk lain dari merek ini:</h4>
+                  <select id="produk-list-merek-dropdown">
+                    <option value="">Pilih produk...</option>
+                  </select>
+                </div>
+
+                <div class="files-section">
+                  <div class="files-header" data-aos="fade-up" data-aos-delay="300">
+                    <div class="files-badge">
+                      <i class="fas fa-download"></i>
+                      <span>File Downloads</span>
+                    </div>
+                    <h4 class="files-title">File yang tersedia</h4>
+                    <p class="files-subtitle">Unduh dokumen pendukung produk</p>
+                  </div>
+                  <div id="file-list" data-aos="fade-up" data-aos-delay="400"></div>
+                </div>
+
+
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
 
       </section>
     </div>
@@ -945,7 +258,7 @@
 
     <!-- Start Logo Carousel -->
 
-   <div class="brand-wrapper">
+    <div class="brand-wrapper">
       <section class="brand-carousel-section" data-aos="fade-up">
         <div class="container">
           <div class="brand-section-title">
@@ -958,57 +271,57 @@
               Trusted medical equipment brands for modern healthcare
             </p>
           </div>
-        
-        <div class="st-slider st-style2">
-          <div class="slick-container" data-autoplay="1" data-loop="1" data-speed="600" data-center="0"
-            data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2" data-md-slides="3"
-            data-lg-slides="4" data-add-slides="5">
-            <div class="slick-wrapper">
-              <div class="slick-slide-in">
-                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="100">
-                  <img src="../../../images/onecare.png" alt="OneCare">
+
+          <div class="st-slider st-style2">
+            <div class="slick-container" data-autoplay="1" data-loop="1" data-speed="600" data-center="0"
+              data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2" data-md-slides="3"
+              data-lg-slides="4" data-add-slides="5">
+              <div class="slick-wrapper">
+                <div class="slick-slide-in">
+                  <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="../../../images/onecare.png" alt="OneCare">
+                  </div>
+                </div>
+                <div class="slick-slide-in">
+                  <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="../../../images/onetech.png" alt="OneTech">
+                  </div>
+                </div>
+                <div class="slick-slide-in">
+                  <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="../../../images/hemapro.png" alt="HemaPro">
+                  </div>
+                </div>
+                <div class="slick-slide-in">
+                  <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="../../../images/java.png" alt="Java">
+                  </div>
+                </div>
+                <div class="slick-slide-in">
+                  <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="../../../images/medimax.png" alt="Medimax">
+                  </div>
+                </div>
+                <div class="slick-slide-in">
+                  <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="../../../images/danur.png" alt="Danur">
+                  </div>
+                </div>
+                <div class="slick-slide-in">
+                  <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="700">
+                    <img src="../../../images/lis.png" alt="LIS">
+                  </div>
                 </div>
               </div>
-              <div class="slick-slide-in">
-                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="200">
-                  <img src="../../../images/onetech.png" alt="OneTech">
-                </div>
-              </div>
-              <div class="slick-slide-in">
-                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="300">
-                  <img src="../../../images/hemapro.png" alt="HemaPro">
-                </div>
-              </div>
-              <div class="slick-slide-in">
-                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="400">
-                  <img src="../../../images/java.png" alt="Java">
-                </div>
-              </div>
-              <div class="slick-slide-in">
-                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="500">
-                  <img src="../../../images/medimax.png" alt="Medimax">
-                </div>
-              </div>
-              <div class="slick-slide-in">
-                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="600">
-                  <img src="../../../images/danur.png" alt="Danur">
-                </div>
-              </div>
-              <div class="slick-slide-in">
-                <div class="modern-brand-card" data-aos="zoom-in" data-aos-delay="700">
-                  <img src="../../../images/lis.png" alt="LIS">
-                </div>
-              </div>
+            </div><!-- .slick-container -->
+            <div class="pagination st-style1 st-flex st-hidden"></div>
+            <div class="swipe-arrow st-style1">
+              <div class="slick-arrow-left"><i class="fa fa-chevron-left"></i></div>
+              <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
             </div>
-          </div><!-- .slick-container -->
-          <div class="pagination st-style1 st-flex st-hidden"></div>
-          <div class="swipe-arrow st-style1">
-            <div class="slick-arrow-left"><i class="fa fa-chevron-left"></i></div>
-            <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
-          </div>
-        </div><!-- .st-slider -->
-      </div>
-    </section>
+          </div><!-- .st-slider -->
+        </div>
+      </section>
     </div>
     <!-- End Logo Carousel -->
 
@@ -1094,8 +407,8 @@
         </div>
       </div>
     </div>
-    </footer>
-    <div class="gtranslate_wrapper"></div>
+  </footer>
+  <div class="gtranslate_wrapper"></div>
   <!-- End Footer -->
 
 
@@ -1115,9 +428,6 @@
     </div>
   </div>
 
-
-
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Scripts -->
   <script src="../../../js/modernizr-3.5.0.min.js"></script>
@@ -1136,240 +446,14 @@
   <script src="../../../js/produk.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../../produk.js"></script>
-<script>
-  (async function () {
-    // Ambil slug merek setelah '/product/'
-    const pathArr = window.location.pathname.split('/');
-    const productIdx = pathArr.indexOf('product');
-    let merek = '';
-    if (productIdx !== -1 && pathArr.length > productIdx + 1) {
-      merek = pathArr[productIdx + 1];
-    }
 
-    // Ambil slug produk dari URL setelah '/detail/'
-    let slug = '';
-    const match = window.location.pathname.match(/\/detail\/([^\/]+)\/?$/);
-    if (match) {
-      slug = match[1];
-    }
-
-    // Fetch data produk dari API
-    let products = [];
-    try {
-      const res = await fetch('https://portal.sentralmedika.co.id/api/products');
-      const json = await res.json();
-      products = json.data || [];
-    } catch (e) {
-      products = [];
-    }
-
-    // Cari produk berdasarkan slug
-    const product = products.find(p => p.slug === slug);
-
-    // List produk berdasarkan merek (dropdown)
-    const produkListMerek = products.filter(p => p.brand_slug === merek);
-    const produkDropdown = document.getElementById("produk-list-merek-dropdown");
-    if (produkListMerek.length > 0) {
-      produkDropdown.innerHTML = produkListMerek.map(p => `
-        <option value="/product/${merek}/detail/${p.slug}" ${p.slug === slug ? 'selected' : ''}>${p.nama}</option>
-      `).join('');
-      produkDropdown.onchange = function() {
-        if (this.value) window.location.href = this.value;
-      };
-    } else {
-      produkDropdown.innerHTML = '<option value="">Tidak ada produk lain untuk merek ini.</option>';
-    }
-
-    if (product) {
-      // Breadcrumb
-      const breadcrumbMerek = document.getElementById("breadcrumb-merek");
-      breadcrumbMerek.innerHTML = `<a href="/product/${merek}" style="color: #007bff; text-decoration: none;">${merek}</a>`;
-      document.getElementById("breadcrumb-product").textContent = product.nama || "-";
-
-      // Detail produk
-      document.getElementById("product-image").src = product.foto;
-      document.getElementById("product-image").alt = product.nama;
-      document.getElementById("product-name").textContent = product.nama;
-      document.getElementById("product-description").textContent = product.deskripsi;
-
-      // File produk
-      const fileList = document.getElementById("file-list");
-      
-      // Function to get icon based on file extension
-      function getFileIcon(extension) {
-        switch(extension.toLowerCase()) {
-          case 'pdf':
-            return '<i class="fas fa-file-pdf" style="color: #e74c3c;"></i>';
-          case 'doc':
-          case 'docx':
-            return '<i class="fas fa-file-word" style="color: #2980b9;"></i>';
-          case 'xls':
-          case 'xlsx':
-            return '<i class="fas fa-file-excel" style="color: #27ae60;"></i>';
-          case 'ppt':
-          case 'pptx':
-            return '<i class="fas fa-file-powerpoint" style="color: #e67e22;"></i>';
-          case 'jpg':
-          case 'jpeg':
-          case 'png':
-          case 'gif':
-          case 'webp':
-            return '<i class="fas fa-file-image" style="color: #9b59b6;"></i>';
-          case 'zip':
-          case 'rar':
-          case '7z':
-            return '<i class="fas fa-file-archive" style="color: #f39c12;"></i>';
-          case 'txt':
-            return '<i class="fas fa-file-alt" style="color: #7f8c8d;"></i>';
-          default:
-            return '<i class="fas fa-file" style="color: #95a5a6;"></i>';
-        }
-      }
-      
-      fileList.innerHTML = (product.files || []).map(l => {
-        // Extract file extension from URL
-        const urlParts = l.url.split('.');
-        const fileExtension = urlParts[urlParts.length - 1].toLowerCase();
-        
-        // Debug: log file extension detection
-        console.log('File URL:', l.url, 'Extension:', fileExtension);
-        
-        const iconHtml = getFileIcon(fileExtension);
-        
-        return `
-        <div class="produk-link-card">
-          <a href="${l.url}" target="_blank">
-            <div class="produk-link-card-body">
-              <div class="file-icon">${iconHtml}</div>
-              <div class="produk-link-card-title">${l.title}</div>
-            </div>
-          </a>
-        </div>
-      `;
-      }).join("");
-    } else {
-      // Ganti isi body penuh dengan 404
-      document.title = "404 - Produk Tidak Ditemukan";
-      document.body.innerHTML = `
-        <section class="not-found" style="text-align:center; padding:50px; font-family:Arial;">
-          <h1 style="font-size:80px; margin:0;">404</h1>
-          <p style="font-size:20px; margin:10px 0;">Produk tidak ditemukan</p>
-          <a href="/product" style="display:inline-block; margin-top:20px; padding:10px 20px; background:#007bff; color:#fff; border-radius:5px; text-decoration:none;">
-            Kembali ke daftar produk
-          </a>
-        </section>
-      `;
-    }
-  })();
-</script>
 
   <!-- AOS Animate On Scroll JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      once: true,
-      duration: 900
-    });
-  </script>
-  <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      // Modal gambar produk fullscreen
-      const img = document.getElementById('product-image');
-      const modal = document.getElementById('img-modal');
-      const modalImg = document.getElementById('img-modal-full');
-      const modalCaption = document.getElementById('img-modal-caption');
-      const modalClose = document.querySelector('.img-modal-close');
-      if (img && modal && modalImg && modalClose) {
-        img.onclick = function () {
-          modal.style.display = 'block';
-          modalImg.src = this.src;
-          modalImg.alt = this.alt;
-          modalCaption.textContent = this.alt;
-        };
-        modalClose.onclick = function () {
-          modal.style.display = 'none';
-        };
-        modal.onclick = function (e) {
-          if (e.target === modal) modal.style.display = 'none';
-        };
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape') modal.style.display = 'none';
-        });
-      }
-    });
-  </script>
+   <script src="../../detail.js"></script>
+  <script>window.gtranslateSettings = { "default_language": "id", "native_language_names": true, "languages": ["id", "en", "zh-TW", "zh-CN", "hi", "it"], "wrapper_selector": ".gtranslate_wrapper", "flag_size": 24, "switcher_horizontal_position": "right", "switcher_open_direction": "top", "flag_style": "3d" }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/dwf.js" defer></script>
 
-  <!-- AOS Animate On Scroll JS -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
-  </script>
-
-  <!-- Dynamic File Type Detection for External URLs -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Function to get file extension from URL
-      function getFileExtension(url) {
-        // Remove query parameters and fragments
-        const cleanUrl = url.split('?')[0].split('#')[0];
-        const fileName = cleanUrl.split('/').pop();
-        const extension = fileName.split('.').pop().toLowerCase();
-        return extension;
-      }
-
-      // Function to set file type icon based on extension
-      function setFileTypeIcon(card, extension) {
-        card.setAttribute('data-file-type', extension);
-      }
-
-      // Find all produk-link-card elements and check their links
-      const produkCards = document.querySelectorAll('.produk-link-card');
-      
-      produkCards.forEach(function(card) {
-        const link = card.querySelector('a');
-        if (link && link.href) {
-          const fileExtension = getFileExtension(link.href);
-          
-          // Set the data-file-type attribute for CSS styling
-          if (fileExtension) {
-            setFileTypeIcon(card, fileExtension);
-          }
-        }
-      });
-
-      // Also handle dynamically loaded content
-      const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          mutation.addedNodes.forEach(function(node) {
-            if (node.nodeType === 1 && node.classList && node.classList.contains('produk-link-card')) {
-              const link = node.querySelector('a');
-              if (link && link.href) {
-                const fileExtension = getFileExtension(link.href);
-                if (fileExtension) {
-                  setFileTypeIcon(node, fileExtension);
-                }
-              }
-            }
-          });
-        });
-      });
-
-      // Start observing
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true
-      });
-    });
-  </script>
-<script>window.gtranslateSettings = {"default_language":"id","native_language_names":true,"languages":["id","en","zh-TW","zh-CN","hi","it"],"wrapper_selector":".gtranslate_wrapper","flag_size":24,"switcher_horizontal_position":"right","switcher_open_direction":"top","flag_style":"3d"}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/dwf.js" defer></script>
-  
 </body>
 
 </html>
