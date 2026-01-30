@@ -100,8 +100,8 @@
   function preloaderSetup() {
     setTimeout(function () {
       $(".st-perloader").fadeOut();
-      $(".st-perloader-in").delay(150).fadeOut("slow");
-    }, 3000); // Tunda selama 3 detik
+      $(".st-perloader-in").delay(1).fadeOut("slow");
+    }, 100); // Tunda selama 3 detik
   }
 
   // Jalankan saat DOM siap (bukan window.onload)
