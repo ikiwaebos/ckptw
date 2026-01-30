@@ -62,6 +62,37 @@
   <link rel="stylesheet" href="../../css/style.css">
   <!-- <link rel="stylesheet" href="../../css/produk.css?v=2"> -->
   <link rel="stylesheet" href="../../css/brand.css">
+  <style>
+    /* Breadcrumb Styles */
+    .breadcrumb {
+      background: white;
+      border-radius: 15px;
+      padding: 15px 25px;
+      box-shadow: 0 5px 20px rgba(90, 24, 154, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .breadcrumb:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(90, 24, 154, 0.15);
+      border-color: rgba(142, 197, 252, 0.3);
+    }
+
+    .breadcrumb a {
+      color: #18689a;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: #8ec5fc;
+    }
+  </style>
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -172,44 +203,17 @@
   <!-- End Header Section -->
 
   <div class="st-content">
-    <!-- <div class="st-height-b125 st-height-lg-b80"></div>
 
-    <div class="st-slider st-style1 st-slider-animation1">
-        <div class="slick-container" data-autoplay="0" data-loop="1" data-speed="800" data-autoplay-timeout="1000"
-          data-center="0" data-slides-per-view="1">
-          <div class="slick-wrapper">
-            <div class="slick-slide-in">
-              <div class="st-hero st-style1 st-size1">
-                <div class="st-hero-bg st-dynamic-bg st-bg" data-src="../../images/hpage.gif"
-                  style="background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; height: 100vh;">
-                </div>
-  
-                <div class="container">
-                  <div class="st-hero-text">
-                    <h1 class="text-center">
-                       ~ PRODUCT ~
-                    </h1>
-                  
-                 
-                    <div class="st-height-b15 st-height-lg-b15"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-          </div>
-        </div>
-        <div class="pagination st-style2 st-hidden"></div> 
-        <div class="swipe-arrow st-style2"> 
-          <div class="slick-arrow-left"><i class="fa fa-chevron-left"></i></div>
-          <div class="slick-arrow-right"><i class="fa fa-chevron-right"></i></div>
-        </div>
-      </div> -->
-    <!-- .st-slider -->
-    <!-- End Hero Section -->
-
-    <section class="modern-product-section" style="padding-top: 25svh;" data-aos="fade-up">
+    <section class="modern-product-section" style="padding-top: 9rem;" data-aos="fade-up">
       <div class="container">
+            
+  <div class="breadcrumb mb-4" style="margin: 24px 0 16px 0; font-size: 1rem; color: #222;">
+          <a href="/product" style="color: #007bff; text-decoration: none;">Products</a>
+          <span>&nbsp; &gt; &nbsp;</span>
+          <span id="breadcrumb-merek"></span>
+          <span>&nbsp; &gt; &nbsp;</span>
+          <span id="breadcrumb-product"></span>
+        </div>
         <div class="row align-items-center clearfix">
 
           <!-- Image Section (Moved to Left) -->
@@ -231,11 +235,7 @@
             </div>
           </div>
 
-        <div class="breadcrumb mb-4" style="margin: 24px 0 16px 0; font-size: 1rem; color: #222;">
-          <a href="/product" style="color: #007bff; text-decoration: none;">Products</a>
-          <span>&nbsp; &gt; &nbsp;</span>
-          <span id="breadcrumb-merek"></span>
-        </div>
+      
 
           <!-- Content Section (Moved to Right) -->
           <div class="col-lg-6 col-md-12 col-sm-12 content-column" data-aos="fade-left">
