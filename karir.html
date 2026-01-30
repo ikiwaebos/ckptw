@@ -1,1428 +1,1857 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Karir | PT. Sentral Medika Indonesia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      /* SOFT PASTEL + ELEGANT LIGHT THEME (UPDATED ACCENT) */
-      --bg-dark: #F7F8FF;
-      --bg-section: #F1F6FF;
-      --bg-card: #FFFFFF;
-
-      --text-primary: #121826;
-      --text-secondary: #5B6475;
-
-      /* USER REQUEST */
-      --accent: #5B23FF;
-      --accent-light: #008BFF;
-
-      /* derived */
-      --accent-glow: rgba(91, 35, 255, 0.18);
-      --accent-glow-2: rgba(0, 139, 255, 0.14);
-
-      --border: #E6E9F5;
-      --success: #10B981;
-
-      --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.08);
-      --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.06);
-
-      --glass: rgba(255, 255, 255, 0.76);
-      --glass-border: rgba(230, 233, 245, 0.95);
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: var(--glass);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--glass-border);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-    }
-
-    .logo {
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: 0.2px;
-      background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 55%, var(--accent-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.15;
-    }
-    .logo small{
-      display:block;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      opacity: 0.95;
-      margin-top: 2px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      transition: color 0.25s ease;
-    }
-    .nav-links a:hover { color: var(--text-primary); }
-
-    /* BUTTONS */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-      cursor: pointer;
-      border: none;
-      letter-spacing: 0.2px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-      color: #FFFFFF;
-      box-shadow: 0 10px 26px var(--accent-glow);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 36px var(--accent-glow);
-    }
-
-    .btn-outline {
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid var(--border);
-      color: var(--text-primary);
-    }
-    .btn-outline:hover {
-      border-color: rgba(91, 35, 255, 0.22);
-      background: rgba(91, 35, 255, 0.06);
-    }
-
-    /* HERO SECTION */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 120px 0 80px;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 860px;
-      height: 860px;
-      background:
-        radial-gradient(circle at 35% 35%, rgba(0, 139, 255, 0.18) 0%, rgba(0, 139, 255, 0.00) 62%),
-        radial-gradient(circle at 60% 60%, rgba(91, 35, 255, 0.18) 0%, rgba(91, 35, 255, 0.00) 62%);
-      animation: pulse 5.2s ease-in-out infinite;
-      filter: blur(0.2px);
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.55; }
-      50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.85; }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      max-width: 980px;
-      margin: 0 auto;
-    }
-
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 26px;
-      color: rgba(91, 35, 255, 0.92);
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
-    }
-
-    .hero-label .dot {
-      width: 7px;
-      height: 7px;
-      background: var(--success);
-      border-radius: 50%;
-      animation: blink 2s infinite;
-      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.14);
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.35; }
-    }
-
-    .hero h1 {
-      font-size: clamp(44px, 5.8vw, 70px);
-      font-weight: 900;
-      line-height: 1.08;
-      margin-bottom: 18px;
-      background: linear-gradient(135deg, var(--text-primary) 0%, rgba(18, 24, 38, 0.55) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.6px;
-    }
-
-    .hero p {
-      font-size: 19px;
-      color: var(--text-secondary);
-      line-height: 1.75;
-      margin-bottom: 42px;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 34px;
-      margin-top: 74px;
-      padding-top: 52px;
-      border-top: 1px solid rgba(230, 233, 245, 0.95);
-    }
-
-    .stat { text-align: center; }
-
-    .stat-number {
-      font-size: 46px;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 58%, var(--accent-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 6px;
-      letter-spacing: -0.6px;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 1.4px;
-      font-weight: 900;
-    }
-
-    /* SECTION */
-    .section {
-      padding: 110px 0;
-      position: relative;
-    }
-
-    .section-alt {
-      background: var(--bg-section);
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 860px;
-      margin: 0 auto 70px;
-    }
-
-    .section-label {
-      font-size: 13px;
-      font-weight: 900;
-      color: rgba(0, 139, 255, 0.95);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 14px;
-      display: block;
-    }
-
-    .section-title {
-      font-size: clamp(34px, 4vw, 54px);
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 18px;
-      color: var(--text-primary);
-      letter-spacing: -0.5px;
-    }
-
-    .section-description {
-      font-size: 18px;
-      color: var(--text-secondary);
-      line-height: 1.75;
-    }
-
-    /* BENEFITS GRID */
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-    }
-
-    .benefit-card {
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 38px;
-      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                  border-color 0.35s ease,
-                  box-shadow 0.35s ease;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 2px 0 rgba(15, 23, 42, 0.01);
-    }
-
-    .benefit-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(0, 139, 255, 0.75), rgba(91, 35, 255, 0.75), transparent);
-      transform: scaleX(0);
-      transition: transform 0.6s ease;
-    }
-
-    .benefit-card:hover::before { transform: scaleX(1); }
-    .benefit-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(91, 35, 255, 0.26);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .benefit-icon {
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 22px;
-      color: #FFFFFF;
-      box-shadow: 0 14px 30px rgba(91, 35, 255, 0.14);
-    }
-
-    .benefit-card h3 {
-      font-size: 21px;
-      font-weight: 900;
-      margin-bottom: 12px;
-      color: var(--text-primary);
-      letter-spacing: -0.2px;
-    }
-
-    .benefit-card p {
-      color: var(--text-secondary);
-      line-height: 1.75;
-    }
-
-    /* JOBS */
-    .jobs-wrap { margin-top: 10px; }
-
-    .job-card {
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 30px;
-      margin-bottom: 18px;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 32px;
-      box-shadow: 0 2px 0 rgba(15, 23, 42, 0.01);
-    }
-
-    .job-card:hover {
-      border-color: rgba(0, 139, 255, 0.26);
-      transform: translateX(6px);
-      box-shadow: var(--shadow-card);
-    }
-
-    .job-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      background: rgba(0, 139, 255, 0.06);
-      border: 1px solid rgba(0, 139, 255, 0.22);
-      border-radius: 10px;
-      font-size: 12px;
-      font-weight: 900;
-      color: rgba(0, 139, 255, 0.95);
-      margin-bottom: 14px;
-      letter-spacing: 0.2px;
-    }
-
-    .job-card h3 {
-      font-size: 24px;
-      font-weight: 900;
-      margin-bottom: 14px;
-      color: var(--text-primary);
-      letter-spacing: -0.3px;
-    }
-
-    .job-meta {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
-
-    .meta-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: var(--text-secondary);
-      font-weight: 700;
-    }
-
-    .meta-item svg { width: 16px; height: 16px; opacity: 0.9; }
-
-    /* Pagination (Page Number) */
-    .pagination {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-top: 26px;
-      user-select: none;
-    }
-
-    .page-btn, .page-num {
-      height: 40px;
-      min-width: 40px;
-      padding: 0 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.75);
-      color: var(--text-primary);
-      font-weight: 900;
-      font-size: 13px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      letter-spacing: 0.2px;
-    }
-
-    .page-btn:hover, .page-num:hover {
-      transform: translateY(-1px);
-      border-color: rgba(91, 35, 255, 0.22);
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
-      background: rgba(91, 35, 255, 0.06);
-    }
-
-    .page-num.active {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-      color: #FFFFFF;
-      border-color: transparent;
-      box-shadow: 0 14px 30px rgba(91, 35, 255, 0.16);
-    }
-
-    .page-btn:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-
-    /* PROCESS TIMELINE */
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 28px;
-      margin-top: 56px;
-    }
-
-    .process-step { position: relative; padding-left: 60px; }
-
-    .step-number {
-      position: absolute;
-      left: 0; top: 0;
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 900;
-      color: #FFFFFF;
-      box-shadow: 0 14px 28px rgba(91, 35, 255, 0.14);
-    }
-
-    .process-step h4 {
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 10px;
-      color: var(--text-primary);
-      letter-spacing: -0.2px;
-    }
-
-    .process-step p {
-      color: var(--text-secondary);
-      font-size: 14px;
-      line-height: 1.7;
-      font-weight: 600;
-    }
-
-    /* FEATURE SHOWCASE */
-    .feature-showcase {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .feature-visual {
-      position: relative;
-      height: 500px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(0, 139, 255, 0.14) 0%, rgba(0, 139, 255, 0.00) 55%),
-        radial-gradient(circle at 70% 70%, rgba(91, 35, 255, 0.14) 0%, rgba(91, 35, 255, 0.00) 55%),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(241, 246, 255, 0.96) 100%);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-card);
-    }
-
-    .feature-visual::after {
-      content: 'SMI';
-      font-size: 96px;
-      font-weight: 900;
-      color: rgba(18, 24, 38, 0.035);
-      position: absolute;
-      letter-spacing: -2px;
-    }
-
-    .feature-list { list-style: none; }
-
-    .feature-item {
-      display: flex;
-      gap: 18px;
-      padding: 22px 0;
-      border-bottom: 1px solid rgba(230, 233, 245, 0.95);
-    }
-    .feature-item:last-child { border-bottom: none; }
-
-    .feature-icon {
-      width: 48px; height: 48px;
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: rgba(91, 35, 255, 0.92);
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
-    }
-
-    .feature-content h4 {
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 6px;
-      color: var(--text-primary);
-      letter-spacing: -0.2px;
-    }
-
-    .feature-content p {
-      color: var(--text-secondary);
-      line-height: 1.7;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    /* CTA */
-    .cta {
-      background: linear-gradient(135deg, rgba(91, 35, 255, 0.95) 0%, rgba(0, 139, 255, 0.95) 100%);
-      border-radius: 26px;
-      padding: 78px 56px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 22px 60px rgba(91, 35, 255, 0.18);
-    }
-
-    .cta::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 620px;
-      height: 620px;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .cta-content { position: relative; z-index: 1; color: #FFFFFF; }
-    .cta h2 {
-      font-size: clamp(34px, 4vw, 52px);
-      font-weight: 900;
-      margin-bottom: 18px;
-      line-height: 1.2;
-      letter-spacing: -0.5px;
-    }
-    .cta p {
-      font-size: 18px;
-      margin-bottom: 36px;
-      opacity: 0.95;
-      font-weight: 600;
-    }
-
-    .cta .btn {
-      background: rgba(255, 255, 255, 0.92);
-      color: var(--text-primary);
-      border: 1px solid rgba(255, 255, 255, 0.55);
-    }
-    .cta .btn:hover {
-      transform: translateY(-2px);
-      background: #FFFFFF;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
-    }
-
-    /* FOOTER */
-    footer {
-      background: rgba(241, 246, 255, 0.9);
-      padding: 78px 0 40px;
-      border-top: 1px solid rgba(230, 233, 245, 0.95);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 56px;
-      margin-bottom: 54px;
-    }
-
-    .footer-brand {
-      font-size: 22px;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 55%, var(--accent-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 14px;
-      letter-spacing: -0.2px;
-      line-height: 1.2;
-    }
-
-    .footer-description {
-      color: var(--text-secondary);
-      line-height: 1.75;
-      margin-bottom: 28px;
-      max-width: 520px;
-      font-weight: 600;
-    }
-
-    .social-links { display: flex; gap: 10px; }
-
-    .social-link {
-      width: 40px; height: 40px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
-    }
-
-    .social-link:hover {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-      border-color: rgba(91, 35, 255, 0.25);
-      color: #FFFFFF;
-      transform: translateY(-2px);
-    }
-
-    .footer-section h4 {
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 20px;
-      color: var(--text-primary);
-    }
-
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 12px; }
-
-    .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      transition: color 0.25s ease;
-    }
-    .footer-links a:hover { color: rgba(91, 35, 255, 0.95); }
-
-    .footer-bottom {
-      padding-top: 34px;
-      border-top: 1px solid rgba(230, 233, 245, 0.95);
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .nav-links { display: none; }
-      .feature-showcase { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    }
-
-    @media (max-width: 768px) {
-      .hero-stats { grid-template-columns: 1fr; gap: 22px; }
-      .job-card { flex-direction: column; align-items: flex-start; }
-      .process-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .cta { padding: 60px 28px; }
-    }
-
-    /* ANIMATIONS */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* GRID BACKGROUND */
-    .grid-bg {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0, 139, 255, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(91, 35, 255, 0.045) 1px, transparent 1px);
-      background-size: 52px 52px;
-      pointer-events: none;
-      opacity: 0.55;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karir | PT. Sentral Medika Indonesia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* SOFT PASTEL + ELEGANT LIGHT THEME (UPDATED ACCENT) */
+            --bg-dark: #F7F8FF;
+            --bg-section: #F1F6FF;
+            --bg-card: #FFFFFF;
+
+            --text-primary: #121826;
+            --text-secondary: #5B6475;
+
+            /* USER REQUEST */
+            --accent: #2382ff;
+            --accent-light: #008BFF;
+
+            /* derived */
+            --accent-glow: rgba(17, 104, 235, 0.18);
+            --accent-glow-2: rgba(0, 132, 255, 0.14);
+
+            --border: #E6E9F5;
+            --success: #10B981;
+
+            --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.08);
+            --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.06);
+
+            --glass: rgba(255, 255, 255, 0.76);
+            --glass-border: rgba(230, 233, 245, 0.95);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 0.2px;
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 55%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.15;
+        }
+
+        .logo small {
+            display: block;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            opacity: 0.95;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+            cursor: pointer;
+            border: none;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: #FFFFFF;
+            box-shadow: 0 10px 26px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px var(--accent-glow);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color: rgba(91, 35, 255, 0.22);
+            background: rgba(91, 35, 255, 0.06);
+        }
+
+        .nav-links a.btn-hr {
+            color: #fff;
+        }
+
+        .nav-links a.btn-hr:hover,
+        .nav-links a.btn-hr:focus,
+        .nav-links a.btn-hr:active {
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 860px;
+            height: 860px;
+            background:
+                radial-gradient(circle at 35% 35%, rgba(0, 139, 255, 0.18) 0%, rgba(0, 139, 255, 0.00) 62%),
+                radial-gradient(circle at 60% 60%, rgba(91, 35, 255, 0.18) 0%, rgba(91, 35, 255, 0.00) 62%);
+            animation: pulse 5.2s ease-in-out infinite;
+            filter: blur(0.2px);
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(5);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(2.25);
+                opacity: 0.9;
+            }
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 900;
+            margin-bottom: 26px;
+            color: rgba(91, 35, 255, 0.92);
+            box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+        }
+
+        .hero-label .dot {
+            width: 7px;
+            height: 7px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: blink 2s infinite;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.14);
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.35;
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(44px, 5.8vw, 70px);
+            font-weight: 900;
+            line-height: 1.08;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, rgba(18, 24, 38, 0.55) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.6px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 42px;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 34px;
+            margin-top: 74px;
+            padding-top: 52px;
+            border-top: 1px solid rgba(230, 233, 245, 0.95);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 46px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 58%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 6px;
+            letter-spacing: -0.6px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            font-weight: 900;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 110px 0;
+            position: relative;
+        }
+
+        .section-alt {
+            background: var(--bg-section);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto 70px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 900;
+            color: rgba(0, 139, 255, 0.95);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(34px, 4vw, 54px);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        /* BENEFITS GRID */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 38px;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 0 rgba(15, 23, 42, 0.01);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0, 139, 255, 0.75), rgba(91, 35, 255, 0.75), transparent);
+            transform: scaleX(0);
+            transition: transform 0.6s ease;
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(91, 35, 255, 0.26);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            color: #FFFFFF;
+            box-shadow: 0 14px 30px rgba(91, 35, 255, 0.14);
+        }
+
+        .benefit-card h3 {
+            font-size: 21px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            letter-spacing: -0.2px;
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        /* JOBS */
+        .jobs-wrap {
+            margin-top: 10px;
+        }
+
+        .job-card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 18px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+            box-shadow: 0 2px 0 rgba(15, 23, 42, 0.01);
+        }
+
+        .job-card:hover {
+            border-color: rgba(0, 139, 255, 0.26);
+            transform: translateX(6px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .job-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(0, 139, 255, 0.06);
+            border: 1px solid rgba(0, 139, 255, 0.22);
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 900;
+            color: rgba(0, 139, 255, 0.95);
+            margin-bottom: 14px;
+            letter-spacing: 0.2px;
+        }
+
+        .job-card h3 {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 700;
+        }
+
+        .meta-item svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.9;
+        }
+
+        /* Pagination (Page Number) */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 26px;
+            user-select: none;
+        }
+
+        .page-btn,
+        .page-num {
+            height: 40px;
+            min-width: 40px;
+            padding: 0 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.75);
+            color: var(--text-primary);
+            font-weight: 900;
+            font-size: 13px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.2px;
+        }
+
+        .page-btn:hover,
+        .page-num:hover {
+            transform: translateY(-1px);
+            border-color: rgba(91, 35, 255, 0.22);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+            background: rgba(91, 35, 255, 0.06);
+        }
+
+        .page-num.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: #FFFFFF;
+            border-color: transparent;
+            box-shadow: 0 14px 30px rgba(91, 35, 255, 0.16);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* PROCESS TIMELINE */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 28px;
+            margin-top: 56px;
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 900;
+            color: #FFFFFF;
+            box-shadow: 0 14px 28px rgba(91, 35, 255, 0.14);
+        }
+
+        .process-step h4 {
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            letter-spacing: -0.2px;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+            font-weight: 600;
+        }
+
+        /* FEATURE SHOWCASE */
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .feature-visual {
+            position: relative;
+            height: 500px;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(0, 139, 255, 0.14) 0%, rgba(0, 139, 255, 0.00) 55%),
+                radial-gradient(circle at 70% 70%, rgba(91, 35, 255, 0.14) 0%, rgba(91, 35, 255, 0.00) 55%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(241, 246, 255, 0.96) 100%);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-card);
+        }
+
+        .feature-visual::after {
+            content: 'SMI';
+            font-size: 96px;
+            font-weight: 900;
+            color: rgba(18, 24, 38, 0.035);
+            position: absolute;
+            letter-spacing: -2px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 18px;
+            padding: 22px 0;
+            border-bottom: 1px solid rgba(230, 233, 245, 0.95);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: rgba(91, 35, 255, 0.92);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
+        }
+
+        .feature-content h4 {
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+            letter-spacing: -0.2px;
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, rgba(91, 35, 255, 0.95) 0%, rgba(0, 139, 255, 0.95) 100%);
+            border-radius: 26px;
+            padding: 78px 56px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 22px 60px rgba(91, 35, 255, 0.18);
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 620px;
+            height: 620px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            color: #FFFFFF;
+        }
+
+        .cta h2 {
+            font-size: clamp(34px, 4vw, 52px);
+            font-weight: 900;
+            margin-bottom: 18px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 36px;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        .cta .btn {
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+        }
+
+        .cta .btn:hover {
+            transform: translateY(-2px);
+            background: #FFFFFF;
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(241, 246, 255, 0.9);
+            padding: 78px 0 40px;
+            border-top: 1px solid rgba(230, 233, 245, 0.95);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 56px;
+            margin-bottom: 54px;
+        }
+
+        .footer-brand {
+            font-size: 22px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 55%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 14px;
+            letter-spacing: -0.2px;
+            line-height: 1.2;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 28px;
+            max-width: 520px;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-color: rgba(91, 35, 255, 0.25);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .footer-section h4 {
+            font-size: 13px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.25s ease;
+        }
+
+        .footer-links a:hover {
+            color: rgba(91, 35, 255, 0.95);
+        }
+
+        .footer-bottom {
+            padding-top: 34px;
+            border-top: 1px solid rgba(230, 233, 245, 0.95);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .feature-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .job-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                padding: 60px 28px;
+            }
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* GRID BACKGROUND */
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 139, 255, 0.055) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(91, 35, 255, 0.045) 1px, transparent 1px);
+            background-size: 52px 52px;
+            pointer-events: none;
+            opacity: 0.55;
+        }
+
+        /* WRAPPER */
+        .smi-mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+        }
+
+        /* ACTIVE */
+        .smi-mobile-menu.active {
+            display: flex;
+        }
+
+        /* HEADER */
+        .smi-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .smi-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .smi-logo img {
+            height: 34px;
+        }
+
+        .smi-menu-close {
+            font-size: 26px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* BODY */
+        .smi-menu-body {
+            padding: 16px 20px;
+            flex: 1;
+        }
+
+       .smi-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  font-size: 16px;
+  color: #1f2937;
+  text-decoration: none;
+}
+
+.smi-menu-item i {
+  font-size: 18px;
+  color: #2563eb;
+  min-width: 22px;
+}
+
+
+        /* ACTIVE */
+        .smi-menu-item.active {
+            background: #eaf1ff;
+            color: #1e6fff;
+            font-weight: 600;
+        }
+
+        /* SUBMENU */
+        .smi-has-sub {
+            flex-direction: column;
+        }
+
+        .smi-sub-toggle {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .smi-sub-toggle>div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .smi-submenu {
+            display: none;
+            padding-left: 42px;
+        }
+
+        .smi-submenu a {
+            display: block;
+            padding: 10px 0;
+            font-size: 14px;
+            color: #4b5563;
+            text-decoration: none;
+        }
+
+        /* OPEN */
+        .smi-has-sub.open .smi-submenu {
+            display: block;
+        }
+
+        /* FOOTER */
+        .smi-menu-footer {
+            padding: 20px;
+            border-top: 1px solid #edf2f7;
+        }
+
+        .smi-btn-cta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 14px;
+            background: linear-gradient(135deg, #1e6fff, #2b7cff);
+            color: #ffffff;
+            font-weight: 600;
+            border-radius: 14px;
+            text-decoration: none;
+        }
+
+        /* DESKTOP HIDDEN */
+        @media (min-width: 1024px) {
+            .smi-mobile-menu {
+                display: none !important;
+            }
+        }
+
+        /* BURGER BUTTON */
+        .burger-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            font-weight: 900;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* MOBILE */
+        @media (max-width: 1024px) {
+            .burger-btn {
+                display: block;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo">
-          PT. Sentral Medika Indonesia
-          <small>CAREERS</small>
-        </div>
-        <div class="nav-links">
-          <a href="#tentang">Tentang</a>
-          <a href="#posisi">Lowongan</a>
-          <a href="#budaya">Budaya</a>
-          <a href="#proses">Proses</a>
-          <a href="#" class="btn btn-primary">Hubungi HR</a>
-        </div>
-      </nav>
+    <!-- MOBILE MENU -->
+    <div class="smi-mobile-menu" id="smiMobileMenu">
+
+  <!-- HEADER -->
+  <div class="smi-menu-header">
+    <div class="smi-logo">
+      <img src="https://karir.sentralmedika.co.id/detail/images/logonyaa.png" alt="Sentral Medika Indonesia">
+     
     </div>
-  </header>
+    <button class="smi-menu-close" id="smiCloseMenu">✕</button>
+  </div>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="grid-bg"></div>
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-label">
-            <span class="dot"></span>
-            Rekrutmen Dibuka
-          </div>
-          <h1>Bangun Karir Bersama PT. Sentral Medika Indonesia</h1>
-          <p>
-            Bersama tim yang fokus pada mutu, kepatuhan, dan inovasi alat kesehatan.
-            Tempat yang tepat untuk bertumbuh—dari produksi, QA/QC, R&D, hingga Regulatory.
-          </p>
-          <div class="hero-buttons">
-            <a href="#posisi" class="btn btn-primary">
-              Lihat Lowongan
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-            <a href="#budaya" class="btn btn-outline">Kenali Budaya Kerja</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <div class="stat-number">10+</div>
-              <div class="stat-label">Produk Alkes</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">ISO</div>
-              <div class="stat-label">Quality Focus</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">CPAKB</div>
-              <div class="stat-label">Compliance</div>
-            </div>
-          </div>
+  <!-- MENU LIST -->
+<div class="smi-menu-body">
+
+  <a href="#tentang" class="smi-menu-item smi-close-on-click">
+    <i class="fas fa-building"></i>
+    <span>Tentang</span>
+  </a>
+
+  <a href="#posisi" class="smi-menu-item smi-close-on-click">
+    <i class="fas fa-briefcase-medical"></i>
+    <span>Lowongan</span>
+  </a>
+
+  <a href="#budaya" class="smi-menu-item smi-close-on-click">
+    <i class="fas fa-users"></i>
+    <span>Budaya</span>
+  </a>
+
+  <a href="#proses" class="smi-menu-item smi-close-on-click">
+    <i class="fas fa-route"></i>
+    <span>Proses Rekrutmen</span>
+  </a>
+
+</div>
+
+
+  <!-- CTA -->
+  <div class="smi-menu-footer">
+    <a href="#hubungi-hr" class="smi-btn-cta smi-btn-hr">
+      <i class="fas fa-headset"></i>
+      Hubungi HR
+    </a>
+  </div>
+
+</div>
+
+
+    </header>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    PT. Sentral Medika Indonesia
+                    <small>CAREERS</small>
+                </div>
+
+                <!-- BURGER BUTTON -->
+                <button class="burger-btn" id="smiOpenMenu" aria-label="Menu">
+                    ☰
+                </button>
+
+                <div class="nav-links">
+                    <a href="#tentang">Tentang</a>
+                    <a href="#posisi">Lowongan</a>
+                    <a href="#budaya">Budaya</a>
+                    <a href="#proses">Proses</a>
+                    <a href="#" class="btn btn-primary btn-hr">Hubungi HR</a>
+                </div>
+            </nav>
+
         </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- BENEFITS -->
-    <section class="section section-alt" id="tentang">
-      <div class="container">
-        <div class="section-header fade-in">
-          <span class="section-label">Kenapa SMI</span>
-          <h2 class="section-title">Lingkungan Kerja yang Rapi, Terukur, dan Bertumbuh</h2>
-          <p class="section-description">
-            Kami membangun budaya kerja yang kuat pada sistem, konsistensi, dan perbaikan berkelanjutan—agar hasil kerja berdampak nyata.
-          </p>
-        </div>
-
-        <div class="benefits-grid">
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <h3>Budaya Mutu</h3>
-            <p>Dokumentasi rapi, kontrol perubahan, audit internal, dan fokus pada kepatuhan serta keamanan produk.</p>
-          </div>
-
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                <line x1="12" y1="22.08" x2="12" y2="12"/>
-              </svg>
-            </div>
-            <h3>Perbaikan Berkelanjutan</h3>
-            <p>Evaluasi, CAPA, dan standardisasi proses untuk memastikan kualitas stabil dan konsisten.</p>
-          </div>
-
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-              </svg>
-            </div>
-            <h3>Jenjang Karir Jelas</h3>
-            <p>Target kerja terukur, pembinaan kompetensi, dan peluang rotasi lintas fungsi sesuai potensi.</p>
-          </div>
-
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-              </svg>
-            </div>
-            <h3>Learning by System</h3>
-            <p>Pelatihan internal, SOP/IK yang jelas, serta mentoring untuk adaptasi cepat di industri alkes.</p>
-          </div>
-
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
-            </div>
-            <h3>Kerja Efektif</h3>
-            <p>Fokus pada hasil, koordinasi lintas divisi, dan ritme kerja yang terstruktur.</p>
-          </div>
-
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </div>
-            <h3>Kolaborasi Sehat</h3>
-            <p>Komunikasi jelas, peran tegas, dan kultur saling dukung untuk menjaga mutu serta ketepatan.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- JOBS -->
-    <section class="section" id="posisi">
-      <div class="container">
-        <div class="section-header fade-in">
-          <span class="section-label">Lowongan</span>
-          <h2 class="section-title">Temukan Peran yang Paling Tepat</h2>
-          <p class="section-description">
-            Berikut contoh daftar posisi. Gunakan tombol page number untuk berpindah halaman lowongan.
-          </p>
-        </div>
-
-        <div class="jobs-wrap" id="jobsWrap">
-          <!-- PAGE 1 -->
-          <div class="job-card fade-in job-item" data-page="1">
-            <div>
-              <div class="job-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                Prioritas Tinggi
-              </div>
-              <h3>Regulatory Affairs Staff (Alat Kesehatan)</h3>
-              <div class="job-meta">
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Surabaya
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
-                  Full-time
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                  2+ Tahun
-                </div>
-              </div>
-            </div>
-            <a href="#" class="btn btn-primary">Lihat Detail</a>
-          </div>
-
-          <div class="job-card fade-in job-item" data-page="1">
-            <div>
-              <h3>QC Analyst (Reagen / IVD)</h3>
-              <div class="job-meta">
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Surabaya
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
-                  Full-time
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                  1+ Tahun
-                </div>
-              </div>
-            </div>
-            <a href="#" class="btn btn-outline">Lihat Detail</a>
-          </div>
-
-          <div class="job-card fade-in job-item" data-page="1">
-            <div>
-              <h3>Operator Produksi Strips (IVD)</h3>
-              <div class="job-meta">
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Pasuruan
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
-                  Shift
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                  Fresh Graduate
-                </div>
-              </div>
-            </div>
-            <a href="#" class="btn btn-outline">Lihat Detail</a>
-          </div>
-
-          <!-- PAGE 2 -->
-          <div class="job-card fade-in job-item" data-page="2">
-            <div>
-              <div class="job-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                Segera Ditutup
-              </div>
-              <h3>QA Staff (ISO 13485 / CPAKB)</h3>
-              <div class="job-meta">
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Surabaya
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
-                  Full-time
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                  2+ Tahun
-                </div>
-              </div>
-            </div>
-            <a href="#" class="btn btn-primary">Lihat Detail</a>
-          </div>
-
-          <div class="job-card fade-in job-item" data-page="2">
-            <div>
-              <h3>R&D Engineer (IVD / Reagen)</h3>
-              <div class="job-meta">
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Surabaya
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
-                  Full-time
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                  1–3 Tahun
-                </div>
-              </div>
-            </div>
-            <a href="#" class="btn btn-outline">Lihat Detail</a>
-          </div>
-
-          <div class="job-card fade-in job-item" data-page="2">
-            <div>
-              <h3>PPIC Staff</h3>
-              <div class="job-meta">
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Pasuruan
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
-                  Full-time
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                  1+ Tahun
-                </div>
-              </div>
-            </div>
-            <a href="#" class="btn btn-outline">Lihat Detail</a>
-          </div>
-
-          <!-- PAGE 3 -->
-          <div class="job-card fade-in job-item" data-page="3">
-            <div>
-              <h3>Document Control (QMS)</h3>
-              <div class="job-meta">
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Surabaya
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
-                  Full-time
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                  1+ Tahun
-                </div>
-              </div>
-            </div>
-            <a href="#" class="btn btn-outline">Lihat Detail</a>
-          </div>
-
-          <div class="job-card fade-in job-item" data-page="3">
-            <div>
-              <div class="job-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                Prioritas Tinggi
-              </div>
-              <h3>Teknisi Maintenance (Utility/Produksi)</h3>
-              <div class="job-meta">
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Pasuruan
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
-                  Shift
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                  2+ Tahun
-                </div>
-              </div>
-            </div>
-            <a href="#" class="btn btn-primary">Lihat Detail</a>
-          </div>
-
-          <div class="job-card fade-in job-item" data-page="3">
-            <div>
-              <h3>Graphic & Packaging Designer (Labeling)</h3>
-              <div class="job-meta">
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Surabaya
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
-                  Contract
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                  1+ Tahun
-                </div>
-              </div>
-            </div>
-            <a href="#" class="btn btn-outline">Lihat Detail</a>
-          </div>
-        </div>
-
-        <!-- Pagination UI -->
-        <div class="pagination" aria-label="Pagination">
-          <button class="page-btn" id="prevPage" type="button" aria-label="Halaman sebelumnya">‹</button>
-          <button class="page-num active" data-pagebtn="1" type="button">1</button>
-          <button class="page-num" data-pagebtn="2" type="button">2</button>
-          <button class="page-num" data-pagebtn="3" type="button">3</button>
-          <button class="page-btn" id="nextPage" type="button" aria-label="Halaman berikutnya">›</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- CULTURE -->
-    <section class="section section-alt" id="budaya">
-      <div class="container">
-        <div class="feature-showcase">
-          <div class="feature-visual fade-in">
+    <main>
+        <!-- HERO -->
+        <section class="hero">
             <div class="grid-bg"></div>
-          </div>
-          <div class="fade-in">
-            <span class="section-label">Budaya Kerja</span>
-            <h2 class="section-title" style="text-align: left; margin-bottom: 28px;">Nilai yang Dijaga Setiap Hari</h2>
-            <ul class="feature-list">
-              <li class="feature-item">
-                <div class="feature-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
-                  </svg>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-label">
+                        <span class="dot"></span>
+                        Rekrutmen Dibuka
+                    </div>
+                    <h1>Bangun Karir Bersama PT. Sentral Medika Indonesia</h1>
+                    <p>
+                        Bersama tim yang fokus pada mutu, kepatuhan, dan inovasi alat kesehatan.
+                        Tempat yang tepat untuk bertumbuh—dari produksi, QA/QC, R&D, hingga Regulatory.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#posisi" class="btn btn-primary">
+                            Lihat Lowongan
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="#budaya" class="btn btn-outline">Kenali Budaya Kerja</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Produk Alkes</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">ISO</div>
+                            <div class="stat-label">Quality Focus</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">CPAKB</div>
+                            <div class="stat-label">Compliance</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-content">
-                  <h4>Integritas & Kepatuhan</h4>
-                  <p>Setiap proses mengutamakan ketertelusuran, disiplin dokumen, dan tanggung jawab profesional.</p>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 20v-6M6 20V10M18 20V4"/>
-                  </svg>
-                </div>
-                <div class="feature-content">
-                  <h4>Continuous Improvement</h4>
-                  <p>Perbaikan kecil yang konsisten: kualitas, efisiensi, dan keamanan produk ditingkatkan secara bertahap.</p>
-                </div>
-              </li>
-              <li class="feature-item">
-                <div class="feature-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                    <circle cx="9" cy="7" r="4"/>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                  </svg>
-                </div>
-                <div class="feature-content">
-                  <h4>Kolaborasi Lintas Fungsi</h4>
-                  <p>QA, QC, R&D, Produksi, PPIC, dan Regulatory berjalan selaras untuk hasil yang rapi dan terukur.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="section" id="proses">
-      <div class="container">
-        <div class="section-header fade-in">
-          <span class="section-label">Proses Rekrutmen</span>
-          <h2 class="section-title">Ringkas, Transparan, dan Profesional</h2>
-          <p class="section-description">Tahapan seleksi dibuat jelas agar kandidat memahami alur sejak awal.</p>
-        </div>
-
-        <div class="process-grid">
-          <div class="process-step fade-in">
-            <div class="step-number">1</div>
-            <h4>Submit Aplikasi</h4>
-            <p>Kirim CV, portofolio (bila perlu), dan dokumen pendukung melalui kanal rekrutmen resmi.</p>
-          </div>
-          <div class="process-step fade-in">
-            <div class="step-number">2</div>
-            <h4>Screening</h4>
-            <p>Verifikasi dokumen dan asesmen kesesuaian kompetensi terhadap kebutuhan posisi.</p>
-          </div>
-          <div class="process-step fade-in">
-            <div class="step-number">3</div>
-            <h4>Interview</h4>
-            <p>Wawancara teknis dan budaya kerja, termasuk studi kasus sederhana sesuai peran.</p>
-          </div>
-          <div class="process-step fade-in">
-            <div class="step-number">4</div>
-            <h4>Onboarding</h4>
-            <p>Orientasi, pelatihan SOP/IK, dan pengenalan tim agar adaptasi berjalan mulus.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section">
-      <div class="container">
-        <div class="cta fade-in">
-          <div class="cta-content">
-            <h2>Siap Bertumbuh Bersama SMI?</h2>
-            <p>Jika kamu menyukai sistem yang rapi dan pekerjaan yang bermakna, mari bergabung bersama tim kami.</p>
-            <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-              <a href="#posisi" class="btn">
-                Lihat Semua Lowongan
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-              <a href="#" class="btn" style="background: transparent; border: 2px solid rgba(255,255,255,0.45); color:#FFFFFF;">
-                Hubungi HR
-              </a>
             </div>
-          </div>
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="section section-alt" id="tentang">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-label">Kenapa SMI</span>
+                    <h2 class="section-title">Lingkungan Kerja yang Rapi, Terukur, dan Bertumbuh</h2>
+                    <p class="section-description">
+                        Kami membangun budaya kerja yang kuat pada sistem, konsistensi, dan perbaikan berkelanjutan—agar
+                        hasil kerja berdampak nyata.
+                    </p>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h3>Budaya Mutu</h3>
+                        <p>Dokumentasi rapi, kontrol perubahan, audit internal, dan fokus pada kepatuhan serta keamanan
+                            produk.</p>
+                    </div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                <line x1="12" y1="22.08" x2="12" y2="12" />
+                            </svg>
+                        </div>
+                        <h3>Perbaikan Berkelanjutan</h3>
+                        <p>Evaluasi, CAPA, dan standardisasi proses untuk memastikan kualitas stabil dan konsisten.</p>
+                    </div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                            </svg>
+                        </div>
+                        <h3>Jenjang Karir Jelas</h3>
+                        <p>Target kerja terukur, pembinaan kompetensi, dan peluang rotasi lintas fungsi sesuai potensi.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            </svg>
+                        </div>
+                        <h3>Learning by System</h3>
+                        <p>Pelatihan internal, SOP/IK yang jelas, serta mentoring untuk adaptasi cepat di industri
+                            alkes.</p>
+                    </div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </div>
+                        <h3>Kerja Efektif</h3>
+                        <p>Fokus pada hasil, koordinasi lintas divisi, dan ritme kerja yang terstruktur.</p>
+                    </div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h3>Kolaborasi Sehat</h3>
+                        <p>Komunikasi jelas, peran tegas, dan kultur saling dukung untuk menjaga mutu serta ketepatan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOBS -->
+        <section class="section" id="posisi">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-label">Lowongan</span>
+                    <h2 class="section-title">Temukan Peran yang Paling Tepat</h2>
+                    <p class="section-description">
+                        Berikut contoh daftar posisi. Gunakan tombol page number untuk berpindah halaman lowongan.
+                    </p>
+                </div>
+
+                <div class="jobs-wrap" id="jobsWrap">
+                    <!-- PAGE 1 -->
+                    <div class="job-card fade-in job-item" data-page="1">
+                        <div>
+                            <div class="job-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                Prioritas Tinggi
+                            </div>
+                            <h3>Regulatory Affairs Staff (Alat Kesehatan)</h3>
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Surabaya
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                    </svg>
+                                    Full-time
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    2+ Tahun
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Lihat Detail</a>
+                    </div>
+
+                    <div class="job-card fade-in job-item" data-page="1">
+                        <div>
+                            <h3>QC Analyst (Reagen / IVD)</h3>
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Surabaya
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                    </svg>
+                                    Full-time
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    1+ Tahun
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-outline">Lihat Detail</a>
+                    </div>
+
+                    <div class="job-card fade-in job-item" data-page="1">
+                        <div>
+                            <h3>Operator Produksi Strips (IVD)</h3>
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Pasuruan
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                    </svg>
+                                    Shift
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    Fresh Graduate
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-outline">Lihat Detail</a>
+                    </div>
+
+                    <!-- PAGE 2 -->
+                    <div class="job-card fade-in job-item" data-page="2">
+                        <div>
+                            <div class="job-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                Segera Ditutup
+                            </div>
+                            <h3>QA Staff (ISO 13485 / CPAKB)</h3>
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Surabaya
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                    </svg>
+                                    Full-time
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    2+ Tahun
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Lihat Detail</a>
+                    </div>
+
+                    <div class="job-card fade-in job-item" data-page="2">
+                        <div>
+                            <h3>R&D Engineer (IVD / Reagen)</h3>
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Surabaya
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                    </svg>
+                                    Full-time
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    1–3 Tahun
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-outline">Lihat Detail</a>
+                    </div>
+
+                    <div class="job-card fade-in job-item" data-page="2">
+                        <div>
+                            <h3>PPIC Staff</h3>
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Pasuruan
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                    </svg>
+                                    Full-time
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    1+ Tahun
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-outline">Lihat Detail</a>
+                    </div>
+
+                    <!-- PAGE 3 -->
+                    <div class="job-card fade-in job-item" data-page="3">
+                        <div>
+                            <h3>Document Control (QMS)</h3>
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Surabaya
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                    </svg>
+                                    Full-time
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    1+ Tahun
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-outline">Lihat Detail</a>
+                    </div>
+
+                    <div class="job-card fade-in job-item" data-page="3">
+                        <div>
+                            <div class="job-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                Prioritas Tinggi
+                            </div>
+                            <h3>Teknisi Maintenance (Utility/Produksi)</h3>
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Pasuruan
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                    </svg>
+                                    Shift
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    2+ Tahun
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Lihat Detail</a>
+                    </div>
+
+                    <div class="job-card fade-in job-item" data-page="3">
+                        <div>
+                            <h3>Graphic & Packaging Designer (Labeling)</h3>
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Surabaya
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                    </svg>
+                                    Contract
+                                </div>
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    1+ Tahun
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-outline">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- Pagination UI -->
+                <div class="pagination" aria-label="Pagination">
+                    <button class="page-btn" id="prevPage" type="button" aria-label="Halaman sebelumnya">‹</button>
+                    <button class="page-num active" data-pagebtn="1" type="button">1</button>
+                    <button class="page-num" data-pagebtn="2" type="button">2</button>
+                    <button class="page-num" data-pagebtn="3" type="button">3</button>
+                    <button class="page-btn" id="nextPage" type="button" aria-label="Halaman berikutnya">›</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CULTURE -->
+        <section class="section section-alt" id="budaya">
+            <div class="container">
+                <div class="feature-showcase">
+                    <div class="feature-visual fade-in">
+                        <div class="grid-bg"></div>
+                    </div>
+                    <div class="fade-in">
+                        <span class="section-label">Budaya Kerja</span>
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 28px;">Nilai yang Dijaga
+                            Setiap Hari</h2>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Integritas & Kepatuhan</h4>
+                                    <p>Setiap proses mengutamakan ketertelusuran, disiplin dokumen, dan tanggung jawab
+                                        profesional.</p>
+                                </div>
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M12 20v-6M6 20V10M18 20V4" />
+                                    </svg>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Continuous Improvement</h4>
+                                    <p>Perbaikan kecil yang konsisten: kualitas, efisiensi, dan keamanan produk
+                                        ditingkatkan secara bertahap.</p>
+                                </div>
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                    </svg>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Kolaborasi Lintas Fungsi</h4>
+                                    <p>QA, QC, R&D, Produksi, PPIC, dan Regulatory berjalan selaras untuk hasil yang
+                                        rapi dan terukur.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section class="section" id="proses">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-label">Proses Rekrutmen</span>
+                    <h2 class="section-title">Ringkas, Transparan, dan Profesional</h2>
+                    <p class="section-description">Tahapan seleksi dibuat jelas agar kandidat memahami alur sejak awal.
+                    </p>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-step fade-in">
+                        <div class="step-number">1</div>
+                        <h4>Submit Aplikasi</h4>
+                        <p>Kirim CV, portofolio (bila perlu), dan dokumen pendukung melalui kanal rekrutmen resmi.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <div class="step-number">2</div>
+                        <h4>Screening</h4>
+                        <p>Verifikasi dokumen dan asesmen kesesuaian kompetensi terhadap kebutuhan posisi.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <div class="step-number">3</div>
+                        <h4>Interview</h4>
+                        <p>Wawancara teknis dan budaya kerja, termasuk studi kasus sederhana sesuai peran.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <div class="step-number">4</div>
+                        <h4>Onboarding</h4>
+                        <p>Orientasi, pelatihan SOP/IK, dan pengenalan tim agar adaptasi berjalan mulus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section">
+            <div class="container">
+                <div class="cta fade-in">
+                    <div class="cta-content">
+                        <h2>Siap Bertumbuh Bersama SMI?</h2>
+                        <p>Jika kamu menyukai sistem yang rapi dan pekerjaan yang bermakna, mari bergabung bersama tim
+                            kami.</p>
+                        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+                            <a href="#posisi" class="btn">
+                                Lihat Semua Lowongan
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                            <a href="#" class="btn"
+                                style="background: transparent; border: 2px solid rgba(255,255,255,0.45); color:#FFFFFF;">
+                                Hubungi HR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">PT. Sentral Medika Indonesia</div>
+                    <p class="footer-description">
+                        Produsen alat kesehatan dengan fokus pada mutu, kepatuhan, dan pengembangan produk yang
+                        berkelanjutan.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Perusahaan</h4>
+                    <ul class="footer-links">
+                        <li><a href="#tentang">Tentang</a></li>
+                        <li><a href="#budaya">Budaya</a></li>
+                        <li><a href="#proses">Proses</a></li>
+                        <li><a href="#posisi">Lowongan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Karir</h4>
+                    <ul class="footer-links">
+                        <li><a href="#posisi">Posisi</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Panduan Melamar</a></li>
+                        <li><a href="#">Kebijakan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:karir@sentr​almedika.co.id">karir@sentr​almedika.co.id</a></li>
+                        <li><a href="tel:+623150001234">+62 31 5000 1234</a></li>
+                        <li><a href="#">Surabaya, Indonesia</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 PT. Sentral Medika Indonesia. All rights reserved.</p>
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand">PT. Sentral Medika Indonesia</div>
-          <p class="footer-description">
-            Produsen alat kesehatan dengan fokus pada mutu, kepatuhan, dan pengembangan produk yang berkelanjutan.
-          </p>
-          <div class="social-links">
-            <a href="#" class="social-link" aria-label="Facebook">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </a>
-            <a href="#" class="social-link" aria-label="Twitter">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-              </svg>
-            </a>
-            <a href="#" class="social-link" aria-label="LinkedIn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
-            <a href="#" class="social-link" aria-label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
 
-        <div class="footer-section">
-          <h4>Perusahaan</h4>
-          <ul class="footer-links">
-            <li><a href="#tentang">Tentang</a></li>
-            <li><a href="#budaya">Budaya</a></li>
-            <li><a href="#proses">Proses</a></li>
-            <li><a href="#posisi">Lowongan</a></li>
-          </ul>
-        </div>
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        <div class="footer-section">
-          <h4>Karir</h4>
-          <ul class="footer-links">
-            <li><a href="#posisi">Posisi</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Panduan Melamar</a></li>
-            <li><a href="#">Kebijakan</a></li>
-          </ul>
-        </div>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (!href || href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
 
-        <div class="footer-section">
-          <h4>Kontak</h4>
-          <ul class="footer-links">
-            <li><a href="mailto:karir@sentr​almedika.co.id">karir@sentr​almedika.co.id</a></li>
-            <li><a href="tel:+623150001234">+62 31 5000 1234</a></li>
-            <li><a href="#">Surabaya, Indonesia</a></li>
-          </ul>
-        </div>
-      </div>
+        // Pagination for Jobs (Page Number)
+        const jobItems = Array.from(document.querySelectorAll('.job-item'));
+        const pageNums = Array.from(document.querySelectorAll('.page-num'));
+        const prevBtn = document.getElementById('prevPage');
+        const nextBtn = document.getElementById('nextPage');
 
-      <div class="footer-bottom">
-        <p>&copy; 2026 PT. Sentral Medika Indonesia. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+        const totalPages = Math.max(...jobItems.map(el => Number(el.dataset.page)));
+        let currentPage = 1;
 
-  <script>
-    // Intersection Observer for fade-in animations
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, observerOptions);
+        function renderJobs(page) {
+            currentPage = page;
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            jobItems.forEach(el => {
+                const p = Number(el.dataset.page);
+                el.style.display = (p === page) ? 'flex' : 'none';
+            });
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (!href || href === '#') return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
+            pageNums.forEach(btn => {
+                btn.classList.toggle('active', Number(btn.dataset.pagebtn) === page);
+            });
+
+            prevBtn.disabled = (page <= 1);
+            nextBtn.disabled = (page >= totalPages);
+        }
+
+        pageNums.forEach(btn => {
+            btn.addEventListener('click', () => renderJobs(Number(btn.dataset.pagebtn)));
+        });
+
+        prevBtn.addEventListener('click', () => renderJobs(Math.max(1, currentPage - 1)));
+        nextBtn.addEventListener('click', () => renderJobs(Math.min(totalPages, currentPage + 1)));
+
+        // initial
+        renderJobs(1);
+    </script>
+    <script>
+        const smiMenu = document.getElementById('smiMobileMenu');
+        const smiOpen = document.getElementById('smiOpenMenu');
+        const smiClose = document.getElementById('smiCloseMenu');
+
+        smiOpen.addEventListener('click', () => {
+            smiMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        smiClose.addEventListener('click', () => {
+            smiMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // SUBMENU TOGGLE
+        document.querySelectorAll('.smi-sub-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                toggle.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+<script>
+  document.querySelectorAll('.smi-close-on-click').forEach(item => {
+    item.addEventListener('click', () => {
+      const menu = document.getElementById('smiMobileMenu');
+      if (menu) {
+        menu.classList.remove('active');
+      }
     });
+  });
+</script>
 
-    // Pagination for Jobs (Page Number)
-    const jobItems = Array.from(document.querySelectorAll('.job-item'));
-    const pageNums = Array.from(document.querySelectorAll('.page-num'));
-    const prevBtn = document.getElementById('prevPage');
-    const nextBtn = document.getElementById('nextPage');
-
-    const totalPages = Math.max(...jobItems.map(el => Number(el.dataset.page)));
-    let currentPage = 1;
-
-    function renderJobs(page) {
-      currentPage = page;
-
-      jobItems.forEach(el => {
-        const p = Number(el.dataset.page);
-        el.style.display = (p === page) ? 'flex' : 'none';
-      });
-
-      pageNums.forEach(btn => {
-        btn.classList.toggle('active', Number(btn.dataset.pagebtn) === page);
-      });
-
-      prevBtn.disabled = (page <= 1);
-      nextBtn.disabled = (page >= totalPages);
-    }
-
-    pageNums.forEach(btn => {
-      btn.addEventListener('click', () => renderJobs(Number(btn.dataset.pagebtn)));
-    });
-
-    prevBtn.addEventListener('click', () => renderJobs(Math.max(1, currentPage - 1)));
-    nextBtn.addEventListener('click', () => renderJobs(Math.min(totalPages, currentPage + 1)));
-
-    // initial
-    renderJobs(1);
-  </script>
 </body>
+
 </html>
