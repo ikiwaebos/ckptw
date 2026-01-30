@@ -100,3 +100,8 @@ async function loadBrandAndProducts() {
 document.addEventListener('DOMContentLoaded', function () {
     loadBrandAndProducts();
 });
+
+// Breadcrumb
+const breadcrumbMerek = document.getElementById("breadcrumb-merek");
+breadcrumbMerek.innerHTML = `<a href="/product/${merek}" style="color: #007bff; text-decoration: none;">${merek}</a>`;
+document.getElementById("breadcrumb-product").textContent = product.nama || "-";
