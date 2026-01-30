@@ -75,3 +75,707 @@ hr {
   color: #444;
   word-break: break-all;
 }
+
+
+/* Modern Products Section Styles */
+.products-modern-section {
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+  padding-bottom: 7svh;
+  padding-top: 7svh;
+}
+
+.products-modern-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+  background-size: cover;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.sec-title-modern {
+  margin-bottom: 30px;
+}
+
+.subtitle-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #18689a, #8ec5fc);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.highlight-text {
+  background: linear-gradient(45deg, #18689a, #8ec5fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description-text {
+  margin: 25px 0;
+}
+
+.description-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  font-weight: 500;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.modern-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.modern-product-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(90, 24, 154, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.modern-product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(90, 24, 154, 0.05), rgba(142, 197, 252, 0.05));
+  opacity: 0;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.modern-product-card:hover::before {
+  opacity: 1;
+}
+
+.modern-product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(60, 73, 253, 0.2);
+  border-color: rgba(142, 197, 252, 0.3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.modern-product-image {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(45deg, #f8fafc, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.modern-product-card:hover .modern-product-image {
+  background: linear-gradient(45deg, #667eea, #5d91f1);
+}
+
+.modern-product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 4px 15px rgba(0,0,0,0.1));
+}
+
+.modern-product-card:hover .modern-product-image img {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1) drop-shadow(0 4px 15px rgba(255,255,255,0.3));
+}
+
+.modern-product-info {
+  padding: 25px;
+  text-align: center;
+}
+
+.modern-product-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  line-height: 1.3;
+  transition: all 0.4s ease;
+}
+
+.modern-product-card:hover .modern-product-title {
+  color: #18689a;
+}
+
+.products-cta {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 50px 40px;
+  border: 2px solid rgba(142, 197, 252, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.cta-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.modern-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(45deg, #18689a, #8ec5fc);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(90, 24, 154, 0.2);
+}
+
+.modern-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(90, 24, 154, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.modern-btn i {
+  transition: transform 0.3s ease;
+}
+
+.modern-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 1.8rem;
+  }
+  
+  .modern-products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .modern-product-image {
+    height: 150px;
+    padding: 20px;
+  }
+  
+  .modern-product-info {
+    padding: 20px;
+  }
+  
+  .modern-product-title {
+    font-size: 1.1rem;
+  }
+  
+  .products-cta {
+    padding: 30px 20px;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Legacy styles for compatibility */
+.produk-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-start;
+  margin-bottom: 32px;
+}
+  .produk-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px 0 rgba(90,24,154,0.08);
+    padding: 32px 24px 24px 24px;
+    width: 260px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .produk-card:hover {
+    box-shadow: 0 8px 32px 0 rgba(90,24,154,0.18);
+    transform: translateY(-8px) scale(1.03);
+  }
+  .produk-card-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .produk-card-title {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.15rem;
+    color: #6c6c6c;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+  }
+  @media (max-width: 767px) {
+    .produk-card-grid {
+      gap: 18px;
+      justify-content: center;
+    }
+    .produk-card {
+      width: 100%;
+      min-width: 0;
+      padding: 18px 8px;
+    }
+    .produk-card-img {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 12px;
+    }
+  }
+
+
+.hero-wrap {
+  height: 100vh;
+  min-height: 100%;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.hero-wrap .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+  background: linear-gradient(135deg, rgba(90, 24, 154, 0.8) 0%, rgba(102, 126, 234, 0.6) 100%);
+  z-index: 1;
+}
+
+.hero-wrap.modern-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-wrap .slider-text {
+  height: 100vh;
+  min-height: 750px;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 3;
+  position: relative;
+}
+
+.hero-wrap .slider-text .text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-wrap .slider-text .subheading {
+  display: inline-block;
+  background: linear-gradient(45deg, #18689a, #8ec5fc);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+  font-weight: 700;
+  color: #fff;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 25px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.highlight-text {
+  background: linear-gradient(45deg, #8ec5fc, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-wrap .slider-text p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 35px;
+  font-weight: 500;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.modern-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(45deg, #18689a, #8ec5fc);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(90, 24, 154, 0.3);
+  border: none;
+}
+
+.modern-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(90, 24, 154, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.modern-btn i {
+  transition: transform 0.3s ease;
+}
+
+.modern-btn:hover i {
+  transform: translateX(5px);
+}
+
+.modern-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: white;
+  padding: 15px 35px;
+  border: 2px solid white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+}
+
+.modern-btn-outline:hover {
+  background: white;
+  color: #18689a;
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+.hero-image-section {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.floating-card {
+  position: absolute;
+  background: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #18689a;
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-card i {
+  font-size: 1.2rem;
+  color: #8ec5fc;
+}
+
+.card-1 {
+  top: 15%;
+  right: 20%;
+  animation-delay: 0s;
+}
+
+.card-2 {
+  top: 50%;
+  left: 10%;
+  animation-delay: 1s;
+}
+
+.card-3 {
+  bottom: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-wrap .slider-text h1, .hero-wrap .slider-text .h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modern-btn, .modern-btn-outline {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .hero-image-section {
+    height: 300px;
+    margin-top: 40px;
+  }
+  
+  .floating-card {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+}
+
+
+   /* Brand Wrapper Styles - Same as detail/index.html */
+    .brand-wrapper {
+      background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f7fa 100%);
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding-left: calc(50vw - 50%);
+      padding-right: calc(50vw - 50%);
+      padding: 80px 0;
+      margin-top: 50px;
+    }
+
+    .brand-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V0 H0 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat;
+      background-size: cover;
+    }
+
+    /* Brand Section Styles */
+    .brand-carousel-section {
+      background: transparent;
+      padding: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(45deg, #18689a, #8ec5fc);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .brand-section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      line-height: 1.2;
+      margin: 15px 0 20px 0;
+    }
+
+    .brand-highlight {
+      background: linear-gradient(45deg, #18689a, #8ec5fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .brand-subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin: 0;
+      font-weight: 500;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Modern Brand Card Styles */
+    .modern-brand-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(90, 24, 154, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.4s ease;
+      margin: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modern-brand-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(90, 24, 154, 0.05), rgba(142, 197, 252, 0.05));
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .modern-brand-card:hover::before {
+      opacity: 1;
+    }
+
+    .modern-brand-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(90, 24, 154, 0.2);
+      border-color: rgba(142, 197, 252, 0.3);
+    }
+
+    .modern-brand-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .modern-brand-card:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .product-sec-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .product-image-container {
+        height: 350px;
+        margin-top: 30px;
+      }
+      
+      .product-main-image {
+        max-width: 300px;
+        max-height: 300px;
+      }
+      
+      .product-floating-card {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+      }
+      
+      .brand-wrapper {
+        padding: 60px 0;
+        margin-top: 30px;
+      }
+
+      .brand-section-title h2 {
+        font-size: 1.8rem;
+      }
+
+      .modern-brand-card {
+        padding: 25px;
+        margin: 8px;
+      }
+
+      .modern-brand-card img {
+        height: 100px;
+      }
+    }
