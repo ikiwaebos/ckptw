@@ -107,9 +107,21 @@
               ${p.nama}
             </option>
           `).join('');
-          produkDropdown.onchange = function () {
-            if (this.value) window.location.href = this.value;
-          };
+
+          if (typeof jQuery !== 'undefined' && $.fn.select2) {
+            $(produkDropdown).select2({
+              placeholder: "Ketik untuk mencari produk dari merek ini...",
+              width: '100%'
+            });
+            $(produkDropdown).on('select2:select', function (e) {
+              var val = e.params.data.id;
+              if (val) window.location.href = val;
+            });
+          } else {
+            produkDropdown.onchange = function () {
+              if (this.value) window.location.href = this.value;
+            };
+          }
         } else {
           produkDropdown.innerHTML = '<option>Tidak ada produk lain untuk merek ini.</option>';
         }
@@ -196,6 +208,50 @@
             </a>
           </section>
         `;
+      }
+
+      /* ===== GLOBAL SEARCH FUNCTIONALITY ===== */
+      const searchInput = document.getElementById('globalSearchInput');
+      const searchResults = document.getElementById('globalSearchResults');
+
+      if (searchInput && searchResults) {
+        searchInput.addEventListener('input', function () {
+          const term = this.value.toLowerCase();
+          searchResults.innerHTML = '';
+
+          if (term.length < 2) {
+            searchResults.style.display = 'none';
+            return;
+          }
+
+          const filtered = products.filter(p => p.nama.toLowerCase().includes(term));
+          if (filtered.length > 0) {
+            let html = '<ul style="list-style: none; padding: 0; margin: 0;">';
+            filtered.slice(0, 10).forEach(p => {
+              const brandSlug = p.brand_slug || p.slug;
+              const link = `/product/${brandSlug}/detail/${p.slug}`;
+              html += `
+                <li style="border-bottom: 1px solid #eee;">
+                  <a href="${link}" style="display: block; padding: 12px 20px; color: #333; text-decoration: none; font-weight: 500; transition: background 0.2s;" onmouseover="this.style.background='#f8f9ff'; this.style.color='#18689a';" onmouseout="this.style.background='transparent'; this.style.color='#333';">
+                    <span style="font-size: 0.9em; color: #8ec5fc; margin-right: 10px;">${p.brand_slug ? p.brand_slug.toUpperCase() : ''}</span>
+                    ${p.nama}
+                  </a>
+                </li>`;
+            });
+            html += '</ul>';
+            searchResults.innerHTML = html;
+            searchResults.style.display = 'block';
+          } else {
+            searchResults.innerHTML = '<div style="padding: 15px 20px; color: #777;">Tidak ada produk ditemukan</div>';
+            searchResults.style.display = 'block';
+          }
+        });
+
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('.global-search-container')) {
+            searchResults.style.display = 'none';
+          }
+        });
       }
 
     })();
