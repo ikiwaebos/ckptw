@@ -152,6 +152,38 @@
         AOS.refresh();
       }
 
+      /* ===============================
+         PRODUCT SEARCH FUNCTIONALITY
+      =============================== */
+      const searchInput = document.getElementById('productSearchInput');
+      if (searchInput) {
+        searchInput.addEventListener('input', function () {
+          const searchTerm = this.value.toLowerCase();
+          const accordions = document.querySelectorAll('.modern-accordion');
+
+          accordions.forEach(accordion => {
+            let visibleProducts = 0;
+            const products = accordion.querySelectorAll('.modern-accordion-content a');
+
+            products.forEach(product => {
+              const productName = product.textContent.toLowerCase();
+              if (productName.includes(searchTerm)) {
+                product.style.display = ''; // revert to default
+                visibleProducts++;
+              } else {
+                product.style.display = 'none';
+              }
+            });
+
+            if (visibleProducts === 0 && searchTerm !== "") {
+              accordion.style.display = 'none';
+            } else {
+              accordion.style.display = '';
+            }
+          });
+        });
+      }
+
     } catch (err) {
       console.warn('Brand/Product load failed:', err);
     }
