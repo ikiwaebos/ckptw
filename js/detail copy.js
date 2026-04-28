@@ -224,7 +224,7 @@
             return;
           }
 
-          const filtered = products.filter(p => p.nama.toLowerCase().includes(term));
+          const filtered = products.filter(p => p.nama && p.nama.toLowerCase().includes(term));
           if (filtered.length > 0) {
             let html = '<ul style="list-style: none; padding: 0; margin: 0;">';
             filtered.slice(0, 10).forEach(p => {
