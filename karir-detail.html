@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Karir | PT. Sentral Medika Indonesia</title>
+       <link rel="icon" href="images/logopolos.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        :root {
+            /* SOFT PASTEL + ELEGANT LIGHT THEME (UPDATED ACCENT) */
+            --bg-dark: #F7F8FF;
+            --bg-section: #F1F6FF;
+            --bg-card: #FFFFFF;
+
+            --text-primary: #121826;
+            --text-secondary: #5B6475;
+
+            /* USER REQUEST */
+            --accent: #2382ff;
+            --accent-light: #008BFF;
+
+            /* derived */
+            --accent-glow: rgba(17, 104, 235, 0.18);
+            --accent-glow-2: rgba(0, 132, 255, 0.14);
+
+            --border: #E6E9F5;
+            --success: #10B981;
+
+            --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.08);
+            --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.06);
+
+            --glass: rgba(255, 255, 255, 0.76);
+            --glass-border: rgba(230, 233, 245, 0.95);
+
+            /* compatibility */
+            --primary-blue: #2382ff;
+            --medical-green: #10B981;
+            --text-dark: #121826;
+            --text-light: #5B6475;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            --light-gray: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a.btn-hr {
+            color: #fff;
+        }
+
+        .nav-links a.btn-hr:hover,
+        .nav-links a.btn-hr:focus,
+        .nav-links a.btn-hr:active {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* BURGER BUTTON */
+        .burger-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            font-weight: 900;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            padding: 120px 0 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .job-header {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 20px;
+            color: white;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            min-height: 300px;
+        }
+
+        .job-header-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .job-header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .job-header-image.no-image {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .job-header-image .placeholder {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 48px;
+        }
+
+        .job-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .job-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .job-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .job-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .meta-item i {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* CONTENT GRID */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 2px 0 rgba(15, 23, 42, 0.01);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 139, 255, 0.26);
+            box-shadow: var(--shadow-card);
+        }
+
+        .content-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-title i {
+            color: var(--accent);
+        }
+
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirements-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(var(--border), 0.5);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .requirements-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .requirements-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* SIDEBAR */
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 0 rgba(15, 23, 42, 0.01);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .sidebar-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 139, 255, 0.26);
+            box-shadow: var(--shadow-card);
+        }
+
+        .job-sidebar-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-section);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .job-sidebar-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .job-sidebar-image.no-image {
+            background: linear-gradient(135deg, var(--bg-section), rgba(35, 130, 255, 0.05));
+        }
+
+        .job-sidebar-image .placeholder {
+            color: var(--text-secondary);
+            font-size: 32px;
+            opacity: 0.5;
+        }
+
+        .apply-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(35, 130, 255, 0.3);
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* FORM STYLES */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .form-control,
+        .form-select {
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 500;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 0.2rem rgba(35, 130, 255, 0.25);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+            cursor: pointer;
+            border: none;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: #FFFFFF;
+            box-shadow: 0 10px 26px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px var(--accent-glow);
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color: rgba(91, 35, 255, 0.22);
+            background: rgba(91, 35, 255, 0.06);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .burger-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .job-header {
+                padding: 30px 20px;
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                min-height: auto;
+            }
+
+            .job-header-image {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+            }
+
+            .job-title {
+                font-size: 2rem;
+            }
+
+            .job-meta {
+                flex-direction: column;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .main-content {
+                padding: 100px 0 60px;
+            }
+
+            .job-sidebar-image {
+                height: 160px;
+            }
+        }
+
+        /* LOADING */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .loading i {
+            font-size: 48px;
+            color: var(--accent);
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* UTILITY */
+        .text-muted {
+            color: var(--text-secondary) !important;
+        }
+
+        .mb-0 {
+            margin-bottom: 0 !important;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .mt-3 {
+            margin-top: 1rem !important;
+        }
+
+        .mt-4 {
+            margin-top: 1.5rem !important;
+        }
+
+        .mt-5 {
+            margin-top: 3rem !important;
+        }
+
+        .p-3 {
+            padding: 1rem !important;
+        }
+
+        .p-4 {
+            padding: 1.5rem !important;
+        }
+
+        .p-5 {
+            padding: 3rem !important;
+        }
+
+        /* MOBILE MENU */
+        .smi-mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+        }
+
+        .smi-mobile-menu.active {
+            display: flex;
+        }
+
+        .smi-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        
+        .smi-logo img {
+            height: 34px;
+        }
+
+        .smi-menu-close {
+            font-size: 26px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .smi-menu-body {
+            padding: 16px 20px;
+            flex: 1;
+        }
+
+        .smi-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 20px;
+            font-size: 16px;
+            color: #1f2937;
+            text-decoration: none;
+        }
+
+        .smi-menu-item i {
+            font-size: 18px;
+            color: #2563eb;
+            min-width: 22px;
+        }
+
+        .smi-menu-footer {
+            padding: 20px;
+            border-top: 1px solid #edf2f7;
+        }
+
+        .smi-btn-cta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 14px;
+            background: linear-gradient(135deg, #1e6fff, #2b7cff);
+            color: #ffffff;
+            font-weight: 600;
+            border-radius: 14px;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(241, 246, 255, 0.9);
+            padding: 78px 0 40px;
+            border-top: 1px solid rgba(230, 233, 245, 0.95);
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 56px;
+            margin-bottom: 54px;
+        }
+
+        .footer-brand {
+            font-size: 22px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 55%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 14px;
+            letter-spacing: -0.2px;
+            line-height: 1.2;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 28px;
+            max-width: 520px;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-color: rgba(91, 35, 255, 0.25);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .footer-section h4 {
+            font-size: 13px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.25s ease;
+        }
+
+        .footer-links a:hover {
+            color: rgba(91, 35, 255, 0.95);
+        }
+
+        .footer-bottom {
+            padding-top: 34px;
+            border-top: 1px solid rgba(230, 233, 245, 0.95);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* IMAGE MODAL */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .image-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            margin: auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-close:hover {
+            background: #fff;
+            transform: scale(1.1);
+        }
+
+        .modal-title {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            white-space: nowrap;
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* CLICKABLE IMAGES */
+        .job-header-image img,
+        .job-sidebar-image img {
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .job-header-image:hover img,
+        .job-sidebar-image:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .job-header-image,
+        .job-sidebar-image {
+            position: relative;
+        }
+
+        .job-header-image::after,
+        .job-sidebar-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.3s ease;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        .job-header-image:hover::after,
+        .job-sidebar-image:hover::after {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .zoom-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #333;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+
+        .job-header-image:hover .zoom-indicator,
+        .job-sidebar-image:hover .zoom-indicator {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- MOBILE MENU -->
+    <div class="smi-mobile-menu" id="smiMobileMenu">
+        <!-- HEADER -->
+        <div class="smi-menu-header">
+            <div class="smi-logo">
+                <img src="https://karir.sentralmedika.co.id/detail/images/logonyaa.png" alt="Sentral Medika Indonesia">
+            </div>
+            <button class="smi-menu-close" id="smiCloseMenu">✕</button>
+        </div>
+
+        <!-- MENU LIST -->
+        <div class="smi-menu-body">
+            <a href="/" class="smi-menu-item">
+                <i class="fas fa-home"></i>
+                <span>Beranda</span>
+            </a>
+
+            <a href="#tentang" class="smi-menu-item">
+                <i class="fas fa-building"></i>
+                <span>Tentang</span>
+            </a>
+
+            <a href="#posisi" class="smi-menu-item">
+                <i class="fas fa-briefcase-medical"></i>
+                <span>Lowongan</span>
+            </a>
+
+            <a href="#budaya" class="smi-menu-item">
+                <i class="fas fa-users"></i>
+                <span>Budaya</span>
+            </a>
+
+            <a href="#proses" class="smi-menu-item">
+                <i class="fas fa-route"></i>
+                <span>Proses Rekrutmen</span>
+            </a>
+        </div>
+
+        <!-- CTA -->
+        <div class="smi-menu-footer">
+    <a href="#hubungi-hr" class="smi-btn-cta smi-btn-hr">
+      <i class="fas fa-headset"></i>
+      Hubungi HR
+    </a>
+  </div>
+    </div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="https://karir.sentralmedika.co.id/detail/images/logonyaa.png"
+                        alt="Sentral Medika Indonesia">
+                </div>
+
+                <!-- BURGER BUTTON -->
+                <button class="burger-btn" id="burgerBtn" aria-label="Menu">
+                    ☰
+                </button>
+
+                <div class="nav-links">
+                    <a href="/">Beranda</a>
+                    <a href="#tentang">Tentang</a>
+                    <a href="#posisi">Lowongan</a>
+                    <a href="#budaya">Budaya</a>
+                    <a href="#proses">Proses</a>
+                    <a href="#" class="btn btn-primary btn-hr">Hubungi HR</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="container">
+            <!-- LOADING STATE -->
+            <div id="loadingState" class="loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <h4 class="mt-3">Memuat detail lowongan...</h4>
+            </div>
+
+            <!-- JOB CONTENT -->
+            <div id="jobContent" style="display: none;">
+                <!-- JOB HEADER -->
+                <div class="job-header" id="jobHeader">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+
+                <!-- CONTENT GRID -->
+                <div class="content-grid">
+                    <!-- MAIN CONTENT -->
+                    <div class="main-details">
+                        <!-- JOB DESCRIPTION -->
+                        <div class="content-card">
+                            <h3 class="content-title">
+                                <i class="fas fa-file-text"></i>
+                                Deskripsi Pekerjaan
+                            </h3>
+                            <div id="jobDescription">
+                                <!-- Content will be loaded dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- REQUIREMENTS -->
+                        <div class="content-card">
+                            <h3 class="content-title">
+                                <i class="fas fa-list-check"></i>
+                                Persyaratan
+                            </h3>
+                            <ul class="requirements-list" id="jobRequirements">
+                                <!-- Content will be loaded dynamically -->
+                            </ul>
+                        </div>
+
+                        <!-- DOCUMENTS -->
+                        <div class="content-card" id="documentsSection" style="display: none;">
+                            <h3 class="content-title">
+                                <i class="fas fa-folder-open"></i>
+                                Dokumen yang Diperlukan
+                            </h3>
+                            <ul class="requirements-list" id="jobDocuments">
+                                <!-- Content will be loaded dynamically -->
+                            </ul>
+                        </div>
+
+                        <!-- ADDITIONAL NOTES -->
+                        <div class="content-card" id="notesSection" style="display: none;">
+                            <h3 class="content-title">
+                                <i class="fas fa-info-circle"></i>
+                                Catatan Tambahan
+                            </h3>
+                            <div id="jobNotes">
+                                <!-- Content will be loaded dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SIDEBAR -->
+                    <div class="sidebar">
+                        <!-- APPLY BUTTON -->
+                        <div class="sidebar-card">
+                            <button class="apply-btn" id="applyBtn">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Lamar Sekarang
+                            </button>
+                            <div class="text-center">
+                                <small class="text-muted">Gratis & mudah digunakan</small>
+                            </div>
+                        </div>
+
+                        <!-- JOB INFO -->
+                        <div class="sidebar-card">
+                            <h4 class="content-title mb-3">
+                                <i class="fas fa-info-circle"></i>
+                                Informasi Lowongan
+                            </h4>
+                            <div id="jobInfo">
+                                <!-- Content will be loaded dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- CONTACT INFO -->
+                        <div class="sidebar-card" id="contactSection" style="display: none;">
+                            <h4 class="content-title mb-3">
+                                <i class="fas fa-envelope"></i>
+                                Kontak
+                            </h4>
+                            <div id="contactInfo">
+                                <!-- Content will be loaded dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- APPLICATION FORM -->
+                <div id="applicationForm" style="display: none;">
+                    <div class="content-card">
+                        <!-- Form will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ERROR STATE -->
+            <div id="errorState" style="display: none;" class="text-center p-5">
+                <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: var(--warning-color);"></i>
+                <h4 class="mt-3">Lowongan tidak ditemukan</h4>
+                <p class="text-muted">Lowongan yang Anda cari mungkin sudah tidak tersedia atau URL tidak valid.</p>
+                <a href="/" class="btn btn-primary mt-3">
+                    <i class="fas fa-arrow-left me-2"></i>
+                    Kembali ke Beranda
+                </a>
+            </div>
+        </div>
+    </main>
+
+      <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">PT. Sentral Medika Indonesia</div>
+                    <p class="footer-description">
+                        Produsen alat kesehatan dengan fokus pada mutu, kepatuhan, dan pengembangan produk yang
+                        berkelanjutan.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                 <h4>Perusahaan</h4>
+                    <ul class="footer-links">
+                        <li><a href="/#tentang">Tentang</a></li>
+                        <li><a href="/#budaya">Budaya</a></li>
+                        <li><a href="/#proses">Proses</a></li>
+                        <li><a href="/#posisi">Lowongan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Karir</h4>
+                    <ul class="footer-links">
+                        <li><a href="/#posisi">Posisi</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/privacy-policy">Kebijakan Privasi</a></li>
+                        <li><a href="/terms">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:karir@app.sentralmedika.co.id">karir@app.sentralmedika.co.id</a></li>
+                        <li><a href="tel:+623150001234">(024) 76431005</a></li>
+                         <li><a href="https://maps.app.goo.gl/DFzZ6q4s1WDcKSsx6">Kawasan Industri Candi Jl. Gatot Subroto Blok K No. 22, Desa/KelurahanPurwoyoso, Kec. Ngaliyan, Kota Semarang, Provinsi Jawa Tengah,Kode Pos: 50184, semarang</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; PT. Sentral Medika Indonesia - Healthcare & IVD Solutions.
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- IMAGE MODAL -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div id="modalTitle" class="modal-title"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Global variables
+        let job = null;
+        let slug = '';
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Tersalin!',
+                    text: 'Kode registrasi telah disalin ke clipboard',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Tersalin!',
+                    text: 'Kode registrasi telah disalin',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            });
+        }
+
+        // Format date function
+        function formatDate(dateString) {
+            if (!dateString) return 'Tidak ditentukan';
+            try {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+            } catch (error) {
+                return 'Tidak valid';
+            }
+        }
+
+        // Get job slug from URL
+        function getJobSlug() {
+            // Check for query parameters first (?job=slug atau ?slug=slug)
+            const urlParams = new URLSearchParams(window.location.search);
+            const querySlug = urlParams.get('job') || urlParams.get('slug');
+            
+            if (querySlug) {
+                return querySlug;
+            }
+            
+            // Check for path parameter (/detail/slug)
+            const pathname = window.location.pathname;
+            const detailMatch = pathname.match(/\/detail\/([^\/]+)$/);
+            if (detailMatch && detailMatch[1]) {
+                return detailMatch[1];
+            }
+            
+            return '';
+        }
+
+        // Load job data from API
+        async function loadJobData() {
+            try {
+                const response = await fetch('https://api-karir.sentralmedika.co.id/api/karir');
+                const data = await response.json();
+
+                if (data.success && Array.isArray(data.data)) {
+                    const jobs = data.data;
+                    slug = getJobSlug();
+
+                    if (!slug) {
+                        throw new Error('No job slug provided');
+                    }
+
+                    // Find job by slug (extract from link field)
+                    job = jobs.find(j => {
+                        if (j.link) {
+                            const linkSlug = j.link.split('/').pop();
+                            return linkSlug === slug;
+                        }
+                        return false;
+                    }) || jobs.find(j => j.id === slug);
+
+                    if (!job) {
+                        throw new Error('Job not found');
+                    }
+
+                    renderJobDetails();
+                } else {
+                    throw new Error('Invalid API response');
+                }
+            } catch (error) {
+                console.error('Error loading job data:', error);
+                showErrorState();
+            }
+        }
+
+        // Render job details
+        function renderJobDetails() {
+            // Hide loading, show content
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('jobContent').style.display = 'block';
+
+            // Update page title
+            document.title = `${job.judul} | PT. Sentral Medika Indonesia`;
+
+            // Render job header
+            renderJobHeader();
+
+            // Render job description
+            renderJobDescription();
+
+            // Render requirements
+            renderRequirements();
+
+            // Render documents if available
+            renderDocuments();
+
+            // Render notes if available
+            renderNotes();
+
+            // Render job info sidebar
+            renderJobInfo();
+
+            // Render contact info if available
+            renderContactInfo();
+
+            // Setup apply button
+            setupApplyButton();
+        }
+
+        // Render job header
+        function renderJobHeader() {
+            const headerElement = document.getElementById('jobHeader');
+
+            // Check if job is still open
+            const isOpen = job.batasLamaran ? new Date(job.batasLamaran) >= new Date() : true;
+
+            // Generate image HTML
+            const imageHtml = job.gambar ? `
+                <div class="job-header-image" onclick="openImageModal('${job.gambar}', '${job.judul}')">
+                    <img src="${job.gambar}" alt="${job.judul}" loading="lazy">
+                    <div class="zoom-indicator">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            ` : `
+                <div class="job-header-image no-image">
+                    <i class="fas fa-briefcase placeholder"></i>
+                </div>
+            `;
+
+            headerElement.innerHTML = `
+                ${imageHtml}
+                <div class="job-header-content">
+                    ${!isOpen ? '<div class="job-badge"><i class="fas fa-times-circle"></i> Lowongan Ditutup</div>' : ''}
+                    <h1 class="job-title">${job.judul || 'Posisi Tidak Disebutkan'}</h1>
+                    <div class="job-meta">
+                        ${job.lokasi ? `
+                        <div class="meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            ${job.lokasi}
+                        </div>` : ''}
+                        <div class="meta-item">
+                            <i class="fas fa-briefcase"></i>
+                            Full-time
+                        </div>
+                        ${job.batasLamaran ? `
+                        <div class="meta-item">
+                            <i class="fas fa-calendar-times"></i>
+                            Deadline: ${formatDate(job.batasLamaran)}
+                        </div>` : ''}
+                        ${job.tanggal ? `
+                        <div class="meta-item">
+                            <i class="fas fa-calendar-plus"></i>
+                            Posted: ${formatDate(job.tanggal)}
+                        </div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render job description
+        function renderJobDescription() {
+            const descElement = document.getElementById('jobDescription');
+            descElement.innerHTML = `<p>${job.deskripsi || 'Deskripsi tidak tersedia'}</p>`;
+        }
+
+        // Render requirements
+        function renderRequirements() {
+            const reqElement = document.getElementById('jobRequirements');
+
+            if (job.requirements && job.requirements.length > 0) {
+                const items = job.requirements
+                    .filter(req => req && req.trim() !== '')
+                    .map(req => `<li>${req}</li>`)
+                    .join('');
+                reqElement.innerHTML = items;
+            } else {
+                reqElement.innerHTML = '<li>Persyaratan akan diinformasikan lebih lanjut</li>';
+            }
+        }
+
+        // Render documents
+        function renderDocuments() {
+            const docSection = document.getElementById('documentsSection');
+            const docElement = document.getElementById('jobDocuments');
+
+            if (job.berkas && job.berkas.length > 0) {
+                const validDocs = job.berkas.filter(doc => doc && doc.trim() !== '');
+                if (validDocs.length > 0) {
+                    docSection.style.display = 'block';
+                    const items = validDocs
+                        .map(doc => `<li>${doc}</li>`)
+                        .join('');
+                    docElement.innerHTML = items;
+                }
+            }
+        }
+
+        // Render notes
+        function renderNotes() {
+            const notesSection = document.getElementById('notesSection');
+            const notesElement = document.getElementById('jobNotes');
+
+            if (job.note && job.note.trim() !== '') {
+                notesSection.style.display = 'block';
+                notesElement.innerHTML = `<p>${job.note}</p>`;
+            }
+        }
+
+        // Render job info sidebar
+        function renderJobInfo() {
+            const infoElement = document.getElementById('jobInfo');
+
+            // Add sidebar image if available
+            let sidebarImageHtml = '';
+            if (job.gambar || job.company_logo) {
+                const imgSrc = job.company_logo || job.gambar;
+                const imgTitle = job.company_logo ? 'Logo Perusahaan' : job.judul;
+                sidebarImageHtml = `
+                    <div class="job-sidebar-image" onclick="openImageModal('${imgSrc}', '${imgTitle}')">
+                        <img src="${imgSrc}" alt="${imgTitle}" loading="lazy">
+                        <div class="zoom-indicator">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                `;
+            } else {
+                sidebarImageHtml = `
+                    <div class="job-sidebar-image no-image">
+                        <i class="fas fa-building placeholder"></i>
+                    </div>
+                `;
+            }
+
+            const infoItems = [];
+
+            if (job.tanggal) {
+                infoItems.push(`
+                    <div class="info-item">
+                        <span class="info-label">Tanggal Posting</span>
+                        <span class="info-value">${formatDate(job.tanggal)}</span>
+                    </div>
+                `);
+            }
+
+            if (job.batasLamaran) {
+                infoItems.push(`
+                    <div class="info-item">
+                        <span class="info-label">Batas Lamaran</span>
+                        <span class="info-value">${formatDate(job.batasLamaran)}</span>
+                    </div>
+                `);
+            }
+
+            infoItems.push(`
+                <div class="info-item">
+                    <span class="info-label">Jenis Pekerjaan</span>
+                    <span class="info-value">Full-time</span>
+                </div>
+            `);
+
+            if (job.lokasi) {
+                infoItems.push(`
+                    <div class="info-item">
+                        <span class="info-label">Lokasi</span>
+                        <span class="info-value">${job.lokasi}</span>
+                    </div>
+                `);
+            }
+
+            infoElement.innerHTML = sidebarImageHtml + infoItems.join('');
+        }
+
+        // Render contact info
+        function renderContactInfo() {
+            const contactSection = document.getElementById('contactSection');
+            const contactElement = document.getElementById('contactInfo');
+
+            const hasContact = job.email || job.whatsapp;
+
+            if (hasContact) {
+                contactSection.style.display = 'block';
+
+                const contactItems = [];
+
+                if (job.email) {
+                    contactItems.push(`
+                        <div class="info-item">
+                            <span class="info-label">Email</span>
+                            <a href="mailto:${job.email}" class="info-value text-primary">${job.email}</a>
+                        </div>
+                    `);
+                }
+
+                if (job.whatsapp) {
+                    contactItems.push(`
+                        <div class="info-item">
+                            <span class="info-label">WhatsApp</span>
+                            <a href="https://wa.me/${job.whatsapp.replace(/[^\d]/g, '')}" target="_blank" class="info-value text-primary">${job.whatsapp}</a>
+                        </div>
+                    `);
+                }
+
+                contactElement.innerHTML = contactItems.join('');
+            }
+        }
+
+        // Setup apply button
+        function setupApplyButton() {
+            const applyBtn = document.getElementById('applyBtn');
+            const isOpen = job.batasLamaran ? new Date(job.batasLamaran) >= new Date() : true;
+
+            if (!isOpen) {
+                applyBtn.disabled = true;
+                applyBtn.innerHTML = '<i class="fas fa-times-circle me-2"></i>Lowongan Ditutup';
+                applyBtn.style.background = '#6b7280';
+                return;
+            }
+
+            applyBtn.addEventListener('click', function () {
+                // Check deadline again
+                const dayDiff = job.batasLamaran ?
+                    Math.ceil((new Date(job.batasLamaran) - new Date()) / (1000 * 60 * 60 * 24)) :
+                    999;
+
+                if (dayDiff < 0) {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Lowongan Ditutup',
+                        text: 'Maaf, lowongan ini sudah ditutup'
+                    });
+                    return;
+                }
+
+                showApplicationForm();
+            });
+        }
+
+        // Show application form
+        function showApplicationForm() {
+            const formContainer = document.getElementById('applicationForm');
+            const formCard = formContainer.querySelector('.content-card');
+
+            formContainer.style.display = 'block';
+
+            // Generate the complete form HTML
+            formCard.innerHTML = generateApplicationForm();
+
+            // Scroll to form
+            formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Setup form functionality
+            setTimeout(() => {
+                setupFormFunctionality();
+            }, 100);
+        }
+
+        // Generate application form HTML
+        function generateApplicationForm() {
+            return `
+                <h3 class="text-center mb-4 fw-bold" style="color: var(--primary-blue); font-family: 'Inter', sans-serif;">
+                    <i class="fa fa-file-text-o me-2"></i>Formulir Lamaran Kerja
+                </h3>
+                <form id="applyForm" method="POST" enctype="multipart/form-data">
+                    <div class="section-title">
+                        <i class="fa fa-user me-2"></i>Informasi Pribadi
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Nomor KTP *</label>
+                            <input type="text" name="no_ktp" class="form-control" required placeholder="Masukkan nomor KTP">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nama Depan *</label>
+                            <input type="text" name="nama_depan" class="form-control" required placeholder="Nama depan">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nama Belakang *</label>
+                            <input type="text" name="nama_belakang" class="form-control" required placeholder="Nama belakang">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Tempat Lahir *</label>
+                            <input type="text" name="tempat_lahir" class="form-control" required placeholder="Kota tempat lahir">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Tanggal Lahir *</label>
+                            <input type="date" name="tanggal_lahir" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Jenis Kelamin *</label>
+                            <select name="jenis_kelamin" class="form-select" required>
+                                <option value="">-- Pilih Jenis Kelamin --</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email *</label>
+                            <input type="email" name="email" class="form-control" required placeholder="nama@email.com">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nomor HP *</label>
+                            <input type="tel" name="no_hp" class="form-control" required placeholder="08xxxxxxxxxx">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Provinsi *</label>
+                            <input type="text" name="provinsi" class="form-control" required placeholder="Nama provinsi">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Kota *</label>
+                            <input type="text" name="kota" class="form-control" required placeholder="Nama kota">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Kecamatan *</label>
+                            <input type="text" name="kecamatan" class="form-control" required placeholder="Nama kecamatan">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Kelurahan *</label>
+                            <input type="text" name="kelurahan" class="form-control" required placeholder="Nama kelurahan">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Alamat Lengkap *</label>
+                            <textarea name="alamat" class="form-control" rows="3" required placeholder="Jl. Nama Jalan No. XX, RT/RW, Kelurahan, Kecamatan"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Foto Terbaru *</label>
+                            <input type="file" id="foto" name="foto" class="form-control" accept="image/*" required>
+                            <small class="text-muted">Format: JPG, PNG. Maksimal 200 KB</small>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Gaji Yang Diharapkan *</label>
+                            <input type="text" name="gaji_diharapkan" class="form-control" required placeholder="Contoh: 5.000.000">
+                        </div>
+                    </div>
+
+                    <div class="section-title">
+                        <i class="fa fa-graduation-cap me-2"></i>Riwayat Pendidikan
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Pendidikan Terakhir</label>
+                            <select name="pendidikan_terakhir" class="form-select">
+                                <option value="">-- Pilih Pendidikan --</option>
+                                <option>SMA/SMK</option>
+                                <option>D1</option>
+                                <option>D2</option>
+                                <option>D3</option>
+                                <option>D4</option>
+                                <option>S1</option>
+                                <option>S2</option>
+                                <option>S3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Jurusan</label>
+                            <input type="text" name="jurusan" class="form-control" placeholder="Nama jurusan/program studi">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Sekolah / Universitas</label>
+                            <input type="text" name="sekolah" class="form-control" placeholder="Nama institusi pendidikan">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Bahasa yang Dikuasai</label>
+                            <input type="text" name="bahasa" class="form-control" placeholder="Contoh: Indonesia, Inggris, Mandarin">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Keterampilan</label>
+                            <textarea name="keterampilan" class="form-control" rows="2" placeholder="Contoh: Microsoft Office, Desain Grafis, Programming, dll"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="section-title">
+                        <i class="fa fa-briefcase me-2"></i>Pengalaman Bekerja
+                        <br><br>
+                        <button type="button" id="addExperienceBtn" class="btn btn-info btn-sm btn-outline-primary ms-auto" style="font-size: 12px; padding: 4px 12px;">
+                            <i class="fa fa-plus me-1"></i>Tambah Pengalaman
+                        </button>
+                    </div>
+                    
+                    <div id="experienceContainer">
+                        <div class="experience-entry mb-4 p-3" style="border: 1px solid var(--border-color); border-radius: 8px; background: var(--light-gray);">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="mb-0 text-primary">Pengalaman Kerja #1</h6>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Posisi / Jabatan</label>
+                                    <input type="text" name="pengalaman[0][posisi]" class="form-control" placeholder="Jabatan">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Nama Perusahaan</label>
+                                    <input type="text" name="pengalaman[0][perusahaan]" class="form-control" placeholder="Nama perusahaan">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Tahun Masuk</label>
+                                    <input type="number" name="pengalaman[0][tahun_masuk]" class="form-control" placeholder="2020" min="1980" max="2024">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Tahun Keluar</label>
+                                    <input type="number" name="pengalaman[0][tahun_keluar]" class="form-control" placeholder="2023">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Deskripsi Pekerjaan (Opsional)</label>
+                                    <textarea name="pengalaman[0][deskripsi]" class="form-control" rows="2" placeholder="Jelaskan tugas dan tanggung jawab Anda"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <small class="text-muted">
+                            <i class="fa fa-info-circle me-1"></i>
+                            Jika belum memiliki pengalaman kerja, kosongkan bagian ini atau isi dengan pengalaman magang/volunteer.
+                        </small>
+                    </div>
+
+                    <div class="section-title">
+                        <i class="fa fa-info-circle me-2"></i>Informasi Tambahan
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Kapan Anda Siap Bekerja? *</label>
+                            <select name="siap_bekerja" class="form-select" required>
+                                <option value="">-- Pilih --</option>
+                                <option>Segera</option>
+                                <option>1 minggu</option>
+                                <option>2 minggu</option>
+                                <option>1 bulan</option>
+                                <option>2 bulan</option>
+                                <option>3 bulan</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Status Perkawinan *</label>
+                            <select name="status_perkawinan" class="form-select" required>
+                                <option value="">-- Pilih Status --</option>
+                                <option>Belum Menikah</option>
+                                <option>K/0 (Menikah Tanpa Anak)</option>
+                                <option>K/1 (Menikah Anak 1)</option>
+                                <option>K/2 (Menikah Anak 2)</option>
+                                <option>K/3 (Menikah Anak 3)</option>
+                                <option>J/D/0 (Janda/Duda Tanpa Anak)</option>
+                                <option>J/D/1 (Janda/Duda Anak 1)</option>
+                                <option>J/D/2 (Janda/Duda Anak 2)</option>
+                                <option>J/D/3 (Janda/Duda Anak 3)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Golongan Darah *</label>
+                            <select name="golongan_darah" class="form-select" required>
+                                <option value="">-- Pilih --</option>
+                                <option>A</option>
+                                <option>B</option>
+                                <option>AB</option>
+                                <option>O</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Memiliki SIM</label>
+                            <div class="mt-2">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="sim[]" value="SIM C" id="simC">
+                                    <label class="form-check-label" for="simC">SIM C</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="sim[]" value="SIM A" id="simA">
+                                    <label class="form-check-label" for="simA">SIM A</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="sim[]" value="SIM BI" id="simBI">
+                                    <label class="form-check-label" for="simBI">SIM BI</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="sim[]" value="SIM BII" id="simBII">
+                                    <label class="form-check-label" for="simBII">SIM BII</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Kontak Darurat (Keluarga)</label>
+                            <input type="number" name="kontak_darurat" class="form-control" placeholder="No Hp keluarga atau kerabat">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nama Ibu Kandung</label>
+                            <input type="text" name="nama_ibu" class="form-control" placeholder="Nama lengkap ibu kandung">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Upload CV (Lamaran Kerja) *</label>
+                            <input type="file" name="cv" class="form-control" accept=".pdf,.doc,.docx" required>
+                            <small class="text-muted">Format: PDF, DOC, DOCX. Maksimal 5 MB</small>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Upload Data Pendukung</label>
+                            <input type="file" name="data_pendukung" class="form-control" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                            <small class="text-muted">Ijazah, Sertifikat, dll. Maksimal 5 MB</small>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <button type="submit" id="submitApply" class="btn btn-primary btn-lg px-5 py-3">
+                            <i class="fa fa-paper-plane me-2"></i>Kirim Lamaran
+                        </button>
+                        <div class="mt-3">
+                            <small class="text-muted">* Wajib diisi</small>
+                        </div>
+                    </div>
+                </form>
+            `;
+        }
+
+        // Setup form functionality
+        function setupFormFunctionality() {
+            let experienceCount = 1;
+
+            // Add experience button functionality
+            document.getElementById('addExperienceBtn').addEventListener('click', function () {
+                const container = document.getElementById('experienceContainer');
+                const newEntry = document.createElement('div');
+                newEntry.className = 'experience-entry mb-4 p-3';
+                newEntry.style = 'border: 1px solid var(--border-color); border-radius: 8px; background: var(--light-gray);';
+
+                newEntry.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="mb-0 text-primary">Pengalaman Kerja #${experienceCount + 1}</h6>
+                        <button type="button" class="btn btn-sm btn-outline-danger remove-experience" style="font-size: 12px; padding: 2px 8px;">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Posisi / Jabatan</label>
+                            <input type="text" name="pengalaman[${experienceCount}][posisi]" class="form-control" placeholder="Jabatan">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nama Perusahaan</label>
+                            <input type="text" name="pengalaman[${experienceCount}][perusahaan]" class="form-control" placeholder="Nama perusahaan">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Tahun Masuk</label>
+                            <input type="number" name="pengalaman[${experienceCount}][tahun_masuk]" class="form-control" placeholder="2020" min="1980" max="2024">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Tahun Keluar</label>
+                            <input type="number" name="pengalaman[${experienceCount}][tahun_keluar]" class="form-control" placeholder="2023">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Deskripsi Pekerjaan (Opsional)</label>
+                            <textarea name="pengalaman[${experienceCount}][deskripsi]" class="form-control" rows="2" placeholder="Jelaskan tugas dan tanggung jawab Anda"></textarea>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(newEntry);
+                experienceCount++;
+
+                // Add remove functionality to the new entry
+                newEntry.querySelector('.remove-experience').addEventListener('click', function () {
+                    newEntry.remove();
+                    updateExperienceNumbers();
+                });
+
+                // Scroll to new entry
+                newEntry.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+
+            // Function to update experience numbers
+            function updateExperienceNumbers() {
+                const entries = document.querySelectorAll('.experience-entry');
+                entries.forEach((entry, index) => {
+                    const title = entry.querySelector('h6');
+                    if (title) {
+                        title.textContent = `Pengalaman Kerja #${index + 1}`;
+                    }
+
+                    // Update input names
+                    const inputs = entry.querySelectorAll('input, textarea');
+                    inputs.forEach(input => {
+                        const name = input.getAttribute('name');
+                        if (name && name.includes('pengalaman[')) {
+                            const field = name.match(/\[([^\]]+)\]$/)[1];
+                            input.setAttribute('name', `pengalaman[${index}][${field}]`);
+                        }
+                    });
+                });
+            }
+
+            // File size validation
+            const fotoInput = document.getElementById('foto');
+            if (fotoInput) {
+                fotoInput.addEventListener('change', (e) => {
+                    const f = e.target.files[0];
+                    if (f && f.size > 200 * 1024) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Ukuran file terlalu besar',
+                            text: 'Ukuran foto maksimal 200 KB'
+                        });
+                        e.target.value = '';
+                    }
+                });
+            }
+
+            // Form submission
+            const form = document.getElementById('applyForm');
+            if (form) {
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    const submitBtn = document.getElementById('submitApply');
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i>Mengirim...';
+
+                    try {
+                        const fd = new FormData(form);
+
+                        // Collect experience data
+                        const experienceData = [];
+                        const experienceEntries = document.querySelectorAll('.experience-entry');
+                        experienceEntries.forEach((entry, index) => {
+                            const posisi = entry.querySelector(`input[name="pengalaman[${index}][posisi]"]`)?.value;
+                            const perusahaan = entry.querySelector(`input[name="pengalaman[${index}][perusahaan]"]`)?.value;
+                            const tahun_masuk = entry.querySelector(`input[name="pengalaman[${index}][tahun_masuk]"]`)?.value;
+                            const tahun_keluar = entry.querySelector(`input[name="pengalaman[${index}][tahun_keluar]"]`)?.value;
+                            const deskripsi = entry.querySelector(`textarea[name="pengalaman[${index}][deskripsi]"]`)?.value;
+
+                            if (posisi || perusahaan || tahun_masuk || tahun_keluar) {
+                                experienceData.push({ posisi, perusahaan, tahun_masuk, tahun_keluar, deskripsi });
+                            }
+                        });
+                        fd.set('pengalaman_kerja', JSON.stringify(experienceData));
+
+                        // Add job info
+                        fd.set('job_slug', slug || '');
+                        fd.set('job_title', job ? job.judul : '');
+
+                        const response = await fetch('https://api-karir.sentralmedika.co.id/api/karir/daftar', {
+                            method: 'POST',
+                            body: fd
+                        });
+
+                        const rawText = await response.text();
+                        let resJson = null;
+                        try {
+                            resJson = JSON.parse(rawText);
+                        } catch (err) {
+                            console.warn('Response not JSON:', rawText);
+                        }
+
+                        if (response.ok) {
+                            if (resJson && resJson.success && resJson.registration_code) {
+                                showSuccessPage(resJson);
+                            } else {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Berhasil!',
+                                    text: resJson?.message || rawText || 'Lamaran berhasil dikirim'
+                                });
+                            }
+                        } else {
+                            const msg = (resJson && resJson.message) ? resJson.message : rawText || ('HTTP ' + response.status);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal',
+                                text: 'Gagal mengirim lamaran. ' + msg,
+                                confirmButtonColor: 'var(--error-color)'
+                            });
+                        }
+                    } catch (err) {
+                        console.error('Submit error', err);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Terjadi kesalahan saat mengirim data. ' + (err.message || ''),
+                            confirmButtonColor: 'var(--error-color)'
+                        });
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fa fa-paper-plane me-2"></i>Kirim Lamaran';
+                    }
+                });
+            }
+        }
+
+        // Show success page
+        function showSuccessPage(resJson) {
+            const formContainer = document.getElementById('applicationForm');
+            const formCard = formContainer.querySelector('.content-card');
+
+            // Warna Biru Utama (Sesuaikan dengan brand jika perlu)
+            const primaryBlue = '#0056b3';
+
+            formCard.innerHTML = `
+        <div class="card p-5 mt-4 text-center" style="background: #ffffff; border: 1px solid #e0e6ed; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <div class="mb-4">
+                <div style="width: 80px; height: 80px; background: #eef2ff; color: ${primaryBlue}; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                    <i class="fa fa-check" style="font-size: 40px;"></i>
+                </div>
+            </div>
+
+            <h2 style="color: #1a202c; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px;">
+                Lamaran Terkirim
+            </h2>
+            <p style="font-size: 16px; color: #64748b; max-width: 450px; margin: 0 auto 32px auto; line-height: 1.6;">
+                ${resJson.message || 'Terima kasih! Kami telah menerima dokumen Anda dan akan segera meninjaunya.'}
+            </p>
+            
+            <div style="background: #f8fafc; padding: 32px; border-radius: 12px; margin-bottom: 32px; border: 1px dashed #cbd5e1;">
+                <span style="font-size: 13px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 12px;">
+                    ID Registrasi Anda
+                </span>
+                <h3 style="font-size: 36px; font-weight: 800; color: ${primaryBlue}; margin: 0; font-family: 'Inter', system-ui, sans-serif;">
+                    ${resJson.registration_code}
+                </h3>
+                <button onclick="copyToClipboard('${resJson.registration_code}')" class="btn mt-3" style="color: ${primaryBlue}; font-weight: 600; font-size: 14px; border: none; background: transparent; padding: 0;">
+                    <i class="fa fa-copy me-2"></i>Salin ID
+                </button>
+            </div>
+            
+            <div style="margin-bottom: 40px;">
+                <p style="margin: 0; color: #475569; font-size: 14px;">
+                    Instruksi selanjutnya telah dikirim ke email Anda secara otomatis.<br>
+                    <span style="color: #94a3b8;">Pastikan cek folder spam jika belum menerima email.</span>
+                </p>
+            </div>
+            
+            <div class="d-flex gap-3 justify-content-center flex-column flex-md-row">
+                <a href="https://karir.sentralmedika.co.id/check.html" class="btn px-4 py-2" style="background: ${primaryBlue}; color: white; border-radius: 8px; font-weight: 600; transition: all 0.3s;">
+                    Pantau Status Lamaran
+                </a>
+                <a href="/" class="btn px-4 py-2" style="background: #ffffff; color: #475569; border: 1px solid #e2e8f0; border-radius: 8px; font-weight: 600;">
+                    Ke Beranda
+                </a>
+            </div>
+        </div>
+    `;
+
+            formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Show error state
+        function showErrorState() {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorState').style.display = 'block';
+        }
+
+        // Image modal functions
+        function openImageModal(imageSrc, imageTitle) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            modalImage.src = imageSrc;
+            modalImage.alt = imageTitle;
+            modalTitle.textContent = imageTitle;
+            
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function () {
+            loadJobData();
+
+            // Mobile menu functionality
+            const burgerBtn = document.getElementById('burgerBtn');
+            const mobileMenu = document.getElementById('smiMobileMenu');
+            const closeBtn = document.getElementById('smiCloseMenu');
+
+            if (burgerBtn && mobileMenu && closeBtn) {
+                burgerBtn.addEventListener('click', () => {
+                    mobileMenu.classList.add('active');
+                });
+
+                closeBtn.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+
+                // Close menu when clicking on menu items
+                const menuItems = document.querySelectorAll('.smi-menu-item');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                    });
+                });
+            }
+
+            // Image modal functionality
+            const modal = document.getElementById('imageModal');
+            const modalClose = document.getElementById('modalClose');
+
+            // Close modal when clicking close button
+            if (modalClose) {
+                modalClose.addEventListener('click', closeImageModal);
+            }
+
+            // Close modal when clicking outside the image
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeImageModal();
+                    }
+                });
+            }
+
+            // Close modal with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeImageModal();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
